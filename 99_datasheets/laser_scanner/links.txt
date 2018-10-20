@@ -1,0 +1,2 @@
+http://www.tobias-weis.de/sick-pls-101-312-python-and-linux/
+https://github.com/hawesie/laser_drivers
