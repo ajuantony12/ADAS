@@ -1,0 +1,19 @@
+Project Manager:
+Christoph Jurczyk (Aju Antony Jose)
+
+Test Manager:
+Aju Antony Jose (Christoph Jurczyk)
+
+Hardware Manager:
+Hannes Bähr (Juliane Müller)
+
+Integration Manager:
+Japun Bhatt (Hannes Bähr)
+
+
+Japun Bhatt: jbhatt@studeten.hs-bremerhaven.de
+Hannes Bähr: hbaehr@studenten.hs-bremerhaven.de
+Aju Antony Jose: ajose@studenten.hs-bremerhaven.de
+Christoph Jurczyk: cjurczyk@studenten.hs-bremerhaven.de
+Juliane Müller: jmueller2@studenten.hs-bremerhaven.de
+
