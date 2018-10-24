@@ -43,7 +43,7 @@
     <MoveCompletedEndsForward>0</MoveCompletedEndsForward>
     <BaselineForEarnedValue>0</BaselineForEarnedValue>
     <AutoAddNewResourcesAndTasks>1</AutoAddNewResourcesAndTasks>
-    <CurrentDate>2018-10-24T11:56:00</CurrentDate>
+    <CurrentDate>2018-10-24T12:03:00</CurrentDate>
     <MicrosoftProjectServerURL>1</MicrosoftProjectServerURL>
     <Autolink>1</Autolink>
     <NewTaskStartDate>0</NewTaskStartDate>
@@ -502,7 +502,7 @@
             <Estimated>0</Estimated>
             <Milestone>0</Milestone>
             <Summary>0</Summary>
-            <Critical>0</Critical>
+            <Critical>1</Critical>
             <IsSubproject>0</IsSubproject>
             <IsSubprojectReadOnly>0</IsSubprojectReadOnly>
             <ExternalTask>0</ExternalTask>
@@ -544,7 +544,7 @@
             <Estimated>0</Estimated>
             <Milestone>1</Milestone>
             <Summary>0</Summary>
-            <Critical>0</Critical>
+            <Critical>1</Critical>
             <IsSubproject>0</IsSubproject>
             <IsSubprojectReadOnly>0</IsSubprojectReadOnly>
             <ExternalTask>0</ExternalTask>
@@ -587,7 +587,7 @@
             <Estimated>0</Estimated>
             <Milestone>0</Milestone>
             <Summary>0</Summary>
-            <Critical>0</Critical>
+            <Critical>1</Critical>
             <IsSubproject>0</IsSubproject>
             <IsSubprojectReadOnly>0</IsSubprojectReadOnly>
             <ExternalTask>0</ExternalTask>
@@ -629,7 +629,7 @@
             <Estimated>0</Estimated>
             <Milestone>0</Milestone>
             <Summary>0</Summary>
-            <Critical>0</Critical>
+            <Critical>1</Critical>
             <IsSubproject>0</IsSubproject>
             <IsSubprojectReadOnly>0</IsSubprojectReadOnly>
             <ExternalTask>0</ExternalTask>
@@ -671,7 +671,7 @@
             <Estimated>0</Estimated>
             <Milestone>1</Milestone>
             <Summary>0</Summary>
-            <Critical>0</Critical>
+            <Critical>1</Critical>
             <IsSubproject>0</IsSubproject>
             <IsSubprojectReadOnly>0</IsSubprojectReadOnly>
             <ExternalTask>0</ExternalTask>
@@ -713,7 +713,7 @@
             <Estimated>0</Estimated>
             <Milestone>0</Milestone>
             <Summary>0</Summary>
-            <Critical>0</Critical>
+            <Critical>1</Critical>
             <IsSubproject>0</IsSubproject>
             <IsSubprojectReadOnly>0</IsSubprojectReadOnly>
             <ExternalTask>0</ExternalTask>
@@ -755,7 +755,7 @@
             <Estimated>0</Estimated>
             <Milestone>1</Milestone>
             <Summary>0</Summary>
-            <Critical>0</Critical>
+            <Critical>1</Critical>
             <IsSubproject>0</IsSubproject>
             <IsSubprojectReadOnly>0</IsSubprojectReadOnly>
             <ExternalTask>0</ExternalTask>
@@ -796,7 +796,7 @@
             <Estimated>0</Estimated>
             <Milestone>1</Milestone>
             <Summary>0</Summary>
-            <Critical>0</Critical>
+            <Critical>1</Critical>
             <IsSubproject>0</IsSubproject>
             <IsSubprojectReadOnly>0</IsSubprojectReadOnly>
             <ExternalTask>0</ExternalTask>
@@ -838,7 +838,7 @@
             <Estimated>0</Estimated>
             <Milestone>0</Milestone>
             <Summary>0</Summary>
-            <Critical>0</Critical>
+            <Critical>1</Critical>
             <IsSubproject>0</IsSubproject>
             <IsSubprojectReadOnly>0</IsSubprojectReadOnly>
             <ExternalTask>0</ExternalTask>
@@ -880,7 +880,7 @@
             <Estimated>0</Estimated>
             <Milestone>1</Milestone>
             <Summary>0</Summary>
-            <Critical>0</Critical>
+            <Critical>1</Critical>
             <IsSubproject>0</IsSubproject>
             <IsSubprojectReadOnly>0</IsSubprojectReadOnly>
             <ExternalTask>0</ExternalTask>
@@ -922,7 +922,7 @@
             <Estimated>0</Estimated>
             <Milestone>0</Milestone>
             <Summary>0</Summary>
-            <Critical>0</Critical>
+            <Critical>1</Critical>
             <IsSubproject>0</IsSubproject>
             <IsSubprojectReadOnly>0</IsSubprojectReadOnly>
             <ExternalTask>0</ExternalTask>
@@ -964,7 +964,7 @@
             <Estimated>0</Estimated>
             <Milestone>1</Milestone>
             <Summary>0</Summary>
-            <Critical>0</Critical>
+            <Critical>1</Critical>
             <IsSubproject>0</IsSubproject>
             <IsSubprojectReadOnly>0</IsSubprojectReadOnly>
             <ExternalTask>0</ExternalTask>
@@ -1048,7 +1048,7 @@
             <Estimated>0</Estimated>
             <Milestone>0</Milestone>
             <Summary>0</Summary>
-            <Critical>0</Critical>
+            <Critical>1</Critical>
             <IsSubproject>0</IsSubproject>
             <IsSubprojectReadOnly>0</IsSubprojectReadOnly>
             <ExternalTask>0</ExternalTask>
@@ -1090,7 +1090,7 @@
             <Estimated>0</Estimated>
             <Milestone>0</Milestone>
             <Summary>0</Summary>
-            <Critical>0</Critical>
+            <Critical>1</Critical>
             <IsSubproject>0</IsSubproject>
             <IsSubprojectReadOnly>0</IsSubprojectReadOnly>
             <ExternalTask>0</ExternalTask>
