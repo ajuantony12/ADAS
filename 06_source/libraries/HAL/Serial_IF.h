@@ -4,8 +4,8 @@
 * DESCRIPTION : Serial Hardware interface
 *************************************************************************/
 
-#ifndef SERIAL_IF_ADAS
-#define SERIAL_IF_ADAS
+#ifndef HAL_SERIAL_IF
+#define HAL_SERIAL_IF
 
 class CSerialIF{
 public:
@@ -35,4 +35,4 @@ public:
   
 };
 
-#endif
+#endif /*HAL_SERIAL_IF*/
