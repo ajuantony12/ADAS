@@ -14,14 +14,14 @@ void CPLSComms::Init(void)
 
 }
 
-bool CPLSComms::send(unsigned char buff[])
+bool CPLSComms::send(uint8_t buff[], uint8_t len)
 {
-	//do nothing
-	return true;
+    //do nothing
+    return true;
 }
 
-bool CPLSComms::recieve(unsigned char buff[])
+uint8_t CPLSComms::recieve(uint8_t buff[], uint8_t len)
 {
-	//do nothing
-	return true;
+    //do nothing
+    return 0;
 }

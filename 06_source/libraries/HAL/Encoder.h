@@ -3,11 +3,12 @@
 *
 * DESCRIPTION : encoder Hardware interface
 *************************************************************************/
+#include <ADAS_Types.h>
 
-#ifndef HAL_ENCODER_IF
-#define HAL_ENCODER_IF
+#ifndef HAL_ENCODER_H
+#define HAL_ENCODER_H
 
-class CEncoder_IF{
+class CEncoder{
 public:
   typedef enum {
     E1,
@@ -16,17 +17,17 @@ public:
   /*
    * Constructor
    */
-  CEncoder_IF(EncoderID_e ID);
+  CEncoder(EncoderID_e ID);
   /*
    * Destructor
    */
-  ~CEncoder_IF();
+  ~CEncoder();
   /*
    * Initialization
    */
   void Init();
   /*
-   * Send Data
+   * read encoder value
    */
    bool Read(unsigned short& value);
    /**
@@ -38,4 +39,4 @@ public:
   
 };
 
-#endif /*HAL_ENCODER_IF*/
+#endif /*HAL_ENCODER_H*/

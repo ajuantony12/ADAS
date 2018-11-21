@@ -4,6 +4,7 @@
 * DESCRIPTION : MotorCtrl module 
 *************************************************************************/
 
+#include <ADAS_Types.h>
 #include <Task_if.h>
 
 #ifndef APP_MOTOR_CTRL_H
@@ -17,15 +18,15 @@ public:
   /*
    * init
    */
-   void init(void);
+   virtual void Init(void);
   /*
    * Run
    */
-  void Run(void);
+  virtual void Run(void);
   /*
    * Stop
    */
-  void Stop(void);
+  virtual void Stop(void);
   
 };
 

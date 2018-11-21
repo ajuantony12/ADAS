@@ -8,18 +8,17 @@ CVMapping::CVMapping()
 CVMapping::~CVMapping(){
   //do nothing
 }
-
-void CVMapping::Init(void)
+ void CVMapping::Init(void)
 {
 
 }
 
-void CVMapping::Run(void)
+ void CVMapping::Run(void)
 {
 	//do nothing
 }
 
-void CVMapping::Stop(void)
+ void CVMapping::Stop(void)
 {
 	//do nothing
 }

@@ -14,14 +14,14 @@ void CInertialComm::Init(void)
 
 }
 
-bool CInertialComm::send(unsigned char buff[])
+bool CInertialComm::send(uint8_t buff[], uint8_t len)
 {
-	//do nothing
-	return true;
+    //do nothing
+    return true;
 }
 
-bool CInertialComm::recieve(unsigned char buff[])
+uint8_t CInertialComm::recieve(uint8_t buff[], uint8_t len)
 {
-	//do nothing
-	return true;
+    //do nothing
+    return 0;
 }

@@ -5,6 +5,7 @@
 *************************************************************************/
 
 #include <Task_if.h>
+#include <ADAS_Types.h>
 
 #ifndef APP_NAVIGATION_H
 #define APP_NAVIGATION_H
@@ -17,15 +18,15 @@ public:
   /*
    * init
    */
-   void init(void);
+   virtual void Init(void);
   /*
    * Run
    */
-  void Run(void);
+  virtual void Run(void);
   /*
    * Stop
    */
-  void Stop(void);
+  virtual void Stop(void);
   
 };
 

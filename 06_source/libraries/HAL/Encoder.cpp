@@ -1,16 +1,16 @@
-#include "Encoder_IF.h"
+#include "Encoder.h"
 #include "Arduino.h"
   
-CEncoder_IF::CEncoder_IF(PortNum_e ID):
+CEncoder::CEncoder(EncoderID_e ID):
   m_ID(ID)
 {
   //do nothing
 }
-CEncoder_IF::~CEncoder_IF(){
-  m_PortID = Port1;
+CEncoder::~CEncoder(){
+  m_ID = E1;
 }
 
-void CEncoder_IF::Init(){
+void CEncoder::Init(){
 	//to do
 }
 

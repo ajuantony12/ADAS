@@ -1,31 +1,33 @@
 /*H**********************************************************************
-* FILENAME :        ADC_IF.h             
+* FILENAME :        ADC.h             
 *
 * DESCRIPTION : ADC Hardware interface
 *************************************************************************/
 
-#ifndef HAL_ADC_IF
-#define HAL_ADC_IF
+#include <ADAS_Types.h>
 
-class CADC_IF{
+#ifndef HAL_ADC_H
+#define HAL_ADC_H
+
+class CADC{
 public:
   /*
    * Constructor
    */
-  CADC_IF();
+  CADC();
   /*
    * Destructor
    */
-  ~CADC_IF();
+  ~CADC();
   /*
    * Initialization
    */
   void Init();
   /*
-   * Send Data
+   * Read ADC Value
    */
    unsigned short ReadADCValue(void);
   
 };
 
-#endif /*HAL_ADC_IF*/
+#endif /*HAL_ADC_H*/

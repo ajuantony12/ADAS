@@ -4,6 +4,7 @@
 * DESCRIPTION : Task interface will be 
 				used by the task controller block for handfling  task
 *************************************************************************/
+#include <ADAS_Types.h>
 
 #ifndef TASK_CONTROL_TASK_IF
 #define TASK_CONTROL_TASK_IF
@@ -13,15 +14,15 @@ public:
   /*
    * Initialization
    */
-  void Init(void)=0;
+  virtual void Init(void)=0;
   /*
    * Run
    */
-  void Run(void)=0;
+  virtual void Run(void)=0;
   /*
    * Stop
    */
-  void Stop(void)=0;
+  virtual void Stop(void)=0;
   
 };
 

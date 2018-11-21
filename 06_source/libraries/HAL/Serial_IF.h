@@ -1,13 +1,14 @@
 /*H**********************************************************************
 * FILENAME :        Serial.h             
 *
-* DESCRIPTION : Serial Hardware interface
+* DESCRIPTION : Serial Hardware Header
 *************************************************************************/
+#include <ADAS_Types.h>
 
-#ifndef HAL_SERIAL_IF
-#define HAL_SERIAL_IF
+#ifndef HAL_SERIAL_H
+#define HAL_SERIAL_H
 
-class CSerialIF{
+class CSerial{
 public:
   typedef enum {
     Port1,
@@ -17,22 +18,24 @@ public:
   /*
    * Constructor
    */
-  CSerialIF(PortNum_e ID);
+  CSerial(PortNum_e ID);
   /*
    * Destructor
    */
-  ~CSerialIF();
+  ~CSerial();
   /*
    * Initialization
    */
-  void Init(unsigned int baud);
+  void Init(unsigned int baud, unsigned short time_out);
   /*
    * Send Data
    */
-   bool Send(char Buff[], unsigned short len);
+   bool Send(char Buff[], uint8_t len);
+   bool Read(char Buff[], uint8_t len);
+   uint8_t Available(void);
  private:
    PortNum_e m_PortID;
   
 };
 
-#endif /*HAL_SERIAL_IF*/
+#endif /*HAL_SERIAL_H*/
