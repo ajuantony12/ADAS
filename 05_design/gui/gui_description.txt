@@ -13,3 +13,10 @@ Navigation Status:
 - Distance travelled
 - Direction of motion (Heading)
 - Map with no-go area and current position
+
+
+User Inputs:
+- Button Start/Stop
+- Button Pause/Resume
+- Button Emergency Stop
+- Slider Speed
