@@ -1,0 +1,15 @@
+Environmental Conditions:
+- Outside Temperature
+
+
+System Status:
+- Battery Voltage
+- Voltage of Arduino
+- Status (operation, standby, error)
+- Speed
+
+
+Navigation Status:
+- Distance travelled
+- Direction of motion (Heading)
+- Map with no-go area and current position
