@@ -1,7 +1,8 @@
 #include "VirtualMapping.h"
 #include "Arduino.h"
   
-CVMapping::CVMapping()
+CVMapping::CVMapping(CPLSComms& plsComms):
+    m_plsComms(plsComms)
 {
   //do nothing
 }

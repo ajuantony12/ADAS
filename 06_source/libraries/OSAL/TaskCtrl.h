@@ -5,6 +5,7 @@
 *************************************************************************/
 #include <ADAS_Types.h>
 #include <Task_IF.h>
+#include <ADAS_Cfg.h>
 
 #ifndef TASK_CONTROL_BLOCK_H
 #define TASK_CONTROL_BLOCK_H
@@ -27,8 +28,7 @@ public:
    */
   void Run(void);
 private:
-    static const uint8_t MaxTask = 5;
-    ITask_IF* m_TaskList[MaxTask];
+    ITask_IF* m_TaskList[MAX_NUM_TASK];
 };
 
 #endif /*TASK_CONTROL_BLOCK_H*/

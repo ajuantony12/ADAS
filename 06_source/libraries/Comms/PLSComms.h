@@ -4,6 +4,8 @@
 * DESCRIPTION : PLS communication layer
 *************************************************************************/
 #include <ADAS_Types.h>
+#include <ADAS_Cfg.h>
+#include <Serial_IF.h>
 
 #ifndef COMMS_PLS_H
 #define COMMS_PLS_H
@@ -11,25 +13,48 @@
 class CPLSComms
 {
 public:
-    CPLSComms();
+    typedef enum {
+        MsgSuccess,
+        CRCCheckFail,
+        CommsError
+    } Status_e;
+
+    CPLSComms(CSerial& serPort);
     ~CPLSComms();
     /*
     * init
     */
-    void init(void);
+    void Init(void);
     /*
-    * Send
+    * Get Measurements
     */
-    bool send(uint8_t buff[], uint8_t len);
+    bool GetMeasurements(uint8_t* buff[], uint8_t& len);
+    /*is protectuve field breached
+    */
+    bool IsPFBreached(unsigned int& distToObj);
     /*
-    * recieve
+    * Asynchronous Data update from PLS
     */
-    bool recieve(uint8_t buff[], uint8_t len);
+    void AsyncMessageUpdate(uint8_t* buff[], uint8_t len);
+    /*
+    * Get status of PLS
+    */
+    Status_e GetStatus(void);
 private:
-    static const MaxSndBuff = 10;
-    static const MaxRecBuff = 10;
-    uint8_t m_sndBuff[MaxSndBuff];
-    uint8_t m_rcvBuff[MaxRecBuff];
+    /*
+    * Calculate CRC
+    */
+    unsigned short CalcCrC(uint8_t* data, unsigned short len);
+    /*
+    * Parse recieved message
+    */
+    Status_e  ParseMsg(void);
+    
+    CSerial& m_serPort;
+    Status_e m_status;
+    bool m_asyncDataFLag;
+    uint8_t m_sndBuff[SND_BUFF_SIZE];
+    uint8_t m_rcvBuff[RCV_BUFF_SIZE];
 };
 
 #endif /*COMMS_PLS_H*/

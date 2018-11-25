@@ -1,7 +1,8 @@
 #include "Navigation.h"
 #include "Arduino.h"
   
-CNavigation::CNavigation()
+CNavigation::CNavigation(CPLSComms& plsComms):
+    m_plsComms(plsComms)
 {
   //do nothing
 }

@@ -6,6 +6,8 @@
 
 #include <Task_if.h>
 #include <ADAS_Types.h>
+#include <ADAS_Cfg.h>
+#include <PLSComms.h>
 
 #ifndef APP_NAVIGATION_H
 #define APP_NAVIGATION_H
@@ -13,7 +15,7 @@
 class CNavigation: public ITask_IF
 {
 public:
-	CNavigation();
+	CNavigation(CPLSComms& plsComms);
 	~CNavigation();
   /*
    * init
@@ -27,7 +29,8 @@ public:
    * Stop
    */
   virtual void Stop(void);
-  
+private:
+    CPLSComms&   m_plsComms;
 };
 
 #endif /*APP_NAVIGATION_H*/

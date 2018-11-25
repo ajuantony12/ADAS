@@ -11,7 +11,7 @@ CTaskCtrl::~CTaskCtrl(){
 
 void CTaskCtrl::Init(void)
 {
-    for (uint8_t i=0; i < MaxTask; i++)
+    for (uint8_t i=0; i < MAX_NUM_TASK; i++)
     {
        m_TaskList[i]->Init();
     }
@@ -20,10 +20,13 @@ void CTaskCtrl::Init(void)
 bool CTaskCtrl::Register(ITask_IF* pTask, uint8_t ID)
 {
     bool retVal = false;
-    if ((NULL == m_TaskList[ID]) && 
-            (NULL != pTask))
+    if (MAX_NUM_TASK > ID)
     {
-        m_TaskList[ID] = pTask;
+        if ((NULL == m_TaskList[ID]) && 
+                (NULL != pTask))
+        {
+            m_TaskList[ID] = pTask;
+        }
     }
     return retVal;
 }
@@ -31,7 +34,7 @@ bool CTaskCtrl::Register(ITask_IF* pTask, uint8_t ID)
 void CTaskCtrl::Run(void)
 {
     uint8_t i;
-    for (i=0; i<MaxTask; i++)
+    for (i=0; i<MAX_NUM_TASK; i++)
     {
         m_TaskList[i]->Run();
     }
