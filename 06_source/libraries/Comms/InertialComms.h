@@ -17,7 +17,7 @@ public:
   /*
    * init
    */
-   void init(void);
+   void Init(void);
   /*
    * Send
    */
@@ -27,8 +27,8 @@ public:
    */
   uint8_t recieve(uint8_t buff[], uint8_t len);
 private:
-    static const MaxSndBuff = 10;
-    static const MaxRecBuff = 10;
+    static const uint8_t MaxSndBuff = 10;
+    static const uint8_t MaxRecBuff = 10;
     uint8_t m_sndBuff[MaxSndBuff];
     uint8_t m_rcvBuff[MaxRecBuff];
 };

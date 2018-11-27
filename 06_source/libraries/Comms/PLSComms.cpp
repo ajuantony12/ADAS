@@ -1,11 +1,15 @@
 #include "PLSComms.h"
 #include "Arduino.h"
   
-CPLSComms::CPLSComms()
+CPLSComms::CPLSComms(CSerial& serPort)
+    :m_serPort(serPort),
+    m_status(Status_e::MsgSuccess),
+    m_asyncDataFLag(false)
 {
   //do nothing
 }
-CPLSComms::~CPLSComms(){
+CPLSComms::~CPLSComms()
+{
   //do nothing
 }
 
@@ -14,14 +18,29 @@ void CPLSComms::Init(void)
 
 }
 
-bool CPLSComms::send(uint8_t buff[], uint8_t len)
+bool CPLSComms::GetMeasurements(uint8_t* buff[], uint8_t& len)
 {
-    //do nothing
+    return true;
+}
+bool CPLSComms::IsPFBreached(unsigned int& distToObj)
+{
     return true;
 }
 
-uint8_t CPLSComms::recieve(uint8_t buff[], uint8_t len)
+void CPLSComms::AsyncMessageUpdate(uint8_t* buff[], uint8_t len)
 {
-    //do nothing
+    
+}
+
+CPLSComms::Status_e CPLSComms::GetStatus(void)
+{
+    return Status_e::MsgSuccess;
+}
+unsigned short CPLSComms::CalcCrC(uint8_t* data, unsigned short len)
+{
     return 0;
+}
+CPLSComms::Status_e CPLSComms:: ParseMsg(void)
+{
+    return Status_e::MsgSuccess;
 }
