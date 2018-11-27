@@ -16570,6 +16570,15 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <wire x1="177.8" y1="7.62" x2="177.8" y2="83.82" width="0.1524" layer="94" style="shortdash"/>
 <wire x1="177.8" y1="83.82" x2="7.62" y2="83.82" width="0.1524" layer="94" style="shortdash"/>
 <text x="93.98" y="73.66" size="3.81" layer="91" align="bottom-center">Optional:</text>
+<text x="246.38" y="241.3" size="3.81" layer="91" align="bottom-center">H-Bridge right</text>
+<text x="185.42" y="241.3" size="3.81" layer="91" align="bottom-center">H-Bridge left</text>
+<text x="185.42" y="190.5" size="3.81" layer="91" align="bottom-center">Encoder left</text>
+<text x="243.84" y="190.5" size="3.81" layer="91" align="bottom-center">Encoder right</text>
+<text x="238.76" y="119.38" size="3.81" layer="91" align="bottom-center">5V DC/DC-Converter</text>
+<text x="218.44" y="111.76" size="1.778" layer="91" align="top-left">I suggest a buck-converter</text>
+<text x="344.424" y="20.32" size="2.1844" layer="94">Christoph Jurczyk</text>
+<text x="203.2" y="177.8" size="1.778" layer="91" align="top-left">Waiting for schematics from A.Menslage</text>
+<text x="200.66" y="231.14" size="1.778" layer="91" align="top-left">Waiting for schematics from A.Menslage</text>
 </plain>
 <instances>
 <instance part="FRAME1" gate="G$1" x="0" y="0"/>
