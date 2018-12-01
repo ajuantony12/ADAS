@@ -51,10 +51,15 @@ void sendPLSdata(void)
 {
   if (transmit_data)
   {
-    Serial.println(PLS_stim_data[transmit_counter],HEX); 
-    Serial1.write(PLS_stim_data[transmit_counter]);    
+    Serial.println(PLS_stim_data[transmit_counter], HEX);
+    Serial1.write(PLS_stim_data[transmit_counter]);
     transmit_counter++;
-    if(transmit_counter > PLS_stim_len) transmit_counter = 0;
+    if (transmit_counter >= PLS_stim_len) {
+      Serial.println("End of simulation data...");
+      transmit_data = false;
+      transmit_counter = 0;
+      digitalWrite(LED_BUILTIN, LOW);
+    }
   }
 }
 
