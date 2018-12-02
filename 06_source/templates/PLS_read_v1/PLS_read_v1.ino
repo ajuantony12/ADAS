@@ -36,10 +36,10 @@ void loop() {
     bool trnsOkay = ReadRecvBuf(rxData);
 
     if (trnsOkay) {
-      Serial.println("\n\n########\nPLS data received!");
+      //Serial.println("\n\n########\nPLS data received!");
       process_mw_tgm();
-      print_mw_tgm();
-      print_mw_tgm_vector();
+      //print_mw_tgm();
+      print_mw_tgm_matlab();
     }
 
   }
@@ -151,7 +151,7 @@ void print_mw_tgm(void)
   }
 }
 
-void print_mw_tgm_vector(void)
+void print_mw_tgm_matlab_cmd(void)
 {
   Serial.println("Run in matlab:");
   Serial.println("angle = linspace(0,pi,180);");
@@ -161,6 +161,38 @@ void print_mw_tgm_vector(void)
   }
   Serial.println("];");
   Serial.println("polarplot(angle,pls_dist)");
+}
+
+void print_mw_tgm_matlab(void)
+{
+  Serial.print("1;");
+  for (uint16_t n = 0; n < mw_tgm.amw; n++) {
+    Serial.print(mw_tgm.dist[n]); Serial.print(";");
+  }
+  Serial.println("");
+
+
+  Serial.print("2;");
+  for (uint16_t n = 0; n < mw_tgm.amw; n++) {
+    Serial.print(mw_tgm.glare_flag[n]); Serial.print(";");
+  }
+  Serial.println("");
+
+
+  Serial.print("3;");
+  for (uint16_t n = 0; n < mw_tgm.amw; n++) {
+    Serial.print(mw_tgm.wf_v_flag[n]); Serial.print(";");
+  }
+  Serial.println("");
+
+
+  Serial.print("4;");
+  for (uint16_t n = 0; n < mw_tgm.amw; n++) {
+    Serial.print(mw_tgm.pf_v_flag[n]); Serial.print(";");
+  }
+  Serial.println("");
+
+  
 }
 
 void waitforSerial1data(void)
