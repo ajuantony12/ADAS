@@ -6,11 +6,15 @@
 
 #ifndef ADAS_CFG_H
 #define ADAS_CFG_H
+//one time configuration
+//#define ONE_TIME_CFG
+
 //PLS Buffer
-#define RCV_BUFF_SIZE                                   732U
+//#define RCV_BUFF_SIZE                                   732U
+#define RCV_BUFF_SIZE                                   50U
 #define SND_BUFF_SIZE                                   50U
 //Virtual mapping Buffer
-#define MAX_MES_BUFF_SIZE                               (732 * 2)
+#define MAX_MES_BUFF_SIZE                               (20)
 //Task list
 #define MAX_NUM_TASK                                    5U
 
