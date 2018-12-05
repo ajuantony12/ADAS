@@ -3,9 +3,9 @@
 //
 // Code generated for Simulink model 'Chart'.
 //
-// Model version                  : 1.24
+// Model version                  : 1.33
 // Simulink Coder version         : 8.14 (R2018a) 06-Feb-2018
-// C/C++ source code generated on : Mon Dec  3 13:20:57 2018
+// C/C++ source code generated on : Wed Dec  5 14:01:02 2018
 //
 // Target selection: ert.tlc
 // Embedded hardware selection: Atmel->AVR (8-bit)
@@ -24,76 +24,291 @@
 // Model step function
 void ChartModelClass::step()
 {
-  real_T tmp;
+  int16_T qY;
+  int16_T qY_0;
+  boolean_T guard1 = false;
+  boolean_T guard2 = false;
+  boolean_T guard3 = false;
+  boolean_T guard4 = false;
 
   // Chart: '<Root>/Chart' incorporates:
   //   Inport: '<Root>/gyro_signal'
   //   Inport: '<Root>/turn'
 
+  guard1 = false;
+  guard2 = false;
+  guard3 = false;
+  guard4 = false;
   switch (rtDW.is_c3_Chart) {
    case IN_Idle:
-    if (rtU.turn < 0.0) {
+    if (rtU.turn < 0) {
       rtDW.curr_angle = rtU.gyro_signal;
-      if (rtDW.curr_angle + rtU.turn > 360.0) {
-        rtDW.op = -360.0;
+      if ((rtDW.curr_angle < 0) && (rtU.turn < MIN_int16_T - rtDW.curr_angle)) {
+        qY_0 = MIN_int16_T;
+      } else if ((rtDW.curr_angle > 0) && (rtU.turn > MAX_int16_T
+                  - rtDW.curr_angle)) {
+        qY_0 = MAX_int16_T;
       } else {
-        rtDW.op = 0.0;
+        qY_0 = rtDW.curr_angle + rtU.turn;
       }
 
-      rtDW.is_c3_Chart = IN_Turn_Right;
+      if (qY_0 > 360) {
+        rtDW.op = -360;
+        guard1 = true;
+      } else {
+        if ((rtDW.curr_angle < 0) && (rtU.turn < MIN_int16_T - rtDW.curr_angle))
+        {
+          qY_0 = MIN_int16_T;
+        } else if ((rtDW.curr_angle > 0) && (rtU.turn > MAX_int16_T
+                    - rtDW.curr_angle)) {
+          qY_0 = MAX_int16_T;
+        } else {
+          qY_0 = rtDW.curr_angle + rtU.turn;
+        }
 
-      // Outport: '<Root>/mot' incorporates:
-      //   Inport: '<Root>/gyro_signal'
-      //   Inport: '<Root>/speed'
-
-      rtY.mot = rtU.speed;
-    } else if (rtU.turn > 0.0) {
-      rtDW.curr_angle = rtU.gyro_signal;
-      rtDW.op = 0.0;
-      rtDW.is_c3_Chart = IN_Turn_Left;
-
-      // Outport: '<Root>/mot' incorporates:
-      //   Inport: '<Root>/gyro_signal'
-      //   Inport: '<Root>/speed'
-
-      rtY.mot = -rtU.speed;
+        if (qY_0 <= 360) {
+          rtDW.op = 0;
+          guard1 = true;
+        } else {
+          guard4 = true;
+        }
+      }
     } else {
-      // Outport: '<Root>/mot'
-      rtY.mot = 0.0;
+      guard4 = true;
     }
     break;
 
    case IN_Turn_Left:
-    tmp = (rtDW.curr_angle + rtU.turn) + rtDW.op;
-    if ((real_T)(tmp - 5.0 <= rtU.gyro_signal) <= tmp + 5.0) {
-      rtDW.curr_angle = 0.0;
+    if ((rtDW.curr_angle < 0) && (rtU.turn < MIN_int16_T - rtDW.curr_angle)) {
+      qY_0 = MIN_int16_T;
+    } else if ((rtDW.curr_angle > 0) && (rtU.turn > MAX_int16_T
+                - rtDW.curr_angle)) {
+      qY_0 = MAX_int16_T;
+    } else {
+      qY_0 = rtDW.curr_angle + rtU.turn;
+    }
+
+    if ((qY_0 < 0) && (rtDW.op < MIN_int16_T - qY_0)) {
+      qY_0 = MIN_int16_T;
+    } else if ((qY_0 > 0) && (rtDW.op > MAX_int16_T - qY_0)) {
+      qY_0 = MAX_int16_T;
+    } else {
+      qY_0 += rtDW.op;
+    }
+
+    if ((rtDW.curr_angle < 0) && (rtU.turn < MIN_int16_T - rtDW.curr_angle)) {
+      qY = MIN_int16_T;
+    } else if ((rtDW.curr_angle > 0) && (rtU.turn > MAX_int16_T
+                - rtDW.curr_angle)) {
+      qY = MAX_int16_T;
+    } else {
+      qY = rtDW.curr_angle + rtU.turn;
+    }
+
+    if ((qY < 0) && (rtDW.op < MIN_int16_T - qY)) {
+      qY = MIN_int16_T;
+    } else if ((qY > 0) && (rtDW.op > MAX_int16_T - qY)) {
+      qY = MAX_int16_T;
+    } else {
+      qY += rtDW.op;
+    }
+
+    if (qY_0 < -32763) {
+      qY_0 = MIN_int16_T;
+    } else {
+      qY_0 -= 5;
+    }
+
+    if (qY > 32762) {
+      qY = MAX_int16_T;
+    } else {
+      qY += 5;
+    }
+
+    if ((qY_0 <= rtU.gyro_signal) || (rtU.gyro_signal <= qY)) {
+      rtDW.curr_angle = 0;
+
+      // Outport: '<Root>/dir_r'
+      rtY.dir_r = 0U;
+
+      // Outport: '<Root>/dir_l'
+      rtY.dir_l = 0U;
       rtDW.is_c3_Chart = IN_Idle;
 
-      // Outport: '<Root>/mot'
-      rtY.mot = 0.0;
-    } else {
-      // Outport: '<Root>/mot' incorporates:
-      //   Inport: '<Root>/speed'
+      // Outport: '<Root>/mot_r'
+      rtY.mot_r = 0U;
 
-      rtY.mot = -rtU.speed;
+      // Outport: '<Root>/mot_l'
+      rtY.mot_l = 0U;
+    } else {
+      // Outport: '<Root>/mot_r'
+      rtY.mot_r = 1U;
+
+      // Outport: '<Root>/mot_l'
+      rtY.mot_l = 1U;
+
+      // Outport: '<Root>/dir_r'
+      rtY.dir_r = 0U;
+
+      // Outport: '<Root>/dir_l'
+      rtY.dir_l = 1U;
     }
     break;
 
    default:
-    tmp = (rtDW.curr_angle + rtU.turn) + rtDW.op;
-    if ((real_T)(tmp - 5.0 <= rtU.gyro_signal) <= tmp + 5.0) {
-      rtDW.curr_angle = 0.0;
+    if ((rtDW.curr_angle < 0) && (rtU.turn < MIN_int16_T - rtDW.curr_angle)) {
+      qY_0 = MIN_int16_T;
+    } else if ((rtDW.curr_angle > 0) && (rtU.turn > MAX_int16_T
+                - rtDW.curr_angle)) {
+      qY_0 = MAX_int16_T;
+    } else {
+      qY_0 = rtDW.curr_angle + rtU.turn;
+    }
+
+    if ((qY_0 < 0) && (rtDW.op < MIN_int16_T - qY_0)) {
+      qY_0 = MIN_int16_T;
+    } else if ((qY_0 > 0) && (rtDW.op > MAX_int16_T - qY_0)) {
+      qY_0 = MAX_int16_T;
+    } else {
+      qY_0 += rtDW.op;
+    }
+
+    if ((rtDW.curr_angle < 0) && (rtU.turn < MIN_int16_T - rtDW.curr_angle)) {
+      qY = MIN_int16_T;
+    } else if ((rtDW.curr_angle > 0) && (rtU.turn > MAX_int16_T
+                - rtDW.curr_angle)) {
+      qY = MAX_int16_T;
+    } else {
+      qY = rtDW.curr_angle + rtU.turn;
+    }
+
+    if ((qY < 0) && (rtDW.op < MIN_int16_T - qY)) {
+      qY = MIN_int16_T;
+    } else if ((qY > 0) && (rtDW.op > MAX_int16_T - qY)) {
+      qY = MAX_int16_T;
+    } else {
+      qY += rtDW.op;
+    }
+
+    if (qY_0 < -32763) {
+      qY_0 = MIN_int16_T;
+    } else {
+      qY_0 -= 5;
+    }
+
+    if (qY > 32762) {
+      qY = MAX_int16_T;
+    } else {
+      qY += 5;
+    }
+
+    if ((qY_0 <= rtU.gyro_signal) || (rtU.gyro_signal <= qY)) {
+      rtDW.curr_angle = 0;
+
+      // Outport: '<Root>/dir_r'
+      rtY.dir_r = 0U;
+
+      // Outport: '<Root>/dir_l'
+      rtY.dir_l = 0U;
       rtDW.is_c3_Chart = IN_Idle;
 
-      // Outport: '<Root>/mot'
-      rtY.mot = 0.0;
-    } else {
-      // Outport: '<Root>/mot' incorporates:
-      //   Inport: '<Root>/speed'
+      // Outport: '<Root>/mot_r'
+      rtY.mot_r = 0U;
 
-      rtY.mot = rtU.speed;
+      // Outport: '<Root>/mot_l'
+      rtY.mot_l = 0U;
+    } else {
+      // Outport: '<Root>/mot_r'
+      rtY.mot_r = 1U;
+
+      // Outport: '<Root>/mot_l'
+      rtY.mot_l = 1U;
+
+      // Outport: '<Root>/dir_r'
+      rtY.dir_r = 1U;
+
+      // Outport: '<Root>/dir_l'
+      rtY.dir_l = 0U;
     }
     break;
+  }
+
+  if (guard4) {
+    if (rtU.turn > 0) {
+      rtDW.curr_angle = rtU.gyro_signal;
+      if ((rtDW.curr_angle < 0) && (rtU.turn < MIN_int16_T - rtDW.curr_angle)) {
+        qY_0 = MIN_int16_T;
+      } else if ((rtDW.curr_angle > 0) && (rtU.turn > MAX_int16_T
+                  - rtDW.curr_angle)) {
+        qY_0 = MAX_int16_T;
+      } else {
+        qY_0 = rtDW.curr_angle + rtU.turn;
+      }
+
+      if (0 <= qY_0) {
+        rtDW.op = 0;
+        guard2 = true;
+      } else {
+        if ((rtDW.curr_angle < 0) && (rtU.turn < MIN_int16_T - rtDW.curr_angle))
+        {
+          qY_0 = MIN_int16_T;
+        } else if ((rtDW.curr_angle > 0) && (rtU.turn > MAX_int16_T
+                    - rtDW.curr_angle)) {
+          qY_0 = MAX_int16_T;
+        } else {
+          qY_0 = rtDW.curr_angle + rtU.turn;
+        }
+
+        if (qY_0 < 0) {
+          rtDW.op = 360;
+          guard2 = true;
+        } else {
+          guard3 = true;
+        }
+      }
+    } else {
+      guard3 = true;
+    }
+  }
+
+  if (guard3) {
+    // Outport: '<Root>/mot_r'
+    rtY.mot_r = 0U;
+
+    // Outport: '<Root>/mot_l'
+    rtY.mot_l = 0U;
+  }
+
+  if (guard2) {
+    rtDW.is_c3_Chart = IN_Turn_Left;
+
+    // Outport: '<Root>/mot_r'
+    rtY.mot_r = 1U;
+
+    // Outport: '<Root>/mot_l'
+    rtY.mot_l = 1U;
+
+    // Outport: '<Root>/dir_r'
+    rtY.dir_r = 0U;
+
+    // Outport: '<Root>/dir_l'
+    rtY.dir_l = 1U;
+  }
+
+  if (guard1) {
+    rtDW.is_c3_Chart = IN_Turn_Right;
+
+    // Outport: '<Root>/mot_r'
+    rtY.mot_r = 1U;
+
+    // Outport: '<Root>/mot_l'
+    rtY.mot_l = 1U;
+
+    // Outport: '<Root>/dir_r'
+    rtY.dir_r = 1U;
+
+    // Outport: '<Root>/dir_l'
+    rtY.dir_l = 0U;
   }
 
   // End of Chart: '<Root>/Chart'
