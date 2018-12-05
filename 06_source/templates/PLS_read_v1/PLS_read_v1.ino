@@ -10,12 +10,12 @@
 // PLS MW_TGM
 struct mw_tgm_struct {
   uint16_t amw;
-  uint16_t *data;
-  uint16_t *dist;
+  uint16_t data[180];
+  uint16_t dist[180];
   const String dist_unit = "cm";
-  bool *glare_flag; // not smart to use bool because bool -> uint8_t
-  bool *wf_v_flag;  // not smart to use bool because bool -> uint8_t
-  bool *pf_v_flag;  // not smart to use bool because bool -> uint8_t
+  bool glare_flag[180]; // not smart to use bool because bool -> uint8_t
+  bool wf_v_flag[180];  // not smart to use bool because bool -> uint8_t
+  bool pf_v_flag[180];  // not smart to use bool because bool -> uint8_t
 };
 mw_tgm_struct mw_tgm;
 
@@ -24,7 +24,12 @@ mw_tgm_struct mw_tgm;
 
 void setup() {
   Serial.begin(115200);
-  Serial1.begin(9600);
+  Serial1.begin(9600, SERIAL_8E1);
+
+
+  //while (!Serial) {}
+
+  //Serial.println("Started...");
 }
 
 
@@ -33,10 +38,10 @@ void setup() {
 void loop() {
   if (Serial1.available()) {
     uint8_t rxData = Serial1.read();
+    if(rxData != 0x00){DPRINT("rxData="); DPRINTLN(rxData, HEX);}
     bool trnsOkay = ReadRecvBuf(rxData);
 
     if (trnsOkay) {
-      //Serial.println("\n\n########\nPLS data received!");
       process_mw_tgm();
       //print_mw_tgm();
       print_mw_tgm_matlab();
@@ -49,12 +54,16 @@ void loop() {
 
 
 // Function to read data from PLS
-bool ReadRecvBuf(uint8_t buff)
-{
+bool ReadRecvBuf(uint8_t buff) {
+
+  //if(buff != 0x00){DPRINT("buff="); DPRINTLN(buff, HEX);}
+
   if (buff == PLS_STX) {
+    DPRINTLN("Transmission started!");
     // expecting address
     waitforSerial1data();
     buff = Serial1.read();
+    DPRINT("PLS_ADR="); DPRINTLN(buff, HEX);
 
     if (buff == PLS_ADR) {
       // expecting length
@@ -81,7 +90,7 @@ bool ReadRecvBuf(uint8_t buff)
           DPRINT("AMW="); DPRINTLN(mw_tgm.amw);
 
           // change size of mw_tgm.data according to amw value
-          mw_tgm.data = realloc(mw_tgm.data, mw_tgm.amw * sizeof(uint8_t));
+          //mw_tgm.data = realloc(mw_tgm.data, mw_tgm.amw * sizeof(uint8_t));
 
           // read data[amw]
           for (uint16_t n = 0; n < mw_tgm.amw; n++) {
@@ -122,10 +131,10 @@ bool ReadRecvBuf(uint8_t buff)
 
 bool process_mw_tgm(void)
 {
-  mw_tgm.dist = realloc(mw_tgm.dist, mw_tgm.amw * sizeof(uint16_t));
+  /*mw_tgm.dist = realloc(mw_tgm.dist, mw_tgm.amw * sizeof(uint16_t));
   mw_tgm.glare_flag = realloc(mw_tgm.glare_flag, mw_tgm.amw * sizeof(bool));
   mw_tgm.wf_v_flag = realloc(mw_tgm.wf_v_flag, mw_tgm.amw * sizeof(bool));
-  mw_tgm.pf_v_flag = realloc(mw_tgm.pf_v_flag, mw_tgm.amw * sizeof(bool));
+  mw_tgm.pf_v_flag = realloc(mw_tgm.pf_v_flag, mw_tgm.amw * sizeof(bool));*/
 
   for (uint16_t n = 0; n < mw_tgm.amw; n++) {
     mw_tgm.dist[n] = mw_tgm.data[n] & 0x01FFF; // measured distance
@@ -140,6 +149,7 @@ bool process_mw_tgm(void)
 void print_mw_tgm(void)
 {
   char buf[50];
+  Serial.println("\n\n########\nPLS data received!");
 
   for (uint16_t n = 0; n < mw_tgm.amw; n++) {
     Serial.print("alpha="); Serial.print(n + 1); Serial.print(" deg:\t");
@@ -192,7 +202,7 @@ void print_mw_tgm_matlab(void)
   }
   Serial.println("");
 
-  
+
 }
 
 void waitforSerial1data(void)
