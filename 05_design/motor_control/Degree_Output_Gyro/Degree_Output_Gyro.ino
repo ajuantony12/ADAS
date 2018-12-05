@@ -90,8 +90,7 @@ void loop(void)
     imu::Vector<3> euler = bno.getVector(Adafruit_BNO055::VECTOR_EULER);
 
     //Define Inputs 
-    rtObj.rtU.gyro_signal = euler.x();
-    rtObj.rtU.speed = 4;
+    rtObj.rtU.gyro_signal = (int16_t)euler.x();
 
     if(n == 20){
       Serial.println("Turn Signal: "); //Prompt User for Input
@@ -109,12 +108,20 @@ void loop(void)
     /* Display the floating point data */
     Serial.print("gyro_signal: ");
     Serial.print(rtObj.rtU.gyro_signal);
+    Serial.print(" || Curr_Angle: ");
+    Serial.print(rtObj.rtDW.curr_angle);
     Serial.print(" || Turn: ");
     Serial.print(rtObj.rtU.turn);
-    Serial.print(" || Mot: ");
-    Serial.print(rtObj.rtY.mot);
-    Serial.print(" || n: ");
-    Serial.println(n);
+    Serial.print(" || op: ");
+    Serial.print(rtObj.rtDW.op);
+    Serial.print(" || Mot_l: ");
+    Serial.print(rtObj.rtY.mot_l);
+    Serial.print(" || Dir_l: ");
+    Serial.print(rtObj.rtY.dir_l);
+    Serial.print(" || Mot_r: ");
+    Serial.print(rtObj.rtY.mot_r);
+    Serial.print(" || Dir_r: ");
+    Serial.println(rtObj.rtY.dir_r);
 
   
     /*

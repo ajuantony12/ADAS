@@ -5,7 +5,7 @@
 //
 // Model version                  : 1.33
 // Simulink Coder version         : 8.14 (R2018a) 06-Feb-2018
-// C/C++ source code generated on : Wed Dec  5 14:01:02 2018
+// C/C++ source code generated on : Wed Dec  5 14:26:11 2018
 //
 // Target selection: ert.tlc
 // Embedded hardware selection: Atmel->AVR (8-bit)
@@ -19,6 +19,7 @@
 #ifndef Chart_COMMON_INCLUDES_
 # define Chart_COMMON_INCLUDES_
 #include "rtwtypes.h"
+#include "Arduino.h"
 #endif                                 // Chart_COMMON_INCLUDES_
 
 // Macros for accessing real-time model data structure
@@ -63,6 +64,8 @@ struct tag_RTM {
 class ChartModelClass {
   // public data and function members
  public:
+  DW rtDW;
+
   // External inputs
   ExtU rtU;
 
@@ -87,7 +90,6 @@ class ChartModelClass {
   // private data and function members
  private:
   // Block signals and states
-  DW rtDW;
 
   // Real-Time Model
   RT_MODEL rtM;
