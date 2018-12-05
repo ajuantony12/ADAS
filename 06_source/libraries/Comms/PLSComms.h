@@ -6,9 +6,12 @@
 #include <ADAS_Types.h>
 #include <ADAS_Cfg.h>
 #include <Serial_IF.h>
+#include <CBuffer.h>
 
 #ifndef COMMS_PLS_H
 #define COMMS_PLS_H
+
+
 
 class CPLSComms
 {
@@ -41,6 +44,11 @@ public:
     */
     Status_e GetStatus(void);
 private:
+    typedef struct {
+        unsigned int len;
+        uint8_t messageID;
+        uint8_t* data;
+    } Message_t;
     /*
     * Calculate CRC
     */
@@ -48,13 +56,21 @@ private:
     /*
     * Parse recieved message
     */
-    Status_e  ParseMsg(void);
+    Status_e  ParseMsgContent(Message_t& msg);
+    /*
+    * Recieve a packet
+    */
+    Status_e  RecievePkt(void);
+    /*
+    * Parse recieved message
+    */
+    void  CreatePacket(CBuffAdas& buff, uint8_t* Data);
     
     CSerial& m_serPort;
-    Status_e m_status;
-    bool m_asyncDataFLag;
     uint8_t m_sndBuff[SND_BUFF_SIZE];
     uint8_t m_rcvBuff[RCV_BUFF_SIZE];
+    Status_e m_status;
+    bool m_asyncDataFLag;
 };
 
 #endif /*COMMS_PLS_H*/
