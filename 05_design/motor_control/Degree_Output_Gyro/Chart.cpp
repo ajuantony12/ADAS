@@ -3,9 +3,9 @@
 //
 // Code generated for Simulink model 'Chart'.
 //
-// Model version                  : 1.33
+// Model version                  : 1.35
 // Simulink Coder version         : 8.14 (R2018a) 06-Feb-2018
-// C/C++ source code generated on : Wed Dec  5 14:26:11 2018
+// C/C++ source code generated on : Thu Dec  6 11:59:00 2018
 //
 // Target selection: ert.tlc
 // Embedded hardware selection: Atmel->AVR (8-bit)
@@ -20,10 +20,12 @@
 #define IN_Idle                        ((uint8_T)1U)
 #define IN_Turn_Left                   ((uint8_T)2U)
 #define IN_Turn_Right                  ((uint8_T)3U)
+
 // Model step function
 void ChartModelClass::step()
 {
   int16_T qY;
+  int16_T qY_0;
   boolean_T guard1 = false;
   boolean_T guard2 = false;
   boolean_T guard3 = false;
@@ -42,29 +44,29 @@ void ChartModelClass::step()
     if (rtU.turn < 0) {
       rtDW.curr_angle = rtU.gyro_signal;
       if ((rtDW.curr_angle < 0) && (rtU.turn < MIN_int16_T - rtDW.curr_angle)) {
-        qY = MIN_int16_T;
+        qY_0 = MIN_int16_T;
       } else if ((rtDW.curr_angle > 0) && (rtU.turn > MAX_int16_T
                   - rtDW.curr_angle)) {
-        qY = MAX_int16_T;
+        qY_0 = MAX_int16_T;
       } else {
-        qY = rtDW.curr_angle + rtU.turn;
+        qY_0 = rtDW.curr_angle + rtU.turn;
       }
 
-      if (qY > 360) {
+      if (qY_0 > 360) {
         rtDW.op = -360;
         guard1 = true;
       } else {
         if ((rtDW.curr_angle < 0) && (rtU.turn < MIN_int16_T - rtDW.curr_angle))
         {
-          qY = MIN_int16_T;
+          qY_0 = MIN_int16_T;
         } else if ((rtDW.curr_angle > 0) && (rtU.turn > MAX_int16_T
                     - rtDW.curr_angle)) {
-          qY = MAX_int16_T;
+          qY_0 = MAX_int16_T;
         } else {
-          qY = rtDW.curr_angle + rtU.turn;
+          qY_0 = rtDW.curr_angle + rtU.turn;
         }
 
-        if (qY <= 360) {
+        if (qY_0 <= 360) {
           rtDW.op = 0;
           guard1 = true;
         } else {
@@ -78,6 +80,23 @@ void ChartModelClass::step()
 
    case IN_Turn_Left:
     if ((rtDW.curr_angle < 0) && (rtU.turn < MIN_int16_T - rtDW.curr_angle)) {
+      qY_0 = MIN_int16_T;
+    } else if ((rtDW.curr_angle > 0) && (rtU.turn > MAX_int16_T
+                - rtDW.curr_angle)) {
+      qY_0 = MAX_int16_T;
+    } else {
+      qY_0 = rtDW.curr_angle + rtU.turn;
+    }
+
+    if ((qY_0 < 0) && (rtDW.op < MIN_int16_T - qY_0)) {
+      qY_0 = MIN_int16_T;
+    } else if ((qY_0 > 0) && (rtDW.op > MAX_int16_T - qY_0)) {
+      qY_0 = MAX_int16_T;
+    } else {
+      qY_0 += rtDW.op;
+    }
+
+    if ((rtDW.curr_angle < 0) && (rtU.turn < MIN_int16_T - rtDW.curr_angle)) {
       qY = MIN_int16_T;
     } else if ((rtDW.curr_angle > 0) && (rtU.turn > MAX_int16_T
                 - rtDW.curr_angle)) {
@@ -85,8 +104,6 @@ void ChartModelClass::step()
     } else {
       qY = rtDW.curr_angle + rtU.turn;
     }
-    Serial.print("qY=");
-    Serial.println(qY);
 
     if ((qY < 0) && (rtDW.op < MIN_int16_T - qY)) {
       qY = MIN_int16_T;
@@ -95,9 +112,20 @@ void ChartModelClass::step()
     } else {
       qY += rtDW.op;
     }
-    Serial.print("qY=");
-    Serial.println(qY);
-    if (rtU.gyro_signal == qY) {
+
+    if (qY_0 > 32762) {
+      qY_0 = MAX_int16_T;
+    } else {
+      qY_0 += 5;
+    }
+
+    if (qY < -32763) {
+      qY = MIN_int16_T;
+    } else {
+      qY -= 5;
+    }
+
+    if ((rtU.gyro_signal <= qY_0) && (rtU.gyro_signal >= qY)) {
       rtDW.curr_angle = 0;
 
       // Outport: '<Root>/dir_r'
@@ -129,6 +157,23 @@ void ChartModelClass::step()
 
    default:
     if ((rtDW.curr_angle < 0) && (rtU.turn < MIN_int16_T - rtDW.curr_angle)) {
+      qY_0 = MIN_int16_T;
+    } else if ((rtDW.curr_angle > 0) && (rtU.turn > MAX_int16_T
+                - rtDW.curr_angle)) {
+      qY_0 = MAX_int16_T;
+    } else {
+      qY_0 = rtDW.curr_angle + rtU.turn;
+    }
+
+    if ((qY_0 < 0) && (rtDW.op < MIN_int16_T - qY_0)) {
+      qY_0 = MIN_int16_T;
+    } else if ((qY_0 > 0) && (rtDW.op > MAX_int16_T - qY_0)) {
+      qY_0 = MAX_int16_T;
+    } else {
+      qY_0 += rtDW.op;
+    }
+
+    if ((rtDW.curr_angle < 0) && (rtU.turn < MIN_int16_T - rtDW.curr_angle)) {
       qY = MIN_int16_T;
     } else if ((rtDW.curr_angle > 0) && (rtU.turn > MAX_int16_T
                 - rtDW.curr_angle)) {
@@ -145,7 +190,19 @@ void ChartModelClass::step()
       qY += rtDW.op;
     }
 
-    if (qY == rtU.gyro_signal) {
+    if (qY_0 > 32762) {
+      qY_0 = MAX_int16_T;
+    } else {
+      qY_0 += 5;
+    }
+
+    if (qY < -32763) {
+      qY = MIN_int16_T;
+    } else {
+      qY -= 5;
+    }
+
+    if ((rtU.gyro_signal <= qY_0) && (rtU.gyro_signal >= qY)) {
       rtDW.curr_angle = 0;
 
       // Outport: '<Root>/dir_r'
@@ -180,29 +237,29 @@ void ChartModelClass::step()
     if (rtU.turn > 0) {
       rtDW.curr_angle = rtU.gyro_signal;
       if ((rtDW.curr_angle < 0) && (rtU.turn < MIN_int16_T - rtDW.curr_angle)) {
-        qY = MIN_int16_T;
+        qY_0 = MIN_int16_T;
       } else if ((rtDW.curr_angle > 0) && (rtU.turn > MAX_int16_T
                   - rtDW.curr_angle)) {
-        qY = MAX_int16_T;
+        qY_0 = MAX_int16_T;
       } else {
-        qY = rtDW.curr_angle + rtU.turn;
+        qY_0 = rtDW.curr_angle + rtU.turn;
       }
 
-      if (0 <= qY) {
+      if (0 <= qY_0) {
         rtDW.op = 0;
         guard2 = true;
       } else {
         if ((rtDW.curr_angle < 0) && (rtU.turn < MIN_int16_T - rtDW.curr_angle))
         {
-          qY = MIN_int16_T;
+          qY_0 = MIN_int16_T;
         } else if ((rtDW.curr_angle > 0) && (rtU.turn > MAX_int16_T
                     - rtDW.curr_angle)) {
-          qY = MAX_int16_T;
+          qY_0 = MAX_int16_T;
         } else {
-          qY = rtDW.curr_angle + rtU.turn;
+          qY_0 = rtDW.curr_angle + rtU.turn;
         }
 
-        if (qY < 0) {
+        if (qY_0 < 0) {
           rtDW.op = 360;
           guard2 = true;
         } else {
