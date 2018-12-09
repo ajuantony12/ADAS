@@ -5,9 +5,9 @@ clearvars
 close all
 
 % Size of boxes
-boxsize = 50; % in cm
+boxsize = 25; % in cm
 % Max number of points in box
-NMAXpointsBox = 10;
+NMAXpointsBox = 5;
 
 % Laser data
 angle = linspace(0,pi,180);
@@ -23,7 +23,7 @@ hold on
 plot(pls_pts_x, pls_pts_y,'-', 'color',[0,0,0]+0.8)
 plot(pls_pts_x, pls_pts_y,'b+')
 grid
-title(['Detection of blocked boxes (size: ' num2str(boxsize) 'cm x' num2str(boxsize) 'cm)'])
+title(['Detection of blocked boxes (size: ' num2str(boxsize) 'cm x ' num2str(boxsize) 'cm)'])
 xlabel('x in cm')
 ylabel('y in cm')
 
@@ -38,7 +38,12 @@ boxArray = checkPointsInBoxes(boxArray,pointArray,NMAXpointsBox);
 
 % Draw data
 updateBoxes(boxArray);
+PLSsize = plotPLS(pls_pts_x);
 
+% Limit Axes
+xlim([boxArray(1,1).P1.x boxArray(end,1).P2.x])
+ylim([(boxArray(1,1).P1.y - PLSsize) boxArray(1,end).P2.y])
+axis equal
 
 
 
@@ -95,4 +100,15 @@ function updateBoxes(boxArray)
             boxArray(x,y).draw;
         end%for
     end%for
+end%function
+
+
+function PLSsize = plotPLS(pls_pts_x)
+    % calculate size of PLS
+    PLSsize =  round(0.03*max([abs(min(pls_pts_x)) max(pls_pts_x)]));
+    
+
+    rectangle('Position',...
+              [-PLSsize/2 -PLSsize PLSsize PLSsize],...
+              'FaceColor',[0 0 1])
 end%function
