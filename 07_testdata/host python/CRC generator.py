@@ -5,7 +5,7 @@ SICK_NAK = 0x15
 SICK_NACK = 0x92
 SICK_STATUS = 0x31
 SICK_START = 0x02
-SICK_DEST = 0x80 
+SICK_DEST = 0x00 
 
 def updateCRC(crc, ch, prev_ch):
     short_c = 0x00ff & ch

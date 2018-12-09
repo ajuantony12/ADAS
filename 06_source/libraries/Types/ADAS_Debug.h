@@ -1,7 +1,10 @@
+#include <ADAS_Cfg.h>
+
 #ifndef DEBUG_H
 #define DEBUG_H
 
-#ifdef DEBUG
+
+#ifdef ADAS_DEBUG
 #define DPRINT(...)    Serial.print(__VA_ARGS__)
 #define DPRINTLN(...)  Serial.println(__VA_ARGS__)
 #else

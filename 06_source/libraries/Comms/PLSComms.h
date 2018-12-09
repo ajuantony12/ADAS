@@ -19,7 +19,10 @@ public:
     typedef enum {
         MsgSuccess,
         CRCCheckFail,
-        CommsError
+        CommsError,
+        PartialMsg,
+        Msg_NCK,
+        InvalidReq
     } Status_e;
 
     CPLSComms(CSerial& serPort);
@@ -45,9 +48,10 @@ public:
     Status_e GetStatus(void);
 private:
     typedef struct {
-        unsigned int len;
-        uint8_t messageID;
         uint8_t* data;
+        unsigned short len;
+        unsigned short start;
+        uint8_t messageID;
     } Message_t;
     /*
     * Calculate CRC
@@ -56,11 +60,15 @@ private:
     /*
     * Parse recieved message
     */
-    Status_e  ParseMsgContent(Message_t& msg);
+    Status_e  ParseMsgContent(Message_t& msg, unsigned short start, unsigned short len);
+    /*
+    * Parse recieved message
+    */
+    bool SearchMsg(Message_t& msg, uint8_t ID, unsigned short len);
     /*
     * Recieve a packet
     */
-    Status_e  RecievePkt(void);
+    Status_e  RecievePkt(unsigned short& len);
     /*
     * Parse recieved message
     */

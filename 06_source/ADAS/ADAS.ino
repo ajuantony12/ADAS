@@ -1,5 +1,6 @@
 #include <ADAS_Types.h>
 #include <ADAS_Cfg.h>
+#include <ADAS_Debug.h>
 
 /*Periperals*/
 #include <ADC.h>
@@ -51,38 +52,37 @@ void setup() {
   dUnitRight_o.Init();
   enc1_o.Init();
   enc2_o.Init();*/
-  Serial.begin(9600);
   serPort.Init(SERIAL1_INITIAL_BAUD_RATE, SERIAL1_TIMEOUT);
-  Serial.write("HEllo\n\r");
+  Serial.begin(9600);
+  DPRINTLN("HEllo\n\r");
 
   //inertial_o.Init();
-  //plsCOmms_o.Init();         
+  plsCOmms_o.Init();         
 
   //Task initialization
   /*taskCtrl_o.Register(&mCtrl_o, 1);
   taskCtrl_o.Register(&nav_o, 0);
   taskCtrl_o.Register(&pos_o, 2);*/
-  //taskCtrl_o.Register(&vMap_o, 3); 
-  //taskCtrl_o.Register(&uI_o, 4);
- //taskCtrl_o.Init();
-  Serial.write("Hello Init ended\n\r");
+  taskCtrl_o.Register(&vMap_o, 3); 
+  /*taskCtrl_o.Register(&uI_o, 4);
+ //taskCtrl_o.Init();*/
+  DPRINTLN("Hello Init ended\n\r");
 }
 
 void loop() {
+  //Serial1.write("hello\n\r");
   // put your main code here, to run repeatedly:
-  Serial.write("In loop\n\r");
-  //taskCtrl_o.Run();
-  delay(2000);
+  taskCtrl_o.Run();
+  
 }
 
 void serialEvent1(){
-  char data[5]= {0};
+/*  char data[5]= {0};
   uint8_t byte1;
-  Serial.write("in Event\n\r");
   while (Serial1.available())
   {
     Serial1.readBytes(&byte1,1);
-    sprintf(data , "%x",byte1);
+    sprintf(data , "%c",byte1);
     Serial.write(data);
-  }
+  }*/
 }

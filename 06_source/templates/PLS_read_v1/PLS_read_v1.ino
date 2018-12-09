@@ -34,7 +34,6 @@ void setup() {
 
 
 
-
 void loop() {
   if (Serial1.available()) {
     uint8_t rxData = Serial1.read();
@@ -44,7 +43,8 @@ void loop() {
     if (trnsOkay) {
       process_mw_tgm();
       //print_mw_tgm();
-      print_mw_tgm_matlab();
+      //print_mw_tgm_matlab();
+      print_mw_tgm_matlab_cmd();
     }
 
   }
@@ -220,4 +220,3 @@ void PrintHex16(uint16_t *data, uint8_t length) // prints 16-bit data in hex wit
     Serial.print(tmp); Serial.print(" ");
   }
 }
-
