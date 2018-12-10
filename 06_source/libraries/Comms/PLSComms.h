@@ -24,6 +24,12 @@ public:
         Msg_NCK,
         InvalidReq
     } Status_e;
+    typedef struct {
+        uint8_t* data;
+        unsigned short len;
+        unsigned short start;
+        uint8_t messageID;
+    } Message_t;
 
     CPLSComms(CSerial& serPort);
     ~CPLSComms();
@@ -46,21 +52,6 @@ public:
     * Get status of PLS
     */
     Status_e GetStatus(void);
-private:
-    typedef struct {
-        uint8_t* data;
-        unsigned short len;
-        unsigned short start;
-        uint8_t messageID;
-    } Message_t;
-    /*
-    * Calculate CRC
-    */
-    unsigned short CalcCrC(uint8_t* data, unsigned short len);
-    /*
-    * Parse recieved message
-    */
-    Status_e  ParseMsgContent(Message_t& msg, unsigned short start, unsigned short len);
     /*
     * Parse recieved message
     */
@@ -69,6 +60,26 @@ private:
     * Recieve a packet
     */
     Status_e  RecievePkt(unsigned short& len);
+    /*is Con*/
+    inline bool isContaminated()
+    {
+        bool retVal = m_asyncDataFLag;
+        m_asyncDataFLag = false;
+        return retVal;
+    }
+    inline void AddContaminationAlert()
+    {
+        m_asyncDataFLag = true;
+    }
+private:
+    /*
+    * Calculate CRC
+    */
+    unsigned short CalcCrC(uint8_t* data, unsigned short len);
+    /*
+    * Parse recieved message
+    */
+    Status_e  ParseMsgContent(Message_t& msg, unsigned short start, unsigned short len);
     /*
     * Parse recieved message
     */

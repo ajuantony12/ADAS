@@ -42,10 +42,10 @@ static const uint8_t BM_TGM_AllVal[] ={0x05, 0x02, 0x00, 0x20, 0x25};
 static const uint8_t BM_TGM_AllSeg[] ={0x05, 0x02, 0x00, 0x20, 0x21};
 static const uint8_t BM_TGM_Vert[] ={0x05, 0x02, 0x00, 0x20, 0x23};
 // Get Frame
-static const uint8_t GetFrameMsg[] ={0x05, 0x02, 0x00, 0x40, 0x00};
+static const uint8_t GetFrameMsg[] ={0x06, 0x02, 0x00, 0x30, 0x00, 0x01};
 #endif
 
-
+uint8_t prvbyte = 0x0;
 
 CPLSComms::CPLSComms(CSerial& serPort)
     :m_serPort(serPort),
@@ -61,7 +61,7 @@ CPLSComms::~CPLSComms()
 
 void CPLSComms::Init(void)
 {
-   // uint8_t byte1[100];
+#if 0
    bool msgStatus = false;
     Message_t msg;
     unsigned short len;
@@ -166,6 +166,8 @@ void CPLSComms::Init(void)
             break;
     }
 #endif
+#endif
+    delay(3000);
     DPRINTLN("end of check"); 
 }
 
@@ -274,10 +276,13 @@ bool CPLSComms::SearchMsg(Message_t& msg, uint8_t ID, unsigned short len)
             }
             break;
         }
-        if (msgLen > msg.len)
+        if (msgLen > (msg.len + msg.start + 6))
         {
-            memmove(m_rcvBuff, &m_rcvBuff[msg.len], (msgLen-msg.len));
-            msgLen -= msg.len;
+            msgLen -= (msg.len + msg.start + 6);
+            memmove(m_rcvBuff, &m_rcvBuff[msg.len], msgLen);
+            DPRINT("REMAINING DATA = ");
+            DPRINT(msgLen, HEX);
+            DPRINT("\n\r");
         }
         else{
             break;
@@ -292,16 +297,22 @@ CPLSComms::Status_e CPLSComms::ParseMsgContent(Message_t& msg, unsigned short st
     Status_e retVal = Status_e::CommsError;
     msg.messageID = 0;
     msg.len = 0;
+    msg.start = 0;
     msg.data = NULL;
     unsigned short j = len;
     for (unsigned short i = 0 ; i < len; i++)
     {
-        DPRINT(i, DEC);
-        DPRINT(j, DEC);
+        DPRINT(i, HEX);
+        DPRINT(" | ");
+        DPRINT(j, HEX);
+        DPRINT("  ||  ");
+        DPRINT(m_rcvBuff[i], HEX);
+        DPRINT("  ||  ");
         if (SICK_NAK == m_rcvBuff[i])
         {
             DPRINTLN("NAK Recieved");
             retVal = Status_e::Msg_NCK;
+            msg.start = i;
             msg.len++;
             memmove(m_rcvBuff, &m_rcvBuff[i], (len-i));
             msg.data = &m_rcvBuff[0];
@@ -344,6 +355,7 @@ CPLSComms::Status_e CPLSComms::ParseMsgContent(Message_t& msg, unsigned short st
                     }
                     msg.len--;
                     msg.messageID= m_rcvBuff[i+SICK_PKT_HDR_LEN];
+                    msg.start = i+SICK_PKT_HDR_LEN;
                     memmove(m_rcvBuff, &m_rcvBuff[i+SICK_PKT_HDR_LEN+1], len-i-SICK_PKT_HDR_LEN-1);
                     msg.data = (msg.len)?&m_rcvBuff[0]:NULL;
                     break;
@@ -374,7 +386,10 @@ CPLSComms::Status_e CPLSComms::ParseMsgContent(Message_t& msg, unsigned short st
 }
 CPLSComms::Status_e CPLSComms::RecievePkt(unsigned short& len)
 {
+
     Status_e retVal = Status_e::CommsError;
+    uint8_t current;
+#if 0
 #ifdef ADAS_DEBUG
     bool flag = false;
     uint8_t count = 0;
@@ -403,6 +418,28 @@ CPLSComms::Status_e CPLSComms::RecievePkt(unsigned short& len)
     }
 #endif
     return retVal;
+#endif 
+    current = Serial1.read();
+    if ((0x80 == current) && (prvbyte == 0x02))
+    {
+        if (Serial1.readBytes(&m_rcvBuff[2], 2))
+        {
+            m_rcvBuff[0] = 0x02;
+            m_rcvBuff[1] = 0x80;
+            len = ((static_cast<unsigned short>(m_rcvBuff[3]) << 8) | m_rcvBuff[2]) + 2;
+            DPRINT("\n\r");
+            DPRINT(len, HEX);
+            DPRINT("\n\r");
+            unsigned int datarcved = Serial1.readBytes(&m_rcvBuff[4], len);
+            DPRINT("\n\r");
+            DPRINT(datarcved, HEX);
+            DPRINT("\n\r");
+            retVal = Status_e::MsgSuccess;
+        }
+    }
+      len += 4;
+      prvbyte = current;
+      return retVal;
 }
 
 void  CPLSComms::CreatePacket(CBuffAdas& buff, uint8_t* Data)

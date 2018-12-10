@@ -44,9 +44,11 @@ def create_and_send_msg(msg_to_send):
     msg.append(crc[1])
     print ( "Message: %s" % (''.join([hex(b)+" " for b in msg])))
 
-msg_init = [0x10];
-msg_ireset = [0x90];
-msg_powerup = [0x91];
+msg_init = [0x10]
+msg_ireset = [0x90]
+msg_powerup = [0x91]
+msg_request = [0x30, 0x00, 0x01]
 create_and_send_msg(msg_init)
 create_and_send_msg(msg_ireset)
 create_and_send_msg(msg_powerup)
+create_and_send_msg(msg_request)
