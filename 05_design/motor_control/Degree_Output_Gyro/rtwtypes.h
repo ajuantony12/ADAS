@@ -3,9 +3,9 @@
 //
 // Code generated for Simulink model 'Chart'.
 //
-// Model version                  : 1.35
+// Model version                  : 1.37
 // Simulink Coder version         : 8.14 (R2018a) 06-Feb-2018
-// C/C++ source code generated on : Thu Dec  6 11:59:00 2018
+// C/C++ source code generated on : Mon Dec 10 09:08:26 2018
 //
 // Target selection: ert.tlc
 // Embedded hardware selection: Atmel->AVR (8-bit)

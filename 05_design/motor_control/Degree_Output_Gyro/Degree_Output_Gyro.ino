@@ -8,6 +8,7 @@
 // Initialize stateflow object
 static ChartModelClass rtObj;
 int n=20;
+int16_T dist=0;
 
 /* This driver reads raw data from the BNO055
 
@@ -97,6 +98,14 @@ void loop(void)
       while(Serial.available()==0) { // Wait for User to Input Data  
       }
       rtObj.rtU.turn=Serial.parseInt();  //Read the data the user has input
+      Serial.print("Turn signal set to: ");
+      Serial.println(rtObj.rtU.turn);
+    
+      Serial.println("Distance: "); //Prompt User for Input
+      while(Serial.available()==0) { // Wait for User to Input Data  
+      }
+      rtObj.rtU.dist=Serial.parseInt();
+      
       n=0;
     }
     
@@ -106,6 +115,8 @@ void loop(void)
     rt_OneStep();
 
     /* Display the floating point data */
+    Serial.println("Inputs and local Variables: ");
+    Serial.println("_______________________ ");
     Serial.print("gyro_signal: ");
     Serial.print(rtObj.rtU.gyro_signal);
     Serial.print(" || Curr_Angle: ");
@@ -114,7 +125,12 @@ void loop(void)
     Serial.print(rtObj.rtU.turn);
     Serial.print(" || op: ");
     Serial.print(rtObj.rtDW.op);
-    Serial.print(" || Mot_l: ");
+    Serial.print(" || distance: ");
+    Serial.println(rtObj.rtU.dist);
+    Serial.println("_______________________ ");
+    Serial.println("Outputs: ");
+    Serial.println("_______________________ ");
+    Serial.print("Mot_l: ");
     Serial.print(rtObj.rtY.mot_l);
     Serial.print(" || Dir_l: ");
     Serial.print(rtObj.rtY.dir_l);
@@ -122,6 +138,7 @@ void loop(void)
     Serial.print(rtObj.rtY.mot_r);
     Serial.print(" || Dir_r: ");
     Serial.println(rtObj.rtY.dir_r);
+    Serial.println("_______________________ ");
 
   
     /*
