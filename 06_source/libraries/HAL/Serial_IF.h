@@ -32,9 +32,11 @@ public:
    * Send Data
    */
    bool Send(char Buff[], uint8_t len);
-   bool Read(char Buff[], uint8_t len);
+   unsigned short Read(char Buff[], unsigned short len);
    void SetBaudRate(unsigned int baud, unsigned short time_out);
    uint8_t Available(void);
+   /* flush serial read buffer*/
+    void FlushReadBuff(void);
  private:
    PortNum_e m_PortID;
    HardwareSerial* m_Port;
