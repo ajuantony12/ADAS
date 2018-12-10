@@ -3,9 +3,9 @@
 //
 // Code generated for Simulink model 'Chart'.
 //
-// Model version                  : 1.35
+// Model version                  : 1.37
 // Simulink Coder version         : 8.14 (R2018a) 06-Feb-2018
-// C/C++ source code generated on : Thu Dec  6 11:59:00 2018
+// C/C++ source code generated on : Mon Dec 10 09:08:26 2018
 //
 // Target selection: ert.tlc
 // Embedded hardware selection: Atmel->AVR (8-bit)
@@ -44,6 +44,7 @@ typedef struct {
 typedef struct {
   int16_T gyro_signal;                 // '<Root>/gyro_signal'
   int16_T turn;                        // '<Root>/turn'
+  int16_T dist;                        // '<Root>/dist'
 } ExtU;
 
 // External outputs (root outports fed by signals with default storage)
@@ -63,6 +64,8 @@ struct tag_RTM {
 class ChartModelClass {
   // public data and function members
  public:
+ // Block signals and states
+  DW rtDW;
   // External inputs
   ExtU rtU;
 
@@ -86,8 +89,7 @@ class ChartModelClass {
 
   // private data and function members
  private:
-  // Block signals and states
-  DW rtDW;
+  
 
   // Real-Time Model
   RT_MODEL rtM;

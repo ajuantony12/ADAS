@@ -7,7 +7,8 @@
 
 // Initialize stateflow object
 static ChartModelClass rtObj;
-int n=20;
+int n = 20;
+int16_T dist = 0;
 
 /* This driver reads raw data from the BNO055
 
@@ -39,11 +40,11 @@ void setup(void)
   Serial.println("Orientation Sensor Test Started..."); Serial.println("");
 
   /* Initialise the sensor */
-  if(!bno.begin())
+  if (!bno.begin())
   {
     /* There was a problem detecting the BNO055 ... check your connections */
     Serial.print("Ooops, no BNO055 detected ... Check your wiring or I2C ADDR!");
-    while(1);
+    while (1);
   }
 
   delay(1000);
@@ -58,7 +59,7 @@ void setup(void)
   bno.setExtCrystalUse(true);
 
   Serial.println("Calibration status values: 0=uncalibrated, 3=fully calibrated");
-  
+
   // Initialize stateflow
   rtObj.initialize();
 }
@@ -71,8 +72,8 @@ void setup(void)
 /**************************************************************************/
 void loop(void)
 {
-   
-   if(rtmGetErrorStatus(rtObj.getRTM()) != (NULL)) {
+
+  if (rtmGetErrorStatus(rtObj.getRTM()) != (NULL)) {
     //  Called when error in stateflow
     Serial.print("StateFlow Error!");
     while (true) {}
@@ -86,26 +87,44 @@ void loop(void)
     // - VECTOR_EULER         - degrees
     // - VECTOR_LINEARACCEL   - m/s^2
     // - VECTOR_GRAVITY       - m/s^2
-   
+
     imu::Vector<3> euler = bno.getVector(Adafruit_BNO055::VECTOR_EULER);
 
-    //Define Inputs 
+    //Define Inputs
     rtObj.rtU.gyro_signal = (int16_t)euler.x();
 
-    if(n == 20){
+    if (n == 20) {
       Serial.println("Turn Signal: "); //Prompt User for Input
-      while(Serial.available()==0) { // Wait for User to Input Data  
+      bool schleife = true;
+      while (schleife) { // Wait for User to Input Data
+        rtObj.rtU.turn = Serial.parseInt(); //Read the data the user has input
+        if (Serial.read() == '\n') {
+          schleife = false;
+        }
       }
-      rtObj.rtU.turn=Serial.parseInt();  //Read the data the user has input
-      n=0;
+
+      Serial.print("Turn signal set to: ");
+      Serial.println(rtObj.rtU.turn);
+      schleife = true;
+      Serial.println("Distance: "); //Prompt User for Input
+      while (schleife) { // Wait for User to Input Data
+        rtObj.rtU.dist = Serial.parseInt();
+        if (Serial.read() == '\n') {
+          schleife = false;
+        }
+      }
+
+      n = 0;
     }
-    
+
     n++;
 
     // Call stateflow
     rt_OneStep();
 
     /* Display the floating point data */
+    Serial.println("Inputs and local Variables: ");
+    Serial.println("_______________________ ");
     Serial.print("gyro_signal: ");
     Serial.print(rtObj.rtU.gyro_signal);
     Serial.print(" || Curr_Angle: ");
@@ -114,50 +133,58 @@ void loop(void)
     Serial.print(rtObj.rtU.turn);
     Serial.print(" || op: ");
     Serial.print(rtObj.rtDW.op);
-    Serial.print(" || Mot_l: ");
+    Serial.print(" || distance: ");
+    Serial.println(rtObj.rtU.dist);
+    Serial.println("_______________________ ");
+    Serial.println("Outputs: ");
+    Serial.println("_______________________ ");
+    Serial.print("Mot_l: ");
     Serial.print(rtObj.rtY.mot_l);
     Serial.print(" || Dir_l: ");
     Serial.print(rtObj.rtY.dir_l);
     Serial.print(" || Mot_r: ");
     Serial.print(rtObj.rtY.mot_r);
     Serial.print(" || Dir_r: ");
-    Serial.println(rtObj.rtY.dir_r);
+    Serial.print(rtObj.rtY.dir_r);
+    Serial.print(" || State: ");
+    Serial.print(rtObj.rtDW.is_c3_Chart);
+    Serial.println("_______________________ ");
 
-  
+
     /*
-    // Quaternion data
-    imu::Quaternion quat = bno.getQuat();
-    Serial.print("qW: ");
-    Serial.print(quat.w(), 4);
-    Serial.print(" qX: ");
-    Serial.print(quat.y(), 4);
-    Serial.print(" qY: ");
-    Serial.print(quat.x(), 4);
-    Serial.print(" qZ: ");
-    Serial.print(quat.z(), 4);
-    Serial.print("\t\t");
+      // Quaternion data
+      imu::Quaternion quat = bno.getQuat();
+      Serial.print("qW: ");
+      Serial.print(quat.w(), 4);
+      Serial.print(" qX: ");
+      Serial.print(quat.y(), 4);
+      Serial.print(" qY: ");
+      Serial.print(quat.x(), 4);
+      Serial.print(" qZ: ");
+      Serial.print(quat.z(), 4);
+      Serial.print("\t\t");
     */
-  
-    /* Display calibration status for each sensor. 
-    uint8_t system, gyro, accel, mag = 0;
-    bno.getCalibration(&system, &gyro, &accel, &mag);
-    Serial.print(" || CALIBRATION: Sys=");
-    Serial.print(system, DEC);
-    Serial.print(" Gyro=");
-    Serial.print(gyro, DEC);
-    Serial.print(" Accel=");
-    Serial.print(accel, DEC);
-    Serial.print(" Mag=");
-    Serial.println(mag, DEC);*/
-  
+
+    /* Display calibration status for each sensor.
+      uint8_t system, gyro, accel, mag = 0;
+      bno.getCalibration(&system, &gyro, &accel, &mag);
+      Serial.print(" || CALIBRATION: Sys=");
+      Serial.print(system, DEC);
+      Serial.print(" Gyro=");
+      Serial.print(gyro, DEC);
+      Serial.print(" Accel=");
+      Serial.print(accel, DEC);
+      Serial.print(" Mag=");
+      Serial.println(mag, DEC);*/
+
     delay(BNO055_SAMPLERATE_DELAY_MS);
   }
 
-  
+
 }
 
-int getTurn(){
-  
+int getTurn() {
+
 }
 
 // Function to perform a stateflow calculation

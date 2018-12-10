@@ -3,9 +3,9 @@
 //
 // Code generated for Simulink model 'Chart'.
 //
-// Model version                  : 1.35
+// Model version                  : 1.37
 // Simulink Coder version         : 8.14 (R2018a) 06-Feb-2018
-// C/C++ source code generated on : Thu Dec  6 11:59:00 2018
+// C/C++ source code generated on : Mon Dec 10 09:08:26 2018
 //
 // Target selection: ert.tlc
 // Embedded hardware selection: Atmel->AVR (8-bit)
@@ -17,9 +17,11 @@
 #include "Chart.h"
 
 // Named constants for Chart: '<Root>/Chart'
-#define IN_Idle                        ((uint8_T)1U)
-#define IN_Turn_Left                   ((uint8_T)2U)
-#define IN_Turn_Right                  ((uint8_T)3U)
+#define IN_Backward                    ((uint8_T)1U)
+#define IN_Forward                     ((uint8_T)2U)
+#define IN_Idle                        ((uint8_T)3U)
+#define IN_Turn_Left                   ((uint8_T)4U)
+#define IN_Turn_Right                  ((uint8_T)5U)
 
 // Model step function
 void ChartModelClass::step()
@@ -32,6 +34,7 @@ void ChartModelClass::step()
   boolean_T guard4 = false;
 
   // Chart: '<Root>/Chart' incorporates:
+  //   Inport: '<Root>/dist'
   //   Inport: '<Root>/gyro_signal'
   //   Inport: '<Root>/turn'
 
@@ -40,6 +43,64 @@ void ChartModelClass::step()
   guard3 = false;
   guard4 = false;
   switch (rtDW.is_c3_Chart) {
+   case IN_Backward:
+    if ((rtU.turn != 0) || (rtU.dist == 0)) {
+      // Outport: '<Root>/dir_r'
+      rtY.dir_r = 0U;
+
+      // Outport: '<Root>/dir_l'
+      rtY.dir_l = 0U;
+      rtDW.is_c3_Chart = IN_Idle;
+
+      // Outport: '<Root>/mot_r'
+      rtY.mot_r = 0U;
+
+      // Outport: '<Root>/mot_l'
+      rtY.mot_l = 0U;
+    } else {
+      // Outport: '<Root>/mot_r'
+      rtY.mot_r = 1U;
+
+      // Outport: '<Root>/mot_l'
+      rtY.mot_l = 1U;
+
+      // Outport: '<Root>/dir_r'
+      rtY.dir_r = 1U;
+
+      // Outport: '<Root>/dir_l'
+      rtY.dir_l = 1U;
+    }
+    break;
+
+   case IN_Forward:
+    if ((rtU.turn != 0) || (rtU.dist == 0)) {
+      // Outport: '<Root>/dir_r'
+      rtY.dir_r = 0U;
+
+      // Outport: '<Root>/dir_l'
+      rtY.dir_l = 0U;
+      rtDW.is_c3_Chart = IN_Idle;
+
+      // Outport: '<Root>/mot_r'
+      rtY.mot_r = 0U;
+
+      // Outport: '<Root>/mot_l'
+      rtY.mot_l = 0U;
+    } else {
+      // Outport: '<Root>/mot_r'
+      rtY.mot_r = 1U;
+
+      // Outport: '<Root>/mot_l'
+      rtY.mot_l = 1U;
+
+      // Outport: '<Root>/dir_r'
+      rtY.dir_r = 0U;
+
+      // Outport: '<Root>/dir_l'
+      rtY.dir_l = 0U;
+    }
+    break;
+
    case IN_Idle:
     if (rtU.turn < 0) {
       rtDW.curr_angle = rtU.gyro_signal;
@@ -272,11 +333,41 @@ void ChartModelClass::step()
   }
 
   if (guard3) {
-    // Outport: '<Root>/mot_r'
-    rtY.mot_r = 0U;
+    if ((rtU.turn == 0) && (rtU.dist > 0)) {
+      rtDW.is_c3_Chart = IN_Forward;
 
-    // Outport: '<Root>/mot_l'
-    rtY.mot_l = 0U;
+      // Outport: '<Root>/mot_r'
+      rtY.mot_r = 1U;
+
+      // Outport: '<Root>/mot_l'
+      rtY.mot_l = 1U;
+
+      // Outport: '<Root>/dir_r'
+      rtY.dir_r = 0U;
+
+      // Outport: '<Root>/dir_l'
+      rtY.dir_l = 0U;
+    } else if ((rtU.turn == 0) && (rtU.dist < 0)) {
+      rtDW.is_c3_Chart = IN_Backward;
+
+      // Outport: '<Root>/mot_r'
+      rtY.mot_r = 1U;
+
+      // Outport: '<Root>/mot_l'
+      rtY.mot_l = 1U;
+
+      // Outport: '<Root>/dir_r'
+      rtY.dir_r = 1U;
+
+      // Outport: '<Root>/dir_l'
+      rtY.dir_l = 1U;
+    } else {
+      // Outport: '<Root>/mot_r'
+      rtY.mot_r = 0U;
+
+      // Outport: '<Root>/mot_l'
+      rtY.mot_l = 0U;
+    }
   }
 
   if (guard2) {

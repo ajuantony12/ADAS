@@ -153,7 +153,7 @@ void print_mw_tgm(void)
 
   for (uint16_t n = 0; n < mw_tgm.amw; n++) {
     Serial.print("alpha="); Serial.print(n + 1); Serial.print(" deg:\t");
-    Serial.print("raw="); PrintHex16(mw_tgm.data[n], 1); Serial.print("\t\t");
+    //Serial.print("raw="); PrintHex16(mw_tgm.data[n], 1); Serial.print("\t\t");
     Serial.print("dist["); Serial.print(mw_tgm.dist_unit); Serial.print("]="); sprintf(buf, "%4d", mw_tgm.dist[n]); Serial.print(buf); Serial.print("\t\t");
     Serial.print("glare="); Serial.print(mw_tgm.glare_flag[n]); Serial.print("\t\t");
     Serial.print("wf_v_flag="); Serial.print(mw_tgm.wf_v_flag[n]); Serial.print("\t");

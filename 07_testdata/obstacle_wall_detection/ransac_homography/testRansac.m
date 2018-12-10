@@ -29,7 +29,8 @@ b2 = coef2(2);
 plot(X,k2*X+b2,'g')
 err2 = sqrError(k2,b2,pts(:,1:ptNum*(1-outlrRatio)))
 
-legend('real model coef','RANSAC', 'least square fitting','Location','northwest')
+legend('data', 'real model coef','RANSAC', 'least square fitting','Location','northwest')
+xlim([-100 100])
 grid
 
 end

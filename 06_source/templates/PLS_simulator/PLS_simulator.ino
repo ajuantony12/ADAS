@@ -118,6 +118,12 @@ void sendPLSdata(void)
         Serial.println("Error!");
         break;
     }
+    // delay between telegrams
+    if ((transmit_counter == (PLS_stim_len / 2) - 1) || (transmit_counter == PLS_stim_len -1))
+    {
+      Serial.println("Next telegram");
+      delay(300);
+    }
     transmit_counter++;
     if (transmit_counter >= PLS_stim_len) {
       Serial.println("End of simulation data...");
@@ -132,7 +138,6 @@ void sendPLSdata(void)
       }
       transmit_counter = 0;
     }
-    delay(5);
   }
 }
 
