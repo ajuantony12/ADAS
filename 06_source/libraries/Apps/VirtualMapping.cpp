@@ -11,7 +11,7 @@ CVMapping::~CVMapping(){
 }
  void CVMapping::Init(void)
 {
-
+    m_plsComms.Init();
 }
 
  void CVMapping::Run(void)

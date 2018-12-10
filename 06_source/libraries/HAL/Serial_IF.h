@@ -4,6 +4,7 @@
 * DESCRIPTION : Serial Hardware Header
 *************************************************************************/
 #include <ADAS_Types.h>
+#include <HardwareSerial.h>
 
 #ifndef HAL_SERIAL_H
 #define HAL_SERIAL_H
@@ -32,9 +33,11 @@ public:
    */
    bool Send(char Buff[], uint8_t len);
    bool Read(char Buff[], uint8_t len);
+   void SetBaudRate(unsigned int baud, unsigned short time_out);
    uint8_t Available(void);
  private:
    PortNum_e m_PortID;
+   HardwareSerial* m_Port;
   
 };
 

@@ -3,9 +3,9 @@
 //
 // Code generated for Simulink model 'Chart'.
 //
-// Model version                  : 1.24
+// Model version                  : 1.35
 // Simulink Coder version         : 8.14 (R2018a) 06-Feb-2018
-// C/C++ source code generated on : Mon Dec  3 13:20:57 2018
+// C/C++ source code generated on : Thu Dec  6 11:59:00 2018
 //
 // Target selection: ert.tlc
 // Embedded hardware selection: Atmel->AVR (8-bit)
@@ -19,8 +19,6 @@
 #ifndef Chart_COMMON_INCLUDES_
 # define Chart_COMMON_INCLUDES_
 #include "rtwtypes.h"
-//#include "rtw_continuous.h"
-//#include "rtw_solver.h"
 #endif                                 // Chart_COMMON_INCLUDES_
 
 // Macros for accessing real-time model data structure
@@ -37,21 +35,23 @@ typedef struct tag_RTM RT_MODEL;
 
 // Block signals and states (default storage) for system '<Root>'
 typedef struct {
-  real_T curr_angle;                   // '<Root>/Chart'
-  real_T op;                           // '<Root>/Chart'
+  int16_T curr_angle;                  // '<Root>/Chart'
+  int16_T op;                          // '<Root>/Chart'
   uint8_T is_c3_Chart;                 // '<Root>/Chart'
 } DW;
 
 // External inputs (root inport signals with default storage)
 typedef struct {
-  real_T gyro_signal;                  // '<Root>/gyro_signal'
-  real_T speed;                        // '<Root>/speed'
-  real_T turn;                         // '<Root>/turn'
+  int16_T gyro_signal;                 // '<Root>/gyro_signal'
+  int16_T turn;                        // '<Root>/turn'
 } ExtU;
 
 // External outputs (root outports fed by signals with default storage)
 typedef struct {
-  real_T mot;                          // '<Root>/mot'
+  uint8_T mot_r;                       // '<Root>/mot_r'
+  uint8_T dir_l;                       // '<Root>/dir_l'
+  uint8_T dir_r;                       // '<Root>/dir_r'
+  uint8_T mot_l;                       // '<Root>/mot_l'
 } ExtY;
 
 // Real-time Model Data Structure
