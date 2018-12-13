@@ -1,27 +1,27 @@
-#include <ADAS_Types.h>
-#include <ADAS_Cfg.h>
-#include <ADAS_Debug.h>
+#include "ADAS_Types.h"
+#include "ADAS_Cfg.h"
+#include "ADAS_Debug.h"
 
 /*Periperals*/
-#include <ADC.h>
-#include <DriveUnit.h>
-#include <Encoder.h>
-#include <IOManager.h>
-#include <Serial_IF.h>
+#include "HAL_ADC.h"
+#include "HAL_DriveUnit.h"
+#include "HAL_Encoder.h"
+#include "HAL_IOManager.h"
+#include "HAL_Serial_IF.h"
 
 /*Comms layer*/
-#include <InertialComms.h>
-#include <PLSComms.h>
+#include "Comm_Inertial.h"
+#include "Comm_PLS.h"
 
 /*App Layer*/
-#include <MotorCtrl.h>
-#include <Navigation.h>
-#include <Positioning.h>
-#include <UserInterface.h>
-#include <VirtualMapping.h>
+#include "App_MotorCtrl.h"
+#include "App_Navigation.h"
+#include "App_Positioning.h"
+#include "App_UserInterface.h"
+#include "App_VirtualMapping.h"
 
 /*OSAL*/
-#include <TaskCtrl.h>
+#include "OSAL_TaskCtrl.h"
 
 unsigned short len;
 CPLSComms::Message_t msg;
