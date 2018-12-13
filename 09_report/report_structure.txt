@@ -1,0 +1,46 @@
+- Abstract
+- Introduction
+
+- Customer requirements of vehicle and conditions of operation area
+
+- Project Methodology 
+	- Tools
+	- Configuration Management
+	- Team management
+	- Process (Agile Methodology)
+	- Planning
+	- Releases
+
+- Design
+	- System architecture
+	- Design criteria (HW/SW decisions)
+		* Modular design
+	- Firmware architecture
+		* Motor Control Unit
+			+ Speed Control
+			+ Steering
+			+ (Traction Control(Slip))
+		* Virtual Mapping and Positioning System
+			+ PLS Communication
+			+ Object and Boundary Detection
+			+ EGO Positioning
+		* Navigation Unit
+		* User Input Interface
+	- Remote User Interface
+	
+- Implementation
+	- Hardware Simulators
+
+- Test results
+
+- Evaluation (Compliance with Requirements)
+	
+- Failure Analysis
+	- Reasons for milestone missing 
+	- Roadmap for simulators
+	
+- Improvements and future work
+	
+- Enhancement
+
+- Conclusion
