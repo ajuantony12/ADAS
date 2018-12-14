@@ -10,6 +10,7 @@
 	- Process (Agile Methodology)
 	- Planning
 	- Releases
+	- Risk Analysis
 
 - Design
 	- System architecture
@@ -31,16 +32,24 @@
 - Implementation
 	- Hardware Simulators
 
-- Test results
+- Test
+	- Setup
+	- Results
 
 - Evaluation (Compliance with Requirements)
 	
-- Failure Analysis
+- Lessons learned
 	- Reasons for milestone missing 
-	- Roadmap for simulators
+	- Missing tasks for later tasks
+	- Linked to risk analysis
+	
 	
 - Improvements and future work
+	- Roadmap for simulators
 	
 - Enhancement
 
 - Conclusion
+
+
+Final version should be upload to dedicated elli-folder (no printed version)
