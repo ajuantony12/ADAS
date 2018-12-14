@@ -11,9 +11,7 @@
 
 Adafruit_BNO055 bno = Adafruit_BNO055();
 
-CIMUUnit::CIMUUnit(IMU_ID_e ID):
-  m_ID(ID)
-{
+CIMUUnit::CIMUUnit(){
   //do nothing
 }
 CIMUUnit::~CIMUUnit(){
@@ -21,11 +19,12 @@ CIMUUnit::~CIMUUnit(){
 }
 
 void CIMUUnit::Init(void){
+    DPRINTLN("Orientation Sensor Test Started..."); Serial.println("");
 	/* Initialise the sensor */
       if (!bno.begin())
       {
         /* There was a problem detecting the BNO055 ... check your connections */
-        Serial.print("Ooops, no BNO055 detected ... Check your wiring or I2C ADDR!");
+        DPRINTLN("Ooops, no BNO055 detected ... Check your wiring or I2C ADDR!");
         while (1);
       }
 
@@ -33,14 +32,14 @@ void CIMUUnit::Init(void){
 
       /* Display the current temperature */
         int8_t temp = bno.getTemp();
-        Serial.print("Current Temperature: ");
-        Serial.print(temp);
-        Serial.println(" C");
-        Serial.println("");
+        DPRINT("Current Temperature: ");
+        DPRINT(temp, DEC);
+        DPRINT(" C");
+        DPRINTLN("");
 
         bno.setExtCrystalUse(true);
 
-        Serial.println("Calibration status values: 0=uncalibrated, 3=fully calibrated");
+        DPRINTLN("Calibration status values: 0=uncalibrated, 3=fully calibrated");
 }
 
  uint16_t CIMUUnit::ReturnGyro(void){

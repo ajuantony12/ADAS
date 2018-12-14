@@ -7,6 +7,8 @@
 #include "HAL_DriveUnit.h"
 #include "HAL_Encoder.h"
 #include "HAL_IOManager.h"
+#include "HAL_IMU.h"
+#include "HAL_PWM.h"
 #include "HAL_Serial_IF.h"
 
 /*Comms layer*/

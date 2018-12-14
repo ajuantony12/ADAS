@@ -1,14 +1,11 @@
-#include "MotorCtrl.h"
+#include "App_MotorCtrl.h"
 #include "Arduino.h"
-#include "../HAL/PWM.h" //PWM header file
-#include "../HAL/IMU.h" //PWM header file
-#include "Stateflow.h" // Model's header file
-#include "Stateflowtypes.h" // Type definitions
+#include "HAL_PWM.h" //PWM header file
+#include "HAL_IMU.h" //PWM header file
+#include "App_Stateflow.h" // Model's header file
+#include "App_Stateflowtypes.h" // Type definitions
 
 #define PIN_ENC 3
-#define WAIT 50
-#define MOTR 11
-#define MOTL 12
 #define PIN_ENABLE 52
 #define PIN_DIRECTION_L 50
 #define PIN_DIRECTION_R 48
@@ -24,9 +21,14 @@ unsigned long enc_t = 0;
 uint16_t rpm = 0;
 
   
-CMotorCtrl::CMotorCtrl()
+CMotorCtrl::CMotorCtrl(CIMUUnit& imu_o, CPWMUnit& pwmUnitLeft_o, CPWMUnit& pwmUnitRight_o, CPLSComms& plsCOmms_o):
+rtObj(),
+m_imu_o(imu_o),
+m_pwmUnitLeft_o(pwmUnitLeft_o),
+m_pwmUnitRight_o(pwmUnitRight_o),
+m_plsCOmms_o(plsCOmms_o)
 {
-  //do nothing
+
 }
 CMotorCtrl::~CMotorCtrl(){
   //do nothing
@@ -38,37 +40,16 @@ void CMotorCtrl::Init(void)
       pinMode(PIN_ENABLE, OUTPUT);
       pinMode(PIN_DIRECTION_R, OUTPUT);
       pinMode(PIN_DIRECTION_L, OUTPUT);
-      pinMode(MOTR, OUTPUT);
-      pinMode(MOTL, OUTPUT);
+
+
       digitalWrite(PIN_ENABLE, LOW);
       digitalWrite(PIN_DIRECTION_R, HIGH);
       digitalWrite(PIN_DIRECTION_L, HIGH);
-      setupPWM16();
+
+      pwmUnitLeft_o.setupPWM16();
+      pwmUnitRight_o.setupPWM16();
+
       writeMOT(65535, 65535);
-
-      Serial.begin(9600);
-      Serial.println("Orientation Sensor Test Started..."); Serial.println("");
-
-      /* Initialise the sensor */
-      if (!bno.begin())
-      {
-        /* There was a problem detecting the BNO055 ... check your connections */
-        Serial.print("Ooops, no BNO055 detected ... Check your wiring or I2C ADDR!");
-        while (1);
-      }
-
-      delay(1000);
-
-      /* Display the current temperature */
-      int8_t temp = bno.getTemp();
-      Serial.print("Current Temperature: ");
-      Serial.print(temp);
-      Serial.println(" C");
-      Serial.println("");
-
-      bno.setExtCrystalUse(true);
-
-      Serial.println("Calibration status values: 0=uncalibrated, 3=fully calibrated");
 
       // Initialize stateflow
       rtObj.initialize();
@@ -76,8 +57,6 @@ void CMotorCtrl::Init(void)
 
 void CMotorCtrl::Run(void)
 {
-      time = micros();
-
       //Stateflow
       if (rtmGetErrorStatus(rtObj.getRTM()) != (NULL)) {
         //  Called when error in stateflow
@@ -87,7 +66,7 @@ void CMotorCtrl::Run(void)
       } else {
 
         //Set Gyro Signal
-        rtObj.rtU.gyro_signal = imu.ReturnGyro();
+        rtObj.rtU.gyro_signal = m_imu_o.ReturnGyro();
 
         getUserInput();
 
@@ -104,8 +83,6 @@ void CMotorCtrl::Run(void)
         }
 
         printValues();
-
-        delay(BNO055_SAMPLERATE_DELAY_MS);
       }
 }
 
@@ -114,34 +91,34 @@ void CMotorCtrl::Stop(void)
 	//do nothing
 }
 
-void checkState(void){
+void CMotorCtrl::checkState(void){
     switch(rtObj.rtDW.is_c3_Chart){
         case 1:
-          Serial.print("State 1: Backward");
+          Serial.println("State 1: Backward");
           digitalWrite(PIN_DIRECTION_L, HIGH);
           digitalWrite(PIN_DIRECTION_R, LOW);
           writeMOT(61500, 61500);
           break;
         case 2:
-          Serial.print("State 2: Forward");
+          Serial.println("State 2: Forward");
           digitalWrite(PIN_DIRECTION_L, LOW);
           digitalWrite(PIN_DIRECTION_R, HIGH);
           writeMOT(61500, 61500);
           break;
         case 3:
-          Serial.print("State 3: IDLE");
+          Serial.println("State 3: IDLE");
           digitalWrite(PIN_DIRECTION_L, HIGH);
           digitalWrite(PIN_DIRECTION_R, HIGH);
           writeMOT(65535, 65535);
           break;
         case 4:
-          Serial.print("State 4: Left Turn");
+          Serial.println("State 4: Left Turn");
           digitalWrite(PIN_DIRECTION_L, LOW);
           digitalWrite(PIN_DIRECTION_R, HIGH);
           writeMOT(61500, 61500);
           break;
         case 5:
-          Serial.print("State 5: Right Turn");
+          Serial.println("State 5: Right Turn");
           digitalWrite(PIN_DIRECTION_L, HIGH);
           digitalWrite(PIN_DIRECTION_R, LOW);
           writeMOT(61500, 61500);
@@ -149,15 +126,9 @@ void checkState(void){
       }
   }
 
-void writeMOT(uint16_t n1, uint16_t n2)
-{
-  analogWrite16(MOTR, n1);
-  analogWrite16(MOTL, n2);
-  delayMicroseconds(WAIT);
-}
 
-
-void getUserInput(void){
+#ifdef ADAS_DEBUG
+void CMotorCtrl::getUserInput(void){
     if (n == 20) {
       rtObj.rtU.turn = 0;
       rtObj.rtU.dist = 100;
@@ -176,7 +147,7 @@ void getUserInput(void){
     }
   }
 
-void printValues(void){
+void CMotorCtrl::printValues(void){
     Serial.println("____________________________________________________________________________ ");
     Serial.println("Inputs and local Variables: ");
     Serial.println("____________________________________________________________________________ ");
@@ -202,9 +173,10 @@ void printValues(void){
     Serial.print(" || Dir_r: ");
     Serial.println(rtObj.rtY.dir_r);
 }
+#endif
 
 // Function to perform a stateflow calculation
-void rt_OneStep(void)
+void CMotorCtrl::rt_OneStep(void)
 {
   static boolean_T OverrunFlag = false;
 
@@ -234,5 +206,3 @@ void rt_OneStep(void)
   // Restore FPU context here (if necessary)
   // Enable interrupts here
 }
-
-

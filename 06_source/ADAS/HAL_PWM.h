@@ -6,6 +6,8 @@
 
 #ifndef PWM_16bit_H
 #define PWM_16bit_H
+#define PWM1 11
+#define PWM2 12
 
 #include "ADAS_Types.h"
 
@@ -15,16 +17,27 @@ public:
         PWM1,
         PWM2,
       }PWMID_e;
+    /*
+    * Constructor
+    */
+    CPWMUnit(PWMID_e ID);
+    /*
+    * Destructor
+    */
+    ~CPWMUnit();
 
     // function to initialize 16-bit PWM
     void setupPWM16();
 
+
     // function to write PWM duty cycle
     // value from 0 to 65535
     void analogWrite16(uint8_t pin, uint16_t val);
+
+    void writeMOT(uint16_t n1, uint16_t n2)
 private:
    PWMID_e m_ID;
 
-    }
+    };
 
 #endif
