@@ -15,6 +15,8 @@
 
 /*App Layer*/
 #include "App_MotorCtrl.h"
+#include "App_Stateflow.h"
+#include "App_Stateflowtypes.h"
 #include "App_Navigation.h"
 #include "App_Positioning.h"
 #include "App_UserInterface.h"
@@ -34,6 +36,9 @@ CPLSComms::Message_t msg;
   CEncoder    enc1_o(CEncoder::E1);
   CEncoder    enc2_o(CEncoder::E2);
   CIOManager  ioMg_o;*/
+  CIMUUnit    imu_o;
+  CPWMUnit    pwmUnitLeft_o(CPWMUnit::PWM1);
+  CPWMUnit    pwmUnitRight_o(CPWMUnit::PWM2);
 CSerial     serPort(CSerial::Port1);
 //comms layer
 //CInertialComm inertial_o;
