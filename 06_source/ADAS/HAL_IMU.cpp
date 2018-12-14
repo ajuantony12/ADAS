@@ -5,6 +5,7 @@
 *************************************************************************/
 
 #include "HAL_IMU.h"
+#include "ADAS_Debug.h"
 #include <Arduino.h>
 
 #define BNO055_SAMPLERATE_DELAY_MS (100)
@@ -19,7 +20,8 @@ CIMUUnit::~CIMUUnit(){
 }
 
 void CIMUUnit::Init(void){
-    DPRINTLN("Orientation Sensor Test Started..."); Serial.println("");
+    DPRINTLN("Orientation Sensor Test Started..."); 
+    DPRINTLN("");
 	/* Initialise the sensor */
       if (!bno.begin())
       {

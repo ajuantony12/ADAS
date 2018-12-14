@@ -6,8 +6,6 @@
 
 #ifndef PWM_16bit_H
 #define PWM_16bit_H
-#define PWM1 11
-#define PWM2 12
 
 #include "ADAS_Types.h"
 
@@ -34,7 +32,7 @@ public:
     // value from 0 to 65535
     void analogWrite16(uint8_t pin, uint16_t val);
 
-    void writeMOT(uint16_t n1, uint16_t n2)
+    void writeMOT(uint16_t n);
 private:
    PWMID_e m_ID;
 

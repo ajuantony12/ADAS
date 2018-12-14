@@ -4,6 +4,7 @@
 #include "HAL_IMU.h" //PWM header file
 #include "App_Stateflow.h" // Model's header file
 #include "App_Stateflowtypes.h" // Type definitions
+#include "ADAS_Debug.h"
 
 #define PIN_ENC 3
 #define PIN_ENABLE 52
@@ -46,10 +47,11 @@ void CMotorCtrl::Init(void)
       digitalWrite(PIN_DIRECTION_R, HIGH);
       digitalWrite(PIN_DIRECTION_L, HIGH);
 
-      pwmUnitLeft_o.setupPWM16();
-      pwmUnitRight_o.setupPWM16();
+      m_pwmUnitLeft_o.setupPWM16();
+      m_pwmUnitRight_o.setupPWM16();
 
-      writeMOT(65535, 65535);
+      m_pwmUnitLeft_o.writeMOT(65535);
+      m_pwmUnitRight_o.writeMOT(65535);
 
       // Initialize stateflow
       rtObj.initialize();
@@ -77,8 +79,8 @@ void CMotorCtrl::Run(void)
 
         //PWM
         if (digitalRead(PIN_ENABLE)== HIGH) {
-          pwmUnitRight_o.writeMOT(65535);
-          pwmUnitLeft_o.writeMOT(65535);
+          m_pwmUnitRight_o.writeMOT(65535);
+          m_pwmUnitLeft_o.writeMOT(65535);
         }else{
           checkState();
         }
@@ -98,36 +100,36 @@ void CMotorCtrl::checkState(void){
           DPRINTLN("State 1: Backward");
           digitalWrite(PIN_DIRECTION_L, HIGH);
           digitalWrite(PIN_DIRECTION_R, LOW);
-          pwmUnitRight_o.writeMOT(61500);
-          pwmUnitLeft_o.writeMOT(61500);
+          m_pwmUnitRight_o.writeMOT(61500);
+          m_pwmUnitLeft_o.writeMOT(61500);
           break;
         case 2:
           DPRINTLN("State 2: Forward");
           digitalWrite(PIN_DIRECTION_L, LOW);
           digitalWrite(PIN_DIRECTION_R, HIGH);
-          pwmUnitRight_o.writeMOT(61500);
-          pwmUnitLeft_o.writeMOT(61500);
+          m_pwmUnitRight_o.writeMOT(61500);
+          m_pwmUnitLeft_o.writeMOT(61500);
           break;
         case 3:
           DPRINTLN("State 3: IDLE");
           digitalWrite(PIN_DIRECTION_L, HIGH);
           digitalWrite(PIN_DIRECTION_R, HIGH);
-          pwmUnitRight_o.writeMOT(65535);
-          pwmUnitLeft_o.writeMOT(65535);
+          m_pwmUnitRight_o.writeMOT(65535);
+          m_pwmUnitLeft_o.writeMOT(65535);
           break;
         case 4:
           DPRINTLN("State 4: Left Turn");
           digitalWrite(PIN_DIRECTION_L, LOW);
           digitalWrite(PIN_DIRECTION_R, HIGH);
-          pwmUnitRight_o.writeMOT(61500);
-          pwmUnitLeft_o.writeMOT(61500);
+          m_pwmUnitRight_o.writeMOT(61500);
+          m_pwmUnitLeft_o.writeMOT(61500);
           break;
         case 5:
           DPRINTLN("State 5: Right Turn");
           digitalWrite(PIN_DIRECTION_L, HIGH);
           digitalWrite(PIN_DIRECTION_R, LOW);
-          pwmUnitRight_o.writeMOT(61500);
-          pwmUnitLeft_o.writeMOT(61500);
+          m_pwmUnitRight_o.writeMOT(61500);
+          m_pwmUnitLeft_o.writeMOT(61500);
           break;
       }
   }

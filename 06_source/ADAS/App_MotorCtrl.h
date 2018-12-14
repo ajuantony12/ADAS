@@ -8,6 +8,7 @@
 #include "Task_if.h"
 #include "HAL_IMU.h"
 #include "HAL_PWM.h"
+#include "Comm_PLS.h"
 #include "App_Stateflow.h"
 #include "App_Stateflowtypes.h"
 

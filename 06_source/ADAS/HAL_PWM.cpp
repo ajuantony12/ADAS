@@ -6,6 +6,8 @@
 
 #include <Arduino.h>
 #include "HAL_PWM.h"
+#define PWM1 11
+#define PWM2 12
 
 CPWMUnit::CPWMUnit(PWMID_e ID):
   m_ID(ID)
@@ -18,8 +20,7 @@ CPWMUnit::~CPWMUnit(){
 
 // function to initialize 16-bit PWM
 void CPWMUnit::setupPWM16() {
-  pinMode(PWM1, OUTPUT);
-  pinMode(PWM2, OUTPUT);
+  pinMode(m_ID, OUTPUT);
 
   TCCR1A = _BV(COM1A1) | _BV(COM1B1)  /* non-inverting PWM */
            | _BV(WGM11);                   /* mode 14: fast PWM, TOP=ICR1 */
@@ -39,8 +40,7 @@ void CPWMUnit::analogWrite16(uint8_t pin, uint16_t val)
   }
 }
 
-void CPWMUnit::writeMOT(uint16_t n1, uint16_t n2)
+void CPWMUnit::writeMOT(uint16_t n)
 {
-  analogWrite16(PWM1, n1);
-  analogWrite16(PWM2, n2);
+  analogWrite16(m_ID, n);
 }
