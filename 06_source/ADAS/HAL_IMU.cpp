@@ -28,18 +28,7 @@ void CIMUUnit::Init(void){
         while (1);
       }
 
-      delay(1000);
-
-      /* Display the current temperature */
-        int8_t temp = bno.getTemp();
-        DPRINT("Current Temperature: ");
-        DPRINT(temp, DEC);
-        DPRINT(" C");
-        DPRINTLN("");
-
         bno.setExtCrystalUse(true);
-
-        DPRINTLN("Calibration status values: 0=uncalibrated, 3=fully calibrated");
 }
 
  uint16_t CIMUUnit::ReturnGyro(void){

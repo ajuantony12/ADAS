@@ -60,7 +60,7 @@ void CMotorCtrl::Run(void)
       //Stateflow
       if (rtmGetErrorStatus(rtObj.getRTM()) != (NULL)) {
         //  Called when error in stateflow
-        Serial.print("StateFlow Error!");
+        DPRINTLN("StateFlow Error!");
         while (true) {}
 
       } else {
@@ -77,7 +77,8 @@ void CMotorCtrl::Run(void)
 
         //PWM
         if (digitalRead(PIN_ENABLE)== HIGH) {
-          digitalWrite(MOTR, LOW);
+          pwmUnitRight_o.writeMOT(65535);
+          pwmUnitLeft_o.writeMOT(65535);
         }else{
           checkState();
         }
@@ -94,34 +95,39 @@ void CMotorCtrl::Stop(void)
 void CMotorCtrl::checkState(void){
     switch(rtObj.rtDW.is_c3_Chart){
         case 1:
-          Serial.println("State 1: Backward");
+          DPRINTLN("State 1: Backward");
           digitalWrite(PIN_DIRECTION_L, HIGH);
           digitalWrite(PIN_DIRECTION_R, LOW);
-          writeMOT(61500, 61500);
+          pwmUnitRight_o.writeMOT(61500);
+          pwmUnitLeft_o.writeMOT(61500);
           break;
         case 2:
-          Serial.println("State 2: Forward");
+          DPRINTLN("State 2: Forward");
           digitalWrite(PIN_DIRECTION_L, LOW);
           digitalWrite(PIN_DIRECTION_R, HIGH);
-          writeMOT(61500, 61500);
+          pwmUnitRight_o.writeMOT(61500);
+          pwmUnitLeft_o.writeMOT(61500);
           break;
         case 3:
-          Serial.println("State 3: IDLE");
+          DPRINTLN("State 3: IDLE");
           digitalWrite(PIN_DIRECTION_L, HIGH);
           digitalWrite(PIN_DIRECTION_R, HIGH);
-          writeMOT(65535, 65535);
+          pwmUnitRight_o.writeMOT(65535);
+          pwmUnitLeft_o.writeMOT(65535);
           break;
         case 4:
-          Serial.println("State 4: Left Turn");
+          DPRINTLN("State 4: Left Turn");
           digitalWrite(PIN_DIRECTION_L, LOW);
           digitalWrite(PIN_DIRECTION_R, HIGH);
-          writeMOT(61500, 61500);
+          pwmUnitRight_o.writeMOT(61500);
+          pwmUnitLeft_o.writeMOT(61500);
           break;
         case 5:
-          Serial.println("State 5: Right Turn");
+          DPRINTLN("State 5: Right Turn");
           digitalWrite(PIN_DIRECTION_L, HIGH);
           digitalWrite(PIN_DIRECTION_R, LOW);
-          writeMOT(61500, 61500);
+          pwmUnitRight_o.writeMOT(61500);
+          pwmUnitLeft_o.writeMOT(61500);
           break;
       }
   }
@@ -148,30 +154,30 @@ void CMotorCtrl::getUserInput(void){
   }
 
 void CMotorCtrl::printValues(void){
-    Serial.println("____________________________________________________________________________ ");
-    Serial.println("Inputs and local Variables: ");
-    Serial.println("____________________________________________________________________________ ");
-    Serial.print("gyro_signal: ");
-    Serial.print(rtObj.rtU.gyro_signal);
-    Serial.print(" || Curr_Angle: ");
-    Serial.print(rtObj.rtDW.curr_angle);
-    Serial.print(" || Turn: ");
-    Serial.print(rtObj.rtU.turn);
-    Serial.print(" || op: ");
-    Serial.print(rtObj.rtDW.op);
-    Serial.print(" || distance: ");
-    Serial.println(rtObj.rtU.dist);
-    Serial.println("____________________________________________________________________________ ");
-    Serial.println("Outputs: ");
-    Serial.println("____________________________________________________________________________ ");
-    Serial.print("Mot_l: ");
-    Serial.print(rtObj.rtY.mot_l);
-    Serial.print(" || Dir_l: ");
-    Serial.print(rtObj.rtY.dir_l);
-    Serial.print(" || Mot_r: ");
-    Serial.print(rtObj.rtY.mot_r);
-    Serial.print(" || Dir_r: ");
-    Serial.println(rtObj.rtY.dir_r);
+    DPRINTLN("____________________________________________________________________________ ");
+    DPRINTLN("Inputs and local Variables: ");
+    DPRINTLN("____________________________________________________________________________ ");
+    DPRINT("gyro_signal: ");
+    DPRINT(rtObj.rtU.gyro_signal);
+    DPRINT(" || Curr_Angle: ");
+    DPRINT(rtObj.rtDW.curr_angle);
+    DPRINT(" || Turn: ");
+    DPRINT(rtObj.rtU.turn);
+    DPRINT(" || op: ");
+    DPRINT(rtObj.rtDW.op);
+    DPRINT(" || distance: ");
+    DPRINTLN(rtObj.rtU.dist);
+    DPRINTLN("____________________________________________________________________________ ");
+    DPRINTLN("Outputs: ");
+    DPRINTLN("____________________________________________________________________________ ");
+    DPRINT("Mot_l: ");
+    DPRINT(rtObj.rtY.mot_l);
+    DPRINT(" || Dir_l: ");
+    DPRINT(rtObj.rtY.dir_l);
+    DPRINT(" || Mot_r: ");
+    DPRINT(rtObj.rtY.mot_r);
+    DPRINT(" || Dir_r: ");
+    DPRINTLN(rtObj.rtY.dir_r);
 }
 #endif
 
