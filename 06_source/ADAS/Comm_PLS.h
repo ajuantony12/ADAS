@@ -17,12 +17,12 @@ class CPLSComms
 {
 public:
     typedef enum {
-        MsgSuccess,
-        CRCCheckFail,
-        CommsError,
-        PartialMsg,
-        Msg_NCK,
-        InvalidReq
+        MsgSuccess =0,
+        CRCCheckFail = 1,
+        CommsError = 2,
+        PartialMsg = 3,
+        Msg_NCK =4,
+        InvalidReq =5
     } Status_e;
     typedef struct {
         uint8_t* data;
@@ -36,7 +36,7 @@ public:
     /*
     * init
     */
-    void Init(void);
+    Status_e Init(void);
     /*
     * Get Measurements
     */
@@ -88,7 +88,7 @@ private:
     CSerial& m_serPort;
     uint8_t m_sndBuff[SND_BUFF_SIZE];
     uint8_t m_rcvBuff[RCV_BUFF_SIZE];
-    Status_e m_status;
+    volatile Status_e m_status;
     bool m_asyncDataFLag;
 };
 

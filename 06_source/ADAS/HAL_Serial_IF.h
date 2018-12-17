@@ -34,6 +34,7 @@ public:
    bool Send(char Buff[], uint8_t len);
    uint16_t Read(char Buff[], uint16_t len);
    void SetBaudRate(uint32_t baud, uint16_t time_out);
+   void SetTimeOut(uint16_t time_out);
    uint8_t Available(void);
    /* flush serial read buffer*/
     void FlushReadBuff(void);
