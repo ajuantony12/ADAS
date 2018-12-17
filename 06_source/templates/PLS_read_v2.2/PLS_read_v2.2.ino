@@ -1,13 +1,12 @@
 #define BAUD 9600
-#define F_CPU 16000000UL
 #define BAUD_PRESCALE (((F_CPU / (BAUD * 16UL))) - 1)
 
-#define BUF_LEN 500
+#define BUF_LEN 800
 uint8_t rxBuffer[BUF_LEN];
-uint16_t rxMsgLen = 0;
+volatile uint16_t rxMsgLen = 0;
 volatile uint16_t rxBufferPointer = 0;
-bool rxBufferFull = false;
-bool rxBufferRdy = false;
+volatile bool rxBufferFull = false;
+volatile bool rxBufferRdy = false;
 
 
 #define PLS_STX 0x02 // start byte
@@ -34,7 +33,8 @@ void loop() {
 
   if (rxBufferRdy) {
     Serial.println("Received telegram:");
-    for (int n = 0; n < rxMsgLen + 2; n++)
+    Serial.print(rxMsgLen); Serial.print(" "); Serial.println(rxMsgLen, HEX);
+    for (int n = 0; n < rxMsgLen + 6; n++)
     {
       Serial.print(rxBuffer[n], HEX); Serial.print(" ");
     }
@@ -48,6 +48,17 @@ void loop() {
   if (rxBufferFull)
   {
     Serial.println("rxBuffer is full!");
+    Serial.print(rxMsgLen); Serial.print(" "); Serial.println(rxMsgLen, HEX);
+
+    Serial.println(rxBuffer[0], HEX);
+    Serial.println(rxBuffer[1], HEX);
+    Serial.println(rxBuffer[2], HEX);
+    Serial.println(rxBuffer[3], HEX);
+
+    /*for (int n = 0; n < BUF_LEN + 6; n++)
+      {
+      rxBuffer[n] = 0;
+      }*/
 
     rxBufferPointer = 0;
     rxMsgLen = 0;
@@ -61,6 +72,7 @@ void loop() {
 // UART1 interrupt
 ISR(USART1_RX_vect)
 {
+  
   if ((!rxBufferFull) && (!rxBufferRdy))
   {
     // Read incoming data
@@ -73,7 +85,7 @@ ISR(USART1_RX_vect)
     if (rxBufferPointer == 3)
     {
       // Check for start byte and PLS address
-      if ((rxBuffer[0] != PLS_STX) && (rxBuffer[1] != PLS_ADR))
+      if ((rxBuffer[0] != PLS_STX) || (rxBuffer[1] != PLS_ADR))
       {
         // STX & ADR not in first two bytes => overwrite received data
         rxBufferPointer = 0;
@@ -82,11 +94,11 @@ ISR(USART1_RX_vect)
     {
       // Check length of telegram
       rxMsgLen = (rxBuffer[3] << 8) + rxBuffer[2];
-    } else if (rxBufferPointer == rxMsgLen + 2) // + 2 for CRC
+    } else if (rxBufferPointer == rxMsgLen + 6) // + 2 for CRC
     {
       // Received full telegram
       rxBufferRdy = true;
-    } else if (rxBufferPointer == BUF_LEN)
+    }else if (rxBufferPointer == BUF_LEN)
     {
       // Set flag if buffer is full
       rxBufferFull = true;
@@ -97,6 +109,9 @@ ISR(USART1_RX_vect)
     // flush data
     (void) UDR1;
   }
+
+
+  
 }
 
 // Function to initialization of UART1
