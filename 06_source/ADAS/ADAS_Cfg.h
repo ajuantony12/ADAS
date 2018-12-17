@@ -20,6 +20,10 @@
 
 //Serial Port
 #define SERIAL1_INITIAL_BAUD_RATE                       9600
-#define SERIAL1_TIMEOUT                                 500
+#define SERIAL1_TIMEOUT                                 60
+#define SERIAL1_INIT_TIMEOUT                            500
+
+//Virtual Mapping 
+#define VMAP_ACTIVE_CHECK_INTERVAL                      5
 
 #endif /*ADAS_CFG_H*/

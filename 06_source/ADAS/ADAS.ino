@@ -40,7 +40,7 @@ CSerial     serPort(CSerial::Port1);
 CPLSComms   plsCOmms_o(serPort);
 
 //Task
-CVMapping vMap_o(plsCOmms_o);
+  CVMapping vMap_o(plsCOmms_o, VMAP_ACTIVE_CHECK_INTERVAL);
 /*CUser_IF uI_o;
   CPositioning pos_o;
   CNavigation nav_o(plsCOmms_o);
@@ -56,7 +56,7 @@ void setup() {
     dUnitRight_o.Init();
     enc1_o.Init();
     enc2_o.Init();*/
-  serPort.Init(SERIAL1_INITIAL_BAUD_RATE, SERIAL1_TIMEOUT);
+  serPort.Init(SERIAL1_INITIAL_BAUD_RATE, SERIAL1_INIT_TIMEOUT);
   Serial.begin(9600);
 
   //inertial_o.Init();
@@ -71,16 +71,8 @@ void setup() {
 }
 
 void loop() {
-   uint16_t len = 0;
-   uint8_t* buff;
   // put your main code here, to run repeatedly:
-  //taskCtrl_o.Run();
-  DPRINTLN("Sending measurement request");
-  if (plsCOmms_o.GetMeasurements(buff, len))
-  {
-    DPRINTLN("recieved measurement");
-    DPRINTLN(len, HEX);
-  }
+  taskCtrl_o.Run();
   if (plsCOmms_o.isContaminated())
   {
     DPRINTLN("Warning Field Breached");
@@ -92,12 +84,6 @@ void loop() {
 void serialEvent1() {
   while (serPort.Available())
   {
-    //      DPRINTLN("DATA available");
-    //      if (CPLSComms::MsgSuccess == plsCOmms_o.RecievePkt(len))
-    //      {
-    //        DPRINTLN("Searching");
-    //        plsCOmms_o.SearchMsg(msg, 0x00, len);
-    //      }
     plsCOmms_o.AddContaminationAlert();
     DPRINTLN("Warning Field Breached data recieved");
     while (serPort.Available())
