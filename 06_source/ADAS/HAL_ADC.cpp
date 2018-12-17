@@ -13,7 +13,7 @@ void CADC::Init(void){
 	//to do
 }
 
- unsigned short CADC::ReadADCValue(void){
+ uint16_t CADC::ReadADCValue(void){
 	//to do
       return 0U;
  }
