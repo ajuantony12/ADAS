@@ -5,29 +5,19 @@
 #include "App_Stateflow.h" // Model's header file
 #include "App_Stateflowtypes.h" // Type definitions
 #include "ADAS_Debug.h"
-
-#define PIN_ENC 3
-#define PIN_ENABLE 52
-#define PIN_DIRECTION_L 50
-#define PIN_DIRECTION_R 48
-
+#include "ADAS_Cfg.h"
 
 int n = 20;
 int16_T dist = 0;
 
-//Encoder Definitions
-unsigned long time;
-unsigned long enc_last_time = 0;
-unsigned long enc_t = 0;
-uint16_t rpm = 0;
-
-  
-CMotorCtrl::CMotorCtrl(CIMUUnit& imu_o, CPWMUnit& pwmUnitLeft_o, CPWMUnit& pwmUnitRight_o, CPLSComms& plsCOmms_o):
+CMotorCtrl::CMotorCtrl(CIMUUnit& imu_o, CPWMUnit& pwmUnitLeft_o, CPWMUnit& pwmUnitRight_o, CPLSComms& plsCOmms_o, CEncoder& enc1_o, CEncoder& enc2_o):
 rtObj(),
 m_imu_o(imu_o),
 m_pwmUnitLeft_o(pwmUnitLeft_o),
 m_pwmUnitRight_o(pwmUnitRight_o),
-m_plsCOmms_o(plsCOmms_o)
+m_plsCOmms_o(plsCOmms_o),
+m_enc1_o(enc1_o),
+m_enc2_o(enc2_o)
 {
 
 }
@@ -42,13 +32,16 @@ void CMotorCtrl::Init(void)
       pinMode(PIN_DIRECTION_R, OUTPUT);
       pinMode(PIN_DIRECTION_L, OUTPUT);
 
+      DPRINTLN("Motor Control Init");
 
       digitalWrite(PIN_ENABLE, LOW);
       digitalWrite(PIN_DIRECTION_R, HIGH);
       digitalWrite(PIN_DIRECTION_L, HIGH);
 
+     
       m_pwmUnitLeft_o.setupPWM16();
       m_pwmUnitRight_o.setupPWM16();
+      m_imu_o.Init();
 
       m_pwmUnitLeft_o.writeMOT(65535);
       m_pwmUnitRight_o.writeMOT(65535);

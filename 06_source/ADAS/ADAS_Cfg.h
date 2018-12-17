@@ -22,4 +22,11 @@
 #define SERIAL1_INITIAL_BAUD_RATE                       9600
 #define SERIAL1_TIMEOUT                                 500
 
+//Pins
+#define PIN_MTR_L_PWM                                   11
+#define PIN_MTR_R_PWM                                   12
+#define PIN_ENABLE                                      52
+#define PIN_DIRECTION_L                                 50
+#define PIN_DIRECTION_R                                 48
+
 #endif /*ADAS_CFG_H*/

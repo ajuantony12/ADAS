@@ -6,6 +6,7 @@
 
 #include <Arduino.h>
 #include "HAL_PWM.h"
+#include "ADAS_Debug.h"
 #define PWM1 11
 #define PWM2 12
 

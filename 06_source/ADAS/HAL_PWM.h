@@ -6,14 +6,14 @@
 
 #ifndef PWM_16bit_H
 #define PWM_16bit_H
-
 #include "ADAS_Types.h"
+#include "ADAS_Cfg.h"
 
 class CPWMUnit{
 public:
     typedef enum {
-        PWM1,
-        PWM2,
+        PWM1=PIN_MTR_L_PWM,
+        PWM2=PIN_MTR_R_PWM,
       }PWMID_e;
     /*
     * Constructor

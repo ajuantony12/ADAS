@@ -27,6 +27,7 @@
 /*OSAL*/
 #include "OSAL_TaskCtrl.h"
 
+
 unsigned short len;
 CPLSComms::Message_t msg;
 
@@ -35,23 +36,23 @@ CPLSComms::Message_t msg;
 /*CADC adc_o;
   CDriveUnit  dUnitLeft_o(CDriveUnit::Drive1);
   CDriveUnit  dUnitRight_o(CDriveUnit::Drive2);
-  CEncoder    enc1_o(CEncoder::E1);
-  CEncoder    enc2_o(CEncoder::E2);
   CIOManager  ioMg_o;*/
   CIMUUnit    imu_o;
+  CEncoder    enc1_o(CEncoder::E1);
+  CEncoder    enc2_o(CEncoder::E2);
   CPWMUnit    pwmUnitLeft_o(CPWMUnit::PWM1);
   CPWMUnit    pwmUnitRight_o(CPWMUnit::PWM2);
-CSerial     serPort(CSerial::Port1);
+  CSerial     serPort(CSerial::Port1);
 //comms layer
 //CInertialComm inertial_o;
 CPLSComms   plsCOmms_o(serPort);
-
+CMotorCtrl  mCtrl_o(imu_o, pwmUnitLeft_o, pwmUnitRight_o, plsCOmms_o, enc1_o, enc2_o);
 //Task
 CVMapping vMap_o(plsCOmms_o);
 /*CUser_IF uI_o;
   CPositioning pos_o;
   CNavigation nav_o(plsCOmms_o);
-  CMotorCtrl mCtrl_o;*/
+ */
 
 /*OSAL*/
 CTaskCtrl taskCtrl_o;
@@ -65,11 +66,11 @@ void setup() {
     enc2_o.Init();*/
   serPort.Init(SERIAL1_INITIAL_BAUD_RATE, SERIAL1_TIMEOUT);
   Serial.begin(9600);
-  DPRINTLN("HEllo\n\r");
+  DPRINTLN("Hello\n\r");
 
   //inertial_o.Init();
   plsCOmms_o.Init();
-
+  mCtrl_o.Init();
   //Task initialization
   /*taskCtrl_o.Register(&mCtrl_o, 1);
     taskCtrl_o.Register(&nav_o, 0);
@@ -83,6 +84,7 @@ void loop() {
   //Serial1.write("hello\n\r");
   // put your main code here, to run repeatedly:
   //taskCtrl_o.Run();
+  mCtrl_o.Run();
   if (plsCOmms_o.isContaminated())
   {
     DPRINTLN("Warning Field Breached");
