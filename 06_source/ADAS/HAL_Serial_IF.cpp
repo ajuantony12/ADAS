@@ -14,7 +14,7 @@ CSerial::~CSerial(){
   m_Port = NULL;
 }
 
-void CSerial::Init(unsigned int baud, unsigned short time_out){
+void CSerial::Init(uint32_t baud, uint16_t time_out){
 
 #ifdef ATMEGA_BOARD
     switch(m_PortID)
@@ -36,6 +36,7 @@ void CSerial::Init(unsigned int baud, unsigned short time_out){
       m_Port = &Serial1;
     }
     m_Port->begin(baud, SERIAL_8E1);
+    m_Port->setTimeout(time_out);
 #endif
 }
 
@@ -45,11 +46,11 @@ void CSerial::Init(unsigned int baud, unsigned short time_out){
     return retVal;
  }
 
-unsigned short CSerial::Read(char Buff[], unsigned short len)
+uint16_t CSerial::Read(char Buff[], uint16_t len)
 {
     return m_Port->readBytes(Buff, len);
 }
-void CSerial::SetBaudRate(unsigned int baud, unsigned short time_out)
+void CSerial::SetBaudRate(uint32_t baud, uint16_t time_out)
 {
     m_Port->end();
     m_Port->begin(baud, SERIAL_8E1);

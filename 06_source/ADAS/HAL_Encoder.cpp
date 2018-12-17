@@ -14,7 +14,7 @@ void CEncoder::Init(){
 	//to do
 }
 
-bool Read(unsigned short& value)
+bool Read(uint16_t& value)
 {
 	//to do
 	return true;

@@ -17,10 +17,10 @@
 #define SICK_CRC_HDR_LEN            0x02
 #define SICK_D_FIELD_POS            0x02
 #define SICK_ADDR_POS               0x01
-
+#define SICK_MSG_B1_ST_POS          0x08
 
 #define CRC16_GEN_POL 0x8005
-#define MKSHORT(a,b) ((unsigned short) (a) | ((unsigned short)(b) << 8))
+#define MKSHORT(a,b) ((uint16_t) (a) | ((uint16_t)(b) << 8))
 
 #ifdef ONE_TIME_CFG
 static const uint8_t BM_TGM_SETUP[] ={0x0D 0x0A, 0x00, 0x20, 0x00, 'S', 'I', 'C', 'K', '_', 'L', 'S', 'I'};
@@ -42,7 +42,7 @@ static const uint8_t BM_TGM_AllVal[] ={0x05, 0x02, 0x00, 0x20, 0x25};
 static const uint8_t BM_TGM_AllSeg[] ={0x05, 0x02, 0x00, 0x20, 0x21};
 static const uint8_t BM_TGM_Vert[] ={0x05, 0x02, 0x00, 0x20, 0x23};
 // Get Frame
-static const uint8_t GetFrameMsg[] ={0x06, 0x02, 0x00, 0x30, 0x00, 0x01};
+static const uint8_t GetFrameMsg[] ={0x06, 0x03, 0x00, 0x30, 0x00, 0x00};
 #endif
 
 uint8_t prvbyte = 0x0;
@@ -61,17 +61,16 @@ CPLSComms::~CPLSComms()
 
 void CPLSComms::Init(void)
 {
-#if 0
    bool msgStatus = false;
     Message_t msg;
-    unsigned short len;
+    uint16_t len;
     m_status= Status_e::CommsError;
     CBuffAdas buffer(m_sndBuff, SND_BUFF_SIZE);
     /*Reset Laser*/
+    buffer.Reset();
     CreatePacket(buffer, INIT_TGM);
     m_serPort.FlushReadBuff();
     m_serPort.Send(m_sndBuff, buffer.GetLength());
-    buffer.Reset();
     DPRINTLN("INIT message send");
     if (MsgSuccess == RecievePkt(len))
     {
@@ -107,32 +106,27 @@ void CPLSComms::Init(void)
 #endif
      if ((Status_e::MsgSuccess == m_status)&& (msgStatus))
     {
+        buffer.Reset();
         CreatePacket(buffer, SSANF_TGM);
         m_serPort.FlushReadBuff();
         m_serPort.Send(m_sndBuff, buffer.GetLength());
-        buffer.Reset();
         if (MsgSuccess == RecievePkt(len))
         {
             msgStatus = SearchMsg(msg, 0xB1, len);
-#ifdef ADAS_DEBUG
             if (msgStatus)
             {
                 DPRINTLN("status response recieved\n\r");
-            }
-#endif
-            if (msgStatus)
-            {
-                DPRINTLN("checking status\n\r");
-                m_status = (0 == msg.data[1])? MsgSuccess:CommsError;
+                DPRINTLN( msg.data[SICK_MSG_B1_ST_POS], HEX);
+                m_status = (0 == msg.data[SICK_MSG_B1_ST_POS])? MsgSuccess:CommsError;
             }
         }
     }
      if ((Status_e::MsgSuccess == m_status)&& (msgStatus))
     {
+        buffer.Reset();
         CreatePacket(buffer, BM_TGM_AllSeg);
         m_serPort.FlushReadBuff();
         m_serPort.Send(m_sndBuff, buffer.GetLength());
-        //buffer.Reset();
         if (MsgSuccess == RecievePkt(len))
         {
             msgStatus = SearchMsg(msg, 0xA0, len);
@@ -166,20 +160,29 @@ void CPLSComms::Init(void)
             break;
     }
 #endif
-#endif
-    delay(3000);
-    DPRINTLN("end of check"); 
+    DPRINTLN("end of PLS INIT"); 
 }
 
-bool CPLSComms::GetMeasurements(uint8_t* buff[], uint8_t& len)
+bool CPLSComms::GetMeasurements(uint8_t* buff, uint16_t& len)
 {
+    bool msgStatus = false;
+    Message_t msg;
     CBuffAdas buffer(m_sndBuff, SND_BUFF_SIZE);
+    buffer.Reset();
     CreatePacket(buffer, GetFrameMsg);
     m_serPort.Send(m_sndBuff, buffer.GetLength());
-    
-    return true;
+    if (MsgSuccess == RecievePkt(len))
+    {
+        msgStatus = SearchMsg(msg, 0xA0, len);
+        if (!msgStatus)
+        {
+            DPRINTLN("no measruement data recieved\n\r");
+            m_status = CommsError;
+        }
+    }
+    return msgStatus;
 }
-bool CPLSComms::IsPFBreached(unsigned int& distToObj)
+bool CPLSComms::IsPFBreached(uint32_t& distToObj)
 {
     return true;
 }
@@ -193,9 +196,9 @@ CPLSComms::Status_e CPLSComms::GetStatus(void)
 {
     return Status_e::MsgSuccess;
 }
-unsigned short CPLSComms::CalcCrC(uint8_t* data, unsigned short len)
+uint16_t CPLSComms::CalcCrC(uint8_t* data, uint16_t len)
 {
-    unsigned short uCrc16;
+    uint16_t uCrc16;
     unsigned char abData[2];
     uCrc16 = 0;
     abData[0] = 0;
@@ -217,11 +220,11 @@ unsigned short CPLSComms::CalcCrC(uint8_t* data, unsigned short len)
     return(uCrc16);
 }
 
-bool CPLSComms::SearchMsg(Message_t& msg, uint8_t ID, unsigned short len)
+bool CPLSComms::SearchMsg(Message_t& msg, uint8_t ID, uint16_t len)
 {
     bool retVal = false;
     bool NackRecv = false;
-    unsigned short msgLen = len;
+    uint16_t msgLen = len;
    while (true)
    {
        DPRINTLN("In search");
@@ -290,17 +293,17 @@ bool CPLSComms::SearchMsg(Message_t& msg, uint8_t ID, unsigned short len)
    }
 }
 
-CPLSComms::Status_e CPLSComms::ParseMsgContent(Message_t& msg, unsigned short start, unsigned short len)
+CPLSComms::Status_e CPLSComms::ParseMsgContent(Message_t& msg, uint16_t start, uint16_t len)
 {
-    unsigned short crc;
+    uint16_t crc;
     bool  flag = false;
     Status_e retVal = Status_e::CommsError;
     msg.messageID = 0;
     msg.len = 0;
     msg.start = 0;
     msg.data = NULL;
-    unsigned short j = len;
-    for (unsigned short i = 0 ; i < len; i++)
+    uint16_t j = len;
+    for (uint16_t i = 0 ; i < len; i++)
     {
         DPRINT(i, HEX);
         DPRINT(" | ");
@@ -384,12 +387,12 @@ CPLSComms::Status_e CPLSComms::ParseMsgContent(Message_t& msg, unsigned short st
     }
     return retVal;
 }
-CPLSComms::Status_e CPLSComms::RecievePkt(unsigned short& len)
+CPLSComms::Status_e CPLSComms::RecievePkt(uint16_t& len)
 {
 
     Status_e retVal = Status_e::CommsError;
     uint8_t current;
-#if 0
+#if 1
 #ifdef ADAS_DEBUG
     bool flag = false;
     uint8_t count = 0;
@@ -418,7 +421,7 @@ CPLSComms::Status_e CPLSComms::RecievePkt(unsigned short& len)
     }
 #endif
     return retVal;
-#endif 
+#else
     current = Serial1.read();
     if ((0x80 == current) && (prvbyte == 0x02))
     {
@@ -426,11 +429,11 @@ CPLSComms::Status_e CPLSComms::RecievePkt(unsigned short& len)
         {
             m_rcvBuff[0] = 0x02;
             m_rcvBuff[1] = 0x80;
-            len = ((static_cast<unsigned short>(m_rcvBuff[3]) << 8) | m_rcvBuff[2]) + 2;
+            len = ((static_cast<uint16_t>(m_rcvBuff[3]) << 8) | m_rcvBuff[2]) + 2;
             DPRINT("\n\r");
             DPRINT(len, HEX);
             DPRINT("\n\r");
-            unsigned int datarcved = Serial1.readBytes(&m_rcvBuff[4], len);
+            uint32_t datarcved = Serial1.readBytes(&m_rcvBuff[4], len);
             DPRINT("\n\r");
             DPRINT(datarcved, HEX);
             DPRINT("\n\r");
@@ -440,21 +443,26 @@ CPLSComms::Status_e CPLSComms::RecievePkt(unsigned short& len)
       len += 4;
       prvbyte = current;
       return retVal;
+#endif
 }
 
 void  CPLSComms::CreatePacket(CBuffAdas& buff, uint8_t* Data)
 {
-    unsigned short crc;
+    uint16_t crc;
     buff.Append(SICK_STX);
+    DPRINT(SICK_STX,HEX);
+    DPRINT(" ");
     buff.Append(SICK_DEST);
+    DPRINT(SICK_DEST,HEX);
+    DPRINT(" ");
     for (int i = 1; i < Data[0]; i++)
     {
         buff.Append(Data[i]);
         DPRINT(Data[i], HEX);
-        DPRINT("\n\r");
+        DPRINT(" ");
     }
     crc = CalcCrC(buff.GetData(), buff.GetLength());
-    DPRINT("CRC - ");
+    buff.Append(static_cast<uint8_t>(crc & 0x00FF));
     DPRINT(static_cast<uint8_t>(crc & 0x00FF), HEX);
     DPRINT(" ");
     buff.Append(static_cast<uint8_t>((crc >> 8) & 0x00FF));
