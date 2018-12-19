@@ -17507,23 +17507,16 @@ W = angled&lt;p&gt;
 <label x="147.32" y="43.18" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="MTR_L_EN" class="0">
+<net name="MTR_EN" class="0">
 <segment>
-<wire x1="58.42" y1="154.94" x2="48.26" y2="154.94" width="0.1524" layer="91"/>
-<label x="48.26" y="154.94" size="1.778" layer="95" rot="R180"/>
-<pinref part="U1" gate="G$1" pin="7"/>
+<pinref part="U1" gate="G$1" pin="8"/>
+<wire x1="58.42" y1="152.4" x2="48.26" y2="152.4" width="0.1524" layer="91"/>
+<label x="48.26" y="152.4" size="1.778" layer="95" rot="R180"/>
 </segment>
 <segment>
 <pinref part="SV1" gate="G$1" pin="3"/>
 <wire x1="177.8" y1="220.98" x2="172.72" y2="220.98" width="0.1524" layer="91"/>
 <label x="172.72" y="220.98" size="1.778" layer="95" rot="R180"/>
-</segment>
-</net>
-<net name="MTR_R_EN" class="0">
-<segment>
-<wire x1="58.42" y1="152.4" x2="48.26" y2="152.4" width="0.1524" layer="91"/>
-<label x="48.26" y="152.4" size="1.778" layer="95" rot="R180"/>
-<pinref part="U1" gate="G$1" pin="8"/>
 </segment>
 <segment>
 <pinref part="SV2" gate="G$1" pin="3"/>
