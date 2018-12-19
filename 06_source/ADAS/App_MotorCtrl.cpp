@@ -43,8 +43,8 @@ void CMotorCtrl::Init(void)
       m_pwmUnitRight_o.setupPWM16();
       m_imu_o.Init();
 
-      m_pwmUnitLeft_o.writeMOT(65535);
-      m_pwmUnitRight_o.writeMOT(65535);
+      m_pwmUnitLeft_o.writeMOT(1023);
+      m_pwmUnitRight_o.writeMOT(1023);
 
       // Initialize stateflow
       rtObj.initialize();
@@ -72,8 +72,8 @@ void CMotorCtrl::Run(void)
 
         //PWM
         if (digitalRead(PIN_ENABLE)== HIGH) {
-          m_pwmUnitRight_o.writeMOT(65535);
-          m_pwmUnitLeft_o.writeMOT(65535);
+          m_pwmUnitRight_o.writeMOT(1023);
+          m_pwmUnitLeft_o.writeMOT(1023);
         }else{
           checkState();
         }
@@ -93,36 +93,36 @@ void CMotorCtrl::checkState(void){
           DPRINTLN("State 1: Backward");
           digitalWrite(PIN_DIRECTION_L, HIGH);
           digitalWrite(PIN_DIRECTION_R, LOW);
-          m_pwmUnitRight_o.writeMOT(61500);
-          m_pwmUnitLeft_o.writeMOT(61500);
+          m_pwmUnitRight_o.writeMOT(800);
+          m_pwmUnitLeft_o.writeMOT(800);
           break;
         case 2:
           DPRINTLN("State 2: Forward");
           digitalWrite(PIN_DIRECTION_L, LOW);
           digitalWrite(PIN_DIRECTION_R, HIGH);
-          m_pwmUnitRight_o.writeMOT(61500);
-          m_pwmUnitLeft_o.writeMOT(61500);
+          m_pwmUnitRight_o.writeMOT(800);
+          m_pwmUnitLeft_o.writeMOT(800);
           break;
         case 3:
           DPRINTLN("State 3: IDLE");
           digitalWrite(PIN_DIRECTION_L, HIGH);
           digitalWrite(PIN_DIRECTION_R, HIGH);
-          m_pwmUnitRight_o.writeMOT(65535);
-          m_pwmUnitLeft_o.writeMOT(65535);
+          m_pwmUnitRight_o.writeMOT(1023);
+          m_pwmUnitLeft_o.writeMOT(1023);
           break;
         case 4:
           DPRINTLN("State 4: Left Turn");
           digitalWrite(PIN_DIRECTION_L, LOW);
           digitalWrite(PIN_DIRECTION_R, HIGH);
-          m_pwmUnitRight_o.writeMOT(61500);
-          m_pwmUnitLeft_o.writeMOT(61500);
+          m_pwmUnitRight_o.writeMOT(800);
+          m_pwmUnitLeft_o.writeMOT(800);
           break;
         case 5:
           DPRINTLN("State 5: Right Turn");
           digitalWrite(PIN_DIRECTION_L, HIGH);
           digitalWrite(PIN_DIRECTION_R, LOW);
-          m_pwmUnitRight_o.writeMOT(61500);
-          m_pwmUnitLeft_o.writeMOT(61500);
+          m_pwmUnitRight_o.writeMOT(800);
+          m_pwmUnitLeft_o.writeMOT(800);
           break;
       }
   }
