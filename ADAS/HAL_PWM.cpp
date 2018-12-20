@@ -27,6 +27,7 @@ void CPWMUnit::setupPWM16() {
 
   TCCR1B = (1 << WGM12) | (0 << CS12) | (1 << CS10);
 
+
 }
 
 
@@ -36,12 +37,10 @@ void CPWMUnit::analogWrite16(uint8_t pin, uint16_t val)
 {
   switch (pin) {
     case  11:
-      OCR1AH = (val >> 8);
-      OCR1AL = val & 0x00ff;
+      OCR1A = (val>>8);
       break;
     case  12:
-      OCR1BH = (val >> 8);
-      OCR1BL = val & 0x00ff;
+      OCR1B = (val&0X00FF);
       break;
   }
 }

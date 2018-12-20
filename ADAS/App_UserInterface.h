@@ -1,21 +1,20 @@
 /*H**********************************************************************
-* FILENAME :        VirtualMapping.h             
+* FILENAME :        UserInterface.h             
 *
-* DESCRIPTION : Virtual Mapping module 
+* DESCRIPTION : user interface module 
 *************************************************************************/
 
 #include "Task_if.h"
 #include "ADAS_Types.h"
-#include "Comm_PLS.h"
 
-#ifndef APP_V_MAPPING_H
-#define APP_V_MAPPING_H
+#ifndef APP_UI_H
+#define APP_UI_H
 
-class CVMapping: public ITask_IF
+class CUser_IF: public ITask_IF
 {
 public:
-	CVMapping(CPLSComms& plsComms);
-	~CVMapping();
+	CUser_IF();
+	~CUser_IF();
   /*
    * init
    */
@@ -28,9 +27,7 @@ public:
    * Stop
    */
   virtual void Stop(void);
-private:
-    CPLSComms&   m_plsComms;
-    uint8_t m_MeasruementData[MAX_MES_BUFF_SIZE];
+  
 };
 
-#endif /*APP_V_MAPPING_H*/
+#endif /*APP_UI_H*/
