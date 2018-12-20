@@ -7,6 +7,8 @@
 #include "HAL_DriveUnit.h"
 #include "HAL_Encoder.h"
 #include "HAL_IOManager.h"
+#include "HAL_IMU.h"
+#include "HAL_PWM.h"
 #include "HAL_Serial_IF.h"
 
 /*Comms layer*/
@@ -15,6 +17,8 @@
 
 /*App Layer*/
 #include "App_MotorCtrl.h"
+#include "App_Stateflow.h"
+#include "App_Stateflowtypes.h"
 #include "App_Navigation.h"
 #include "App_Positioning.h"
 #include "App_UserInterface.h"
@@ -31,13 +35,17 @@ CPLSComms::Message_t msg;
 /*CADC adc_o;
   CDriveUnit  dUnitLeft_o(CDriveUnit::Drive1);
   CDriveUnit  dUnitRight_o(CDriveUnit::Drive2);
-  CEncoder    enc1_o(CEncoder::E1);
-  CEncoder    enc2_o(CEncoder::E2);
   CIOManager  ioMg_o;*/
+CIMUUnit    imu_o;
+CEncoder    enc1_o(CEncoder::E1);
+CEncoder    enc2_o(CEncoder::E2);
+CPWMUnit    pwmUnitLeft_o(CPWMUnit::PWM1);
+CPWMUnit    pwmUnitRight_o(CPWMUnit::PWM2);
 CSerial     serPort(CSerial::Port1);
 //comms layer
 //CInertialComm inertial_o;
 CPLSComms   plsCOmms_o(serPort);
+CMotorCtrl  mCtrl_o(imu_o, pwmUnitLeft_o, pwmUnitRight_o, plsCOmms_o, enc1_o, enc2_o);
 
 //Task
   CVMapping vMap_o(plsCOmms_o, VMAP_ACTIVE_CHECK_INTERVAL);
@@ -58,8 +66,10 @@ void setup() {
     enc2_o.Init();*/
   serPort.Init(SERIAL1_INITIAL_BAUD_RATE, SERIAL1_INIT_TIMEOUT);
   Serial.begin(9600);
+  DPRINTLN("ADAS started...\n\r");
 
   //inertial_o.Init();
+  mCtrl_o.Init();
 
   //Task initialization
   /*taskCtrl_o.Register(&mCtrl_o, 1);
@@ -77,7 +87,6 @@ void loop() {
   {
     DPRINTLN("Warning Field Breached");
   }
-  delay(3000);
 
 }
 

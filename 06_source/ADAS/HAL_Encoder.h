@@ -29,13 +29,14 @@ public:
   /*
    * read encoder value
    */
-   bool Read(uint16_t& value);
+   unsigned int Read();
    /**
    * Reset the value to zero
    */
    bool reset();
  private:
    EncoderID_e m_ID;
+   void EncISR(void);
   
 };
 
