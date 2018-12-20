@@ -66,7 +66,7 @@ void setup() {
     enc2_o.Init();*/
   serPort.Init(SERIAL1_INITIAL_BAUD_RATE, SERIAL1_TIMEOUT);
   Serial.begin(9600);
-  DPRINTLN("Hello\n\r");
+  DPRINTLN("ADAS software started...\n\r");
 
   //inertial_o.Init();
   plsCOmms_o.Init();
@@ -85,23 +85,11 @@ void loop() {
   // put your main code here, to run repeatedly:
   //taskCtrl_o.Run();
   mCtrl_o.Run();
-  if (plsCOmms_o.isContaminated())
-  {
-    DPRINTLN("Warning Field Breached");
-  }
-  delay(100);
-
 }
 
 void serialEvent1() {
   while (serPort.Available())
   {
-//      DPRINTLN("DATA available");
-//      if (CPLSComms::MsgSuccess == plsCOmms_o.RecievePkt(len))
-//      {
-//        DPRINTLN("Searching");
-//        plsCOmms_o.SearchMsg(msg, 0x00, len);
-//      }
         plsCOmms_o.AddContaminationAlert();
         DPRINTLN("Warning Field Breached data recieved");
         while (serPort.Available())
