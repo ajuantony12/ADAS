@@ -77,11 +77,12 @@ void CMotorCtrl::Run(void)
     } else {
       if (m_plsCOmms_o.isContaminated())
       {
+        DPRINTLN("Warning Field (MtCtrl)");
+      }else{
         checkState();
+        printValues();
       }
     }
-
-    printValues();
   }
 }
 
