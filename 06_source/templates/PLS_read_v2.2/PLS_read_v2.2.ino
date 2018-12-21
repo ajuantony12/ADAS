@@ -33,7 +33,7 @@ void loop() {
 
   if (rxBufferRdy) {
     Serial.println("Received telegram:");
-    Serial.print(rxMsgLen); Serial.print(" "); Serial.println(rxMsgLen, HEX);
+    Serial.print("length="); Serial.println(rxMsgLen);
     for (int n = 0; n < rxMsgLen + 6; n++)
     {
       Serial.print(rxBuffer[n], HEX); Serial.print(" ");
@@ -48,17 +48,6 @@ void loop() {
   if (rxBufferFull)
   {
     Serial.println("rxBuffer is full!");
-    Serial.print(rxMsgLen); Serial.print(" "); Serial.println(rxMsgLen, HEX);
-
-    Serial.println(rxBuffer[0], HEX);
-    Serial.println(rxBuffer[1], HEX);
-    Serial.println(rxBuffer[2], HEX);
-    Serial.println(rxBuffer[3], HEX);
-
-    /*for (int n = 0; n < BUF_LEN + 6; n++)
-      {
-      rxBuffer[n] = 0;
-      }*/
 
     rxBufferPointer = 0;
     rxMsgLen = 0;
