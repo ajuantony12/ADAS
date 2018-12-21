@@ -27,8 +27,7 @@
 /*OSAL*/
 #include "OSAL_TaskCtrl.h"
 
-
-unsigned short len;
+uint16_t len;
 CPLSComms::Message_t msg;
 
 
@@ -37,22 +36,23 @@ CPLSComms::Message_t msg;
   CDriveUnit  dUnitLeft_o(CDriveUnit::Drive1);
   CDriveUnit  dUnitRight_o(CDriveUnit::Drive2);
   CIOManager  ioMg_o;*/
-  CIMUUnit    imu_o;
-  CEncoder    enc1_o(CEncoder::E1);
-  CEncoder    enc2_o(CEncoder::E2);
-  CPWMUnit    pwmUnitLeft_o(CPWMUnit::PWM1);
-  CPWMUnit    pwmUnitRight_o(CPWMUnit::PWM2);
-  CSerial     serPort(CSerial::Port1);
+CIMUUnit    imu_o;
+CEncoder    enc1_o(CEncoder::E1);
+CEncoder    enc2_o(CEncoder::E2);
+CPWMUnit    pwmUnitLeft_o(CPWMUnit::PWM1);
+CPWMUnit    pwmUnitRight_o(CPWMUnit::PWM2);
+CSerial     serPort(CSerial::Port1);
 //comms layer
 //CInertialComm inertial_o;
 CPLSComms   plsCOmms_o(serPort);
 CMotorCtrl  mCtrl_o(imu_o, pwmUnitLeft_o, pwmUnitRight_o, plsCOmms_o, enc1_o, enc2_o);
+
 //Task
-CVMapping vMap_o(plsCOmms_o);
+  CVMapping vMap_o(plsCOmms_o, VMAP_ACTIVE_CHECK_INTERVAL);
 /*CUser_IF uI_o;
   CPositioning pos_o;
   CNavigation nav_o(plsCOmms_o);
- */
+  CMotorCtrl mCtrl_o;*/
 
 /*OSAL*/
 CTaskCtrl taskCtrl_o;
@@ -64,36 +64,39 @@ void setup() {
     dUnitRight_o.Init();
     enc1_o.Init();
     enc2_o.Init();*/
-  serPort.Init(SERIAL1_INITIAL_BAUD_RATE, SERIAL1_TIMEOUT);
+  serPort.Init(SERIAL1_INITIAL_BAUD_RATE, SERIAL1_INIT_TIMEOUT);
   Serial.begin(9600);
-  DPRINTLN("ADAS software started...\n\r");
+  DPRINTLN("ADAS started...\n\r");
 
   //inertial_o.Init();
-  plsCOmms_o.Init();
   mCtrl_o.Init();
+
   //Task initialization
   /*taskCtrl_o.Register(&mCtrl_o, 1);
     taskCtrl_o.Register(&nav_o, 0);
     taskCtrl_o.Register(&pos_o, 2);*/
   taskCtrl_o.Register(&vMap_o, 3);
-  /*taskCtrl_o.Register(&uI_o, 4);
-    //taskCtrl_o.Init();*/
+  //taskCtrl_o.Register(&uI_o, 4);
+  taskCtrl_o.Init();
 }
 
 void loop() {
-  //Serial1.write("hello\n\r");
   // put your main code here, to run repeatedly:
-  //taskCtrl_o.Run();
-  mCtrl_o.Run();
+  taskCtrl_o.Run();
+  if (plsCOmms_o.isContaminated())
+  {
+    DPRINTLN("Warning Field Breached");
+  }
+
 }
 
 void serialEvent1() {
   while (serPort.Available())
   {
-        plsCOmms_o.AddContaminationAlert();
-        DPRINTLN("Warning Field Breached data recieved");
-        while (serPort.Available())
-          Serial1.read();
+    plsCOmms_o.AddContaminationAlert();
+    DPRINTLN("Warning Field Breached data recieved");
+    while (serPort.Available())
+      Serial1.read();
   }
-  
+
 }
