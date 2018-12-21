@@ -29,22 +29,27 @@ void CMotorCtrl::Init(void)
 {
   //Setup PWM
   pinMode(PIN_ENABLE, OUTPUT);
+  digitalWrite(PIN_ENABLE, HIGH);
   pinMode(PIN_DIRECTION_R, OUTPUT);
   pinMode(PIN_DIRECTION_L, OUTPUT);
 
   DPRINTLN("Motor Control Init");
+
+  m_pwmUnitLeft_o.setupPWM16();
+  m_pwmUnitRight_o.setupPWM16();
+  m_pwmUnitLeft_o.writeMOT(1023);
+  m_pwmUnitRight_o.writeMOT(1023);
 
   digitalWrite(PIN_ENABLE, LOW);
   digitalWrite(PIN_DIRECTION_R, HIGH);
   digitalWrite(PIN_DIRECTION_L, HIGH);
 
 
-  m_pwmUnitLeft_o.setupPWM16();
-  m_pwmUnitRight_o.setupPWM16();
+  
+  
   m_imu_o.Init();
 
-  m_pwmUnitLeft_o.writeMOT(1023);
-  m_pwmUnitRight_o.writeMOT(1023);
+
 
   // Initialize stateflow
   rtObj.initialize();
@@ -137,18 +142,18 @@ void CMotorCtrl::checkState(void) {
 #ifdef ADAS_DEBUG
 void CMotorCtrl::getUserInput(void) {
   if (n == 20) {
-    rtObj.rtU.turn = -15;
-    rtObj.rtU.dist = 0;
+    rtObj.rtU.turn = 0;
+    rtObj.rtU.dist = 100;
   }
-  if (n == 40) {
+  if (n == 150) {
     rtObj.rtU.turn = 0;
     rtObj.rtU.dist = 0;
   }
-  if (n == 60) {
-    rtObj.rtU.turn = -15;
-    rtObj.rtU.dist = 0;
+  if (n == 160) {
+    rtObj.rtU.turn = 0;
+    rtObj.rtU.dist = -100;
   }
-  if (n == 80) {
+  if (n == 300) {
     rtObj.rtU.turn = 0;
     rtObj.rtU.dist = 0;
   }
@@ -158,6 +163,8 @@ void CMotorCtrl::printValues(void) {
   DPRINTLN("____________________________________________________________________________ ");
   DPRINTLN("Inputs and local Variables: ");
   DPRINTLN("____________________________________________________________________________ ");
+  DPRINT("loops: ");
+  DPRINT(n);
   DPRINT("gyro_signal: ");
   DPRINT(rtObj.rtU.gyro_signal);
   DPRINT(" || Curr_Angle: ");
