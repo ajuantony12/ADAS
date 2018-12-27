@@ -1,5 +1,4 @@
 clearvars
-close all
 
 % Laser parameters
 pls_res = 1; % resolution in deg
@@ -15,23 +14,41 @@ sim_grid = 5e-2; % in m
 
 % Initialize Map 
 % Add some obstacles to the map
-boxes = clBox(1,2,1.5,3);
-boxes(end+1) = clBox(-3,0.2,-2.5,1);
-boxes(end+1) = clBox(-2,3,-1.75,3.5);
-boxes(end+1) = clBox(2.5,0,2.75,10);
+boxes        = clBox(1,2,1.5,3); % box
+boxes(end+1) = clBox(-2,8.2,-1.5,9); % box
+boxes(end+1) = clBox(-2,11,-1.75,11.5); % box
+boxes(end+1) = clBox(2.5,0,2.75,15); % wall
+boxes(end+1) = clBox(-2.75,0,-2.5,15); % wall
 
 
+% Intialize Route
+% Route points: x, y
+rte_points = [
+	0,		0;
+	0, 		4;
+	1,      8;
+	1,      10;
+];
+hold on
+rte_data = calcRouteData(rte_points, 0.1);
 
-for y = 0:0.1:5
+% Set plot range
+xlim_value = [min(rte_points(:,1))-pls_max_dist max(rte_points(:,1)) + pls_max_dist];
+ylim_value = [min(rte_points(:,2)) max(rte_points(:,2)) + pls_max_dist];
+
+
+for n = 1:length(rte_data)
     % Initialize Plot
     clf
     hold on
     grid
     axis equal
-    xlim([-6 6]);
-    ylim([0 10]);
+    xlim(xlim_value);
+    ylim(ylim_value);
 
-    pls_y = y;
+    pls_x = rte_data(n).x;
+    pls_y = rte_data(n).y;
+    pls_angle = rte_data(n).angle;
     
     % Plot obstacles
     plotBoxes(boxes)
