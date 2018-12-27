@@ -84,7 +84,7 @@ function PLSdataArray = calcPLSdata(PLSdataArray, pls_x, pls_y, boxes, sim_grid,
             result = CheckPinBoxes(P_check, boxes);
 
             if result
-                PLSdataArray(n) = clPointPLS(x,y,angle);
+                PLSdataArray(n) = clPointPLS(x,y,angle,dist);
                 break;
             end%if
 
