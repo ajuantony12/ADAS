@@ -85,4 +85,3 @@ classdef clObstacle
         
     end%methods
 end%classdef
-

@@ -10,6 +10,9 @@ pls_y = 0; % in m
 pls_angle = 0; % in deg
 % Resolution of simulation polar line
 sim_grid = 5e-2; % in m
+sim_grid_rte = 0.15; % in m
+% Simulation settings
+auto_scaling = false;
 
 
 % Initialize Map 
@@ -31,14 +34,21 @@ rte_points = [
 	1,      10;
 ];
 hold on
-rte_data = calcRouteData(rte_points, 0.1);
+rte_data = calcRouteData(rte_points, sim_grid_rte);
 
 % Set plot range
-xlim_value = [min(rte_points(:,1))-pls_max_dist max(rte_points(:,1)) + pls_max_dist];
-ylim_value = [min(rte_points(:,2)) max(rte_points(:,2)) + pls_max_dist];
+if auto_scaling == true
+    xlim_value = [min(rte_points(:,1))-pls_max_dist max(rte_points(:,1)) + pls_max_dist];
+    ylim_value = [min(rte_points(:,2)) max(rte_points(:,2)) + pls_max_dist];
+else
+    xlim_value = [-2.75 2.75];
+    ylim_value = [0 15];
+end%if
 
-
+last_runtime = nan;
+% Compute simulation
 for n = 1:length(rte_data)
+    tic
     % Initialize Plot
     clf
     hold on
@@ -46,7 +56,9 @@ for n = 1:length(rte_data)
     axis equal
     xlim(xlim_value);
     ylim(ylim_value);
+    title(sprintf('fps = %.2f',1/last_runtime))
 
+    % Set PLS coordinates from route
     pls_x = rte_data(n).x;
     pls_y = rte_data(n).y;
     pls_angle = rte_data(n).angle;
@@ -65,6 +77,9 @@ for n = 1:length(rte_data)
     
     % Wait for plot
     pause(eps)
+    
+    % Save last time of frame
+    last_runtime = toc;    
 end%for
 
 
