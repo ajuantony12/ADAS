@@ -14,11 +14,12 @@ sim_grid = 5e-2; % in m
 
 % Initialize Map 
 % Add some obstacles to the map
-boxes        = clBox(1,2,1.5,3); % box
-boxes(end+1) = clBox(-2,8.2,-1.5,9); % box
-boxes(end+1) = clBox(-2,11,-1.75,11.5); % box
-boxes(end+1) = clBox(2.5,0,2.75,15); % wall
-boxes(end+1) = clBox(-2.75,0,-2.5,15); % wall
+obstacles        = clObstacle('box',1,2,1.5,3); % box
+obstacles(end+1) = clObstacle('box',-2,8.2,-1.5,9); % box
+obstacles(end+1) = clObstacle('box',-2,11,-1.75,11.5); % box
+obstacles(end+1) = clObstacle('cylinder',-1.5,6,0.5); % cylinder
+obstacles(end+1) = clObstacle('box',2.5,0,2.75,15); % wall
+obstacles(end+1) = clObstacle('box',-2.75,0,-2.5,15); % wall
 
 
 % Intialize Route
@@ -51,16 +52,16 @@ for n = 1:length(rte_data)
     pls_angle = rte_data(n).angle;
     
     % Plot obstacles
-    plotBoxes(boxes)
+    plotBoxes(obstacles)
 
     % Initialize PLSdataArray with max distance points
     PLSdataArray = initPoints(pls_n, pls_res, pls_x, pls_y, pls_angle, pls_max_dist);
 
     % Check colidation of PLS beam
-    PLSdataArray = calcPLSdata(PLSdataArray, pls_x, pls_y, boxes, sim_grid, pls_max_dist);
+    PLSdataArray = calcPLSdata(PLSdataArray, pls_x, pls_y, obstacles, sim_grid, pls_max_dist);
 
     % Plot PLS data
-    PLSdataPlot(PLSdataArray, pls_x, pls_y);
+    PLSdataPlot(PLSdataArray, pls_x, pls_y, pls_angle);
     
     % Wait for plot
     pause(eps)
@@ -72,7 +73,7 @@ end%for
 % -----------------------------------------------------------------------------
 
 % Function to calculate PLS measurements with map
-function PLSdataArray = calcPLSdata(PLSdataArray, pls_x, pls_y, boxes, sim_grid, max_dist)
+function PLSdataArray = calcPLSdata(PLSdataArray, pls_x, pls_y, obstacles, sim_grid, max_dist)
     for n = 1:length(PLSdataArray)
         angle = PLSdataArray(n).angle;
         for dist = 0:sim_grid:max_dist
@@ -81,7 +82,7 @@ function PLSdataArray = calcPLSdata(PLSdataArray, pls_x, pls_y, boxes, sim_grid,
             %plot(x,y,'r*') % Plot checked point for debugging
             P_check = clPoint(x,y);
 
-            result = CheckPinBoxes(P_check, boxes);
+            result = CheckPinBoxes(P_check, obstacles);
 
             if result
                 PLSdataArray(n) = clPointPLS(x,y,angle,dist);
@@ -93,11 +94,11 @@ function PLSdataArray = calcPLSdata(PLSdataArray, pls_x, pls_y, boxes, sim_grid,
 end%function
 
 % Function to check if point is blocked by obstacle
-function colidation = CheckPinBoxes(P_check, boxes)
+function colidation = CheckPinBoxes(P_check, obstacles)
  colidation = false;
  
-    for n = 1:length(boxes)
-        result = boxes(n).checkPoint(P_check);
+    for n = 1:length(obstacles)
+        result = obstacles(n).checkPoint(P_check);
         if result == true
             colidation = true;
             break;
@@ -119,7 +120,7 @@ function PLSdataArray = initPoints(pls_n, pls_res, pls_x, pls_y, pls_angle, max_
 end%function
 
 % Plot PLS data
-function PLSdataPlot(PLSdataArray, pls_x, pls_y)
+function PLSdataPlot(PLSdataArray, pls_x, pls_y, pls_angle)
     x = [];
     y = [];
     
@@ -132,6 +133,9 @@ function PLSdataPlot(PLSdataArray, pls_x, pls_y)
     plot(x,y,'b+-')
     plot([PLSdataArray(1).x PLSdataArray(end).x],[PLSdataArray(1).y PLSdataArray(end).y],'b-')
     plot(pls_x, pls_y , 'b*')
+    x = -0.5*sin(deg2rad(pls_angle));
+    y = 0.5*cos(deg2rad(pls_angle));
+    quiver(pls_x,pls_y,x,y,0,'g','LineWidth',2,'MaxHeadSize',3)
 end%function
 
 % Plot boxes
