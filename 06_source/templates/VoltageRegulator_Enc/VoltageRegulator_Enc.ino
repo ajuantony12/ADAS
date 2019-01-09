@@ -15,7 +15,8 @@ volatile unsigned long time_uC;
 volatile unsigned long enc_last_time = 0;
 volatile unsigned long enc_t = 0;
 uint16_t rpm = 0;
-uint16_t setpoint;
+int n = 0;
+uint16_t setpoint = 400;
 uint16_t feedback;
 uint16_t output_r = 0;
 uint16_t output_l = 0;
@@ -23,8 +24,11 @@ uint16_t peaks_r = 0;
 uint16_t peaks_l = 0;
 uint16_t counted_peaks_r = 0;
 uint16_t counted_peaks_l = 0;
+uint16_t peak_sum_l = 0;
+uint16_t peak_sum_r = 0;
+uint16_t d_way = 2228; // desired way to drive in cm (1.795cm/peak) 2228==4000cm
 Timer t;
-float Kp = 0.1, Ki = 0.5, Kd = 0, Hz = 10;
+float Kp = 0.2, Ki = 0.5, Kd = 0, Hz = 10;
 int output_bits = 16;
 bool output_signed = false;
 
@@ -49,9 +53,8 @@ void setup()
 
 void loop()
 {
-  if (control) {
+  if (control && peak_sum_l < d_way && peak_sum_r < d_way){
  //right PI control
-    setpoint = 200;
     feedback = counted_peaks_r*4;
     output_r = myPID.step(setpoint, feedback);
 
@@ -64,10 +67,13 @@ void loop()
     Serial.print(";");
     Serial.print(counted_peaks_r);
     Serial.print(";");
+    Serial.print(" Peaks: ");
+    Serial.print(peak_sum_r);
+   Serial.print("; ");
     
 //left PI control
 
-    feedback = counted_peaks_l*2;
+    feedback = counted_peaks_l*4;
     output_l = myPID.step(setpoint, feedback);
 
     if (output_l >= 1023) {
@@ -75,19 +81,25 @@ void loop()
     }
 
 //Debug output
-    Serial.print(output_l);
+   Serial.print(output_l);
+   Serial.print(";");
+    Serial.print(counted_peaks_l);
     Serial.print(";");
-    Serial.println(counted_peaks_l);
+    Serial.print(" Peaks: ");
+    Serial.print(peak_sum_l);
+   Serial.println("; ");
 
 //write to motor
     if (digitalRead(PIN_ENABLE) == HIGH) {
       digitalWrite(LED1, LOW);
       digitalWrite(LED2, LOW);
     } else {
-      writeLED(output_r, output_l);
+      writeLED(output_l, output_r);
     }
     control=false;
-  }
+  }else if(peak_sum_l >= d_way && peak_sum_r >= d_way){
+    writeLED(LOW, LOW);
+    }
   t.update();
 }
 
@@ -113,6 +125,8 @@ void readenc(void* context) {
   counted_peaks_r = peaks_r;
   counted_peaks_l = peaks_l;
   control = true;
+  peak_sum_l = peak_sum_l + counted_peaks_l;
+  peak_sum_r = peak_sum_r + counted_peaks_r;
   peaks_r = 0;
   peaks_l = 0;
 }
