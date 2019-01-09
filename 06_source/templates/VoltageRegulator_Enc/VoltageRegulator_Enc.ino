@@ -16,7 +16,7 @@ volatile unsigned long enc_last_time = 0;
 volatile unsigned long enc_t = 0;
 uint16_t rpm = 0;
 int n = 0;
-uint16_t setpoint = 400;
+uint16_t setpoint = 124; //124 = 4km/h
 uint16_t feedback;
 uint16_t output_r = 0;
 uint16_t output_l = 0;

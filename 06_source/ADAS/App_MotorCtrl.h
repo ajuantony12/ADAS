@@ -39,8 +39,14 @@ public:
 private:
     void checkState(void);
 
-    void writeMOT(uint16_t n1, uint16_t n2);
+    void MotPI(void);
 
+    void EncISR_L(void);
+    
+    void EncISR_R(void);
+
+    void readenc(void* context);
+  
 #ifdef ADAS_DEBUG
     void getUserInput(void);
 
