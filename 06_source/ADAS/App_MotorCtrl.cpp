@@ -74,11 +74,11 @@ void CMotorCtrl::Init(void)
   pinMode(PIN_ENC_R, INPUT_PULLUP);
   pinMode(PIN_ENC_L, INPUT_PULLUP);
   
-  attachInterrupt(digitalPinToInterrupt(PIN_ENC_R), EncISR_R, RISING);
-  attachInterrupt(digitalPinToInterrupt(PIN_ENC_L), EncISR_L, RISING);
+  attachInterrupt(digitalPinToInterrupt(PIN_ENC_R), CMotorCtrl::EncISR_R, RISING);
+  attachInterrupt(digitalPinToInterrupt(PIN_ENC_L), CMotorCtrl::EncISR_L, RISING);
 
   //readout encoder count every 500ms
-  t.every(500, readenc, 0);
+  t.every(500, CMotorCtrl::readenc, 0);
 }
 
 void CMotorCtrl::Run(void)
@@ -175,17 +175,17 @@ void CMotorCtrl::MotPI(void)
 }
 // Start Encoder Counting Interrupts
 
-void CMotorCtrl::EncISR_L(void)
+static void CMotorCtrl::EncISR_L(void)
 {
   peaks_l++;
 }
 
-void CMotorCtrl::EncISR_R(void)
+static void CMotorCtrl::EncISR_R(void)
 {
   peaks_r++;
 }
 
-void CMotorCtrl::readenc(void* context) {
+static void CMotorCtrl::readenc(void* context) {
   counted_peaks_r = peaks_r;
   counted_peaks_l = peaks_l;
   control = true;

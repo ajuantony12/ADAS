@@ -41,11 +41,11 @@ private:
 
     void MotPI(void);
 
-    void EncISR_L(void);
+    static void EncISR_L(void);
     
-    void EncISR_R(void);
+    static void EncISR_R(void);
 
-    void readenc(void* context);
+    static void readenc(void* context);
   
 #ifdef ADAS_DEBUG
     void getUserInput(void);
