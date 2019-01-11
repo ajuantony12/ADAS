@@ -6,9 +6,20 @@
 #include "App_Stateflowtypes.h" // Type definitions
 #include "ADAS_Debug.h"
 #include "ADAS_Cfg.h"
+#include "Timer.h"
 
 int n = 20;
 int16_T dist = 0;
+uint16_t peaks_l =0;
+uint16_t peaks_r =0;
+uint16_t peaks_sum_r =0;
+uint16_t peaks_sum_l =0;
+uint16_t distance = 6128; // desired way to drive in cm (1.795cm/peak) 6128==11000cm
+boolean startBtn = false;
+boolean forward = true;
+boolean backward = false;
+int k = 0;
+Timer t;
 
 CMotorCtrl::CMotorCtrl(CIMUUnit& imu_o, CPWMUnit& pwmUnitLeft_o, CPWMUnit& pwmUnitRight_o, CPLSComms& plsCOmms_o, CEncoder& enc1_o, CEncoder& enc2_o):
   rtObj(),
@@ -46,6 +57,13 @@ void CMotorCtrl::Init(void)
   m_pwmUnitLeft_o.writeMOT(1023);
   m_pwmUnitRight_o.writeMOT(1023);
 
+  pinMode(PIN_ENC_R, INPUT_PULLUP);
+  pinMode(PIN_ENC_L, INPUT_PULLUP);
+
+  attachInterrupt(digitalPinToInterrupt(PIN_ENC_R), CMotorCtrl::EncISR_R, RISING);
+  attachInterrupt(digitalPinToInterrupt(PIN_ENC_L), CMotorCtrl::EncISR_L, RISING);
+
+  t.every(500, CMotorCtrl::readenc, 0);
   // Initialize stateflow
   rtObj.initialize();
 }
@@ -66,6 +84,10 @@ void CMotorCtrl::Run(void)
     getUserInput();
 
     n++;
+
+    if(digitalRead(Btn_Start) == 1){
+        startBtn = true;
+      }
 
     // Call stateflow
     rt_OneStep();
@@ -92,6 +114,21 @@ void CMotorCtrl::Stop(void)
 {
   //do nothing
 }
+
+static void CMotorCtrl::EncISR_R(void){
+  peaks_r++;
+  }
+
+static void CMotorCtrl::EncISR_L(void){
+  peaks_l++;
+  }
+
+static void CMotorCtrl::readenc(void* context){
+  peaks_sum_r = peaks_sum_r+peaks_r;
+  peaks_r=0;
+  peaks_sum_l = peaks_sum_l + peaks_l;
+  peaks_l = 0;
+  }
 
 void CMotorCtrl::checkState(void) {
   switch (rtObj.rtDW.is_c3_Chart) {
@@ -136,22 +173,32 @@ void CMotorCtrl::checkState(void) {
 
 #ifdef ADAS_DEBUG
 void CMotorCtrl::getUserInput(void) {
-  if (n == 20) {
-    rtObj.rtU.turn = -15;
-    rtObj.rtU.dist = 0;
-  }
-  if (n == 40) {
+  if(startBtn){
+    if(forward && peaks_sum_r < distance && peaks_sum_l < distance){
     rtObj.rtU.turn = 0;
-    rtObj.rtU.dist = 0;
-  }
-  if (n == 60) {
-    rtObj.rtU.turn = -15;
-    rtObj.rtU.dist = 0;
-  }
-  if (n == 80) {
-    rtObj.rtU.turn = 0;
-    rtObj.rtU.dist = 0;
-  }
+    rtObj.rtU.dist = distance;
+    }else if(forward && peaks_sum_r >= distance && peaks_sum_l >= distance){
+       m_pwmUnitRight_o.writeMOT(1023);
+       m_pwmUnitLeft_o.writeMOT(1023);
+       k++;
+       if(k == 20){
+          forward = false;
+          backward = true;
+          peaks_sum_r =  peaks_sum_l = 0;
+          k=0;
+        }
+      }
+    
+  if(backward && peaks_sum_r <= distance && peaks_sum_l <= distance){
+      rtObj.rtU.turn = 0;
+      rtObj.rtU.dist = -distance;
+    }else if(backward && peaks_sum_r >= distance && peaks_sum_l >= distance){
+        m_pwmUnitRight_o.writeMOT(1023);
+        m_pwmUnitLeft_o.writeMOT(1023);
+        startBtn = false;
+      }
+    }
+  
 }
 
 void CMotorCtrl::printValues(void) {
