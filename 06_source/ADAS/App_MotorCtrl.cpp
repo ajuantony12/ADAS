@@ -22,7 +22,11 @@ uint16_t counted_peaks_r = 0;
 uint16_t counted_peaks_l = 0;
 uint16_t peak_sum_l = 0;
 uint16_t peak_sum_r = 0;
-uint16_t d_way = 2228; // desired way to drive in cm (1.795cm/peak) 2228==4000cm
+uint16_t d_way = 612; // desired way to drive in cm (1.795cm/peak) 2228==4000cm
+boolean startBtn = false;
+boolean forward = true;
+boolean backward = false;
+int k = 0;
 Timer t;
 float Kp = 0.2, Ki = 0.5, Kd = 0, Hz = 10;
 int output_bits = 16;
@@ -151,13 +155,13 @@ void CMotorCtrl::MotPI(void)
     }
 
 //Debug output
-   Serial.print(output_l);
-   Serial.print(";");
-    Serial.print(counted_peaks_l);
-    Serial.print(";");
-    Serial.print(" Peaks: ");
-    Serial.print(peak_sum_l);
-   Serial.println("; ");
+   DPRINT(output_l);
+   DPRINT(";");
+   DPRINT(counted_peaks_l);
+   DPRINT(";");
+   DPRINT(" Peaks: ");
+   DPRINT(peak_sum_l);
+   DPRINT("; ");
 
 //write to motor
     if (digitalRead(PIN_ENABLE) == HIGH) {
@@ -240,22 +244,41 @@ void CMotorCtrl::checkState(void) {
 
 #ifdef ADAS_DEBUG
 void CMotorCtrl::getUserInput(void) {
-  if (n == 20) {
-    rtObj.rtU.turn = -15;
-    rtObj.rtU.dist = 0;
-  }
-  if (n == 40) {
-    rtObj.rtU.turn = 0;
-    rtObj.rtU.dist = 0;
-  }
-  if (n == 60) {
-    rtObj.rtU.turn = -15;
-    rtObj.rtU.dist = 0;
-  }
-  if (n == 80) {
-    rtObj.rtU.turn = 0;
-    rtObj.rtU.dist = 0;
-  }
+ if(startBtn){
+   if(forward && peak_sum_r < d_way && peak_sum_l < d_way){
+   rtObj.rtU.turn = 0;
+   rtObj.rtU.dist = d_way;
+   DPRINT("Forward & Peaks right: ");
+   DPRINT(peak_sum_r);
+   DPRINT(" & Peaks left: ");
+   DPRINTLN(peak_sum_l);
+   }else if(forward && peak_sum_r >= d_way && peak_sum_l >= d_way){
+      rtObj.rtU.turn = 0;
+      rtObj.rtU.dist = 0;
+      k++;
+      if(k == 20){
+         forward = false;
+         backward = true;
+         peak_sum_r =  peak_sum_l = 0;
+         k=0;
+       }
+     }
+
+ if(backward && peak_sum_r <= d_way && peak_sum_l <= d_way){
+     rtObj.rtU.turn = 0;
+     rtObj.rtU.dist = -d_way;
+     DPRINT("Backward & Peaks right: ");
+   DPRINT(peak_sum_r);
+   DPRINT(" & Peaks left: ");
+   DPRINTLN(peak_sum_l);
+   }else if(backward && peak_sum_r >= d_way && peak_sum_l >= d_way){
+       rtObj.rtU.turn = 0;
+       rtObj.rtU.dist = 0;
+       startBtn = false;
+       peak_sum_r = peak_sum_l = 0;
+     }
+   }
+
 }
 
 void CMotorCtrl::printValues(void) {
