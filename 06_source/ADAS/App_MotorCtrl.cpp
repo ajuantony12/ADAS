@@ -12,7 +12,7 @@
 int n = 20;
 int16_T dist = 0;
 boolean control = false;
-uint16_t setpoint = 124; //124 = 4km/h
+uint16_t setpoint = 980; //124 = 4km/h
 uint16_t feedback;
 uint16_t output_r = 0;
 uint16_t output_l = 0;
@@ -68,16 +68,9 @@ void CMotorCtrl::Init(void)
   m_pwmUnitRight_o.setupPWM16();
   m_imu_o.Init();
 
-  m_pwmUnitLeft_o.writeMOT(1023);
-  m_pwmUnitRight_o.writeMOT(1023);
+  m_pwmUnitLeft_o.writeMOT(LOW);
+  m_pwmUnitRight_o.writeMOT(LOW);
 
-  pinMode(PIN_ENC_R, INPUT_PULLUP);
-  pinMode(PIN_ENC_L, INPUT_PULLUP);
-
-  attachInterrupt(digitalPinToInterrupt(PIN_ENC_R), CMotorCtrl::EncISR_R, RISING);
-  attachInterrupt(digitalPinToInterrupt(PIN_ENC_L), CMotorCtrl::EncISR_L, RISING);
-
-  t.every(500, CMotorCtrl::readenc, 0);
   // Initialize stateflow
   rtObj.initialize();
 
@@ -104,14 +97,14 @@ void CMotorCtrl::Run(void)
 
     //Set Gyro Signal
     rtObj.rtU.gyro_signal = m_imu_o.ReturnGyro();
-
+    
+    if(digitalRead(Btn_Start) == HIGH){
+      
+        startBtn = true;
+      }
     getUserInput();
 
     n++;
-
-    if(digitalRead(Btn_Start) == 1){
-        startBtn = true;
-      }
 
     // Call stateflow
     rt_OneStep();
@@ -127,9 +120,12 @@ void CMotorCtrl::Run(void)
         m_pwmUnitRight_o.writeMOT(LOW);
         m_pwmUnitLeft_o.writeMOT(LOW);
       }else{
-        checkState();
-        MotPI();
-        printValues();
+        if(startBtn){
+          checkState();
+          MotPI();
+          printValues();
+         
+         }
       }
     }
   }
@@ -138,7 +134,7 @@ void CMotorCtrl::Run(void)
 // PIControl Motors
 void CMotorCtrl::MotPI(void)
 {
-  if (control && peak_sum_l < d_way && peak_sum_r < d_way){
+    if (control){
  //right PI control
     feedback = counted_peaks_r*4;
     output_r = myPID.step(setpoint, feedback);
@@ -222,13 +218,13 @@ void CMotorCtrl::checkState(void) {
       DPRINTLN("State 1: Backward");
       digitalWrite(PIN_DIRECTION_L, LOW);
       digitalWrite(PIN_DIRECTION_R, HIGH);
-      setpoint = 124;
+      setpoint = 980;
       break;
     case 2:
       DPRINTLN("State 2: Forward");
       digitalWrite(PIN_DIRECTION_L, HIGH);
       digitalWrite(PIN_DIRECTION_R, LOW);
-      setpoint = 124;
+      setpoint = 980;
       break;
     case 3:
       DPRINTLN("State 3: IDLE");
@@ -241,13 +237,13 @@ void CMotorCtrl::checkState(void) {
       DPRINTLN("State 4: Left Turn");
       digitalWrite(PIN_DIRECTION_L, LOW);
       digitalWrite(PIN_DIRECTION_R, LOW);
-      
+      setpoint = 980;
       break;
     case 5:
       DPRINTLN("State 5: Right Turn");
       digitalWrite(PIN_DIRECTION_L, HIGH);
       digitalWrite(PIN_DIRECTION_R, HIGH);
-      setpoint = 124;
+      setpoint = 980;
       break;
   }
 }
@@ -255,7 +251,6 @@ void CMotorCtrl::checkState(void) {
 
 #ifdef ADAS_DEBUG
 void CMotorCtrl::getUserInput(void) {
- if(startBtn){
    if(forward && peak_sum_r < d_way && peak_sum_l < d_way){
    rtObj.rtU.turn = 0;
    rtObj.rtU.dist = d_way;
@@ -288,7 +283,6 @@ void CMotorCtrl::getUserInput(void) {
        startBtn = false;
        peak_sum_r = peak_sum_l = 0;
      }
-   }
 }
 
 void CMotorCtrl::printValues(void) {
