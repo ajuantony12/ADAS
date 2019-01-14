@@ -41,9 +41,11 @@ private:
 
     void MotPI(void);
 
-    static void EncISR_L(void);
+    void writeMOT(uint16_t n1, uint16_t n2);
     
     static void EncISR_R(void);
+
+    static void EncISR_L(void);
 
     static void readenc(void* context);
   

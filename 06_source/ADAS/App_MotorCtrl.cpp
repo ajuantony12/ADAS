@@ -71,6 +71,13 @@ void CMotorCtrl::Init(void)
   m_pwmUnitLeft_o.writeMOT(1023);
   m_pwmUnitRight_o.writeMOT(1023);
 
+  pinMode(PIN_ENC_R, INPUT_PULLUP);
+  pinMode(PIN_ENC_L, INPUT_PULLUP);
+
+  attachInterrupt(digitalPinToInterrupt(PIN_ENC_R), CMotorCtrl::EncISR_R, RISING);
+  attachInterrupt(digitalPinToInterrupt(PIN_ENC_L), CMotorCtrl::EncISR_L, RISING);
+
+  t.every(500, CMotorCtrl::readenc, 0);
   // Initialize stateflow
   rtObj.initialize();
 
@@ -101,6 +108,10 @@ void CMotorCtrl::Run(void)
     getUserInput();
 
     n++;
+
+    if(digitalRead(Btn_Start) == 1){
+        startBtn = true;
+      }
 
     // Call stateflow
     rt_OneStep();
@@ -278,7 +289,6 @@ void CMotorCtrl::getUserInput(void) {
        peak_sum_r = peak_sum_l = 0;
      }
    }
-
 }
 
 void CMotorCtrl::printValues(void) {

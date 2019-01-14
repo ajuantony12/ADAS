@@ -28,7 +28,8 @@
 #define PIN_ENABLE                                      52
 #define PIN_DIRECTION_L                                 50
 #define PIN_DIRECTION_R                                 48
-#define PIN_ENC_L                                        2
-#define PIN_ENC_R                                        3
+#define PIN_ENC_R                                        2
+#define PIN_ENC_L                                        3
+#define Btn_Start                                       46
 
 #endif /*ADAS_CFG_H*/
