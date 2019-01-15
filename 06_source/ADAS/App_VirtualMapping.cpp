@@ -29,6 +29,7 @@ void CVMapping::Run(void)
       DPRINTLN("recieved measurement");
       DPRINTLN(len, HEX);
     }
+    m_RunCount = 0;
   }
 }
 

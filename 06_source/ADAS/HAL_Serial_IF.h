@@ -4,22 +4,21 @@
 * DESCRIPTION : Serial Hardware Header
 *************************************************************************/
 #include "ADAS_Types.h"
-#include <HardwareSerial.h>
 
 #ifndef HAL_SERIAL_H
 #define HAL_SERIAL_H
 
-class CSerial{
+class CSerial
+{
 public:
   typedef enum {
-    Port1,
-    Port2,
-    Port3
-  }PortNum_e;
+    S1,
+    S2
+  }PortID_e;
   /*
    * Constructor
    */
-  CSerial(PortNum_e ID);
+  CSerial(uint8_t* i_buffer, PortID_e i_ID, uint16_t i_bufLen);
   /*
    * Destructor
    */
@@ -27,21 +26,23 @@ public:
   /*
    * Initialization
    */
-  void Init(uint32_t baud, uint16_t time_out);
+   void Init(void);
   /*
    * Send Data
    */
    bool Send(char Buff[], uint8_t len);
-   uint16_t Read(char Buff[], uint16_t len);
-   void SetBaudRate(uint32_t baud, uint16_t time_out);
-   void SetTimeOut(uint16_t time_out);
-   uint8_t Available(void);
-   /* flush serial read buffer*/
-    void FlushReadBuff(void);
+   bool Available(uint16_t& len);
+   void ReleaseBuffer(void);
+   void SerialISR(void);
  private:
-   PortNum_e m_PortID;
-   HardwareSerial* m_Port;
+   uint8_t* m_rxBuffer;
+   PortID_e m_ID;
+   const uint16_t m_rxBufLen;
+    volatile uint16_t m_rxMsgLen;
+    volatile uint16_t m_rxBufferPointer;
+    volatile bool m_rxBufferFull;
+    volatile bool m_rxBufferRdy;
   
 };
 
-#endif /*HAL_SERIAL_H*/
+#endif /*HAL_SERIAL_1_H*/
