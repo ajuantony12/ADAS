@@ -31,7 +31,7 @@ public:
         uint8_t messageID;
     } Message_t;
 
-    CPLSComms(CSerial& serPort);
+    CPLSComms(CSerial& serPort, uint8_t* buffer);
     ~CPLSComms();
     /*
     * init
@@ -44,10 +44,6 @@ public:
     /*is protectuve field breached
     */
     bool IsPFBreached(uint32_t& distToObj);
-    /*
-    * Asynchronous Data update from PLS
-    */
-    void AsyncMessageUpdate(uint8_t* buff[], uint8_t len);
     /*
     * Get status of PLS
     */
@@ -86,9 +82,9 @@ private:
     void  CreatePacket(CBuffAdas& buff, uint8_t* Data);
     
     CSerial& m_serPort;
-    uint8_t m_sndBuff[SND_BUFF_SIZE];
-    uint8_t m_rcvBuff[RCV_BUFF_SIZE];
-    volatile Status_e m_status;
+    uint8_t m_sndBuff[PLS_SND_BUFF_SIZE];
+    uint8_t* m_rcvBuff;
+    Status_e m_status;
     bool m_asyncDataFLag;
 };
 

@@ -1,7 +1,7 @@
 /*H**********************************************************************
-* FILENAME :        ADAS_Cfg.h             
-*
-* DESCRIPTION : configuration file for ADAS
+  FILENAME :        ADAS_Cfg.h
+
+  DESCRIPTION : configuration file for ADAS
 *************************************************************************/
 
 #ifndef ADAS_CFG_H
@@ -11,19 +11,23 @@
 #define ADAS_DEBUG
 
 //PLS Buffer
-#define RCV_BUFF_SIZE                                   720U
-#define SND_BUFF_SIZE                                   50U
+#define PLS_RCV_BUFF_SIZE                                   500U
+#define PLS_SND_BUFF_SIZE                                   50U
+//IPC Buffer
+#define IPC_RCV_BUFF_SIZE                                   10U
 //Virtual mapping Buffer
-#define MAX_MES_BUFF_SIZE                               (20)
+#define MAX_MES_BUFF_SIZE                                   (20)
 //Task list
 #define MAX_NUM_TASK                                    5U
 
 //Serial Port
-#define SERIAL1_INITIAL_BAUD_RATE                       9600
-#define SERIAL1_TIMEOUT                                 60
-#define SERIAL1_INIT_TIMEOUT                            500
+#define SERIAL1_BAUD                                    9600
+#define SERIAL1_BAUD_PRESCALE                           (((F_CPU / (SERIAL1_BAUD * 16UL))) - 1)
+#define SERIAL2_BAUD                                    9600
+#define SERIAL2_BAUD_PRESCALE                           (((F_CPU / (SERIAL2_BAUD * 16UL))) - 1)
 
-//Virtual Mapping 
-#define VMAP_ACTIVE_CHECK_INTERVAL                      5
+//PLS Comms COnstant
+#define SICK_STX                                        0x02
+#define SICK_DESTR                                      0x80
 
 #endif /*ADAS_CFG_H*/
