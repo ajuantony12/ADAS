@@ -17,17 +17,17 @@ class CPLSComms
 {
 public:
     typedef enum {
-        MsgSuccess,
-        CRCCheckFail,
-        CommsError,
-        PartialMsg,
-        Msg_NCK,
-        InvalidReq
+        MsgSuccess =0,
+        CRCCheckFail = 1,
+        CommsError = 2,
+        PartialMsg = 3,
+        Msg_NCK =4,
+        InvalidReq =5
     } Status_e;
     typedef struct {
         uint8_t* data;
-        unsigned short len;
-        unsigned short start;
+        uint16_t len;
+        uint16_t start;
         uint8_t messageID;
     } Message_t;
 
@@ -36,14 +36,14 @@ public:
     /*
     * init
     */
-    void Init(void);
+    Status_e Init(void);
     /*
     * Get Measurements
     */
-    bool GetMeasurements(uint8_t* buff[], uint8_t& len);
+    bool GetMeasurements(uint8_t* buff, uint16_t& len);
     /*is protectuve field breached
     */
-    bool IsPFBreached(unsigned int& distToObj);
+    bool IsPFBreached(uint32_t& distToObj);
     /*
     * Asynchronous Data update from PLS
     */
@@ -55,11 +55,11 @@ public:
     /*
     * Parse recieved message
     */
-    bool SearchMsg(Message_t& msg, uint8_t ID, unsigned short len);
+    bool SearchMsg(Message_t& msg, uint8_t ID, uint16_t len);
     /*
     * Recieve a packet
     */
-    Status_e  RecievePkt(unsigned short& len);
+    Status_e  RecievePkt(uint16_t& len);
     /*is Con*/
     inline bool isContaminated()
     {
@@ -75,11 +75,11 @@ private:
     /*
     * Calculate CRC
     */
-    unsigned short CalcCrC(uint8_t* data, unsigned short len);
+    uint16_t CalcCrC(uint8_t* data, uint16_t len);
     /*
     * Parse recieved message
     */
-    Status_e  ParseMsgContent(Message_t& msg, unsigned short start, unsigned short len);
+    Status_e  ParseMsgContent(Message_t& msg, uint16_t start, uint16_t len);
     /*
     * Parse recieved message
     */
@@ -88,7 +88,7 @@ private:
     CSerial& m_serPort;
     uint8_t m_sndBuff[SND_BUFF_SIZE];
     uint8_t m_rcvBuff[RCV_BUFF_SIZE];
-    Status_e m_status;
+    volatile Status_e m_status;
     bool m_asyncDataFLag;
 };
 

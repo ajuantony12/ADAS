@@ -23,7 +23,7 @@
 /*OSAL*/
 #include "OSAL_TaskCtrl.h"
 
-unsigned short len;
+uint16_t len;
 CPLSComms::Message_t msg;
 
 
@@ -40,7 +40,7 @@ CSerial     serPort(CSerial::Port1);
 CPLSComms   plsCOmms_o(serPort);
 
 //Task
-CVMapping vMap_o(plsCOmms_o);
+  CVMapping vMap_o(plsCOmms_o, VMAP_ACTIVE_CHECK_INTERVAL);
 /*CUser_IF uI_o;
   CPositioning pos_o;
   CNavigation nav_o(plsCOmms_o);
@@ -56,47 +56,38 @@ void setup() {
     dUnitRight_o.Init();
     enc1_o.Init();
     enc2_o.Init();*/
-  serPort.Init(SERIAL1_INITIAL_BAUD_RATE, SERIAL1_TIMEOUT);
+  serPort.Init(SERIAL1_INITIAL_BAUD_RATE, SERIAL1_INIT_TIMEOUT);
   Serial.begin(9600);
-  DPRINTLN("HEllo\n\r");
 
   //inertial_o.Init();
-  plsCOmms_o.Init();
 
   //Task initialization
   /*taskCtrl_o.Register(&mCtrl_o, 1);
     taskCtrl_o.Register(&nav_o, 0);
     taskCtrl_o.Register(&pos_o, 2);*/
   taskCtrl_o.Register(&vMap_o, 3);
-  /*taskCtrl_o.Register(&uI_o, 4);
-    //taskCtrl_o.Init();*/
+  //taskCtrl_o.Register(&uI_o, 4);
+  taskCtrl_o.Init();
 }
 
 void loop() {
-  //Serial1.write("hello\n\r");
   // put your main code here, to run repeatedly:
-  //taskCtrl_o.Run();
+  taskCtrl_o.Run();
   if (plsCOmms_o.isContaminated())
   {
     DPRINTLN("Warning Field Breached");
   }
-  delay(100);
+  delay(3000);
 
 }
 
 void serialEvent1() {
   while (serPort.Available())
   {
-//      DPRINTLN("DATA available");
-//      if (CPLSComms::MsgSuccess == plsCOmms_o.RecievePkt(len))
-//      {
-//        DPRINTLN("Searching");
-//        plsCOmms_o.SearchMsg(msg, 0x00, len);
-//      }
-        plsCOmms_o.AddContaminationAlert();
-        DPRINTLN("Warning Field Breached data recieved");
-        while (serPort.Available())
-          Serial1.read();
+    plsCOmms_o.AddContaminationAlert();
+    DPRINTLN("Warning Field Breached data recieved");
+    while (serPort.Available())
+      Serial1.read();
   }
-  
+
 }

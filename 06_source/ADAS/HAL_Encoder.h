@@ -29,7 +29,7 @@ public:
   /*
    * read encoder value
    */
-   bool Read(unsigned short& value);
+   bool Read(uint16_t& value);
    /**
    * Reset the value to zero
    */

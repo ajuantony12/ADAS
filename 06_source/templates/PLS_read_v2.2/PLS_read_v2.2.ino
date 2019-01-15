@@ -1,12 +1,13 @@
 #define BAUD 9600
 #define BAUD_PRESCALE (((F_CPU / (BAUD * 16UL))) - 1)
 
-#define BUF_LEN 800
+
+#define BUF_LEN 500
 uint8_t rxBuffer[BUF_LEN];
-volatile uint16_t rxMsgLen = 0;
-volatile uint16_t rxBufferPointer = 0;
-volatile bool rxBufferFull = false;
-volatile bool rxBufferRdy = false;
+uint16_t rxMsgLen = 0;
+uint16_t rxBufferPointer = 0;
+bool rxBufferFull = false;
+bool rxBufferRdy = false;
 
 
 #define PLS_STX 0x02 // start byte
@@ -27,14 +28,17 @@ tgm_struct pls_tgm;
 void setup() {
   Serial.begin(115200);
   uart1_init();
+
+  interrupts();
 }
 
 void loop() {
 
+  Serial.println(rxBufferPointer);
+
   if (rxBufferRdy) {
     Serial.println("Received telegram:");
-    Serial.print("length="); Serial.println(rxMsgLen);
-    for (int n = 0; n < rxMsgLen + 6; n++)
+    for (int n = 0; n < rxMsgLen + 2; n++)
     {
       Serial.print(rxBuffer[n], HEX); Serial.print(" ");
     }
@@ -61,7 +65,6 @@ void loop() {
 // UART1 interrupt
 ISR(USART1_RX_vect)
 {
-  
   if ((!rxBufferFull) && (!rxBufferRdy))
   {
     // Read incoming data
@@ -74,7 +77,7 @@ ISR(USART1_RX_vect)
     if (rxBufferPointer == 3)
     {
       // Check for start byte and PLS address
-      if ((rxBuffer[0] != PLS_STX) || (rxBuffer[1] != PLS_ADR))
+      if ((rxBuffer[0] != PLS_STX) && (rxBuffer[1] != PLS_ADR))
       {
         // STX & ADR not in first two bytes => overwrite received data
         rxBufferPointer = 0;
@@ -83,11 +86,11 @@ ISR(USART1_RX_vect)
     {
       // Check length of telegram
       rxMsgLen = (rxBuffer[3] << 8) + rxBuffer[2];
-    } else if (rxBufferPointer == rxMsgLen + 6) // + 2 for CRC
+    } else if (rxBufferPointer == rxMsgLen + 2) // + 2 for CRC
     {
       // Received full telegram
       rxBufferRdy = true;
-    }else if (rxBufferPointer == BUF_LEN)
+    } else if (rxBufferPointer == BUF_LEN)
     {
       // Set flag if buffer is full
       rxBufferFull = true;
@@ -99,39 +102,23 @@ ISR(USART1_RX_vect)
     (void) UDR1;
   }
 
-
-  
 }
 
 // Function to initialization of UART1
 void uart1_init(void)
 {
+  // Enable Receiver and Transmitter
+  UCSR1B |= (1 << RXEN1) | (1 << TXEN1);
+  // Ayncrhonous USART
+  UCSR1C &= ~((1 << UMSEL11) | (1 << UMSEL10));
   // Set baudrate
   UBRR1L = BAUD_PRESCALE;
   UBRR1H = (BAUD_PRESCALE >> 8);
-
-  // Ayncrhonous USART
-  bitWrite(UCSR1C, UMSEL00, 0);
-  bitWrite(UCSR1C, UMSEL01, 0);
-
   // Enable even parity
-  bitWrite(UCSR1C, UPM10, 0);
-  bitWrite(UCSR1C, UPM11, 1);
-
-  // 8-bit mode
-  bitWrite(UCSR1C, UCSZ02, 0);
-  bitWrite(UCSR1C, UCSZ01, 1);
-  bitWrite(UCSR1C, UCSZ00, 1);
-
-
-  // Enable Receiver and Transmitter
-  bitWrite(UCSR1B, RXEN1, 1);
-  bitWrite(UCSR1B, TXEN1, 1);
-
+  UCSR1C &= ~(1 << UPM10);
+  UCSR1C |= ~(1 << UPM11);
   // Enable receive interrupt
-  bitWrite(UCSR1B, RXCIE0, 1);
-
-  sei();
+  UCSR1B |= (1 << RXCIE0);
 }
 
 

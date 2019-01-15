@@ -14,7 +14,7 @@
 class CVMapping: public ITask_IF
 {
 public:
-	CVMapping(CPLSComms& plsComms);
+	CVMapping(CPLSComms& plsComms, uint8_t activeCheckInt);
 	~CVMapping();
   /*
    * init
@@ -30,7 +30,8 @@ public:
   virtual void Stop(void);
 private:
     CPLSComms&   m_plsComms;
-    uint8_t m_MeasruementData[MAX_MES_BUFF_SIZE];
+    uint8_t m_RunCount;
+    const uint8_t m_ActiveCheckInterval;
 };
 
 #endif /*APP_V_MAPPING_H*/
