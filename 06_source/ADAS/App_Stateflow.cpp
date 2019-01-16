@@ -45,6 +45,7 @@ void ChartModelClass::step()
   switch (rtDW.is_c3_Chart) {
    case IN_Backward:
     if ((rtU.turn != 0) || (rtU.dist == 0)) {
+      rtDW.curr_angle = rtU.gyro_signal;
       // Outport: '<Root>/dir_r'
       rtY.dir_r = 0U;
 
@@ -74,6 +75,7 @@ void ChartModelClass::step()
 
    case IN_Forward:
     if ((rtU.turn != 0) || (rtU.dist == 0)) {
+      rtDW.curr_angle = rtU.gyro_signal;
       // Outport: '<Root>/dir_r'
       rtY.dir_r = 0U;
 
@@ -334,6 +336,7 @@ void ChartModelClass::step()
 
   if (guard3) {
     if ((rtU.turn == 0) && (rtU.dist > 0)) {
+      
       rtDW.is_c3_Chart = IN_Forward;
 
       // Outport: '<Root>/mot_r'
@@ -348,6 +351,7 @@ void ChartModelClass::step()
       // Outport: '<Root>/dir_l'
       rtY.dir_l = 0U;
     } else if ((rtU.turn == 0) && (rtU.dist < 0)) {
+      
       rtDW.is_c3_Chart = IN_Backward;
 
       // Outport: '<Root>/mot_r'

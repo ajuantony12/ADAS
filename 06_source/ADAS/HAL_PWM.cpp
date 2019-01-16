@@ -48,5 +48,5 @@ void CPWMUnit::analogWrite16(uint8_t pin, uint16_t val)
 
 void CPWMUnit::writeMOT(uint16_t n)
 {
-  analogWrite16(m_ID, n);
+  analogWrite16(m_ID, 1023-n);
 }

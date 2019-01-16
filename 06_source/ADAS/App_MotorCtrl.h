@@ -38,7 +38,9 @@ public:
 
 private:
     void checkState(void);
-
+    
+    void StraightDrive(void);
+    
     void MotPI(void);
 
     void writeMOT(uint16_t n1, uint16_t n2);
