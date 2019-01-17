@@ -32,4 +32,11 @@
 #define PIN_ENC_L                                        3
 #define Btn_Start                                       46
 
+
+//Navigation parameters
+#define NAV_SET_OFFSET                                  80  // in cm
+#define NAV_TOL_OFFSET                                  5   // in cm
+#define NAV_TOL_ANGLE_DRIVE                             5   // degrees
+
+
 #endif /*ADAS_CFG_H*/
