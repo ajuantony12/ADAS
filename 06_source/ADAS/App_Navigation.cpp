@@ -22,6 +22,9 @@ void CNavigation::Run(void)
   // Call next state logic
   getNextState(runFlow);
 
+  // Call transistion acitions
+  doTransistionAction(current_state, next_state);
+
   // Set next state to current state
   current_state = next_state;
 }
@@ -48,6 +51,7 @@ void CNavigation::getNextState(bool runActive)
 {
   if (runActive)
   {
+    // running navigation run
     switch (current_state) {
 
       case STATE_IDLE:
@@ -59,13 +63,9 @@ void CNavigation::getNextState(bool runActive)
         if ((cur_offset < NAV_SET_OFFSET + NAV_TOL_OFFSET) && (cur_offset > NAV_SET_OFFSET - NAV_TOL_OFFSET))
         { // Offset is in tolerance
           next_state = STATE_GET_ANGLE;
-          DPRINTLN("Nav: Offset is okay.");
-          DPRINT("Nav: Rotate parallel to wall by "); DPRINT(-cur_angle); DPRINTLN(" deg");
         } else {
           // Offset has to be corrected
           next_state = STATE_ROT_WALL_INFRONT;
-          DPRINTLN("Nav: Offset has to be corrected...");
-          DPRINT("Nav: Rotate to wall by "); DPRINT(-cur_angle + 90); DPRINTLN(" deg");
         }
         break;
 
@@ -74,8 +74,6 @@ void CNavigation::getNextState(bool runActive)
         if (rotationDone)
         {
           next_state = STATE_COR_OFFSET;
-          DPRINTLN("Nav: Rotation done. Correct offset...");
-          DPRINT("Nav: Drive "); DPRINT(cur_nxt_wall - NAV_SET_OFFSET); DPRINTLN(" cm");
         }
         break;
 
@@ -83,8 +81,6 @@ void CNavigation::getNextState(bool runActive)
         if (distanceDone)
         {
           next_state = STATE_ROT_WALL_OFFSET;
-          DPRINTLN("Nav: Offset corrected...");
-          DPRINTLN("Nav: Rotate left 90 degrees");
         }
         break;
 
@@ -93,7 +89,6 @@ void CNavigation::getNextState(bool runActive)
         if (rotationDone)
         {
           next_state = STATE_DRIVE_WALL;
-          DPRINTLN("Nav: Drive forward");
         }
         break;
 
@@ -102,7 +97,6 @@ void CNavigation::getNextState(bool runActive)
         if (rotationDone)
         {
           next_state = STATE_DRIVE_WALL;
-          DPRINTLN("Nav: Drive forward");
         }
         break;
 
@@ -111,8 +105,6 @@ void CNavigation::getNextState(bool runActive)
         if (abs(cur_angle) > NAV_TOL_ANGLE_DRIVE)
         {
           next_state = STATE_GET_ANGLE;
-          DPRINTLN("Nav: Amgle out of limit! Stop drive!");
-          DPRINT("Nav: Rotate parallel to wall by "); DPRINT(-cur_angle); DPRINTLN(" deg");
         }
         break;
 
@@ -121,6 +113,9 @@ void CNavigation::getNextState(bool runActive)
         next_state = STATE_IDLE;
         break;
     }
+  } else {
+    // paused navigation run
+
   }
 }
 
@@ -138,20 +133,20 @@ void CNavigation::printChangedDebugInfo(void)
 {
 
 
-  if ((current_state_old != cur_offset) ||
-      (next_state_old != next_state)    ||
-      (buf_offset_old != buf_offset)    ||
-      (buf_angle_old != buf_angle)      ||
-      (buf_nxt_wall_old != buf_nxt_wall) ||
-      (cur_offset_old != cur_offset)    ||
-      (cur_angle_old != cur_angle)      ||
+  if ((current_state_old != current_state) ||
+      (next_state_old != next_state)       ||
+      (buf_offset_old != buf_offset)       ||
+      (buf_angle_old != buf_angle)         ||
+      (buf_nxt_wall_old != buf_nxt_wall)   ||
+      (cur_offset_old != cur_offset)       ||
+      (cur_angle_old != cur_angle)         ||
       (cur_nxt_wall_old != cur_nxt_wall))
   {
     printDebugInfo();
   }
 
   // Write current value to old
-  current_state_old = cur_offset;
+  current_state_old = current_state;
   next_state_old = next_state;
   buf_offset_old = buf_offset;
   buf_angle_old = buf_angle;
@@ -242,4 +237,87 @@ void CNavigation::printState(NAV_STATE state)
       break;
   }
 }
+
+
+// Function to contine if obstacle is clear
+void CNavigation::continueDrive(void)
+{
+  runFlow = true;
+  DPRINTLN("Nav: Continue drive!");
+}
+
+
+// Function to stop if obstacle is detected
+void CNavigation::stopDrive(void)
+{
+  runFlow = false;
+  DPRINTLN("Nav: Pause drive!");
+}
+
+
+// Function to perfom transisition actions
+void CNavigation::doTransistionAction(NAV_STATE state, NAV_STATE next)
+{
+  switch (state)
+  {
+    case STATE_IDLE:
+
+      break;
+
+    case STATE_GET_OFFSET:
+      if (next == STATE_GET_ANGLE) {
+        DPRINTLN("Nav: Offset is okay.");
+        DPRINT("Nav: Rotate parallel to wall by "); DPRINT(-cur_angle); DPRINTLN(" deg");
+      } else if (next == STATE_ROT_WALL_INFRONT)
+      {
+        DPRINTLN("Nav: Offset has to be corrected...");
+        DPRINT("Nav: Rotate to wall by "); DPRINT(-cur_angle + 90); DPRINTLN(" deg");
+      }
+      break;
+
+    case STATE_ROT_WALL_INFRONT:
+      if (next == STATE_COR_OFFSET)
+      {
+        DPRINTLN("Nav: Rotation done. Correct offset...");
+        DPRINT("Nav: Drive "); DPRINT(cur_nxt_wall - NAV_SET_OFFSET); DPRINTLN(" cm");
+      }
+      break;
+
+    case STATE_COR_OFFSET:
+      if ( next == STATE_ROT_WALL_OFFSET)
+      {
+        DPRINTLN("Nav: Offset corrected...");
+        DPRINTLN("Nav: Rotate left 90 degrees");
+      }
+      break;
+
+    case STATE_ROT_WALL_OFFSET:
+      if (next == STATE_DRIVE_WALL)
+      {
+        DPRINTLN("Nav: Drive forward");
+      }
+
+      break;
+
+    case STATE_GET_ANGLE:
+      if (next == STATE_DRIVE_WALL)
+      {
+        DPRINTLN("Nav: Drive forward");
+      }
+      break;
+
+    case STATE_ROT_WALL:
+      break;
+
+    case STATE_DRIVE_WALL:
+      if (next == STATE_GET_ANGLE)
+      {
+        DPRINTLN("Nav: Angle out of limit! Stop drive!");
+        DPRINT("Nav: Rotate parallel to wall by "); DPRINT(-cur_angle); DPRINTLN(" deg");
+      }
+      break;
+
+  }
+}
+
 

@@ -23,7 +23,6 @@ void setup() {
   serPort.Init(SERIAL1_INITIAL_BAUD_RATE, SERIAL1_TIMEOUT);
   Serial.begin(115200);
   DPRINTLN("Hello\n\r");
-  nav_o.runFlow = false;
 
 
   // IO Init
@@ -45,10 +44,10 @@ void loop() {
     nav_o.setPLSdata(offset, angle, nxt_wall);
   } else if (datain == 'd') {
     DPRINTLN("Run");
-    nav_o.runFlow = true;
+    nav_o.continueDrive();
   } else if (datain == 'f') {
     DPRINTLN("Stop");
-    nav_o.runFlow = false;
+    nav_o.stopDrive();
   }
 
 

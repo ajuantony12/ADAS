@@ -35,10 +35,6 @@ class CNavigation: public ITask_IF
     */
     virtual void setPLSdata(uint16_t offset, int8_t angle, uint16_t nxt_wall);
 
-    /*
-       Parameter to pause/run state flow
-    */
-    bool runFlow = false;
 
     /*
        Parameter to show that rotation is finished
@@ -59,7 +55,25 @@ class CNavigation: public ITask_IF
        Debug function to print current status of state flow
     */
     virtual void printDebugInfo(void);
+
+
+    /*
+       Function to stop if obstacle is detected
+    */
+    virtual void stopDrive(void);
+
+
+    /*
+       Function to contine if obstacle is clear
+    */
+    virtual void continueDrive(void);
+
+
   private:
+
+
+    // Parameter to pause/run state flow
+    bool runFlow = false;
 
 
 
@@ -101,17 +115,16 @@ class CNavigation: public ITask_IF
     // Function to set next state
     void getNextState(bool runActive);
 
+    // Function to perfom transisition actions
+    void doTransistionAction(NAV_STATE state, NAV_STATE next);
+
     // Function to print state
     void printState(NAV_STATE state);
 
 
-
     // Variables for old value for debug print
-    // Variables for the state machine
     NAV_STATE current_state_old;
     NAV_STATE next_state_old;
-
-    // Buffer of environmental data
     uint16_t buf_offset_old;
     int8_t buf_angle_old;
     uint16_t buf_nxt_wall_old;
