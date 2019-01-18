@@ -31,7 +31,7 @@ public:
         uint8_t messageID;
     } Message_t;
 
-    CPLSComms(CSerial& serPort, uint8_t* buffer);
+    CPLSComms(CSerial& serPort);
     ~CPLSComms();
     /*
     * init
@@ -40,10 +40,11 @@ public:
     /*
     * Get Measurements
     */
-    bool GetMeasurements(uint8_t* buff, uint16_t& len);
+    bool GetMeasurements(Message_t& msg, uint16_t& len, bool onlyVert);
+    bool GetAsyncData(Message_t& msg, uint16_t& len);
     /*is protectuve field breached
     */
-    bool IsPFBreached(uint32_t& distToObj);
+    bool IsPFBreached();
     /*
     * Get status of PLS
     */
@@ -56,17 +57,6 @@ public:
     * Recieve a packet
     */
     Status_e  RecievePkt(uint16_t& len);
-    /*is Con*/
-    inline bool isContaminated()
-    {
-        bool retVal = m_asyncDataFLag;
-        m_asyncDataFLag = false;
-        return retVal;
-    }
-    inline void AddContaminationAlert()
-    {
-        m_asyncDataFLag = true;
-    }
 private:
     /*
     * Calculate CRC
@@ -83,9 +73,8 @@ private:
     
     CSerial& m_serPort;
     uint8_t m_sndBuff[PLS_SND_BUFF_SIZE];
-    uint8_t* m_rcvBuff;
+    uint8_t m_rcvBuff[PLS_RCV_BUFF_SIZE];
     Status_e m_status;
-    bool m_asyncDataFLag;
 };
 
 #endif /*COMMS_PLS_H*/

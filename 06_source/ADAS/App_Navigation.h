@@ -29,6 +29,8 @@ public:
    * Stop
    */
   virtual void Stop(void);
+  bool isTurning();
+  bool isCornerMode();
 private:
     CPLSComms&   m_plsComms;
 };

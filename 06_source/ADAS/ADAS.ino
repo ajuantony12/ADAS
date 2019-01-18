@@ -23,10 +23,6 @@
 /*OSAL*/
 #include "OSAL_TaskCtrl.h"
 
-
-uint8_t PLS_RxBuffer[PLS_RCV_BUFF_SIZE] = {0U};
-uint8_t IPC_RxBuffer[IPC_RCV_BUFF_SIZE] = {0U};
-
 //Hardware
 /*CADC adc_o;
   CDriveUnit  dUnitLeft_o(CDriveUnit::Drive1);
@@ -34,23 +30,25 @@ uint8_t IPC_RxBuffer[IPC_RCV_BUFF_SIZE] = {0U};
   CEncoder    enc1_o(CEncoder::E1);
   CEncoder    enc2_o(CEncoder::E2);
   CIOManager  ioMg_o;*/
-CSerial     plsPort(PLS_RxBuffer, CSerial::S1, PLS_RCV_BUFF_SIZE);
-CSerial     IPCPort(IPC_RxBuffer, CSerial::S1, IPC_RCV_BUFF_SIZE);
+CSerial     plsPort(CSerial::S1, PLS_RCV_BUFF_SIZE);
+CSerial     IPCPort(CSerial::S2, IPC_RCV_BUFF_SIZE);
 //comms layer
 //CInertialComm inertial_o;
-CPLSComms   plsCOmms_o(plsPort, PLS_RxBuffer);
+CPLSComms   plsCOmms_o(plsPort);
 
 //Task
-CVMapping vMap_o(plsCOmms_o, 2);
+CNavigation nav_o(plsCOmms_o);
+CVMapping vMap_o(nav_o, plsCOmms_o, 5);
 /*CUser_IF uI_o;
   CPositioning pos_o;
-  CNavigation nav_o(plsCOmms_o);
   CMotorCtrl mCtrl_o;*/
 
 /*OSAL*/
 CTaskCtrl taskCtrl_o;
 
 void setup() {
+    Serial.begin(9600);
+    Serial.write("hello\n\r");
   //Hw initialization
   /*ioMg_o.Init();
     dUnitLeft_o.Init();
@@ -59,29 +57,24 @@ void setup() {
     enc2_o.Init();*/
   plsPort.Init();
   IPCPort.Init();
-  Serial.begin(9600);
 
   //inertial_o.Init();
-  plsCOmms_o.Init();
+   plsCOmms_o.Init();
 
   //Task initialization
   /*taskCtrl_o.Register(&mCtrl_o, 1);
     taskCtrl_o.Register(&nav_o, 0);
     taskCtrl_o.Register(&pos_o, 2);*/
   taskCtrl_o.Register(&vMap_o, 3);
-  /*taskCtrl_o.Register(&uI_o, 4);
-    //taskCtrl_o.Init();*/
+  /*taskCtrl_o.Register(&uI_o, 4);*/
+   taskCtrl_o.Init();
 }
 
 void loop() {
-  //Serial1.write("hello\n\r");
   // put your main code here, to run repeatedly:
+  Serial.write("in Loop\n\r");
   //taskCtrl_o.Run();
-  if (plsCOmms_o.isContaminated())
-  {
-    DPRINTLN("Warning Field Breached");
-  }
-  delay(100);
+  delay(1000);
 
 }
 

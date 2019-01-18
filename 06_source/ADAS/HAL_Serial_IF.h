@@ -18,7 +18,7 @@ public:
   /*
    * Constructor
    */
-  CSerial(uint8_t* i_buffer, PortID_e i_ID, uint16_t i_bufLen);
+  CSerial(PortID_e i_ID, uint16_t i_bufLen);
   /*
    * Destructor
    */
@@ -31,7 +31,9 @@ public:
    * Send Data
    */
    bool Send(char Buff[], uint8_t len);
-   bool Available(uint16_t& len);
+   bool Available(void);
+   uint16_t GetDataLen(void);
+   bool GetData(uint8_t* data, uint16_t len);
    void ReleaseBuffer(void);
    void SerialISR(void);
  private:
