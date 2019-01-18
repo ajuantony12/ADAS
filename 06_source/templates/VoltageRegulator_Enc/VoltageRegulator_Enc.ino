@@ -11,15 +11,16 @@
 #define PIN_DIRECTION 50
 #define Btn_Start 46
 
+unsigned long time;
 boolean control = false;
 volatile unsigned long time_uC;
 volatile unsigned long enc_last_time_l = 0;
-volatile unsigned long enc_t_l = 0;
+volatile unsigned long enc_t_l = 166;
 volatile unsigned long enc_last_time_r = 0;
-volatile unsigned long enc_t_r = 0;
+volatile unsigned long enc_t_r = 166;
 uint16_t rpm = 0;
 int n = 0;
-uint16_t setpoint = 28000; //124 = 4km/h
+uint16_t setpoint = 166-45; 
 uint16_t feedback_l;
 uint16_t feedback_r;
 uint16_t output_r = 0;
@@ -33,7 +34,7 @@ uint16_t peak_sum_r = 0;
 uint16_t d_way = 1500; // desired way to drive in cm (1.795cm/peak) 2228==4000cm
 boolean startBtn = false;
 Timer t;
-float Kp = 1.0, Ki = 0.5, Kd = 0, Hz = 10;
+float Kp = 0.5, Ki = 0.5, Kd = 0.05, Hz = 10;
 int output_bits = 16;
 bool output_signed = false;
 
@@ -59,44 +60,58 @@ void setup()
 
 void loop()
 {
-  writeLED(100, 100);
+   time = millis();
+  //writeLED(100, 100);
   
    //right PI control
-      feedback_r = enc_t_r;
-      feedback_l = enc_t_l;
+      if(enc_t_r > 166){
+          feedback_r = 0;
+        }else{
+            feedback_r = 166-enc_t_r;
+          }
+
+      if(enc_t_l > 166){
+          feedback_l = 0;
+        }else{
+            feedback_l = 166-enc_t_l;
+          }
       output_l = myPID.step(setpoint, feedback_l);
       output_r = myPID.step(setpoint, feedback_r);
       
   
-      if (output_r >= 1023) {
-        output_r = 1023;
+      if (output_r >= 500) {
+        output_r =500;
       }
-      if (output_l >= 1023) {
-        output_l = 1023;
+      if (output_l >= 500) {
+        output_l = 500;
       }
       
   //Debug output
-      Serial.print(output_r*2);
+      Serial.print(output_r);
       Serial.print(";");
-      Serial.print(" Time between two right teeth: ");
+      Serial.print(" Time between r: ");
       Serial.print(enc_t_r);
       Serial.print("; ");
+      Serial.print(feedback_r);
+      Serial.print(";");
       
   //left PI control
   
   //Debug output
-      Serial.print(output_l*2);
+      Serial.print(output_l);
       Serial.print(";");
-      Serial.print(" Time between two left teeth: ");
+      Serial.print(" Time between l: ");
       Serial.print(enc_t_l);
-      Serial.println("; ");
+      Serial.print("; ");
+      Serial.print(feedback_l);
+      Serial.println(";");
   
   //write to motor
       if (digitalRead(PIN_ENABLE) == HIGH) {
         digitalWrite(LED1, LOW);
         digitalWrite(LED2, LOW);
       } else {
-        //writeLED(output_l, output_r);
+        writeLED(output_r*2, output_l*2);
       }
 }
 
@@ -110,12 +125,12 @@ void writeLED(uint16_t n1, uint16_t n2)
 
 void EncISR_L(void)
 {
-  enc_t_l = micros() - enc_last_time_l;
-  enc_last_time_l = micros();
+  enc_t_l = millis() - enc_last_time_l;
+  enc_last_time_l = millis();
 }
 
 void EncISR_R(void)
 {
-  enc_t_r = micros() - enc_last_time_r;
-  enc_last_time_r = micros();
+  enc_t_r = millis() - enc_last_time_r;
+  enc_last_time_r = millis();
 }

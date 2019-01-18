@@ -33,7 +33,7 @@ uint16_t lower_b, upper_b, limit_var = 0;
 
 int k = 0;
 Timer t;
-float Kp = 0.6, Ki = 0.6, Kd = 0.15, Hz = 10;
+float Kp = 1.0, Ki = 2.0, Kd = 0.0, Hz = 10;
 int output_bits = 16;
 bool output_signed = false;
 
@@ -129,6 +129,7 @@ void CMotorCtrl::Run(void)
           getUserInput();
           checkState();
           MotPI();
+          StraightDrive();
           //printValues();
          }
       }
@@ -139,7 +140,7 @@ void CMotorCtrl::Run(void)
 void CMotorCtrl::StraightDrive(void)
 {
   if(rtObj.rtDW.is_c3_Chart == 2){
-            if(rtObj.rtDW.curr_angle + control_area >= 360){
+      if(rtObj.rtDW.curr_angle + control_area >= 360){
           upper_b = rtObj.rtDW.curr_angle + control_area - 360;
         }else{
           upper_b = rtObj.rtDW.curr_angle + control_area;
@@ -151,11 +152,16 @@ void CMotorCtrl::StraightDrive(void)
       }
 
       if(rtObj.rtU.gyro_signal < rtObj.rtDW.curr_angle || rtObj.rtU.gyro_signal >= lower_b){
-        setpoint_l--;
-        setpoint_r++;
-        }else if( rtObj.rtDW.curr_angle < rtObj.rtU.gyro_signal <= upper_b){
+        if(setpoint_l - setpoint_r < 10 || setpoint_r - setpoint_l < 10){
             setpoint_l++;
             setpoint_r--;
+          }
+       
+        }else if( rtObj.rtDW.curr_angle < rtObj.rtU.gyro_signal && rtObj.rtU.gyro_signal <= upper_b){
+            if(setpoint_l - setpoint_r < 10 || setpoint_r - setpoint_l < 10){
+              setpoint_l--;
+              setpoint_r++;
+            }
           }
        DPRINT("Curr angle : ");
        DPRINT(rtObj.rtDW.curr_angle);
@@ -174,7 +180,9 @@ void CMotorCtrl::StraightDrive(void)
 // PIControl Motors
 void CMotorCtrl::MotPI(void)
 {
-    if (control && peak_sum_r < d_way && peak_sum_l < d_way ){      
+    if (control && peak_sum_r < d_way && peak_sum_l < d_way ){
+
+           
  //right PI control
     feedback_r = counted_peaks_r;
     output_r = myPID.step(setpoint_r, feedback_r);

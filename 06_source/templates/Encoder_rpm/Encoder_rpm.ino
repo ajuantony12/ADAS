@@ -7,7 +7,7 @@ uint16_t rpm = 0;
 
 
 void setup() {
-  Serial.begin(115200);
+  Serial.begin(9600);
   pinMode(PIN_ENC, INPUT_PULLUP);
   attachInterrupt(digitalPinToInterrupt(PIN_ENC), EncISR, RISING);
 }
@@ -28,4 +28,3 @@ void EncISR(void)
   enc_t = time - enc_last_time;
   enc_last_time = time;
 }
-
