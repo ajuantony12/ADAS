@@ -2,8 +2,7 @@
 #include "HAL_Serial_IF.h"
 #include <Arduino.h>
 
-CSerial::CSerial(uint8_t* i_buffer, PortID_e i_ID, uint16_t i_bufLen):
-  m_rxBuffer(i_buffer),
+CSerial::CSerial(PortID_e i_ID, uint16_t i_bufLen):
   m_ID(i_ID),
   m_rxBufLen(i_bufLen),
   m_rxMsgLen(0),
@@ -11,19 +10,19 @@ CSerial::CSerial(uint8_t* i_buffer, PortID_e i_ID, uint16_t i_bufLen):
   m_rxBufferFull(false),
   m_rxBufferRdy(false)
 {
-  //do nothing
+  m_rxBuffer = new uint8_t[i_bufLen];
 }
 CSerial::~CSerial() {
-  m_rxBuffer = NULL;
   m_rxMsgLen = 0U;
   m_rxBufferPointer = 0U;
   m_rxBufferFull = false;
   m_rxBufferRdy = false;
+  delete[] m_rxBuffer;
 }
 
 void CSerial::Init(void) {
-if (S1 == m_ID){
-   
+  if (S1 == m_ID) {
+
     // Set baudrate
     UBRR1L = SERIAL1_BAUD_PRESCALE;
     UBRR1H = (SERIAL1_BAUD_PRESCALE >> 8);
@@ -48,32 +47,32 @@ if (S1 == m_ID){
 
     // Enable receive interrupt
     bitWrite(UCSR1B, RXCIE1, 1);
-}else{
-      // Set baudrate
-  UBRR1L = SERIAL2_BAUD_PRESCALE;
-  UBRR1H = (SERIAL2_BAUD_PRESCALE >> 8);
+  } else {
+    // Set baudrate
+    UBRR1L = SERIAL2_BAUD_PRESCALE;
+    UBRR1H = (SERIAL2_BAUD_PRESCALE >> 8);
 
-  // Ayncrhonous USART
-  bitWrite(UCSR2C, UMSEL20, 0);
-  bitWrite(UCSR2C, UMSEL21, 0);
+    // Ayncrhonous USART
+    bitWrite(UCSR2C, UMSEL20, 0);
+    bitWrite(UCSR2C, UMSEL21, 0);
 
-  // Enable even parity
-  bitWrite(UCSR2C, UPM20, 0);
-  bitWrite(UCSR2C, UPM21, 1);
+    // Enable even parity
+    bitWrite(UCSR2C, UPM20, 0);
+    bitWrite(UCSR2C, UPM21, 1);
 
-  // 8-bit mode
-  bitWrite(UCSR2C, UCSZ22, 0);
-  bitWrite(UCSR2C, UCSZ21, 1);
-  bitWrite(UCSR2C, UCSZ20, 1);
+    // 8-bit mode
+    bitWrite(UCSR2C, UCSZ22, 0);
+    bitWrite(UCSR2C, UCSZ21, 1);
+    bitWrite(UCSR2C, UCSZ20, 1);
 
 
-  // Enable Receiver and Transmitter
-  bitWrite(UCSR2B, RXEN2, 1);
-  bitWrite(UCSR2B, TXEN2, 1);
+    // Enable Receiver and Transmitter
+    bitWrite(UCSR2B, RXEN2, 1);
+    bitWrite(UCSR2B, TXEN2, 1);
 
-  // Enable receive interrupt
-  bitWrite(UCSR2B, RXCIE2, 1);
-}
+    // Enable receive interrupt
+    bitWrite(UCSR2B, RXCIE2, 1);
+  }
   sei();
 }
 
@@ -83,31 +82,45 @@ bool CSerial::Send(char Buff[], uint8_t len) {
   // wait for free tx buffer
   if ((NULL != Buff) && (0 < len ))
   {
-      if (S1 == m_ID){
-          
+    if (S1 == m_ID) {
+
       for (index = 0U; index < len; index++)
       {
         while ( !( UCSR1A & (1 << UDRE1)));
         // send data
         UDR1 = Buff[index];
       }
-      }else{
-                for (index = 0U; index < len; index++)
+    } else {
+      for (index = 0U; index < len; index++)
       {
         while ( !( UCSR2A & (1 << UDRE2)));
         // send data
         UDR2 = Buff[index];
       }
-      }
+    }
     retVal = true;
   }
   return retVal;
 }
 
-bool CSerial::Available(uint16_t& len)
+bool CSerial::Available(void)
 {
-  len = m_rxMsgLen;
   return m_rxBufferRdy;
+}
+uint16_t CSerial::GetDataLen(void)
+{
+  return (m_rxMsgLen + 6);
+}
+bool CSerial::GetData(uint8_t* data, uint16_t len)
+{
+    bool retVal = false;
+    if (len <= (m_rxMsgLen + 6))
+    {
+        memcpy(data, m_rxBuffer, len);
+        ReleaseBuffer();
+        retVal = true;
+    }
+    return retVal;
 }
 
 void CSerial::ReleaseBuffer(void)
@@ -124,19 +137,20 @@ void CSerial::SerialISR(void)
     // Read incoming data
 
     // Write rx data to buffer
-    m_rxBuffer[m_rxBufferPointer] = (m_ID == S1)? UDR1:UDR2;
+    m_rxBuffer[m_rxBufferPointer] = (m_ID == S1) ? UDR1 : UDR2;
     m_rxBufferPointer++;
 
 
-    if (m_rxBufferPointer == 3)
+    if (m_rxBufferPointer == 2)
     {
       // Check for start byte and PLS address
       if ((m_rxBuffer[0] != SICK_STX) || (m_rxBuffer[1] != SICK_DESTR))
       {
         // STX & ADR not in first two bytes => overwrite received data
-        m_rxBufferPointer = 0;
+            m_rxBuffer[0] = m_rxBuffer[1];
+            m_rxBufferPointer = 1;
       }
-    } else if (m_rxBufferPointer == 5)
+    } else if (m_rxBufferPointer == 4)
     {
       // Check length of telegram
       m_rxMsgLen = (m_rxBuffer[3] << 8) + m_rxBuffer[2];
@@ -153,10 +167,10 @@ void CSerial::SerialISR(void)
     // flush data
     if (m_ID == S1)
     {
-        (void) UDR1;
-    }else{
-        (void) UDR2;
+      (void) UDR1;
+    } else {
+      (void) UDR2;
     }
-    
+
   }
 }

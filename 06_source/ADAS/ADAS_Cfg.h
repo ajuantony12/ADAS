@@ -26,8 +26,15 @@
 #define SERIAL2_BAUD                                    9600
 #define SERIAL2_BAUD_PRESCALE                           (((F_CPU / (SERIAL2_BAUD * 16UL))) - 1)
 
+//Number of segements on right
+#define PLS_WF_SEGEMENTS_RIGHT                          0x03
+#define PLS_WALL_DETECTION_2_POINT                      84
+#define PLS_WF_CORNER_RIGHT                             122
+
 //PLS Comms COnstant
 #define SICK_STX                                        0x02
 #define SICK_DESTR                                      0x80
+#define SICK_ACK                                        0x06
+#define SICK_NAK                                        0x15
 
 #endif /*ADAS_CFG_H*/
