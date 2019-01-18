@@ -26,7 +26,7 @@ public:
   /*
    * Read ADC Value
    */
-   unsigned short ReadADCValue(void);
+   uint16_t ReadADCValue(void);
   
 };
 

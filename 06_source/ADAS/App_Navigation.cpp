@@ -34,6 +34,14 @@ void CNavigation::Stop(void)
   //do nothing
 }
 
+bool CNavigation::isTurning()
+{
+    return false;
+}
+bool CNavigation::isCornerMode()
+{
+    return false;
+}
 
 // Function to set the current value of offset position to wall,
 // current angle of the wall and current distance to wall in front to the input buffer
@@ -319,5 +327,3 @@ void CNavigation::doTransistionAction(NAV_STATE state, NAV_STATE next)
 
   }
 }
-
-

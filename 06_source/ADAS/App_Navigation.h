@@ -67,6 +67,9 @@ class CNavigation: public ITask_IF
        Function to contine if obstacle is clear
     */
     virtual void continueDrive(void);
+    
+    bool isTurning();
+    bool isCornerMode();
 
 
   private:
@@ -131,7 +134,6 @@ class CNavigation: public ITask_IF
     uint16_t cur_offset_old;
     int8_t cur_angle_old;
     uint16_t cur_nxt_wall_old;
-
 
 };
 
