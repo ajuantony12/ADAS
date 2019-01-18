@@ -9,15 +9,19 @@
 /*App Layer*/
 #include "App_Navigation.h"
 
+//Hardware
+CSerial     plsPort(CSerial::S1, PLS_RCV_BUFF_SIZE);
+CSerial     IPCPort(CSerial::S2, IPC_RCV_BUFF_SIZE);
+CNavigation nav_o;
+
+
 // Debug pins
 #define PIN_ROT_DONE    12
 #define PIN_DIST_DONE   11
 
 void setup() {
-    Serial.begin(9600);
-    Serial.write("hello\n\r");
   //Hw initialization
-  serPort.Init(SERIAL1_INITIAL_BAUD_RATE, SERIAL1_TIMEOUT);
+  plsPort.Init();
   Serial.begin(115200);
   DPRINTLN("Hello\n\r");
 
@@ -46,4 +50,15 @@ void loop() {
     DPRINTLN("Stop");
     nav_o.stopDrive();
   }
+
+
+
+
+  // Run navigation
+  nav_o.printChangedDebugInfo();
+  nav_o.Run();
+
+
+  delay(500);
+}
 
