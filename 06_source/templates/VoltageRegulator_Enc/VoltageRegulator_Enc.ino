@@ -13,11 +13,13 @@
 
 boolean control = false;
 volatile unsigned long time_uC;
-volatile unsigned long enc_last_time = 0;
-volatile unsigned long enc_t = 0;
+volatile unsigned long enc_last_time_l = 0;
+volatile unsigned long enc_t_l = 0;
+volatile unsigned long enc_last_time_r = 0;
+volatile unsigned long enc_t_r = 0;
 uint16_t rpm = 0;
 int n = 0;
-uint16_t setpoint = 15; //124 = 4km/h
+uint16_t setpoint = 28000; //124 = 4km/h
 uint16_t feedback_l;
 uint16_t feedback_r;
 uint16_t output_r = 0;
@@ -52,20 +54,16 @@ void setup()
   digitalWrite(PIN_DIRECTION, HIGH);
   digitalWrite(LED1, LOW);
   digitalWrite(LED2, LOW);
-  t.every(250, readenc, 0);
   setupPWM16();
 }
 
 void loop()
 {
-  if(digitalRead(Btn_Start) == HIGH){
-      
-        startBtn = true;
-    }
-    if (control && peak_sum_l < d_way && peak_sum_r < d_way){
+  writeLED(100, 100);
+  
    //right PI control
-      feedback_r = counted_peaks_r;
-      feedback_l = counted_peaks_l;
+      feedback_r = enc_t_r;
+      feedback_l = enc_t_l;
       output_l = myPID.step(setpoint, feedback_l);
       output_r = myPID.step(setpoint, feedback_r);
       
@@ -80,10 +78,8 @@ void loop()
   //Debug output
       Serial.print(output_r*2);
       Serial.print(";");
-      Serial.print(counted_peaks_r);
-      Serial.print(";");
-      Serial.print(" Peaks: ");
-      Serial.print(peak_sum_r);
+      Serial.print(" Time between two right teeth: ");
+      Serial.print(enc_t_r);
       Serial.print("; ");
       
   //left PI control
@@ -91,10 +87,8 @@ void loop()
   //Debug output
       Serial.print(output_l*2);
       Serial.print(";");
-      Serial.print(counted_peaks_l);
-      Serial.print(";");
-      Serial.print(" Peaks: ");
-      Serial.print(peak_sum_l);
+      Serial.print(" Time between two left teeth: ");
+      Serial.print(enc_t_l);
       Serial.println("; ");
   
   //write to motor
@@ -102,13 +96,8 @@ void loop()
         digitalWrite(LED1, LOW);
         digitalWrite(LED2, LOW);
       } else {
-        writeLED(output_l, output_r);
+        //writeLED(output_l, output_r);
       }
-      control=false;
-    }else if(peak_sum_l >= d_way && peak_sum_r >= d_way){
-      writeLED(LOW, LOW);
-      }
-    t.update();
 }
 
 
@@ -121,20 +110,12 @@ void writeLED(uint16_t n1, uint16_t n2)
 
 void EncISR_L(void)
 {
-  peaks_l++;
+  enc_t_l = micros() - enc_last_time_l;
+  enc_last_time_l = micros();
 }
 
 void EncISR_R(void)
 {
-  peaks_r++;
-}
-
-void readenc(void* context) {
-  counted_peaks_r = peaks_r;
-  counted_peaks_l = peaks_l;
-  control = true;
-  peak_sum_l = peak_sum_l + counted_peaks_l;
-  peak_sum_r = peak_sum_r + counted_peaks_r;
-  peaks_r = 0;
-  peaks_l = 0;
+  enc_t_r = micros() - enc_last_time_r;
+  enc_last_time_r = micros();
 }

@@ -12,10 +12,10 @@
 int n = 20;
 int16_T dist = 0;
 boolean control = false;
-uint16_t setpoint_l = 124; //124 = 4km/h
-uint16_t setpoint_r = 124; //124 = 4km/h
+uint16_t setpoint_l = 15; //124 = 4km/h
+uint16_t setpoint_r = 15; //124 = 4km/h
 int curState = 3;
-uint16_t feedback;
+uint16_t feedback_l, feedback_r;
 uint16_t output_r = 0;
 uint16_t output_l = 0;
 uint16_t peaks_r = 0;
@@ -33,7 +33,7 @@ uint16_t lower_b, upper_b, limit_var = 0;
 
 int k = 0;
 Timer t;
-float Kp = 0.2, Ki = 0.5, Kd = 0, Hz = 10;
+float Kp = 0.6, Ki = 0.6, Kd = 0.15, Hz = 10;
 int output_bits = 16;
 bool output_signed = false;
 
@@ -138,7 +138,8 @@ void CMotorCtrl::Run(void)
 }
 void CMotorCtrl::StraightDrive(void)
 {
-  if(rtObj.rtDW.curr_angle + control_area >= 360){
+  if(rtObj.rtDW.is_c3_Chart == 2){
+            if(rtObj.rtDW.curr_angle + control_area >= 360){
           upper_b = rtObj.rtDW.curr_angle + control_area - 360;
         }else{
           upper_b = rtObj.rtDW.curr_angle + control_area;
@@ -150,11 +151,11 @@ void CMotorCtrl::StraightDrive(void)
       }
 
       if(rtObj.rtU.gyro_signal < rtObj.rtDW.curr_angle || rtObj.rtU.gyro_signal >= lower_b){
-        setpoint_l= setpoint_l + 20;
-        setpoint_r= setpoint_r - 20;
+        setpoint_l--;
+        setpoint_r++;
         }else if( rtObj.rtDW.curr_angle < rtObj.rtU.gyro_signal <= upper_b){
-            setpoint_l= setpoint_l- 20;
-            setpoint_r= setpoint_r + 20;
+            setpoint_l++;
+            setpoint_r--;
           }
        DPRINT("Curr angle : ");
        DPRINT(rtObj.rtDW.curr_angle);
@@ -169,49 +170,14 @@ void CMotorCtrl::StraightDrive(void)
        DPRINT(lower_b);
        DPRINTLN("; ");
   }
-
+}
 // PIControl Motors
 void CMotorCtrl::MotPI(void)
 {
-    if (control && peak_sum_r < d_way && peak_sum_l < d_way ){
-
-      if(rtObj.rtDW.is_c3_Chart == 2){
-            if(rtObj.rtDW.curr_angle + control_area >= 360){
-          upper_b = rtObj.rtDW.curr_angle + control_area - 360;
-        }else{
-          upper_b = rtObj.rtDW.curr_angle + control_area;
-      }
-      if(rtObj.rtDW.curr_angle - control_area < 0){
-          lower_b = rtObj.rtDW.curr_angle - control_area + 360;
-        }else{
-            lower_b = rtObj.rtDW.curr_angle - control_area;
-      }
-
-      if(rtObj.rtU.gyro_signal < rtObj.rtDW.curr_angle || rtObj.rtU.gyro_signal >= lower_b){
-        setpoint_l= setpoint_l - 5;
-        setpoint_r= setpoint_r + 5;
-        }else if( rtObj.rtDW.curr_angle < rtObj.rtU.gyro_signal <= upper_b){
-            setpoint_l= setpoint_l + 5;
-            setpoint_r= setpoint_r - 5;
-          }
-       DPRINT("Curr angle : ");
-       DPRINT(rtObj.rtDW.curr_angle);
-       DPRINT(";");
-       DPRINT("Gyro : ");
-       DPRINT(rtObj.rtU.gyro_signal);
-       DPRINTLN("; ");
-       DPRINT("Upper border : ");
-       DPRINT(upper_b);
-       DPRINT(";");
-       DPRINT("Lower border : ");
-       DPRINT(lower_b);
-       DPRINTLN("; ");
-            }
-
-            
+    if (control && peak_sum_r < d_way && peak_sum_l < d_way ){      
  //right PI control
-    feedback = counted_peaks_r*4;
-    output_r = myPID.step(setpoint_r, feedback);
+    feedback_r = counted_peaks_r;
+    output_r = myPID.step(setpoint_r, feedback_r);
 
     if (output_r >= 1023) {
       output_r = LOW;
@@ -220,8 +186,8 @@ void CMotorCtrl::MotPI(void)
     
 //left PI control
 
-    feedback = counted_peaks_l*4;
-    output_l = myPID.step(setpoint_l, feedback);
+    feedback_l = counted_peaks_l;
+    output_l = myPID.step(setpoint_l, feedback_l);
 
     if (output_l >= 1023) {
       output_l = 1023;
@@ -234,7 +200,14 @@ void CMotorCtrl::MotPI(void)
    DPRINT("Setpoint right: ");
    DPRINT(setpoint_r);
    DPRINTLN("; ");
-
+    
+   DPRINT("Feedback left: ");
+   DPRINT(feedback_l);
+   DPRINT(";");
+   DPRINT("Feedback right: ");
+   DPRINT(feedback_r);
+   DPRINTLN("; ");
+   
    DPRINT("Output left: ");
    DPRINT(output_l);
    DPRINT(";");
@@ -248,8 +221,8 @@ void CMotorCtrl::MotPI(void)
       m_pwmUnitLeft_o.writeMOT(LOW);
       output_l = output_r = 0;
     } else {
-      m_pwmUnitRight_o.writeMOT(output_r);
-      m_pwmUnitLeft_o.writeMOT(output_l);
+      m_pwmUnitRight_o.writeMOT(output_r*2);
+      m_pwmUnitLeft_o.writeMOT(output_l*2);
     }
     control=false;
   }else if(peak_sum_l >= d_way && peak_sum_r >= d_way){
@@ -293,8 +266,8 @@ void CMotorCtrl::checkState(void) {
       digitalWrite(PIN_DIRECTION_L, LOW);
       digitalWrite(PIN_DIRECTION_R, HIGH);
       if(curState != 1){
-          setpoint_l = 50;
-          setpoint_r = 50;
+          setpoint_l = 15;
+          setpoint_r = 15;
         }
       curState = 1;
       break;
@@ -303,8 +276,8 @@ void CMotorCtrl::checkState(void) {
       digitalWrite(PIN_DIRECTION_L, HIGH);
       digitalWrite(PIN_DIRECTION_R, LOW);
       if(curState != 2){
-          setpoint_l = 50;
-          setpoint_r = 50;
+          setpoint_l = 15;
+          setpoint_r = 15;
         }
       curState = 2;
       break;
