@@ -37,21 +37,4 @@
 #define SICK_ACK                                        0x06
 #define SICK_NAK                                        0x15
 
-//Pins
-#define PIN_MTR_L_PWM                                   11
-#define PIN_MTR_R_PWM                                   12
-#define PIN_ENABLE                                      52
-#define PIN_DIRECTION_L                                 50
-#define PIN_DIRECTION_R                                 48
-#define PIN_ENC_R                                        2
-#define PIN_ENC_L                                        3
-#define Btn_Start                                       46
-
-
-//Navigation parameters
-#define NAV_SET_OFFSET                                  80  // in cm
-#define NAV_TOL_OFFSET                                  5   // in cm
-#define NAV_TOL_ANGLE_DRIVE                             5   // degrees
-
-
 #endif /*ADAS_CFG_H*/

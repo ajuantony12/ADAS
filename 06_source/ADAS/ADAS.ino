@@ -3,47 +3,88 @@
 #include "ADAS_Debug.h"
 
 /*Periperals*/
+#include "HAL_ADC.h"
+#include "HAL_DriveUnit.h"
+#include "HAL_Encoder.h"
 #include "HAL_IOManager.h"
 #include "HAL_Serial_IF.h"
 
-/*App Layer*/
-#include "App_Navigation.h"
+/*Comms layer*/
+#include "Comm_Inertial.h"
+#include "Comm_PLS.h"
 
-// Debug pins
-#define PIN_ROT_DONE    12
-#define PIN_DIST_DONE   11
+/*App Layer*/
+#include "App_MotorCtrl.h"
+#include "App_Navigation.h"
+#include "App_Positioning.h"
+#include "App_UserInterface.h"
+#include "App_VirtualMapping.h"
+
+/*OSAL*/
+#include "OSAL_TaskCtrl.h"
+
+//Hardware
+/*CADC adc_o;
+  CDriveUnit  dUnitLeft_o(CDriveUnit::Drive1);
+  CDriveUnit  dUnitRight_o(CDriveUnit::Drive2);
+  CEncoder    enc1_o(CEncoder::E1);
+  CEncoder    enc2_o(CEncoder::E2);
+  CIOManager  ioMg_o;*/
+CSerial     plsPort(CSerial::S1, PLS_RCV_BUFF_SIZE);
+CSerial     IPCPort(CSerial::S2, IPC_RCV_BUFF_SIZE);
+//comms layer
+//CInertialComm inertial_o;
+CPLSComms   plsCOmms_o(plsPort);
+
+//Task
+CNavigation nav_o(plsCOmms_o);
+CVMapping vMap_o(nav_o, plsCOmms_o, 5);
+/*CUser_IF uI_o;
+  CPositioning pos_o;
+  CMotorCtrl mCtrl_o;*/
+
+/*OSAL*/
+CTaskCtrl taskCtrl_o;
 
 void setup() {
     Serial.begin(9600);
     Serial.write("hello\n\r");
   //Hw initialization
-  serPort.Init(SERIAL1_INITIAL_BAUD_RATE, SERIAL1_TIMEOUT);
-  Serial.begin(115200);
-  DPRINTLN("Hello\n\r");
+  /*ioMg_o.Init();
+    dUnitLeft_o.Init();
+    dUnitRight_o.Init();
+    enc1_o.Init();
+    enc2_o.Init();*/
+  plsPort.Init();
+  IPCPort.Init();
 
+  //inertial_o.Init();
+   plsCOmms_o.Init();
 
-  // IO Init
-  pinMode(PIN_ROT_DONE, INPUT_PULLUP);
-  pinMode(PIN_DIST_DONE, INPUT_PULLUP);
+  //Task initialization
+  /*taskCtrl_o.Register(&mCtrl_o, 1);
+    taskCtrl_o.Register(&nav_o, 0);
+    taskCtrl_o.Register(&pos_o, 2);*/
+  taskCtrl_o.Register(&vMap_o, 3);
+  /*taskCtrl_o.Register(&uI_o, 4);*/
+   taskCtrl_o.Init();
 }
 
 void loop() {
-  // Set debug data...
-  nav_o.rotationDone = !digitalRead(PIN_ROT_DONE);
-  nav_o.distanceDone = !digitalRead(PIN_DIST_DONE);
+  // put your main code here, to run repeatedly:
+  Serial.write("in Loop\n\r");
+  //taskCtrl_o.Run();
+  delay(1000);
 
-  char datain = Serial.read();
-  if (datain == 's') {
-    uint16_t offset = Serial.parseInt();
-    int8_t angle = Serial.parseInt();
-    uint16_t nxt_wall = Serial.parseInt();
+}
 
-    nav_o.setPLSdata(offset, angle, nxt_wall);
-  } else if (datain == 'd') {
-    DPRINTLN("Run");
-    nav_o.continueDrive();
-  } else if (datain == 'f') {
-    DPRINTLN("Stop");
-    nav_o.stopDrive();
-  }
-
+// UART1 interrupt
+ISR(USART1_RX_vect)
+{
+  plsPort.SerialISR();
+}
+// UART1 interrupt
+ISR(USART2_RX_vect)
+{
+  IPCPort.SerialISR();
+}

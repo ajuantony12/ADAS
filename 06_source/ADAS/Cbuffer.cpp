@@ -35,11 +35,9 @@ void CBuffAdas::Reset()
 }
 uint32_t CBuffAdas::operator[](uint32_t index)
 {
-
     uint32_t index4 = index * 4;
     return (static_cast<uint32_t>(m_Data[index4])& 
                 (static_cast<uint32_t>(m_Data[index4+1]) << 8) & 
                 (static_cast<uint32_t>(m_Data[index4+2]) <<16) & 
                 (static_cast<uint32_t>(m_Data[index4+3]) <<24));
-
 }
