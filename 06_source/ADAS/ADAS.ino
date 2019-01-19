@@ -38,7 +38,7 @@ CPLSComms   plsCOmms_o(plsPort);
 
 //Task
 CNavigation nav_o(plsCOmms_o);
-CVMapping vMap_o(nav_o, plsCOmms_o, 5);
+CVMapping vMap_o(nav_o, plsCOmms_o, 10);
 /*CUser_IF uI_o;
   CPositioning pos_o;
   CMotorCtrl mCtrl_o;*/
@@ -73,7 +73,7 @@ void setup() {
 void loop() {
   // put your main code here, to run repeatedly:
   Serial.write("in Loop\n\r");
-  //taskCtrl_o.Run();
+  taskCtrl_o.Run();
   delay(1000);
 
 }

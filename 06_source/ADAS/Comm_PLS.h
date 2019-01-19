@@ -40,11 +40,11 @@ public:
     /*
     * Get Measurements
     */
-    bool GetMeasurements(Message_t& msg, uint16_t& len, bool onlyVert);
+    void RequestMeasurements(bool onlyVert);
     bool GetAsyncData(Message_t& msg, uint16_t& len);
     /*is protectuve field breached
     */
-    bool IsPFBreached();
+    bool DataAvailable();
     /*
     * Get status of PLS
     */
