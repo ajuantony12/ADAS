@@ -12,12 +12,15 @@
 int n = 20;
 int16_T dist = 0;
 boolean control = false;
-uint16_t setpoint_l = 15; //124 = 4km/h
-uint16_t setpoint_r = 15; //124 = 4km/h
+uint16_t setpoint_l = 4; //124 = 4km/h
+uint16_t setpoint_r = 4; //124 = 4km/h
 int curState = 3;
+int ctrl_side = 0;
 uint16_t feedback_l, feedback_r;
 uint16_t output_r = 0;
+int16_t adapt_r = 0;
 uint16_t output_l = 0;
+int16_t adapt_l = 0;
 uint16_t peaks_r = 0;
 uint16_t peaks_l = 0;
 uint16_t counted_peaks_r = 0;
@@ -151,11 +154,26 @@ void CMotorCtrl::StraightDrive(void)
       }
 
       if(rtObj.rtU.gyro_signal < rtObj.rtDW.curr_angle || rtObj.rtU.gyro_signal >= lower_b){
-        setpoint_l--;
-        setpoint_r++;
-        }else if( rtObj.rtDW.curr_angle < rtObj.rtU.gyro_signal <= upper_b){
-            setpoint_l++;
-            setpoint_r--;
+        if(adapt_l - adapt_r < 5 || adapt_r - adapt_l < 5){
+            if(ctrl_side == 1){
+                adapt_r = 0;
+                adapt_l = 0;
+              }
+              ctrl_side =2;
+            adapt_r=adapt_r-2;
+            adapt_l=adapt_l+2;
+          }
+       
+        }else if( rtObj.rtDW.curr_angle < rtObj.rtU.gyro_signal && rtObj.rtU.gyro_signal <= upper_b){
+            if(adapt_l - adapt_r < 5 || adapt_r - adapt_l < 5){
+                if(ctrl_side == 2){
+                  adapt_r = 0;
+                  adapt_l = 0;
+                }
+                ctrl_side = 1;
+                adapt_r=adapt_r+2;
+                adapt_l=adapt_l-2;
+            }
           }
        DPRINT("Curr angle : ");
        DPRINT(rtObj.rtDW.curr_angle);
@@ -175,6 +193,7 @@ void CMotorCtrl::StraightDrive(void)
 void CMotorCtrl::MotPI(void)
 {
     if (control && peak_sum_r < d_way && peak_sum_l < d_way ){      
+      StraightDrive();
  //right PI control
     feedback_r = counted_peaks_r;
     output_r = myPID.step(setpoint_r, feedback_r);
@@ -194,11 +213,11 @@ void CMotorCtrl::MotPI(void)
     }
 
 //Debug output
-   DPRINT("Setpoint left: ");
-   DPRINT(setpoint_l);
+   DPRINT("adapt left: ");
+   DPRINT(adapt_l);
    DPRINT(";");
-   DPRINT("Setpoint right: ");
-   DPRINT(setpoint_r);
+   DPRINT("adapt right: ");
+   DPRINT(adapt_r);
    DPRINTLN("; ");
     
    DPRINT("Feedback left: ");
@@ -221,8 +240,8 @@ void CMotorCtrl::MotPI(void)
       m_pwmUnitLeft_o.writeMOT(LOW);
       output_l = output_r = 0;
     } else {
-      m_pwmUnitRight_o.writeMOT(output_r*2);
-      m_pwmUnitLeft_o.writeMOT(output_l*2);
+      m_pwmUnitRight_o.writeMOT(output_r*2+adapt_r);
+      m_pwmUnitLeft_o.writeMOT(output_l*2+adapt_l);
     }
     control=false;
   }else if(peak_sum_l >= d_way && peak_sum_r >= d_way){
