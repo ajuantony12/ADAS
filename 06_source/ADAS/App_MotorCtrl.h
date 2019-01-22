@@ -12,6 +12,7 @@
 #include "App_Stateflow.h"
 #include "App_Stateflowtypes.h"
 #include "HAL_Encoder.h"
+#include "Comm_ICC.h"
 
 #ifndef APP_MOTOR_CTRL_H
 #define APP_MOTOR_CTRL_H
@@ -35,6 +36,11 @@ public:
     * Stop
     */
     virtual void Stop(void);
+
+    virtual void startRotation(sint16_t angle);
+
+    virtual void setDistance(sint16_t dist);
+
 
 private:
     void checkState(void);

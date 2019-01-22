@@ -20,7 +20,7 @@ volatile unsigned long enc_last_time_r = 0;
 volatile unsigned long enc_t_r = 166;
 uint16_t rpm = 0;
 int n = 0;
-uint16_t setpoint = 166-45; 
+uint16_t setpoint = 50; 
 uint16_t feedback_l;
 uint16_t feedback_r;
 uint16_t output_r = 0;
@@ -34,7 +34,7 @@ uint16_t peak_sum_r = 0;
 uint16_t d_way = 1500; // desired way to drive in cm (1.795cm/peak) 2228==4000cm
 boolean startBtn = false;
 Timer t;
-float Kp = 0.5, Ki = 0.5, Kd = 0.05, Hz = 10;
+float Kp = 0.2, Ki = 0.5, Kd = 0, Hz = 20;
 int output_bits = 16;
 bool output_signed = false;
 
@@ -60,11 +60,8 @@ void setup()
 
 void loop()
 {
-   time = millis();
-  //writeLED(100, 100);
-  
    //right PI control
-      if(enc_t_r > 166){
+      if(enc_t_r > 166 || enc_t_r == 0){
           feedback_r = 0;
         }else{
             feedback_r = 166-enc_t_r;
@@ -79,11 +76,11 @@ void loop()
       output_r = myPID.step(setpoint, feedback_r);
       
   
-      if (output_r >= 500) {
-        output_r =500;
+      if (output_r >= 300) {
+        output_r =300;
       }
-      if (output_l >= 500) {
-        output_l = 500;
+      if (output_l >= 300) {
+        output_l = 300;
       }
       
   //Debug output
@@ -111,7 +108,7 @@ void loop()
         digitalWrite(LED1, LOW);
         digitalWrite(LED2, LOW);
       } else {
-        writeLED(output_r*2, output_l*2);
+        writeLED(output_r, output_l);
       }
 }
 

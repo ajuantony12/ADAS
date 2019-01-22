@@ -9,6 +9,7 @@
 #include "FastPID.h"
 #include "Timer.h"
 
+
 int n = 20;
 int16_T dist = 0;
 boolean control = false;
@@ -212,27 +213,6 @@ void CMotorCtrl::MotPI(void)
       output_l = 1023;
     }
 
-//Debug output
-   DPRINT("adapt left: ");
-   DPRINT(adapt_l);
-   DPRINT(";");
-   DPRINT("adapt right: ");
-   DPRINT(adapt_r);
-   DPRINTLN("; ");
-    
-   DPRINT("Feedback left: ");
-   DPRINT(feedback_l);
-   DPRINT(";");
-   DPRINT("Feedback right: ");
-   DPRINT(feedback_r);
-   DPRINTLN("; ");
-   
-   DPRINT("Output left: ");
-   DPRINT(output_l);
-   DPRINT(";");
-   DPRINT("Output right: ");
-   DPRINT(output_r);
-   DPRINTLN("; ");
 
 //write to motor
     if (digitalRead(PIN_ENABLE) == HIGH || rtObj.rtDW.is_c3_Chart == 3) {
@@ -273,6 +253,15 @@ static void CMotorCtrl::readenc(void* context) {
 }
 // End Encoder Interrupts
 
+void startRotation(sint16_t angle){
+    rtObj.rtU.turn = angle;
+  }
+
+void setDistance(sint16_t dist){
+    rtObj.rtU.turn = 0;
+    rtObj.rtU.dist = dist;
+  }
+
 void CMotorCtrl::Stop(void)
 {
   //do nothing
@@ -285,8 +274,8 @@ void CMotorCtrl::checkState(void) {
       digitalWrite(PIN_DIRECTION_L, LOW);
       digitalWrite(PIN_DIRECTION_R, HIGH);
       if(curState != 1){
-          setpoint_l = 15;
-          setpoint_r = 15;
+          setpoint_l = 10;
+          setpoint_r = 10;
         }
       curState = 1;
       break;
@@ -295,8 +284,8 @@ void CMotorCtrl::checkState(void) {
       digitalWrite(PIN_DIRECTION_L, HIGH);
       digitalWrite(PIN_DIRECTION_R, LOW);
       if(curState != 2){
-          setpoint_l = 15;
-          setpoint_r = 15;
+          setpoint_l = 10;
+          setpoint_r = 10;
         }
       curState = 2;
       break;
@@ -304,9 +293,16 @@ void CMotorCtrl::checkState(void) {
       DPRINTLN("State 3: IDLE");
       digitalWrite(PIN_DIRECTION_L, HIGH);
       digitalWrite(PIN_DIRECTION_R, HIGH);
+      if(curState != 3){
+          setpoint_l = 0;
+          setpoint_r = 0;
+        }
+      if(curState == 4 || curState == 5){
+          //Feedback function aufrufen, dass Rotation beendet
+        }else if((curState == 1 || curState == 2){
+            //Feedback function aufrufen, dass Distanz gefahren
+          }
       curState = 3;
-      setpoint_l = 0;
-      setpoint_r = 0;
       m_pwmUnitRight_o.writeMOT(LOW);
       m_pwmUnitLeft_o.writeMOT(LOW);
       break;
@@ -314,15 +310,21 @@ void CMotorCtrl::checkState(void) {
       DPRINTLN("State 4: Left Turn");
       digitalWrite(PIN_DIRECTION_L, LOW);
       digitalWrite(PIN_DIRECTION_R, LOW);
-      setpoint_l = 50;
-      setpoint_r = 50;
+      if(curState != 4){
+          setpoint_l = 10;
+          setpoint_r = 10;
+        }
+      curState = 4;
       break;
     case 5:
       DPRINTLN("State 5: Right Turn");
       digitalWrite(PIN_DIRECTION_L, HIGH);
       digitalWrite(PIN_DIRECTION_R, HIGH);
-      setpoint_l = 50;
-      setpoint_r = 50;
+      if(curState != 5){
+          setpoint_l = 10;
+          setpoint_r = 10;
+        }
+      curState = 5;
       break;
   }
 }
