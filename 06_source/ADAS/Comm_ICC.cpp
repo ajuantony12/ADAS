@@ -29,6 +29,16 @@ void CICCComms::Run(void)
     ParseMsgContent(msg);
 
     // Do somethin with msg data
+	:
+	/* Example_
+	if(msg.cmd == 0x04)
+	{
+		// new rotation
+		 mcu.startRotation(msg.data);
+	}
+	*/
+	
+	
 
   }
 }
