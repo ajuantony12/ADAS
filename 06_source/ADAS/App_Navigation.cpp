@@ -330,14 +330,14 @@ void CNavigation::doTransistionAction(NAV_STATE state, NAV_STATE next)
 
 
 // Continue drive after obstacle detection
-void contDrive(void)
+void CNavigation::contDrive(void)
 {
 
 }
 
 
 // Pause drive due to obstacle detection
-void pauseDrive(void)
+void CNavigation::pauseDrive(void)
 {
 
 }

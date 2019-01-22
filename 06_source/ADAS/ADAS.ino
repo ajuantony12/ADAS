@@ -25,6 +25,7 @@ CICCComms iccComms_o(iccPort);
 #define PIN_ROT_DONE    12
 #define PIN_DIST_DONE   11
 
+
 void setup() {
   //Hw initialization
   plsPort.Init();

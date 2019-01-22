@@ -61,6 +61,17 @@
 #define ICC_STX2                                        0xff
 #define ICC_TTX                                         0xee
 #define ICC_LEN                                         6U // including STXs and TTX
+#define ICC_CMD_CONT_DRIVE_IN                           0x01
+#define ICC_CMD_EMER_STOP                               0x02
+#define ICC_CMD_SOFT_STOP                               0x03
+#define ICC_CMD_DRIVE_DIST                              0x04
+#define ICC_CMD_ROT_ANGLE                               0x05
+#define ICC_CMD_SET_SPEED                               0x06
+#define ICC_CMD_PAUSE_DRIVE                             0x07
+#define ICC_CMD_CONT_DRIVE                              0x08
+#define ICC_CMD_FB_ACK                                  0x01
+#define ICC_CMD_FB_DIST                                 0x02
+#define ICC_CMD_FB_ROT                                  0x03
 
 //Environmetal parameters
 #define ENV_VBAT_GAIN                                   33 // mV/sample (33.7*1000/1024)       
