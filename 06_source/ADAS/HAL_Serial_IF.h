@@ -35,7 +35,8 @@ public:
    uint16_t GetDataLen(void);
    bool GetData(uint8_t* data, uint16_t len);
    void ReleaseBuffer(void);
-   void SerialISR(void);
+   void SerialISRcommPLS(void);
+   void SerialISRcommICC(void);
  private:
    uint8_t* m_rxBuffer;
    PortID_e m_ID;

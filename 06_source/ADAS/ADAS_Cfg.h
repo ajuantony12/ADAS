@@ -13,8 +13,9 @@
 //PLS Buffer
 #define PLS_RCV_BUFF_SIZE                                   500U
 #define PLS_SND_BUFF_SIZE                                   50U
-//IPC Buffer
-#define IPC_RCV_BUFF_SIZE                                   10U
+//ICC Buffer
+#define ICC_RCV_BUFF_SIZE                                   ICC_LEN
+#define ICC_SND_BUFF_SIZE                                   ICC_LEN*10
 //Virtual mapping Buffer
 #define MAX_MES_BUFF_SIZE                                   (20)
 //Task list
@@ -31,7 +32,7 @@
 #define PLS_WALL_DETECTION_2_POINT                      84
 #define PLS_WF_CORNER_RIGHT                             122
 
-//PLS Comms COnstant
+//PLS Comms Constant
 #define SICK_STX                                        0x02
 #define SICK_DESTR                                      0x80
 #define SICK_ACK                                        0x06
@@ -46,12 +47,26 @@
 #define PIN_ENC_R                                        2
 #define PIN_ENC_L                                        3
 #define Btn_Start                                       46
+#define PIN_VBAT                                        A0
 
 
 //Navigation parameters
 #define NAV_SET_OFFSET                                  80  // in cm
 #define NAV_TOL_OFFSET                                  5   // in cm
 #define NAV_TOL_ANGLE_DRIVE                             5   // degrees
+
+
+//Inter-Controller Communication Protocol
+#define ICC_STX1                                        0xff
+#define ICC_STX2                                        0xff
+#define ICC_TTX                                         0xee
+#define ICC_LEN                                         6U // including STXs and TTX
+
+//Environmetal parameters
+#define ENV_VBAT_GAIN                                   33 // mV/sample (33.7*1000/1024)       
+#define ENV_VBAT_OFF                                    0  // mV
+#define ENV_VBAT_LOW                                    22000 // mV
+#define ENV_VBAT_CRI                                    20000 // mV
 
 
 #endif /*ADAS_CFG_H*/

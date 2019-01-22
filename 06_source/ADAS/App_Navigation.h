@@ -35,6 +35,16 @@ class CNavigation: public ITask_IF
     */
     virtual void setPLSdata(uint16_t offset, int8_t angle, uint16_t nxt_wall);
 
+    /*
+       Continue drive after obstacle detection
+    */
+    virtual void contDrive(void);
+
+    /*
+       Pause drive due to obstacle detection
+    */
+    virtual void pauseDrive(void);
+
 
     /*
        Parameter to show that rotation is finished

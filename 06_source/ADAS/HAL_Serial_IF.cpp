@@ -113,14 +113,14 @@ uint16_t CSerial::GetDataLen(void)
 }
 bool CSerial::GetData(uint8_t* data, uint16_t len)
 {
-    bool retVal = false;
-    if (len <= (m_rxMsgLen + 6))
-    {
-        memcpy(data, m_rxBuffer, len);
-        ReleaseBuffer();
-        retVal = true;
-    }
-    return retVal;
+  bool retVal = false;
+  if (len <= (m_rxMsgLen + 6))
+  {
+    memcpy(data, m_rxBuffer, len);
+    ReleaseBuffer();
+    retVal = true;
+  }
+  return retVal;
 }
 
 void CSerial::ReleaseBuffer(void)
@@ -130,7 +130,7 @@ void CSerial::ReleaseBuffer(void)
   m_rxBufferFull = false;
 }
 
-void CSerial::SerialISR(void)
+void CSerial::SerialISRcommPLS(void)
 {
   if ((!m_rxBufferFull) && (!m_rxBufferRdy))
   {
@@ -147,8 +147,8 @@ void CSerial::SerialISR(void)
       if ((m_rxBuffer[0] != SICK_STX) || (m_rxBuffer[1] != SICK_DESTR))
       {
         // STX & ADR not in first two bytes => overwrite received data
-            m_rxBuffer[0] = m_rxBuffer[1];
-            m_rxBufferPointer = 1;
+        m_rxBuffer[0] = m_rxBuffer[1];
+        m_rxBufferPointer = 1;
       }
     } else if (m_rxBufferPointer == 4)
     {
@@ -174,3 +174,49 @@ void CSerial::SerialISR(void)
 
   }
 }
+
+// ISR function handler for inter-controller communication
+void CSerial::SerialISRcommICC(void)
+{
+  // Check for free buffer
+  if (!m_rxBufferRdy)
+  {
+    // Read incoming data
+
+    // Write rx data to buffer
+    m_rxBuffer[m_rxBufferPointer] = (m_ID == S1) ? UDR1 : UDR2;
+    m_rxBufferPointer++;
+
+    // wait for 2 bytes to detect STXs
+    if (m_rxBufferPointer == 2)
+    {
+      // Check for start bytes
+      if ((m_rxBuffer[0] != ICC_STX1) || (m_rxBuffer[1] != ICC_STX1))
+      {
+        // STXs not found => overwrite received data
+        m_rxBufferPointer = 0;
+      } else if (m_rxBufferPointer == ICC_LEN)
+      {
+        // Received full telegram
+        // Check for TTX
+        if (m_rxBuffer[5] != ICC_TTX)
+        {
+          // TTX not received => discard telegram
+          m_rxBufferPointer = 0;
+        } else {
+          // TTX received => ready to progress
+          m_rxBufferRdy = true;
+        }
+      }
+    }
+  } else {
+    // flush data
+    if (m_ID == S1)
+    {
+      (void) UDR1;
+    } else {
+      (void) UDR2;
+    }
+  }
+}
+

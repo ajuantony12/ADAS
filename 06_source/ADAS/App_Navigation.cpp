@@ -36,11 +36,11 @@ void CNavigation::Stop(void)
 
 bool CNavigation::isTurning()
 {
-    return false;
+  return false;
 }
 bool CNavigation::isCornerMode()
 {
-    return false;
+  return false;
 }
 
 // Function to set the current value of offset position to wall,
@@ -327,3 +327,18 @@ void CNavigation::doTransistionAction(NAV_STATE state, NAV_STATE next)
 
   }
 }
+
+
+// Continue drive after obstacle detection
+void contDrive(void)
+{
+
+}
+
+
+// Pause drive due to obstacle detection
+void pauseDrive(void)
+{
+
+}
+

@@ -6,14 +6,20 @@
 #include "HAL_IOManager.h"
 #include "HAL_Serial_IF.h"
 
+/*Comms layer*/
+#include "Comm_ICC.h"
+
 /*App Layer*/
 #include "App_Navigation.h"
+#include "App_EnvironmentalData.h"
 
 //Hardware
 CSerial     plsPort(CSerial::S1, PLS_RCV_BUFF_SIZE);
-CSerial     IPCPort(CSerial::S2, IPC_RCV_BUFF_SIZE);
+CSerial     iccPort(CSerial::S2, ICC_RCV_BUFF_SIZE);
 CNavigation nav_o;
-
+CEnvironmentalData env_o;
+//comms layer
+CICCComms iccComms_o(iccPort);
 
 // Debug pins
 #define PIN_ROT_DONE    12
@@ -24,6 +30,7 @@ void setup() {
   plsPort.Init();
   Serial.begin(115200);
   DPRINTLN("Hello\n\r");
+
 
 
   // IO Init
@@ -52,13 +59,29 @@ void loop() {
   }
 
 
-
-
+  // Run ICC
+  iccComms_o.Run();
   // Run navigation
   nav_o.printChangedDebugInfo();
   nav_o.Run();
+  // Run env
+  env_o.Run();
 
 
   delay(500);
 }
 
+
+
+// UART1 interrupt
+ISR(USART1_RX_vect)
+{
+  plsPort.SerialISRcommPLS();
+}
+
+
+// UART2 interrupt
+ISR(USART2_RX_vect)
+{
+  iccPort.SerialISRcommICC();
+}
