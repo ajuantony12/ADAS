@@ -43,7 +43,7 @@ void setup() {
   Serial.begin(115200);
   DPRINTLN("Hello\n\r");
   plsPort.Init();
-  //iccPort.Init();
+  iccPort.Init();
   interrupts();
 
   //required for interrupt to work
@@ -52,11 +52,11 @@ void setup() {
   plsCOmms_o.Init();
   //Task initialization
   taskCtrl_o.Register(&vMap_o, 0);
-  //taskCtrl_o.Register(&nav_o, 1);
-  //taskCtrl_o.Register(&env_o, 2);
+  taskCtrl_o.Register(&nav_o, 1);
+  taskCtrl_o.Register(&env_o, 2);
   /*taskCtrl_o.Register(&pos_o, 3);
   //taskCtrl_o.Register(&uI_o, 4);*/
-  //taskCtrl_o.Init();
+  taskCtrl_o.Init();
 }
 
 void loop() {
@@ -65,7 +65,7 @@ void loop() {
   //iccComms_o.Run();
   taskCtrl_o.Run();
   
-  delay(2000);
+  delay(100);
 }
 
 
