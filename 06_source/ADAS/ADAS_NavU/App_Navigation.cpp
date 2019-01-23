@@ -1,12 +1,14 @@
 #include "App_Navigation.h"
 #include <Arduino.h>
 
-CNavigation::CNavigation()
+CNavigation::CNavigation(CICCComms& ICC): m_ICC(ICC)
 {
   //do nothing
 }
 CNavigation::~CNavigation() {
-  //do nothing
+  // set default values
+  rotationDone = false;
+  distanceDone = false;
 }
 
 void CNavigation::Init(void)
@@ -16,6 +18,9 @@ void CNavigation::Init(void)
 
 void CNavigation::Run(void)
 {
+  // Process ICC
+  m_ICC.Run();
+
   // Set current environemtal data to state machine data
   getPLSBuf();
 
@@ -31,7 +36,9 @@ void CNavigation::Run(void)
 
 void CNavigation::Stop(void)
 {
-  //do nothing
+  m_ICC.addTxMsg(ICC_CMD_PAUSE_DRIVE, 0);
+  current_state = STATE_IDLE;
+  next_state = STATE_IDLE;
 }
 
 bool CNavigation::isCornerMode()
@@ -328,13 +335,28 @@ void CNavigation::doTransistionAction(NAV_STATE state, NAV_STATE next)
 // Continue drive after obstacle detection
 void CNavigation::contDrive(void)
 {
-
+  // start position correction
+  current_state = STATE_GET_OFFSET;
+  next_state = STATE_GET_OFFSET;
 }
 
 
 // Pause drive due to obstacle detection
 void CNavigation::pauseDrive(void)
 {
+  m_ICC.addTxMsg(ICC_CMD_PAUSE_DRIVE, 0);
+}
 
+
+// Function to get current state
+CNavigation::NAV_STATE CNavigation::getCurrentState(void)
+{
+  return current_state;
+}
+
+// Function to get next state
+CNavigation::NAV_STATE CNavigation::getNextState(void)
+{
+  return next_state;
 }
 
