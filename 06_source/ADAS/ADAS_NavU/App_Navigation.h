@@ -3,9 +3,6 @@
 *
 * DESCRIPTION : Navigation module 
 *************************************************************************/
-
-  DESCRIPTION : Navigation module
-*************************************************************************/
 #include "Arduino.h"
 #include "Task_if.h"
 #include "ADAS_Types.h"
