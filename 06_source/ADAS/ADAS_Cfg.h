@@ -32,7 +32,7 @@
 #define PLS_WALL_DETECTION_2_POINT                     45U
 #define PLS_MAX_VERTICAL_DIST                          100U
 #define PLS_LEFT_OFFSET_TOLERANCE                      5U
-#define PLS_WF_SEGEMENTS_MAX                           181U
+#define PLS_WF_SEGEMENTS_MAX                           180U
 
 
 //PLS Comms COnstant
