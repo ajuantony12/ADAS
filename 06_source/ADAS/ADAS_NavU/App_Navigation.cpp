@@ -34,10 +34,6 @@ void CNavigation::Stop(void)
   //do nothing
 }
 
-bool CNavigation::isTurning()
-{
-  return false;
-}
 bool CNavigation::isCornerMode()
 {
   return false;

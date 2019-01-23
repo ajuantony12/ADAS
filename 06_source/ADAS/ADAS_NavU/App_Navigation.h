@@ -1,7 +1,7 @@
 /*H**********************************************************************
-  FILENAME :        Navigation.h
-
-  DESCRIPTION : Navigation module
+* FILENAME :        Navigation.h             
+*
+* DESCRIPTION : Navigation module 
 *************************************************************************/
 #include "Arduino.h"
 #include "Task_if.h"
@@ -77,8 +77,7 @@ class CNavigation: public ITask_IF
        Function to contine if obstacle is clear
     */
     virtual void continueDrive(void);
-    
-    bool isTurning();
+
     bool isCornerMode();
 
 

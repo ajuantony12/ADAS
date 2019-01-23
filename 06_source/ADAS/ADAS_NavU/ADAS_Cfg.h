@@ -28,9 +28,12 @@
 #define SERIAL2_BAUD_PRESCALE                           (((F_CPU / (SERIAL2_BAUD * 16UL))) - 1)
 
 //Number of segements on right
-#define PLS_WF_SEGEMENTS_RIGHT                          0x03
-#define PLS_WALL_DETECTION_2_POINT                      84
-#define PLS_WF_CORNER_RIGHT                             122
+#define PLS_WF_SEGEMENTS_RIGHT                         63U
+#define PLS_WF_SEGEMENTS_LEFT                          117U
+#define PLS_WALL_DETECTION_2_POINT                     45U
+#define PLS_MAX_VERTICAL_DIST                          100U
+#define PLS_LEFT_OFFSET_TOLERANCE                      5U
+#define PLS_WF_SEGEMENTS_MAX                           180U
 
 //PLS Comms Constant
 #define SICK_STX                                        0x02
@@ -54,7 +57,6 @@
 #define NAV_SET_OFFSET                                  80  // in cm
 #define NAV_TOL_OFFSET                                  5   // in cm
 #define NAV_TOL_ANGLE_DRIVE                             5   // degrees
-
 
 //Inter-Controller Communication Protocol
 #define ICC_STX1                                        0xff
