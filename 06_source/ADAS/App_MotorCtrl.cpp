@@ -11,19 +11,12 @@
 
 
 int n = 20;
-<<<<<<< HEAD
-int16_T dist = 0;
-boolean control = false;
-uint16_t setpoint_l = 4; //124 = 4km/h
-uint16_t setpoint_r = 4; //124 = 4km/h
-=======
 int r = 0;
 boolean pause = false;
 int16_T dist = 0;
 boolean control = false;
 uint16_t setpoint_l = 5; //124 = 4km/h
 uint16_t setpoint_r = 5; //124 = 4km/h
->>>>>>> e98413282d933d1dabedeaa1fc88e268fcb917cb
 int curState = 3;
 boolean rotated = false;
 int ctrl_side = 0;
@@ -38,11 +31,7 @@ uint16_t counted_peaks_r = 0;
 uint16_t counted_peaks_l = 0;
 uint16_t peak_sum_l = 0;
 uint16_t peak_sum_r = 0;
-<<<<<<< HEAD
-uint16_t d_way = 812; // desired way to drive in cm (1.795cm/peak) 2228==4000cm
-=======
 uint16_t d_way = 172; // desired way to drive in cm (1.795cm/peak) 2228==4000cm
->>>>>>> e98413282d933d1dabedeaa1fc88e268fcb917cb
 boolean startBtn = false;
 boolean forward = true;
 boolean backward = false;
@@ -51,21 +40,22 @@ uint16_t lower_b, upper_b, limit_var = 0;
 
 int k = 0;
 Timer t;
-float Kp = 0.6, Ki = 0.6, Kd = 0.15, Hz = 10;
+float Kp = 2.0, Ki = 2.0, Kd = 0, Hz = 10;
 int output_bits = 16;
 bool output_signed = false;
 
 FastPID myPID(Kp, Ki, Kd, Hz, output_bits, output_signed);
 
 
-CMotorCtrl::CMotorCtrl(CIMUUnit& imu_o, CPWMUnit& pwmUnitLeft_o, CPWMUnit& pwmUnitRight_o, CPLSComms& plsCOmms_o, CEncoder& enc1_o, CEncoder& enc2_o):
+CMotorCtrl::CMotorCtrl(CIMUUnit& imu_o, CPWMUnit& pwmUnitLeft_o, CPWMUnit& pwmUnitRight_o, 
+CEncoder& enc1_o, CEncoder& enc2_o, CICCComms& iccComms_o):
   rtObj(),
   m_imu_o(imu_o),
   m_pwmUnitLeft_o(pwmUnitLeft_o),
   m_pwmUnitRight_o(pwmUnitRight_o),
-  m_plsCOmms_o(plsCOmms_o),
   m_enc1_o(enc1_o),
-  m_enc2_o(enc2_o)
+  m_enc2_o(enc2_o),
+  m_iccComms_o(iccComms_o)
 {
 
 }
@@ -86,13 +76,9 @@ void CMotorCtrl::Init(void)
   digitalWrite(PIN_DIRECTION_R, HIGH);
   digitalWrite(PIN_DIRECTION_L, HIGH);
 
-
   m_pwmUnitLeft_o.setupPWM16();
   m_pwmUnitRight_o.setupPWM16();
   m_imu_o.Init();
-
-  m_pwmUnitLeft_o.writeMOT(LOW);
-  m_pwmUnitRight_o.writeMOT(LOW);
 
   // Initialize stateflow
   rtObj.initialize();
@@ -105,7 +91,7 @@ void CMotorCtrl::Init(void)
   attachInterrupt(digitalPinToInterrupt(PIN_ENC_L), CMotorCtrl::EncISR_L, RISING);
 
   //readout encoder count every 500ms
-  t.every(250, CMotorCtrl::readenc, 0);
+  t.every(150, CMotorCtrl::readenc, 0);
 }
 
 void CMotorCtrl::Run(void)
@@ -136,7 +122,7 @@ void CMotorCtrl::Run(void)
       m_pwmUnitRight_o.writeMOT(LOW);
       m_pwmUnitLeft_o.writeMOT(LOW);
     } else {
-      if (m_plsCOmms_o.isContaminated())
+      if (pause)
       {
         DPRINTLN("Warning Field (MtCtrl)");
         m_pwmUnitRight_o.writeMOT(LOW);
@@ -155,8 +141,8 @@ void CMotorCtrl::Run(void)
 }
 void CMotorCtrl::StraightDrive(void)
 {
-  if(rtObj.rtDW.is_c3_Chart == 2){
-            if(rtObj.rtDW.curr_angle + control_area >= 360){
+  if(rtObj.rtDW.is_c3_Chart == 2 || rtObj.rtDW.is_c3_Chart == 1){
+     if(rtObj.rtDW.curr_angle + control_area >= 360){
           upper_b = rtObj.rtDW.curr_angle + control_area - 360;
         }else{
           upper_b = rtObj.rtDW.curr_angle + control_area;
@@ -168,25 +154,12 @@ void CMotorCtrl::StraightDrive(void)
       }
 
       if(rtObj.rtU.gyro_signal < rtObj.rtDW.curr_angle || rtObj.rtU.gyro_signal >= lower_b){
-<<<<<<< HEAD
-        if(adapt_l - adapt_r < 5 || adapt_r - adapt_l < 5){
-=======
         if(adapt_l - adapt_r < 15 && adapt_r - adapt_l > -15){
           
->>>>>>> e98413282d933d1dabedeaa1fc88e268fcb917cb
             if(ctrl_side == 1){
                 adapt_r = 0;
                 adapt_l = 0;
               }
-<<<<<<< HEAD
-              ctrl_side =2;
-            adapt_r=adapt_r-2;
-            adapt_l=adapt_l+2;
-          }
-       
-        }else if( rtObj.rtDW.curr_angle < rtObj.rtU.gyro_signal && rtObj.rtU.gyro_signal <= upper_b){
-            if(adapt_l - adapt_r < 5 || adapt_r - adapt_l < 5){
-=======
             ctrl_side =2;
             if(rtObj.rtDW.is_c3_Chart == 2){
                   adapt_r=adapt_r-2;
@@ -200,7 +173,6 @@ void CMotorCtrl::StraightDrive(void)
         }else if( rtObj.rtDW.curr_angle < rtObj.rtU.gyro_signal && rtObj.rtU.gyro_signal <= upper_b){
             if(adapt_l - adapt_r > -15 && adapt_r - adapt_l < 15){
               
->>>>>>> e98413282d933d1dabedeaa1fc88e268fcb917cb
                 if(ctrl_side == 2){
                   adapt_r = 0;
                   adapt_l = 0;
@@ -216,21 +188,6 @@ void CMotorCtrl::StraightDrive(void)
                 
             }
           }
-<<<<<<< HEAD
-       DPRINT("Curr angle : ");
-       DPRINT(rtObj.rtDW.curr_angle);
-       DPRINT(";");
-       DPRINT("Gyro : ");
-       DPRINT(rtObj.rtU.gyro_signal);
-       DPRINTLN("; ");
-       DPRINT("Upper border : ");
-       DPRINT(upper_b);
-       DPRINT(";");
-       DPRINT("Lower border : ");
-       DPRINT(lower_b);
-       DPRINTLN("; ");
-  }
-=======
           DPRINT("gyro: ");
   DPRINT(rtObj.rtU.gyro_signal);
   DPRINT("; ");
@@ -240,7 +197,6 @@ void CMotorCtrl::StraightDrive(void)
   DPRINT("adapt_l: ");
   DPRINTLN(adapt_l);
     }
->>>>>>> e98413282d933d1dabedeaa1fc88e268fcb917cb
 }
 // PIControl Motors
 void CMotorCtrl::MotPI(void)
@@ -252,7 +208,7 @@ void CMotorCtrl::MotPI(void)
     output_r = myPID.step(setpoint_r, feedback_r);
 
     if (output_r >= 1023) {
-      output_r = LOW;
+      output_r = 1023;
     }
    
     
@@ -264,12 +220,7 @@ void CMotorCtrl::MotPI(void)
     if (output_l >= 1023) {
       output_l = 1023;
     }
-<<<<<<< HEAD
-
-
-=======
           
->>>>>>> e98413282d933d1dabedeaa1fc88e268fcb917cb
 //write to motor
     if (digitalRead(PIN_ENABLE) == HIGH || rtObj.rtDW.is_c3_Chart == 3) {
       m_pwmUnitRight_o.writeMOT(LOW);
@@ -309,16 +260,23 @@ static void CMotorCtrl::readenc(void* context) {
 }
 // End Encoder Interrupts
 
-void startRotation(sint16_t angle){
+void CMotorCtrl::startRotation(sint16_t angle){
     rtObj.rtU.turn = angle;
     rtObj.rtU.dist = 0;
   }
 
-void setDistance(sint16_t dist){
+void CMotorCtrl::setDistance(sint16_t dist){
     rtObj.rtU.turn = 0;
     rtObj.rtU.dist = dist;
   }
-
+void CMotorCtrl::pauseDrive(void){
+    m_pwmUnitRight_o.writeMOT(LOW);
+    m_pwmUnitLeft_o.writeMOT(LOW);
+    pause = true;
+  }
+void CMotorCtrl::contDrive(void){
+    pause = false;
+  }
 void CMotorCtrl::Stop(void)
 {
   //do nothing
@@ -331,13 +289,8 @@ void CMotorCtrl::checkState(void) {
       digitalWrite(PIN_DIRECTION_L, LOW);
       digitalWrite(PIN_DIRECTION_R, HIGH);
       if(curState != 1){
-<<<<<<< HEAD
-          setpoint_l = 10;
-          setpoint_r = 10;
-=======
           setpoint_l = 3;
           setpoint_r = 3;
->>>>>>> e98413282d933d1dabedeaa1fc88e268fcb917cb
         }
       curState = 1;
       break;
@@ -346,8 +299,8 @@ void CMotorCtrl::checkState(void) {
       digitalWrite(PIN_DIRECTION_L, HIGH);
       digitalWrite(PIN_DIRECTION_R, LOW);
       if(curState != 2){
-          setpoint_l = 10;
-          setpoint_r = 10;
+          setpoint_l = 5;
+          setpoint_r = 5;
         }
       curState = 2;
       break;
@@ -360,11 +313,6 @@ void CMotorCtrl::checkState(void) {
           setpoint_r = 0;
         }
       if(curState == 4 || curState == 5){
-<<<<<<< HEAD
-          //Feedback function aufrufen, dass Rotation beendet
-        }else if((curState == 1 || curState == 2){
-            //Feedback function aufrufen, dass Distanz gefahren
-=======
           //Feedback function for completed rotation
           DPRINT("Rotation reached!");
           rotated = true;
@@ -373,7 +321,6 @@ void CMotorCtrl::checkState(void) {
             //Feedback function for completed distance
             DPRINT("Distance reached!");
             m_iccComms_o.addTxMsg(ICC_CMD_FB_DIST, 0);
->>>>>>> e98413282d933d1dabedeaa1fc88e268fcb917cb
           }
       curState = 3;
       m_pwmUnitRight_o.writeMOT(LOW);
@@ -384,13 +331,8 @@ void CMotorCtrl::checkState(void) {
       digitalWrite(PIN_DIRECTION_L, HIGH);
       digitalWrite(PIN_DIRECTION_R, HIGH);
       if(curState != 4){
-<<<<<<< HEAD
-          setpoint_l = 10;
-          setpoint_r = 10;
-=======
           setpoint_l = 1;
           setpoint_r = 1;
->>>>>>> e98413282d933d1dabedeaa1fc88e268fcb917cb
         }
       curState = 4;
       break;
@@ -399,13 +341,8 @@ void CMotorCtrl::checkState(void) {
       digitalWrite(PIN_DIRECTION_L, LOW);
       digitalWrite(PIN_DIRECTION_R, LOW);
       if(curState != 5){
-<<<<<<< HEAD
-          setpoint_l = 10;
-          setpoint_r = 10;
-=======
           setpoint_l = 1;
           setpoint_r = 1;
->>>>>>> e98413282d933d1dabedeaa1fc88e268fcb917cb
         }
       curState = 5;
       break;
@@ -416,31 +353,8 @@ void CMotorCtrl::checkState(void) {
 #ifdef ADAS_DEBUG
 void CMotorCtrl::getUserInput(void) {
    if(forward && peak_sum_r < d_way && peak_sum_l < d_way){
-   rtObj.rtU.turn = 0;
-   rtObj.rtU.dist = d_way;
+   CMotorCtrl::setDistance(d_way);
    }else if(forward && peak_sum_r >= d_way && peak_sum_l >= d_way){
-<<<<<<< HEAD
-      rtObj.rtU.turn = 0;
-      rtObj.rtU.dist = 0;
-//      k++;
-//      if(k == 20){
-//         forward = false;
-//         backward = true;
-//         peak_sum_r =  peak_sum_l = 0;
-//         k=0;
-//       }
-     }
-
-// if(backward && peak_sum_r <= d_way && peak_sum_l <= d_way){
-//     rtObj.rtU.turn = 0;
-//     rtObj.rtU.dist = -d_way;
-//   }else if(backward && peak_sum_r >= d_way && peak_sum_l >= d_way){
-//       rtObj.rtU.turn = 0;
-//       rtObj.rtU.dist = 0;
-//       startBtn = false;
-//       peak_sum_r = peak_sum_l = 0;
-//     }
-=======
       CMotorCtrl::setDistance(0);
       k++;
       if(k == 100 && !rotated){
@@ -480,7 +394,6 @@ void CMotorCtrl::getUserInput(void) {
   DPRINT("curr_angle: ");
   DPRINT(rtObj.rtDW.curr_angle);
   DPRINTLN("; ");
->>>>>>> e98413282d933d1dabedeaa1fc88e268fcb917cb
 }
 
 void CMotorCtrl::printValues(void) {
