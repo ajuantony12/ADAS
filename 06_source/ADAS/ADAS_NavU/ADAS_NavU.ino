@@ -28,7 +28,7 @@ CPLSComms   plsCOmms_o(plsPort);
 CICCComms iccComms_o(iccPort);
 
 //Task
-CNavigation nav_o;
+CNavigation nav_o(iccComms_o);
 CEnvironmentalData env_o;
 CVMapping vMap_o(nav_o, plsCOmms_o, 10);
 /*CUser_IF uI_o;
@@ -61,8 +61,6 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
-  // Run ICC - move to navigation task
-  //iccComms_o.Run();
   taskCtrl_o.Run();
   
   delay(100);

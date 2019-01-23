@@ -1,13 +1,14 @@
 /*H**********************************************************************
-* FILENAME :        Navigation.h             
-*
-* DESCRIPTION : Navigation module 
+  FILENAME :        Navigation.h
+
+  DESCRIPTION : Navigation module
 *************************************************************************/
 #include "Arduino.h"
 #include "Task_if.h"
 #include "ADAS_Types.h"
 #include "ADAS_Cfg.h"
 #include "ADAS_Debug.h"
+#include "Comm_ICC.h"
 
 #ifndef APP_NAVIGATION_H
 #define APP_NAVIGATION_H
@@ -15,8 +16,29 @@
 class CNavigation: public ITask_IF
 {
   public:
-    CNavigation();
+    CNavigation(CICCComms& ICC);
     ~CNavigation();
+
+    // States of navigation flow
+    enum NAV_STATE {
+      // Idle state
+      STATE_IDLE,
+      // Get offset to the side
+      STATE_GET_OFFSET,
+      // Rotate right until wall is 90 degrees to drive direction
+      STATE_ROT_WALL_INFRONT,
+      // Correct offset
+      STATE_COR_OFFSET,
+      // Rotate left 90 degrees to be parallel to wall after offset correction
+      STATE_ROT_WALL_OFFSET,
+      // Get wall angle
+      STATE_GET_ANGLE,
+      // Rotate parallel to wall
+      STATE_ROT_WALL,
+      // Drive along wall
+      STATE_DRIVE_WALL,
+    };
+
     /*
        init
     */
@@ -47,14 +69,25 @@ class CNavigation: public ITask_IF
 
 
     /*
+       Function to get current state
+    */
+    virtual NAV_STATE getCurrentState(void);
+
+    /*
+       Function to get next state
+    */
+    virtual NAV_STATE getNextState(void);
+
+
+    /*
        Parameter to show that rotation is finished
     */
-    bool rotationDone = false;
+    bool rotationDone;
 
     /*
        Paramter to show that distance is reached
     */
-    bool distanceDone = false;
+    bool distanceDone;
 
     /*
        Debug function to print current status of state flow if changed
@@ -73,12 +106,15 @@ class CNavigation: public ITask_IF
     virtual void stopDrive(void);
 
 
+
     /*
        Function to contine if obstacle is clear
     */
     virtual void continueDrive(void);
 
     bool isCornerMode();
+
+
 
 
   private:
@@ -88,26 +124,6 @@ class CNavigation: public ITask_IF
     bool runFlow = false;
 
 
-
-    // States of navigation flow
-    enum NAV_STATE {
-      // Idle state
-      STATE_IDLE,
-      // Get offset to the side
-      STATE_GET_OFFSET,
-      // Rotate right until wall is 90 degrees to drive direction
-      STATE_ROT_WALL_INFRONT,
-      // Correct offset
-      STATE_COR_OFFSET,
-      // Rotate left 90 degrees to be parallel to wall after offset correction
-      STATE_ROT_WALL_OFFSET,
-      // Get wall angle
-      STATE_GET_ANGLE,
-      // Rotate parallel to wall
-      STATE_ROT_WALL,
-      // Drive along wall
-      STATE_DRIVE_WALL,
-    };
 
     // Variables for the state machine
     NAV_STATE current_state = STATE_IDLE;
@@ -144,6 +160,9 @@ class CNavigation: public ITask_IF
     int8_t cur_angle_old;
     uint16_t cur_nxt_wall_old;
 
+    CICCComms& m_ICC;
+
 };
 
 #endif /*APP_NAVIGATION_H*/
+
