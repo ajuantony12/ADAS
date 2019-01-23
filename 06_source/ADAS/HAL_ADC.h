@@ -26,7 +26,7 @@ public:
   /*
    * Read ADC Value
    */
-   uint16_t ReadADCValue(void);
+   uint16_t ReadADCValue(uint8_t pin);
   
 };
 
