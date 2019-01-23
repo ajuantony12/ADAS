@@ -104,6 +104,7 @@ void CVMapping::Run(void)
                 DPRINTLN("field Breach detected");
                 wfstatus = true;
                 //stop cart
+                m_NAV.pauseDrive();
             }
             DPRINT("Data Length ");
             DPRINTLN(len, DEC);
@@ -206,7 +207,7 @@ void CVMapping::calculateWallInfo(uint16_t* data, uint16_t len, bool wfStatus, b
         if ((offsetx0 - offsetx1) > PLS_LEFT_OFFSET_TOLERANCE)
         {
             uint16_t offsety = (static_cast<sint32_t>(data[index] & PLS_DIST_MASK) * sine_tab[index+1]) >> TRIG_NORM_SHIFT;
-            wallAngleCordic = 90 - (CordicATan(static_cast<sint32_t>(offsety)<<16, static_cast<sint32_t>(offsetx0 - offsetx1)<<16)>>8); 
+            wallAngleCordic = -(90 - (CordicATan(static_cast<sint32_t>(offsety)<<16, static_cast<sint32_t>(offsetx0 - offsetx1)<<16)>>8)); 
             DPRINT("MINIMUM right dist : ");
             DPRINT((data[index] & PLS_DIST_MASK), DEC);
             DPRINT(" | ");
@@ -250,6 +251,8 @@ void CVMapping::calculateWallInfo(uint16_t* data, uint16_t len, bool wfStatus, b
     DPRINT(VDistance, DEC);
     DPRINT("|");
     DPRINTLN(offsetx180, DEC);
+    m_NAV.setPLSdata(offsetx0, wallAngleCordic, VDistance);
+    m_NAV.contDrive();
 }
 
 sint16_t CVMapping::CordicATan(sint32_t y, sint32_t x)
