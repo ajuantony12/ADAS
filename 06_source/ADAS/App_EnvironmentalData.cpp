@@ -18,6 +18,9 @@ void CEnvironmentalData::Run(void)
 {
   // Read battery voltage
   uint16_t vbat = GetVbat();
+  DPRINT("Battery voltate: ");
+  DPRINT(vbat);
+  DPRINTLN(" mV");
 
   // Check voltage
   if(vbat < ENV_VBAT_CRI)

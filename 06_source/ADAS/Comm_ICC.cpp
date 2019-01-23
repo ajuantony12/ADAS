@@ -28,6 +28,11 @@ void CICCComms::Run(void)
     // Parse buffer
     ParseMsgContent(msg);
 
+    DPRINT("msg.cmd=0x");
+    DPRINTLN(msg.cmd, HEX);
+    DPRINT("msg.data=");
+    DPRINTLN(msg.data, DEC);
+
     // Do somethin with msg data
 	/* Example_
 	if(msg.cmd == 0x04)
@@ -59,6 +64,7 @@ void CICCComms::SendMsg(Message_t& msg)
   // Prepare buffer
   CBuffAdas buffer(m_sndBuff, ICC_SND_BUFF_SIZE);
   buffer.Reset();
+  CreatePacket(buffer, msg);
   // Send  message
   m_serPort.Send(m_sndBuff, buffer.GetLength());
   m_serPort.ReleaseBuffer();

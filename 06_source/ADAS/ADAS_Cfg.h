@@ -74,7 +74,7 @@
 #define ICC_CMD_FB_ROT                                  0x03
 
 //Environmetal parameters
-#define ENV_VBAT_GAIN                                   33 // mV/sample (33.7*1000/1024)       
+#define ENV_VBAT_GAIN                                   32 // mV/sample (25.05V*1000/778)       
 #define ENV_VBAT_OFF                                    0  // mV
 #define ENV_VBAT_LOW                                    22000 // mV
 #define ENV_VBAT_CRI                                    20000 // mV
