@@ -8,6 +8,8 @@
 #define SICK_DEST                   0x00
 #define SICK_DESTR                  0x80
 #define SICK_RCV                    0x02
+#define SICK_ACK                    0x06
+#define SICK_NAK                    0x15
 #define SICK_NACK                   0x92
 #define SICK_STATUS                 0x31
 
@@ -31,8 +33,7 @@ static const uint8_t WANL_TGM[] = {0x06, 0x03, 0x00, 0x44, 0x02, 0x00};
 static const uint8_t WANLCFRM_TGM[] = {0x06, 0x03, 0x00, 0x47, 0x02, 0x00};
 #else
 static const uint8_t BM_TGM_SETUP[] = {0x0D, 0x0A, 0x00, 0x20, 0x00, 'S', 'I', 'C', 'K', '_', 'P', 'L', 'S'};
-//static const uint8_t KSFKFG_TGM[] = {0x1B, 0x18, 0x00, 0x43, 0x0A, 0x18, 0x80, 0x19, 0x80, 0x1E, 0x80, 0x29, 0x80, 0x4E, 0x80, 0x4A, 0x80, 0x4E, 0x80, 0x5C, 0x80, 0x43, 0x80, 0x39, 0x80, 0x36, 0x80};
-//static const uint8_t KSFKFG_TGM[] = {0x1B, 0x18, 0x00, 0x43, 0x0A, 0x35, 0x80, 0x38, 0x80, 0x41, 0x80, 0x5A, 0x80, 0x4D, 0x80, 0x49, 0x80, 0x4D, 0x80, 0x5A, 0x80, 0x41, 0x80, 0x38, 0x80, 0x35, 0x80};
+static const uint8_t KSFKFG_TGM[] = {0x1B, 0x18, 0x00, 0x43, 0x0A, 0x18, 0x80, 0x19, 0x80, 0x1E, 0x80, 0x29, 0x80, 0x4E, 0x80, 0x4A, 0x80, 0x4E, 0x80, 0x5C, 0x80, 0x43, 0x80, 0x39, 0x80, 0x36, 0x80};
 static const uint8_t INIT_TGM[] = {0x04, 0x01, 0x00, 0x10};
 static const uint8_t SSANF_TGM[] = {0x04, 0x01, 0x00, 0x31};
 static const uint8_t ERRANF_TGM[] = {0x04, 0x01, 0x00, 0x32};
@@ -43,12 +44,14 @@ static const uint8_t BM_TGM_AllSeg[] = {0x05, 0x02, 0x00, 0x20, 0x21};
 //static const uint8_t BM_TGM_Vert[] ={0x05, 0x02, 0x00, 0x20, 0x23};
 // Get Frame
 static const uint8_t GetFrameMsg[] = {0x06, 0x03, 0x00, 0x30, 0x00, 0x01};
-static const uint8_t GetFrameMsgVrt[] = {0x06, 0x03, 0x00, 0x30, 0x00, 0x02};
 #endif
+
+uint8_t prvbyte = 0x0;
 
 CPLSComms::CPLSComms(CSerial& serPort)
   : m_serPort(serPort),
-    m_status(Status_e::MsgSuccess)
+    m_status(Status_e::MsgSuccess),
+    m_asyncDataFLag(false)
 {
   //do nothing
 }
@@ -63,22 +66,15 @@ CPLSComms::Status_e CPLSComms::Init(void)
   Message_t msg;
   uint16_t len;
   m_status = Status_e::MsgSuccess;
-  CBuffAdas buffer(m_sndBuff, PLS_SND_BUFF_SIZE);
+  CBuffAdas buffer(m_sndBuff, SND_BUFF_SIZE);
   /*Reset Laser*/
   buffer.Reset();
   CreatePacket(buffer, INIT_TGM);
+  m_serPort.FlushReadBuff();
   m_serPort.Send(m_sndBuff, buffer.GetLength());
-  m_serPort.ReleaseBuffer();
   DPRINTLN("INIT message send");
-  while (!m_serPort.Available());
-  len = m_serPort.GetDataLen();
-  if (0 < len)
+  if (MsgSuccess == RecievePkt(len))
   {
-    m_serPort.GetData(m_rcvBuff, len);
-    for (int i = 0; i < len; i++)
-    {
-        DPRINTLN(m_rcvBuff[i], HEX);
-    }
     DPRINTLN("Recieved reset init packet");
     msgStatus = SearchMsg(msg, 0x91, len);
 #ifdef ADAS_DEBUG
@@ -91,11 +87,10 @@ CPLSComms::Status_e CPLSComms::Init(void)
   if ((Status_e::MsgSuccess == m_status) && (msgStatus))
   {
     m_status = Status_e::CommsError;
-  while (!m_serPort.Available());
-  len = m_serPort.GetDataLen();
-    if (0 < len)
+    while (!m_serPort.Available());
+
+    if (MsgSuccess == RecievePkt(len))
     {
-      m_serPort.GetData(m_rcvBuff, len);
       msgStatus = SearchMsg(msg, 0x90, len);
       if (msgStatus)
       {
@@ -104,18 +99,30 @@ CPLSComms::Status_e CPLSComms::Init(void)
       }
     }
   }
+#ifdef ONE_TIME_CFG
+  /*      if ((MsgSuccess == m_status) && (msgStatus))
+       {
+
+       } */
+#endif
   if ((Status_e::MsgSuccess == m_status) && (msgStatus))
   {
     m_status = Status_e::CommsError;
     buffer.Reset();
     CreatePacket(buffer, BM_TGM_SETUP);
+    m_serPort.FlushReadBuff();
     m_serPort.Send(m_sndBuff, buffer.GetLength());
-    m_serPort.ReleaseBuffer();
-  while (!m_serPort.Available());
-  len = m_serPort.GetDataLen();
-    if (0 < len)
+    if (MsgSuccess == RecievePkt(len))
     {
-      m_serPort.GetData(m_rcvBuff, len);
+      if (1 == len)
+      {
+        DPRINTLN("ACK recieved for mode change");
+        while (!m_serPort.Available());
+        m_status = RecievePkt(len);
+      }
+    }
+    if (Status_e::MsgSuccess == m_status)
+    {
       msgStatus = SearchMsg(msg, 0xA0, len);
       if (msgStatus)
       {
@@ -124,12 +131,12 @@ CPLSComms::Status_e CPLSComms::Init(void)
       }
     }
   }
-#if 0
   if ((Status_e::MsgSuccess == m_status) && (msgStatus))
   {
     m_status = Status_e::CommsError;
     buffer.Reset();
     CreatePacket(buffer, KSFKFG_TGM);
+    m_serPort.FlushReadBuff();
     m_serPort.Send(m_sndBuff, buffer.GetLength());
     if (MsgSuccess == RecievePkt(len))
     {
@@ -141,19 +148,24 @@ CPLSComms::Status_e CPLSComms::Init(void)
       }
     }
   }
-#endif
   if ((Status_e::MsgSuccess == m_status) && (msgStatus))
   {
     m_status = Status_e::CommsError;
     buffer.Reset();
     CreatePacket(buffer, BM_TGM_AllSeg);
+    m_serPort.FlushReadBuff();
     m_serPort.Send(m_sndBuff, buffer.GetLength());
-    m_serPort.ReleaseBuffer();
-  while (!m_serPort.Available());
-  len = m_serPort.GetDataLen();
-    if (0 < len)
+    if (MsgSuccess == RecievePkt(len))
     {
-      m_serPort.GetData(m_rcvBuff, len);
+      if (1 == len)
+      {
+        DPRINTLN("ACK recieved for mode change");
+        while (!m_serPort.Available());
+        m_status = RecievePkt(len);
+      }
+    }
+    if (Status_e::MsgSuccess == m_status)
+    {
       msgStatus = SearchMsg(msg, 0xA0, len);
       if (msgStatus)
       {
@@ -167,13 +179,10 @@ CPLSComms::Status_e CPLSComms::Init(void)
     m_status = Status_e::CommsError;
     buffer.Reset();
     CreatePacket(buffer, SSANF_TGM);
+    m_serPort.FlushReadBuff();
     m_serPort.Send(m_sndBuff, buffer.GetLength());
-    m_serPort.ReleaseBuffer();
-  while (!m_serPort.Available());
-  len = m_serPort.GetDataLen();
-    if (0 < len)
+    if (MsgSuccess == RecievePkt(len))
     {
-      m_serPort.GetData(m_rcvBuff, len);
       msgStatus = SearchMsg(msg, 0xB1, len);
       if (msgStatus)
       {
@@ -205,43 +214,38 @@ CPLSComms::Status_e CPLSComms::Init(void)
       break;
   }
 #endif
+  m_serPort.SetTimeOut(SERIAL1_TIMEOUT);
   DPRINTLN("end of PLS INIT");
   return m_status;
 }
 
-void CPLSComms::RequestMeasurements(bool onlyVert)
+bool CPLSComms::GetMeasurements(uint8_t* buff, uint16_t& len)
 {
-  CBuffAdas buffer(m_sndBuff, PLS_SND_BUFF_SIZE);
+  bool msgStatus = false;
+  Message_t msg;
+  CBuffAdas buffer(m_sndBuff, SND_BUFF_SIZE);
   buffer.Reset();
-  if (onlyVert){
-    CreatePacket(buffer, GetFrameMsgVrt);
-  }else{
-    CreatePacket(buffer, GetFrameMsg);
-  }
-
+  CreatePacket(buffer, GetFrameMsg);
   m_serPort.Send(m_sndBuff, buffer.GetLength());
-  m_serPort.ReleaseBuffer();
-}
-
-bool CPLSComms::GetAsyncData(Message_t& msg, uint16_t& len)
-{
-   bool msgStatus = false;
-  if (m_serPort.Available())
+  if (MsgSuccess == RecievePkt(len))
   {
-      len = m_serPort.GetDataLen();
-      if (0 < len)
-      {
-        m_serPort.GetData(m_rcvBuff, len);
-        msgStatus = SearchMsg(msg, 0xB0, len);
-        if (!msgStatus)
-        {
-          DPRINTLN("no measruement data recieved\n\r");
-          m_status = CommsError;
-        }
-      }
-      m_serPort.ReleaseBuffer();
+    msgStatus = SearchMsg(msg, 0xB0, len);
+    if (!msgStatus)
+    {
+      DPRINTLN("no measruement data recieved\n\r");
+      m_status = CommsError;
+    }
   }
   return msgStatus;
+}
+bool CPLSComms::IsPFBreached(uint32_t& distToObj)
+{
+  return true;
+}
+
+void CPLSComms::AsyncMessageUpdate(uint8_t* buff[], uint8_t len)
+{
+
 }
 
 CPLSComms::Status_e CPLSComms::GetStatus(void)
@@ -442,6 +446,64 @@ CPLSComms::Status_e CPLSComms::ParseMsgContent(Message_t& msg, uint16_t start, u
   }
   return retVal;
 }
+CPLSComms::Status_e CPLSComms::RecievePkt(uint16_t& len)
+{
+
+  Status_e retVal = Status_e::CommsError;
+  uint8_t current;
+#if 1
+#ifdef ADAS_DEBUG
+  bool flag = false;
+  uint8_t count = 0;
+  len = 0;
+  while (!flag)
+  {
+#endif
+    len = m_serPort.Read(m_rcvBuff, RCV_BUFF_SIZE);
+    if (0 < len)
+    {
+      flag = true;
+      DPRINTLN("Msg recieved in buffer");
+      retVal = Status_e::MsgSuccess;
+    }
+#ifdef ADAS_DEBUG
+    else {
+      count++;
+      if (100U == count)
+      {
+        flag = true;
+      }
+    }
+    DPRINT("Message lenght = ");
+    DPRINT(len, HEX);
+    DPRINT("\n\r");
+  }
+#endif
+  return retVal;
+#else
+  current = Serial1.read();
+  if ((0x80 == current) && (prvbyte == 0x02))
+  {
+    if (Serial1.readBytes(&m_rcvBuff[2], 2))
+    {
+      m_rcvBuff[0] = 0x02;
+      m_rcvBuff[1] = 0x80;
+      len = ((static_cast<uint16_t>(m_rcvBuff[3]) << 8) | m_rcvBuff[2]) + 2;
+      DPRINT("\n\r");
+      DPRINT(len, HEX);
+      DPRINT("\n\r");
+      uint32_t datarcved = Serial1.readBytes(&m_rcvBuff[4], len);
+      DPRINT("\n\r");
+      DPRINT(datarcved, HEX);
+      DPRINT("\n\r");
+      retVal = Status_e::MsgSuccess;
+    }
+  }
+  len += 4;
+  prvbyte = current;
+  return retVal;
+#endif
+}
 
 void  CPLSComms::CreatePacket(CBuffAdas& buff, uint8_t* Data)
 {
@@ -465,8 +527,4 @@ void  CPLSComms::CreatePacket(CBuffAdas& buff, uint8_t* Data)
   buff.Append(static_cast<uint8_t>((crc >> 8) & 0x00FF));
   DPRINT(static_cast<uint8_t>((crc >> 8) & 0x00FF), HEX);
   DPRINT("\n\r");
-}
-bool CPLSComms::DataAvailable()
-{
-    return m_serPort.Available();
 }

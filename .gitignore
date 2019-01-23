@@ -17,3 +17,6 @@ Backup of *.doc*
 
 # Visio autosave temporary files
 *.~vsd*
+
+# macOS files
+.DS_Store 

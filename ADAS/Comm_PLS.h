@@ -40,11 +40,14 @@ public:
     /*
     * Get Measurements
     */
-    void RequestMeasurements(bool onlyVert);
-    bool GetAsyncData(Message_t& msg, uint16_t& len);
+    bool GetMeasurements(uint8_t* buff, uint16_t& len);
     /*is protectuve field breached
     */
-    bool DataAvailable();
+    bool IsPFBreached(uint32_t& distToObj);
+    /*
+    * Asynchronous Data update from PLS
+    */
+    void AsyncMessageUpdate(uint8_t* buff[], uint8_t len);
     /*
     * Get status of PLS
     */
@@ -56,6 +59,18 @@ public:
     /*
     * Recieve a packet
     */
+    Status_e  RecievePkt(uint16_t& len);
+    /*is Con*/
+    inline bool isContaminated()
+    {
+        bool retVal = m_asyncDataFLag;
+        m_asyncDataFLag = false;
+        return retVal;
+    }
+    inline void AddContaminationAlert()
+    {
+        m_asyncDataFLag = true;
+    }
 private:
     /*
     * Calculate CRC
@@ -71,9 +86,10 @@ private:
     void  CreatePacket(CBuffAdas& buff, uint8_t* Data);
     
     CSerial& m_serPort;
-    uint8_t m_sndBuff[PLS_SND_BUFF_SIZE];
-    uint8_t m_rcvBuff[PLS_RCV_BUFF_SIZE];
-    Status_e m_status;
+    uint8_t m_sndBuff[SND_BUFF_SIZE];
+    uint8_t m_rcvBuff[RCV_BUFF_SIZE];
+    volatile Status_e m_status;
+    bool m_asyncDataFLag;
 };
 
 #endif /*COMMS_PLS_H*/

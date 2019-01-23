@@ -1,13 +1,21 @@
 #define BAUD 9600
 #define BAUD_PRESCALE (((F_CPU / (BAUD * 16UL))) - 1)
 
-
+<<<<<<<<< Temporary merge branch 1
 #define BUF_LEN 500
 uint8_t rxBuffer[BUF_LEN];
 uint16_t rxMsgLen = 0;
 uint16_t rxBufferPointer = 0;
 bool rxBufferFull = false;
 bool rxBufferRdy = false;
+=========
+#define BUF_LEN 800
+uint8_t rxBuffer[BUF_LEN];
+volatile uint16_t rxMsgLen = 0;
+volatile uint16_t rxBufferPointer = 0;
+volatile bool rxBufferFull = false;
+volatile bool rxBufferRdy = false;
+>>>>>>>>> Temporary merge branch 2
 
 
 #define PLS_STX 0x02 // start byte
