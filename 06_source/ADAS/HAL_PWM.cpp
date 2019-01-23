@@ -22,10 +22,14 @@ CPWMUnit::~CPWMUnit() {
 // function to initialize 16-bit PWM
 void CPWMUnit::setupPWM16() {
   pinMode(m_ID, OUTPUT);
+  
 
   TCCR1A = (1 << WGM11) | (1 << WGM10) | (1 << COM1A1) | (1 << COM1B1);
 
   TCCR1B = (1 << WGM12) | (0 << CS12) | (1 << CS10);
+
+  digitalWrite(PIN_MTR_L_PWM, LOW);
+  digitalWrite(PIN_MTR_R_PWM, LOW);
 
 }
 

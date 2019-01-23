@@ -14,7 +14,7 @@ void setup() {
 
 void loop() {
 
-
+/*
   if (rxBufferFull) {
     // print received data
     Serial.println("Buffer is full!");
@@ -24,12 +24,17 @@ void loop() {
     }
     // reset flag
     rxBufferFull = false;
-  }
+  }*/
+
+
+Serial.println(uart1_get());
+  
   
 
 }
 
 
+// UART1 interrupt
 ISR(USART1_RX_vect)
 {
   if (!rxBufferFull)
@@ -50,7 +55,7 @@ ISR(USART1_RX_vect)
   }
 }
 
-
+// Function to initialization of UART1
 void uart1_init(void)
 {
   // Enable Receiver and Transmitter
@@ -67,6 +72,8 @@ void uart1_init(void)
   UCSR1B |= (1 << RXCIE0);
 }
 
+
+// Function to send a char/byte via UART1
 int uart1_put(char data)
 {
   // wait for free tx buffer
@@ -76,6 +83,7 @@ int uart1_put(char data)
   return 0;
 }
 
+// Function to read UART1 rx buffer
 int uart1_get(void)
 {
   while ( !(UCSR1A & (1 << RXC1)) );

@@ -20,7 +20,8 @@
 class CMotorCtrl: public ITask_IF
 {
 public:
-	CMotorCtrl(CIMUUnit& imu_o, CPWMUnit& pwmUnitLeft_o, CPWMUnit& pwmUnitRight_o, CPLSComms& plsCOmms_o, CEncoder& enc1_o, CEncoder& enc2_o);
+	CMotorCtrl(CIMUUnit& imu_o, CPWMUnit& pwmUnitLeft_o, CPWMUnit& pwmUnitRight_o, 
+	CEncoder& enc1_o, CEncoder& enc2_o, CICCComms& iccComms_o);
 	~CMotorCtrl();
 
 
@@ -40,6 +41,10 @@ public:
     virtual void startRotation(sint16_t angle);
 
     virtual void setDistance(sint16_t dist);
+
+    virtual void pauseDrive(void);
+
+    virtual void contDrive(void);
 
 
 private:
@@ -68,9 +73,9 @@ private:
     CIMUUnit& m_imu_o;
     CPWMUnit& m_pwmUnitLeft_o;
     CPWMUnit& m_pwmUnitRight_o;
-    CPLSComms& m_plsCOmms_o;
     CEncoder& m_enc1_o;
     CEncoder& m_enc2_o;
+    CICCComms& m_iccComms_o;
 };
 
 #endif /*APP_MOTOR_CTRL_H*/

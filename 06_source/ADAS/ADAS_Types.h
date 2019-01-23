@@ -9,11 +9,14 @@
 //unsigned type
 //unsigned types
 typedef unsigned char uint8_t;
+typedef unsigned int uint16_t;
+typedef unsigned long uint32_t;
 
 //signed types
-typedef signed int sint32_t;
-typedef signed short sint16_t;
+typedef signed long sint32_t;
+typedef signed int sint16_t;
 typedef signed char sint8_t;
+
 
 //float types
 typedef float float32_t;
