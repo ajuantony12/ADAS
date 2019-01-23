@@ -21,7 +21,7 @@
 #define IN_Forward                     ((uint8_T)2U)
 #define IN_Idle                        ((uint8_T)3U)
 #define IN_Turn_Left                   ((uint8_T)4U)
-#define IN_Turn_Right                  ((uint8_T)5U)
+#define IN_Turn_Right                  ((uint8_T)10U)
 
 // Model step function
 void ChartModelClass::step()
@@ -179,13 +179,13 @@ void ChartModelClass::step()
     if (qY_0 > 32762) {
       qY_0 = MAX_int16_T;
     } else {
-      qY_0 += 5;
+      qY_0 += 10;
     }
 
     if (qY < -32763) {
       qY = MIN_int16_T;
     } else {
-      qY -= 5;
+      qY -= 10;
     }
 
     if ((rtU.gyro_signal <= qY_0) && (rtU.gyro_signal >= qY)) {
@@ -256,13 +256,13 @@ void ChartModelClass::step()
     if (qY_0 > 32762) {
       qY_0 = MAX_int16_T;
     } else {
-      qY_0 += 5;
+      qY_0 += 10;
     }
 
     if (qY < -32763) {
       qY = MIN_int16_T;
     } else {
-      qY -= 5;
+      qY -= 10;
     }
 
     if ((rtU.gyro_signal <= qY_0) && (rtU.gyro_signal >= qY)) {
