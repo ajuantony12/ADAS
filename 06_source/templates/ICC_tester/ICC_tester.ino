@@ -43,7 +43,7 @@ void sendMsg(uint8_t cmd, int16_t data)
 
   Serial.print("cmd = 0x");
   Serial.println(cmd, HEX);
-  Serial.print("data = 0x");
+  Serial.print("data = ");
   Serial.println(data);
 
   Serial.println("Sent!");
