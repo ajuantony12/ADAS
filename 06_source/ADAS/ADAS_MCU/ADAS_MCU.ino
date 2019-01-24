@@ -20,7 +20,7 @@
 
 
 //Hardware
-/*CADC adc_o;
+
   CIMUUnit    imu_o;
   CEncoder    enc1_o(CEncoder::E1);
   CEncoder    enc2_o(CEncoder::E2);
