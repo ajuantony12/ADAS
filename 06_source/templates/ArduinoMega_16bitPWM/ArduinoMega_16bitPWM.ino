@@ -11,15 +11,21 @@ void setup() {
 }
 
 void loop() {
-    writeLED(120);
-
+  for (uint16_t n = 0; n < 65535; n++)
+  {
+    writeLED(n);
+  }
+  for (uint16_t n = 65535; n > 0; n--)
+  {
+    writeLED(n);
+  }
 
 
 }
 
 void writeLED(uint16_t n)
 {
-  analogWrite(LED1, n);
-  //analogWrite16(LED2, 65535 - n);
+  analogWrite16(LED1, n);
+  analogWrite16(LED2, 65535 - n);
   delayMicroseconds(WAIT);
 }

@@ -6,11 +6,14 @@ CADC::CADC()
   //do nothing
 }
 CADC::~CADC(){
+  //to do
 }
 
 void CADC::Init(void){
+	//to do
 }
 
- uint16_t CADC::ReadADCValue(uint8_t pin){
-      return analogRead(pin);
+ uint16_t CADC::ReadADCValue(void){
+	//to do
+      return 0U;
  }
