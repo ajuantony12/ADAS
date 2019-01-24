@@ -11,17 +11,17 @@ class CBuffAdas
 {
  public:
     /*COnstructor*/
-    CBuffAdas(uint8_t* data, uint16_t len);
+    CBuffAdas(uint8_t* data, unsigned short len);
     /*destructor*/
     ~CBuffAdas();
     /*Append Data*/
     void Append(uint8_t data);
     /*Get Buffer Length*/
-    uint16_t GetLength();
+    unsigned short GetLength();
     uint8_t* GetData();
     /*Reset Buffer*/
     void Reset();
-    uint32_t operator[](uint32_t index);
+    unsigned int operator[](unsigned int index);
  private:
     uint8_t* m_Data;
     uint8_t m_Len;
