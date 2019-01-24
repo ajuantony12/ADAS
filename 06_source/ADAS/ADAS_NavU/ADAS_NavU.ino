@@ -55,15 +55,13 @@ void setup() {
   taskCtrl_o.Register(&nav_o, 1);
   taskCtrl_o.Register(&env_o, 2);
   /*taskCtrl_o.Register(&pos_o, 3);
-  //taskCtrl_o.Register(&uI_o, 4);*/
+  taskCtrl_o.Register(&uI_o, 4);*/
   taskCtrl_o.Init();
 }
 
 void loop() {
   // put your main code here, to run repeatedly:
   taskCtrl_o.Run();
-  
-  delay(100);
 }
 
 
