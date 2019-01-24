@@ -289,6 +289,7 @@ void CMotorCtrl::checkState(void) {
       digitalWrite(PIN_DIRECTION_L, LOW);
       digitalWrite(PIN_DIRECTION_R, HIGH);
       if(curState != 1){
+          Kp = 2.0;
           setpoint_l = 3;
           setpoint_r = 3;
         }
@@ -299,6 +300,7 @@ void CMotorCtrl::checkState(void) {
       digitalWrite(PIN_DIRECTION_L, HIGH);
       digitalWrite(PIN_DIRECTION_R, LOW);
       if(curState != 2){
+          Kp = 2.0;
           setpoint_l = 5;
           setpoint_r = 5;
         }
@@ -315,6 +317,7 @@ void CMotorCtrl::checkState(void) {
       if(curState == 4 || curState == 5){
           //Feedback function for completed rotation
           DPRINT("Rotation reached!");
+          rtObj.rtU.turn = 0;
           rotated = true;
           m_iccComms_o.addTxMsg(ICC_CMD_FB_ROT, 0);
         }else if(curState == 1 || curState == 2){
@@ -327,22 +330,24 @@ void CMotorCtrl::checkState(void) {
       m_pwmUnitLeft_o.writeMOT(LOW);
       break;
     case 4:
-      DPRINTLN("State 4: Right Turn");
-      digitalWrite(PIN_DIRECTION_L, HIGH);
-      digitalWrite(PIN_DIRECTION_R, HIGH);
+      DPRINTLN("State 4: Left Turn");
+      digitalWrite(PIN_DIRECTION_L, LOW);
+      digitalWrite(PIN_DIRECTION_R, LOW);
       if(curState != 4){
-          setpoint_l = 1;
-          setpoint_r = 1;
+          Kp = 0.2;
+          setpoint_l = 3;
+          setpoint_r = 3;
         }
       curState = 4;
       break;
     case 5:
-      DPRINTLN("State 5: Left Turn");
-      digitalWrite(PIN_DIRECTION_L, LOW);
-      digitalWrite(PIN_DIRECTION_R, LOW);
+      DPRINTLN("State 5: Right Turn");
+      digitalWrite(PIN_DIRECTION_L, HIGH);
+      digitalWrite(PIN_DIRECTION_R, HIGH);
       if(curState != 5){
-          setpoint_l = 1;
-          setpoint_r = 1;
+          Kp = 0.2;
+          setpoint_l = 3;
+          setpoint_r = 3;
         }
       curState = 5;
       break;
@@ -367,7 +372,7 @@ void CMotorCtrl::getUserInput(void) {
 
  if(backward && !rotated && r == 0){
      CMotorCtrl::startRotation(20);
-     r = 1;
+     r++;
    }else if(backward && rotated){
         CMotorCtrl::setDistance(0);
         k++;
@@ -386,8 +391,8 @@ void CMotorCtrl::getUserInput(void) {
   DPRINT("forward: ");
   DPRINT(forward);
   DPRINT("; ");
-  DPRINT("state: ");
-  DPRINT(rtObj.rtDW.is_c3_Chart);
+  DPRINT("r: ");
+  DPRINT(r);
   DPRINT("; ");
   DPRINT(rtObj.rtU.gyro_signal);
   DPRINT("; ");
