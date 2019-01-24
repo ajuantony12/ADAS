@@ -1,12 +1,11 @@
 /* --------------------------------------------------------------
-	Arduino Library to use 16-bit PWM signals on the Arduino Mega
+	Arduino Library to use 10-bit PWM signals on the Arduino Mega
 
 	Author: Christoph Jurczyk
   -------------------------------------------------------------- */
 
 #include <Arduino.h>
 #include "HAL_PWM.h"
-#include "ADAS_Debug.h"
 #define PWM1 11
 #define PWM2 12
 
@@ -20,10 +19,10 @@ CPWMUnit::~CPWMUnit() {
 }
 
 // function to initialize 16-bit PWM
-void CPWMUnit::setupPWM16() {
+void CPWMUnit::setupPWM10() {
   pinMode(m_ID, OUTPUT);
 
-  TCCR1A = (1 << WGM11) | (1 << WGM10) | (1 << COM1A1) | (1 << COM1B1);
+  TCCR1A = (1 << WGM11) | (1 << WGM10) | (1 << COM1A1) | (1 << COM1A0) | (1 << COM1B1) | (1 << COM1B0);
 
   TCCR1B = (1 << WGM12) | (0 << CS12) | (1 << CS10);
 
@@ -31,8 +30,8 @@ void CPWMUnit::setupPWM16() {
 
 
 // function to write PWM duty cycle
-// value from 0 to 65535
-void CPWMUnit::analogWrite16(uint8_t pin, uint16_t val)
+// value from 0 to 1024
+void CPWMUnit::analogWrite10(uint8_t pin, uint16_t val)
 {
   switch (pin) {
     case  11:
@@ -48,5 +47,5 @@ void CPWMUnit::analogWrite16(uint8_t pin, uint16_t val)
 
 void CPWMUnit::writeMOT(uint16_t n)
 {
-  analogWrite16(m_ID, n);
+  analogWrite10(m_ID, n);
 }
