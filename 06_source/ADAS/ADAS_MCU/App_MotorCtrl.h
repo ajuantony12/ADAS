@@ -39,6 +39,8 @@ public:
     void startRotation(sint16_t angle);
 
     void setDistance(sint16_t dist);
+    
+    void setPISetpoint(uint16_t setpnt);
 
     void pauseDrive(void);
 

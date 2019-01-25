@@ -12,7 +12,10 @@
 
 int n = 20;
 int r = 0;
+uint16_t distance = 0;
 boolean pause = false;
+boolean speed_set = false;
+uint16_t spd = 5;
 int16_T dist = 0;
 boolean control = false;
 uint16_t setpoint_l = 5; //124 = 4km/h
@@ -267,13 +270,15 @@ void CMotorCtrl::startRotation(sint16_t angle){
   }
 
 void CMotorCtrl::setDistance(sint16_t dist){
+  //1 peak = 1.795cm;
+  distance = dist * (1/1.795);
   rtObj.rtU.turn = 0;
   peak_sum_r = peak_sum_l = 0;
   if(rtObj.rtU.dist >= 0 && dist >= 0){
-    rtObj.rtU.dist = d_way = dist;
+    rtObj.rtU.dist = d_way = distance;
     }else if(rtObj.rtU.dist <= 0 && dist < 0){
-        rtObj.rtU.dist= dist;
-        d_way = abs(dist);
+        rtObj.rtU.dist= distance;
+        d_way = abs(distance);
       }else if(rtObj.rtU.dist > 0 && dist < 0){
           rtObj.rtU.dist= 0;
           d_way = 0;
@@ -292,6 +297,17 @@ void CMotorCtrl::pauseDrive(void){
     m_pwmUnitLeft_o.writeMOT(LOW);
     pause = true;
   }
+
+void CMotorCtrl::setPISetpoint(uint16_t setpnt){
+  if(setpnt >= 1000){
+    setpoint_l = setpoint_r = 8;
+    spd = 8;
+    }else{
+    setpoint_l = setpoint_r = spd = (setpnt/120); // mm/s in peaks per 150ms 
+    speed_set = true;
+    }
+    
+  }
 void CMotorCtrl::contDrive(void){
     pause = false;
   }
@@ -306,7 +322,7 @@ void CMotorCtrl::checkState(void) {
       DPRINTLN("State 1: Backward");
       digitalWrite(PIN_DIRECTION_L, LOW);
       digitalWrite(PIN_DIRECTION_R, HIGH);
-      if(curState != 1){
+      if(curState != 1 && !speed_set){
           setpoint_l = 3;
           setpoint_r = 3;
         }
@@ -320,9 +336,9 @@ void CMotorCtrl::checkState(void) {
       DPRINTLN("State 2: Forward");
       digitalWrite(PIN_DIRECTION_L, HIGH);
       digitalWrite(PIN_DIRECTION_R, LOW);
-      if(curState != 2){
-          setpoint_l = 5;
-          setpoint_r = 5;
+      if(curState != 2 && !speed_set){
+          setpoint_l = spd;
+          setpoint_r = spd;
         }
       curState = 2;
       if(peak_sum_r >= d_way && peak_sum_l >= d_way){
@@ -337,6 +353,9 @@ void CMotorCtrl::checkState(void) {
       if(curState != 3){
           setpoint_l = 0;
           setpoint_r = 0;
+        }
+      if(speed_set){
+          speed_set = false;
         }
       if(curState == 4 || curState == 5){
           //Feedback function for completed rotation
@@ -369,9 +388,9 @@ void CMotorCtrl::checkState(void) {
       DPRINTLN("State 4: Left Turn");
       digitalWrite(PIN_DIRECTION_L, LOW);
       digitalWrite(PIN_DIRECTION_R, LOW);
-      if(curState != 4){
-          setpoint_l = 3;
-          setpoint_r = 3;
+      if(curState != 4 && !speed_set){
+          setpoint_l = spd;
+          setpoint_r = spd;
         }
       curState = 4;
       break;
@@ -379,9 +398,9 @@ void CMotorCtrl::checkState(void) {
       DPRINTLN("State 5: Right Turn");
       digitalWrite(PIN_DIRECTION_L, HIGH);
       digitalWrite(PIN_DIRECTION_R, HIGH);
-      if(curState != 5){
-          setpoint_l = 3;
-          setpoint_r = 3;
+      if(curState != 5 && !speed_set){
+          setpoint_l = spd;
+          setpoint_r = spd;
         }
       curState = 5;
       break;
