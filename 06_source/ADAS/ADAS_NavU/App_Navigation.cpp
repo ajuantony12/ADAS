@@ -13,6 +13,7 @@ CNavigation::~CNavigation() {
 
 void CNavigation::Init(void)
 {
+    continueDrive();
 
 }
 
@@ -39,6 +40,8 @@ void CNavigation::Stop(void)
   m_ICC.addTxMsg(ICC_CMD_PAUSE_DRIVE, 0);
   current_state = STATE_IDLE;
   next_state = STATE_IDLE;
+  stopDrive();
+  
 }
 
 bool CNavigation::isCornerMode()
