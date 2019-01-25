@@ -50,6 +50,7 @@ void setup() {
   //do not know why
   delay(100);
   plsCOmms_o.Init();
+  iccComms_o.Init(&nav_o);
   //Task initialization
   taskCtrl_o.Register(&vMap_o, 0);
   taskCtrl_o.Register(&nav_o, 1);
