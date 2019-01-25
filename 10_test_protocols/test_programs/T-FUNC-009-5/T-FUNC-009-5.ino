@@ -31,6 +31,7 @@ void loop() {
     delay(DELAY_TIME);
     sendMsg(0x04, TEST_LEN);
     runTest = true;
+    testFinished = false;
   }
 
 

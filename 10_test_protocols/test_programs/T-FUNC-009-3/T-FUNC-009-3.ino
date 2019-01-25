@@ -16,7 +16,7 @@ int16_t test_angles[6] = {180, 135, 90, 45, 20, 10};
 uint8_t curr_tag_angle = 0;
 
 bool runTest = false;
-bool testFinished = false;
+bool testFinished = true;
 
 void setup() {
   pinMode(PIN_START, INPUT_PULLUP);
