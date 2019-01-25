@@ -134,6 +134,8 @@ void CMotorCtrl::Run(void)
           //getUserInput();
           checkState();
           MotPI();
+          DPRINT("D_way: ");
+          DPRINT(d_way);
           DPRINT("Turn: ");
           DPRINT(rtObj.rtU.turn);
           DPRINT("; ");
@@ -234,11 +236,7 @@ void CMotorCtrl::MotPI(void)
       m_pwmUnitLeft_o.writeMOT(output_l*2+adapt_l);
     }
     control=false;
-  }else if(peak_sum_l >= d_way && peak_sum_r >= d_way){
-      m_pwmUnitRight_o.writeMOT(LOW);
-      m_pwmUnitLeft_o.writeMOT(LOW);
-      output_l = output_r = 0;
-    }
+  }
 }
 // Start Encoder Counting Interrupts
 
@@ -265,7 +263,7 @@ static void CMotorCtrl::readenc(void* context) {
 
 void CMotorCtrl::startRotation(sint16_t angle){
     rtObj.rtU.turn = angle;
-    rtObj.rtU.dist = 0;
+    rtObj.rtU.dist = d_way = 0 ;
   }
 
 void CMotorCtrl::setDistance(sint16_t dist){
@@ -350,7 +348,6 @@ void CMotorCtrl::checkState(void) {
             //Feedback function for completed distance
             rtObj.rtU.dist = 0;
             DPRINT("Distance reached!");
-           
             m_iccComms_o.addTxMsg(ICC_CMD_FB_DIST, 0);
           }
 
