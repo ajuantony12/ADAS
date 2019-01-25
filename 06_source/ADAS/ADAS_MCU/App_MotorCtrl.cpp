@@ -204,7 +204,7 @@ void CMotorCtrl::StraightDrive(void)
 // PIControl Motors
 void CMotorCtrl::MotPI(void)
 {
-    if (control && peak_sum_r < d_way && peak_sum_l < d_way ){      
+    if (control && rtObj.rtDW.is_c3_Chart != 3){      
       StraightDrive();
  //right PI control
     feedback_r = counted_peaks_r;
@@ -357,7 +357,7 @@ void CMotorCtrl::checkState(void) {
       if(changeDirection){
           k++;
           if(k == 50){
-              changeDirection = 0;
+              changeDirection = false;
               setDistance(remindValue);
               remindValue = 0;
               k = 0;
