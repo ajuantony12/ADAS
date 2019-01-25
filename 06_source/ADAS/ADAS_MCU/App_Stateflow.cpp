@@ -179,13 +179,13 @@ void ChartModelClass::step()
     if (qY_0 > 32762) {
       qY_0 = MAX_int16_T;
     } else {
-      qY_0 += 5;
+      qY_0 += 3;
     }
 
     if (qY < -32763) {
       qY = MIN_int16_T;
     } else {
-      qY -= 5;
+      qY -= 3;
     }
 
     if ((rtU.gyro_signal <= qY_0) && (rtU.gyro_signal >= qY)) {
@@ -256,13 +256,13 @@ void ChartModelClass::step()
     if (qY_0 > 32762) {
       qY_0 = MAX_int16_T;
     } else {
-      qY_0 += 5;
+      qY_0 += 3;
     }
 
     if (qY < -32763) {
       qY = MIN_int16_T;
     } else {
-      qY -= 5;
+      qY -= 3;
     }
 
     if ((rtU.gyro_signal <= qY_0) && (rtU.gyro_signal >= qY)) {

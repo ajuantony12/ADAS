@@ -1,6 +1,7 @@
 #include "ADAS_Debug.h"
 #include "Comm_ICC.h"
 #include <Arduino.h>
+#include "App_MotorCtrl.h"
 
 CICCComms::CICCComms(CSerial& serPort)
   : m_serPort(serPort)
@@ -12,9 +13,9 @@ CICCComms::~CICCComms()
   //do nothing
 }
 
-void CICCComms::Init(void)
+void CICCComms::Init(CMotorCtrl* mCtrl_o)
 {
-  //do nothing
+  m_mCtrl_o=mCtrl_o;
 }
 
 void CICCComms::Run(void)
@@ -28,15 +29,39 @@ void CICCComms::Run(void)
     // Parse buffer
     ParseMsgContent(msg);
 
-    // Do somethin with msg data
 	
-	/* Example_
-	if(msg.cmd == 0x04)
-	{
-		// new rotation
-		 mcu.startRotation(msg.data);
-	}
-	*/
+  switch(msg.cmd){
+    case ICC_CMD_DRIVE_DIST:
+        m_mCtrl_o->setDistance(msg.data);
+        DPRINT("set distance to: ");
+        DPRINTLN(msg.data);
+      break;
+    case ICC_CMD_ROT_ANGLE:
+      m_mCtrl_o->startRotation(msg.data);
+      DPRINT("set rotation to: ");
+        DPRINTLN(msg.data);
+      break;
+    case ICC_CMD_PAUSE_DRIVE:
+      m_mCtrl_o->pauseDrive();
+      DPRINTLN("Paused driving! ");
+      break;
+    case ICC_CMD_CONT_DRIVE:
+      m_mCtrl_o->contDrive();
+      DPRINTLN("Continued driving! ");
+      break;
+    case ICC_CMD_CONT_DRIVE_IN:
+      m_mCtrl_o->setDistance(32767);
+      DPRINTLN("Infinite Driving ");
+      break;
+    case ICC_CMD_SOFT_STOP:
+      m_mCtrl_o->setDistance(0);
+      DPRINTLN("Soft stop!");
+      break;
+    case ICC_CMD_EMER_STOP:
+      m_mCtrl_o->setDistance(0);
+      DPRINTLN("Emergency stop! ");
+      break;
+    }
 	
 	
 
@@ -57,6 +82,7 @@ void CICCComms::SendMsg(Message_t& msg)
   // Prepare buffer
   CBuffAdas buffer(m_sndBuff, ICC_SND_BUFF_SIZE);
   buffer.Reset();
+  CreatePacket(buffer, msg);
   // Send  message
   m_serPort.Send(m_sndBuff, buffer.GetLength());
   m_serPort.ReleaseBuffer();

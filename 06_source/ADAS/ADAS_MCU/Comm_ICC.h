@@ -12,6 +12,7 @@
 #ifndef COMMS_ICC_H
 #define COMMS_ICC_H
 
+class CMotorCtrl;
 
 class CICCComms
 {
@@ -27,7 +28,7 @@ class CICCComms
     /*
       init
     */
-    virtual void Init(void);
+    virtual void Init(CMotorCtrl* mCtrl_o);
     /*
        Run
     */
@@ -45,6 +46,7 @@ class CICCComms
 
   private:
     CSerial& m_serPort;
+    CMotorCtrl* m_mCtrl_o;
     uint8_t m_sndBuff[ICC_SND_BUFF_SIZE];
     uint8_t m_rcvBuff[ICC_RCV_BUFF_SIZE];
 

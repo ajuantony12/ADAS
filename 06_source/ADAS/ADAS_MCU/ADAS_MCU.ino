@@ -20,7 +20,6 @@
 
 
 //Hardware
-
   CIMUUnit    imu_o;
   CEncoder    enc1_o(CEncoder::E1);
   CEncoder    enc2_o(CEncoder::E2);
@@ -38,6 +37,9 @@ void setup() {
 
   //inertial_o.Init();
   mCtrl_o.Init();
+  iccPort.Init();
+  iccComms_o.Init(&mCtrl_o);
+  interrupts();
 }
 
 void loop() {
