@@ -41,7 +41,7 @@ CTaskCtrl taskCtrl_o;
 void setup() {
   //Hw initialization
   Serial.begin(115200);
-  DPRINTLN("Hello\n\r");
+  Serial.println("Hello\n\r");
   plsPort.Init();
   iccPort.Init();
   interrupts();
@@ -61,7 +61,9 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
+  nav_o.printChangedDebugInfo();
   taskCtrl_o.Run();
+  
   delay(1000);
 }
 

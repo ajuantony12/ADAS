@@ -9,11 +9,11 @@ CNavigation::~CNavigation() {
   // set default values
   rotationDone = false;
   distanceDone = false;
+  cornerMode = false;
 }
 
 void CNavigation::Init(void)
 {
-    continueDrive();
 
 }
 
@@ -41,12 +41,12 @@ void CNavigation::Stop(void)
   current_state = STATE_IDLE;
   next_state = STATE_IDLE;
   stopDrive();
-  
+
 }
 
 bool CNavigation::isCornerMode()
 {
-  return false;
+  return cornerMode;
 }
 
 // Function to set the current value of offset position to wall,
@@ -88,6 +88,7 @@ void CNavigation::getNextState(bool runActive)
         if (rotationDone)
         {
           next_state = STATE_COR_OFFSET;
+          rotationDone = false;
         }
         break;
 
@@ -95,6 +96,7 @@ void CNavigation::getNextState(bool runActive)
         if (distanceDone)
         {
           next_state = STATE_ROT_WALL_OFFSET;
+          distanceDone = false;
         }
         break;
 
@@ -103,6 +105,7 @@ void CNavigation::getNextState(bool runActive)
         if (rotationDone)
         {
           next_state = STATE_DRIVE_WALL;
+          rotationDone = false;
         }
         break;
 
@@ -111,6 +114,7 @@ void CNavigation::getNextState(bool runActive)
         if (rotationDone)
         {
           next_state = STATE_DRIVE_WALL;
+          rotationDone = false;
         }
         break;
 
@@ -174,37 +178,44 @@ void CNavigation::printChangedDebugInfo(void)
 // Debug function to print current status of state flow
 void CNavigation::printDebugInfo(void)
 {
-  DPRINTLN("-----------------------------");
-  DPRINTLN("App_Navigation:\n");
+  Serial.println("-----------------------------");
+  Serial.println("App_Navigation:\n");
 
   // Print current and next state
-  DPRINT("Current state: ");
+  Serial.print("Current state: ");
   printState(current_state);
-  DPRINT("\t");
-  DPRINT("Next state: ");
+  Serial.print("\t");
+  Serial.print("Next state: ");
   printState(next_state);
-  DPRINTLN("");
+  Serial.println("");
 
   // Print environmatal parameters
-  DPRINT("Offset: ");
-  DPRINT(cur_offset);
-  DPRINT(" (current)\t");
-  DPRINT(buf_offset);
-  DPRINTLN(" (buffer)");
+  Serial.print("Offset: ");
+  Serial.print(cur_offset);
+  Serial.print(" (current)\t");
+  Serial.print(buf_offset);
+  Serial.println(" (buffer)");
 
-  DPRINT("Angle: ");
-  DPRINT(cur_angle);
-  DPRINT(" (current)\t");
-  DPRINT(buf_angle);
-  DPRINTLN(" (buffer)");
+  Serial.print("Angle: ");
+  Serial.print(cur_angle);
+  Serial.print(" (current)\t");
+  Serial.print(buf_angle);
+  Serial.println(" (buffer)");
 
-  DPRINT("Next Wall: ");
-  DPRINT(cur_nxt_wall);
-  DPRINT(" (current)\t");
-  DPRINT(buf_nxt_wall);
-  DPRINTLN(" (buffer)");
+  Serial.print("Next Wall: ");
+  Serial.print(cur_nxt_wall);
+  Serial.print(" (current)\t");
+  Serial.print(buf_nxt_wall);
+  Serial.println(" (buffer)");
 
-  DPRINTLN("-----------------------------");
+
+  Serial.print("rotationDone: ");
+  Serial.print(rotationDone);
+  Serial.print("\tdistanceDone: ");
+  Serial.print(distanceDone);
+  Serial.println("");
+
+  Serial.println("-----------------------------");
 }
 
 // Function to print state
@@ -213,41 +224,41 @@ void CNavigation::printState(NAV_STATE state)
   switch (state)
   {
     case STATE_IDLE:
-      DPRINT("STATE_IDLE");
+      Serial.print("STATE_IDLE");
       break;
 
     case STATE_GET_OFFSET:
-      DPRINT("STATE_GET_OFFSET");
+      Serial.print("STATE_GET_OFFSET");
       break;
 
     case STATE_ROT_WALL_INFRONT:
-      DPRINT("STATE_ROT_WALL_INFRONT");
+      Serial.print("STATE_ROT_WALL_INFRONT");
       break;
 
     case STATE_COR_OFFSET:
-      DPRINT("STATE_COR_OFFSET");
+      Serial.print("STATE_COR_OFFSET");
       break;
 
     case STATE_ROT_WALL_OFFSET:
-      DPRINT("STATE_ROT_WALL_OFFSET");
+      Serial.print("STATE_ROT_WALL_OFFSET");
       break;
 
     case STATE_GET_ANGLE:
-      DPRINT("STATE_GET_ANGLE");
+      Serial.print("STATE_GET_ANGLE");
       break;
 
     case STATE_ROT_WALL:
-      DPRINT("STATE_ROT_WALL");
+      Serial.print("STATE_ROT_WALL");
       break;
 
     case STATE_DRIVE_WALL:
-      DPRINT("STATE_DRIVE_WALL");
+      Serial.print("STATE_DRIVE_WALL");
       break;
 
     default:
-      DPRINT("unknown state (");
-      DPRINT(state);
-      DPRINT(")");
+      Serial.print("unknown state (");
+      Serial.print(state);
+      Serial.print(")");
       break;
   }
 }
@@ -257,7 +268,7 @@ void CNavigation::printState(NAV_STATE state)
 void CNavigation::continueDrive(void)
 {
   runFlow = true;
-  DPRINTLN("Nav: Continue drive!");
+  Serial.println("Nav: Continue drive!");
 }
 
 
@@ -265,7 +276,7 @@ void CNavigation::continueDrive(void)
 void CNavigation::stopDrive(void)
 {
   runFlow = false;
-  DPRINTLN("Nav: Pause drive!");
+  Serial.println("Nav: Pause drive!");
 }
 
 
@@ -280,35 +291,46 @@ void CNavigation::doTransistionAction(NAV_STATE state, NAV_STATE next)
 
     case STATE_GET_OFFSET:
       if (next == STATE_GET_ANGLE) {
-        DPRINTLN("Nav: Offset is okay.");
-        DPRINT("Nav: Rotate parallel to wall by "); DPRINT(-cur_angle); DPRINTLN(" deg");
+        Serial.println("Nav: Offset is okay.");
+        Serial.print("Nav: Rotate parallel to wall by "); Serial.print(-cur_angle); Serial.println(" deg");
+        cornerMode = false;
+        m_ICC.addTxMsg(ICC_CMD_ROT_ANGLE, -cur_angle);
+
       } else if (next == STATE_ROT_WALL_INFRONT)
       {
-        DPRINTLN("Nav: Offset has to be corrected...");
-        DPRINT("Nav: Rotate to wall by "); DPRINT(-cur_angle + 90); DPRINTLN(" deg");
+        Serial.println("Nav: Offset has to be corrected...");
+        cornerMode = true;
+        Serial.print("Nav: Rotate to wall by "); Serial.print(-cur_angle + 90); Serial.println(" deg");
+        m_ICC.addTxMsg(ICC_CMD_ROT_ANGLE, -cur_angle + 90);
       }
       break;
 
     case STATE_ROT_WALL_INFRONT:
       if (next == STATE_COR_OFFSET)
       {
-        DPRINTLN("Nav: Rotation done. Correct offset...");
-        DPRINT("Nav: Drive "); DPRINT(cur_nxt_wall - NAV_SET_OFFSET); DPRINTLN(" cm");
+        Serial.println("Nav: Rotation done. Correct offset...");
+        cornerMode = false;
+        Serial.print("Nav: Drive "); Serial.print(cur_nxt_wall - NAV_SET_OFFSET); Serial.println(" cm");
+        m_ICC.addTxMsg(ICC_CMD_DRIVE_DIST, cur_nxt_wall - NAV_SET_OFFSET);
       }
       break;
 
     case STATE_COR_OFFSET:
       if ( next == STATE_ROT_WALL_OFFSET)
       {
-        DPRINTLN("Nav: Offset corrected...");
-        DPRINTLN("Nav: Rotate left 90 degrees");
+        Serial.println("Nav: Offset corrected...");
+        Serial.println("Nav: Rotate left 90 degrees");
+        cornerMode = true;
+        m_ICC.addTxMsg(ICC_CMD_ROT_ANGLE, -90);
       }
       break;
 
     case STATE_ROT_WALL_OFFSET:
       if (next == STATE_DRIVE_WALL)
       {
-        DPRINTLN("Nav: Drive forward");
+        Serial.println("Nav: Drive forward");
+        cornerMode = false;
+        m_ICC.addTxMsg(ICC_CMD_CONT_DRIVE_IN, 1);
       }
 
       break;
@@ -316,7 +338,9 @@ void CNavigation::doTransistionAction(NAV_STATE state, NAV_STATE next)
     case STATE_GET_ANGLE:
       if (next == STATE_DRIVE_WALL)
       {
-        DPRINTLN("Nav: Drive forward");
+        Serial.println("Nav: Drive forward");
+        cornerMode = false;
+        m_ICC.addTxMsg(ICC_CMD_CONT_DRIVE_IN, 1);
       }
       break;
 
@@ -326,8 +350,10 @@ void CNavigation::doTransistionAction(NAV_STATE state, NAV_STATE next)
     case STATE_DRIVE_WALL:
       if (next == STATE_GET_ANGLE)
       {
-        DPRINTLN("Nav: Angle out of limit! Stop drive!");
-        DPRINT("Nav: Rotate parallel to wall by "); DPRINT(-cur_angle); DPRINTLN(" deg");
+        Serial.println("Nav: Angle out of limit! Stop drive!");
+        cornerMode = false;
+        Serial.print("Nav: Rotate parallel to wall by "); Serial.print(-cur_angle); Serial.println(" deg");
+        m_ICC.addTxMsg(ICC_CMD_ROT_ANGLE, -cur_angle);
       }
       break;
 
@@ -361,5 +387,12 @@ CNavigation::NAV_STATE CNavigation::getCurrentState(void)
 CNavigation::NAV_STATE CNavigation::getNextState(void)
 {
   return next_state;
+}
+
+
+void CNavigation::setRotationDone(void)
+{
+  DPRINTLN("Rotation done received");
+  rotationDone = true;
 }
 

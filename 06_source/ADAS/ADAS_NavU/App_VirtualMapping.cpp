@@ -83,10 +83,12 @@ void CVMapping::Run(void)
       if (m_plsComms.GetAsyncData(msg, len))
       {
           uint16_t* temp = reinterpret_cast<uint16_t*>(msg.data);
-          if (1 == temp[0]){
-              DPRINT("Vertical Distance = ");
-              DPRINTLN(temp[1], DEC);
-          }
+          DPRINTLN(msg.len);
+//          if (1 == temp[90]){
+//              DPRINT("Vertical Distance = ");
+//              DPRINTLN(temp[1], DEC);
+//          }
+              m_NAV.setPLSdata(temp[1]& PLS_DIST_MASK, 0, temp[91]& PLS_DIST_MASK);
       }
       DPRINTLN("in corner mode getting vertical distance");
       m_plsComms.RequestMeasurements(true);
@@ -267,7 +269,7 @@ void CVMapping::calculateWallInfo(uint16_t* data, uint16_t len, bool wfStatus, b
     DPRINT("|");
     DPRINTLN(offsetx180, DEC);
     m_NAV.setPLSdata(offsetx0, wallAngleCordic, VDistance);
-    m_NAV.contDrive();
+    m_NAV.continueDrive();
 }
 
 sint16_t CVMapping::CordicATan(sint32_t y, sint32_t x)

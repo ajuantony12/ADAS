@@ -82,12 +82,12 @@ class CNavigation: public ITask_IF
     /*
        Parameter to show that rotation is finished
     */
-    bool rotationDone;
+    volatile bool rotationDone;
 
     /*
        Paramter to show that distance is reached
     */
-    bool distanceDone;
+    volatile bool distanceDone;
 
     /*
        Debug function to print current status of state flow if changed
@@ -98,6 +98,8 @@ class CNavigation: public ITask_IF
        Debug function to print current status of state flow
     */
     virtual void printDebugInfo(void);
+
+    void setRotationDone(void);
 
 
     /*
@@ -122,6 +124,7 @@ class CNavigation: public ITask_IF
 
     // Parameter to pause/run state flow
     bool runFlow = false;
+    bool cornerMode;
 
 
 
