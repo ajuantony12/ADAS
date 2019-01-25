@@ -323,8 +323,9 @@ void CMotorCtrl::checkState(void) {
       digitalWrite(PIN_DIRECTION_L, LOW);
       digitalWrite(PIN_DIRECTION_R, HIGH);
       if(curState != 1 && !speed_set){
-          setpoint_l = 3;
-          setpoint_r = 3;
+          myPID.clear();
+          setpoint_l = spd;
+          setpoint_r = spd;
         }
       curState = 1;
       if(peak_sum_r >= d_way && peak_sum_l >= d_way){
@@ -337,6 +338,7 @@ void CMotorCtrl::checkState(void) {
       digitalWrite(PIN_DIRECTION_L, HIGH);
       digitalWrite(PIN_DIRECTION_R, LOW);
       if(curState != 2 && !speed_set){
+          myPID.clear();
           setpoint_l = spd;
           setpoint_r = spd;
         }
@@ -351,6 +353,7 @@ void CMotorCtrl::checkState(void) {
       digitalWrite(PIN_DIRECTION_L, HIGH);
       digitalWrite(PIN_DIRECTION_R, HIGH);
       if(curState != 3){
+          myPID.clear();
           setpoint_l = 0;
           setpoint_r = 0;
         }
@@ -389,6 +392,7 @@ void CMotorCtrl::checkState(void) {
       digitalWrite(PIN_DIRECTION_L, LOW);
       digitalWrite(PIN_DIRECTION_R, LOW);
       if(curState != 4 && !speed_set){
+          myPID.clear();
           setpoint_l = spd;
           setpoint_r = spd;
         }
@@ -399,6 +403,7 @@ void CMotorCtrl::checkState(void) {
       digitalWrite(PIN_DIRECTION_L, HIGH);
       digitalWrite(PIN_DIRECTION_R, HIGH);
       if(curState != 5 && !speed_set){
+          myPID.clear();
           setpoint_l = spd;
           setpoint_r = spd;
         }
