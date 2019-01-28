@@ -13,7 +13,10 @@ void CTaskCtrl::Init(void)
 {
     for (uint8_t i=0; i < MAX_NUM_TASK; i++)
     {
-       m_TaskList[i]->Init();
+        if (NULL != m_TaskList[i])
+        {
+            m_TaskList[i]->Init();
+        }
     }
 }
 
@@ -36,6 +39,9 @@ void CTaskCtrl::Run(void)
     uint8_t i;
     for (i=0; i<MAX_NUM_TASK; i++)
     {
-        m_TaskList[i]->Run();
+        if (NULL != m_TaskList[i])
+        {
+            m_TaskList[i]->Run();
+        }
     }
 }
