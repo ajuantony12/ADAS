@@ -1,23 +1,36 @@
+/**
+* @file ADAS_NavU.ino
+* @author Aju Antony Jose, Christoph Jurczyk
+* @date January 29, 2018
+* @brief Main file for the NavU of the ADAS project
+*
+* 
+* \mainpage Description
+* This is the documentation of the Navigation Unit (NavU) of the ADAS project.
+*
+*/
+
+/** Basics */
 #include "ADAS_Types.h"
 #include "ADAS_Cfg.h"
 #include "ADAS_Debug.h"
 
-/*Periperals*/
+/** Periperals */
 #include "HAL_ADC.h"
 #include "HAL_Serial_IF.h"
 
-/*Comms layer*/
+/** Comms layer */
 #include "Comm_PLS.h"
 #include "Comm_ICC.h"
 
-/*App Layer*/
+/** App Layer */
 #include "App_Navigation.h"
 #include "App_Positioning.h"
 #include "App_UserInterface.h"
 #include "App_VirtualMapping.h"
 #include "App_EnvironmentalData.h"
 
-/*OSAL*/
+/** OSAL */
 #include "OSAL_TaskCtrl.h"
 
 //Hardware
