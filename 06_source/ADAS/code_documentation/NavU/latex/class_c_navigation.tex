@@ -1,0 +1,93 @@
+\hypertarget{class_c_navigation}{}\section{C\+Navigation Class Reference}
+\label{class_c_navigation}\index{CNavigation@{CNavigation}}
+
+
+Inheritance diagram for C\+Navigation\+:
+% FIG 0
+
+
+Collaboration diagram for C\+Navigation\+:
+% FIG 1
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_c_navigation_add9fc966c7604990edf5c2a2e0eba32c}\label{class_c_navigation_add9fc966c7604990edf5c2a2e0eba32c}} 
+enum {\bfseries N\+A\+V\+\_\+\+S\+T\+A\+TE} \{ \newline
+{\bfseries S\+T\+A\+T\+E\+\_\+\+I\+D\+LE}, 
+{\bfseries S\+T\+A\+T\+E\+\_\+\+G\+E\+T\+\_\+\+O\+F\+F\+S\+ET}, 
+{\bfseries S\+T\+A\+T\+E\+\_\+\+R\+O\+T\+\_\+\+W\+A\+L\+L\+\_\+\+I\+N\+F\+R\+O\+NT}, 
+{\bfseries S\+T\+A\+T\+E\+\_\+\+C\+O\+R\+\_\+\+O\+F\+F\+S\+ET}, 
+\newline
+{\bfseries S\+T\+A\+T\+E\+\_\+\+R\+O\+T\+\_\+\+W\+A\+L\+L\+\_\+\+O\+F\+F\+S\+ET}, 
+{\bfseries S\+T\+A\+T\+E\+\_\+\+G\+E\+T\+\_\+\+A\+N\+G\+LE}, 
+{\bfseries S\+T\+A\+T\+E\+\_\+\+R\+O\+T\+\_\+\+W\+A\+LL}, 
+{\bfseries S\+T\+A\+T\+E\+\_\+\+D\+R\+I\+V\+E\+\_\+\+W\+A\+LL}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_c_navigation_a0527efabaf4644c8c4e7910efec36e82}\label{class_c_navigation_a0527efabaf4644c8c4e7910efec36e82}} 
+{\bfseries C\+Navigation} (\mbox{\hyperlink{class_c_i_c_c_comms}{C\+I\+C\+C\+Comms}} \&I\+CC)
+\item 
+\mbox{\Hypertarget{class_c_navigation_a86a0756663ccf76e9c474764b8f7a04f}\label{class_c_navigation_a86a0756663ccf76e9c474764b8f7a04f}} 
+virtual void {\bfseries Init} (void)
+\item 
+\mbox{\Hypertarget{class_c_navigation_a86acb1521aab400e542465c8eabed671}\label{class_c_navigation_a86acb1521aab400e542465c8eabed671}} 
+virtual void {\bfseries Run} (void)
+\item 
+\mbox{\Hypertarget{class_c_navigation_a3cc8f7fdd003d6b2c5056b87ff93edd9}\label{class_c_navigation_a3cc8f7fdd003d6b2c5056b87ff93edd9}} 
+virtual void {\bfseries Stop} (void)
+\item 
+\mbox{\Hypertarget{class_c_navigation_a53f0409677e36f62ef232f7e15b32948}\label{class_c_navigation_a53f0409677e36f62ef232f7e15b32948}} 
+virtual void {\bfseries set\+P\+L\+Sdata} (uint16\+\_\+t offset, int8\+\_\+t angle, uint16\+\_\+t nxt\+\_\+wall)
+\item 
+\mbox{\Hypertarget{class_c_navigation_abc7e30f72ee2cb33be7b0949efe1cb18}\label{class_c_navigation_abc7e30f72ee2cb33be7b0949efe1cb18}} 
+virtual void {\bfseries cont\+Drive} (void)
+\item 
+\mbox{\Hypertarget{class_c_navigation_a27649dc6324360829d42aea67e88e3ee}\label{class_c_navigation_a27649dc6324360829d42aea67e88e3ee}} 
+virtual void {\bfseries pause\+Drive} (void)
+\item 
+\mbox{\Hypertarget{class_c_navigation_a42982842952ac5340b54f43a661673f4}\label{class_c_navigation_a42982842952ac5340b54f43a661673f4}} 
+virtual N\+A\+V\+\_\+\+S\+T\+A\+TE {\bfseries get\+Current\+State} (void)
+\item 
+\mbox{\Hypertarget{class_c_navigation_afef253f37646558a755d956ecf2fc6e9}\label{class_c_navigation_afef253f37646558a755d956ecf2fc6e9}} 
+virtual N\+A\+V\+\_\+\+S\+T\+A\+TE {\bfseries get\+Next\+State} (void)
+\item 
+\mbox{\Hypertarget{class_c_navigation_ac491c77788ba2e953a704b6ad622a665}\label{class_c_navigation_ac491c77788ba2e953a704b6ad622a665}} 
+virtual void {\bfseries print\+Changed\+Debug\+Info} (void)
+\item 
+\mbox{\Hypertarget{class_c_navigation_a84e320cd8975593ab6f966e8794b2886}\label{class_c_navigation_a84e320cd8975593ab6f966e8794b2886}} 
+virtual void {\bfseries print\+Debug\+Info} (void)
+\item 
+\mbox{\Hypertarget{class_c_navigation_a06ce71124d487f1f9febf36a0e4b2a5d}\label{class_c_navigation_a06ce71124d487f1f9febf36a0e4b2a5d}} 
+virtual void {\bfseries stop\+Drive} (void)
+\item 
+\mbox{\Hypertarget{class_c_navigation_ab3d29f3ab4a8a922f5af439f6d78aded}\label{class_c_navigation_ab3d29f3ab4a8a922f5af439f6d78aded}} 
+virtual void {\bfseries continue\+Drive} (void)
+\item 
+\mbox{\Hypertarget{class_c_navigation_aa984fc062deefed13a85d866d997de73}\label{class_c_navigation_aa984fc062deefed13a85d866d997de73}} 
+bool {\bfseries is\+Corner\+Mode} ()
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_c_navigation_a9f452e6ebd491583b6d309974086c86b}\label{class_c_navigation_a9f452e6ebd491583b6d309974086c86b}} 
+bool {\bfseries rotation\+Done}
+\item 
+\mbox{\Hypertarget{class_c_navigation_aa28ab8bd516f40905d4d7d113dc7f89d}\label{class_c_navigation_aa28ab8bd516f40905d4d7d113dc7f89d}} 
+bool {\bfseries distance\+Done}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 16 of file App\+\_\+\+Navigation.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/\+Volumes/\+Macintosh S\+D/\+Github/\+A\+D\+A\+S/06\+\_\+source/\+A\+D\+A\+S/\+A\+D\+A\+S\+\_\+\+Nav\+U/App\+\_\+\+Navigation.\+h\item 
+/\+Volumes/\+Macintosh S\+D/\+Github/\+A\+D\+A\+S/06\+\_\+source/\+A\+D\+A\+S/\+A\+D\+A\+S\+\_\+\+Nav\+U/App\+\_\+\+Navigation.\+cpp\end{DoxyCompactItemize}
