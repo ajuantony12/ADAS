@@ -15,7 +15,7 @@ int r = 0;
 uint16_t distance = 0;
 boolean pause = false;
 boolean speed_set = false;
-uint16_t spd = 5;
+uint16_t spd = 2;
 int16_T dist = 0;
 boolean control = false;
 uint16_t setpoint_l = 5; //124 = 4km/h
@@ -45,7 +45,7 @@ int16_t remindValue = 0;
 
 int k = 0;
 Timer t;
-float Kp = 2.0, Ki = 2.0, Kd = 0, Hz = 10;
+float Kp = 2.5, Ki = 2.5, Kd = 0, Hz = 10;
 int output_bits = 16;
 bool output_signed = false;
 
@@ -129,7 +129,7 @@ void CMotorCtrl::Run(void)
     } else {
       if (pause)
       {
-        DPRINTLN("Warning Field (MtCtrl)");
+        //DPRINTLN("Warning Field (MtCtrl)");
         m_pwmUnitRight_o.writeMOT(LOW);
         m_pwmUnitLeft_o.writeMOT(LOW);
       }else{
@@ -137,17 +137,6 @@ void CMotorCtrl::Run(void)
           //getUserInput();
           checkState();
           MotPI();
-          DPRINT("D_way: ");
-          DPRINT(d_way);
-          DPRINT("Turn: ");
-          DPRINT(rtObj.rtU.turn);
-          DPRINT("; ");
-          DPRINT("peak_sum_l: ");
-          DPRINT(peak_sum_l);
-          DPRINT("; ");
-          DPRINT("peak_sum_r: ");
-          DPRINT(peak_sum_r);
-          DPRINTLN("; ");
          }
       }
     }
@@ -167,9 +156,8 @@ void CMotorCtrl::StraightDrive(void)
         }else{
             lower_b = rtObj.rtDW.curr_angle - control_area;
       }
-
       if(rtObj.rtU.gyro_signal < rtObj.rtDW.curr_angle || rtObj.rtU.gyro_signal >= lower_b){
-        if(adapt_l - adapt_r < 15 && adapt_r - adapt_l > -15){
+        if(adapt_l - adapt_r > -20 && adapt_r - adapt_l < 20 || ctrl_side == 1){
           
             if(ctrl_side == 1){
                 adapt_r = 0;
@@ -177,16 +165,16 @@ void CMotorCtrl::StraightDrive(void)
               }
             ctrl_side =2;
             if(rtObj.rtDW.is_c3_Chart == 2){
-                  adapt_r=adapt_r-2;
-                  adapt_l=adapt_l+2;
-                  }else if(rtObj.rtDW.is_c3_Chart == 3){
-                      adapt_r=adapt_r+2;
-                      adapt_l=adapt_l-2;
+                  adapt_r=adapt_r+2;
+                  adapt_l=adapt_l-2;
+                  }else if(rtObj.rtDW.is_c3_Chart == 1){
+                      adapt_r=adapt_r-2;
+                      adapt_l=adapt_l+2;
                     }
           }
        
         }else if( rtObj.rtDW.curr_angle < rtObj.rtU.gyro_signal && rtObj.rtU.gyro_signal <= upper_b){
-            if(adapt_l - adapt_r > -15 && adapt_r - adapt_l < 15){
+            if(adapt_l - adapt_r < 20 && adapt_r - adapt_l > -20 || ctrl_side == 2){
               
                 if(ctrl_side == 2){
                   adapt_r = 0;
@@ -194,16 +182,24 @@ void CMotorCtrl::StraightDrive(void)
                 }
                 ctrl_side = 1;
                 if(rtObj.rtDW.is_c3_Chart == 2){
-                  adapt_r=adapt_r+2;
-                  adapt_l=adapt_l-2;
-                  }else if(rtObj.rtDW.is_c3_Chart == 3){
-                      adapt_r=adapt_r-2;
-                      adapt_l=adapt_l+2;
+                  adapt_r=adapt_r-2;
+                  adapt_l=adapt_l+2;
+                  }else if(rtObj.rtDW.is_c3_Chart == 1){
+                      adapt_r=adapt_r+2;
+                      adapt_l=adapt_l-2;
                     }
                 
             }
           }
-         
+         DPRINT("gyro: ");
+          DPRINT(rtObj.rtU.gyro_signal);
+          DPRINT("; ");
+          DPRINT("adapt_l: ");
+          DPRINT(adapt_l);
+          DPRINT("; ");
+          DPRINT("adapt_r: ");
+          DPRINT(adapt_r);
+          DPRINTLN("; ");
     }
 }
 // PIControl Motors
@@ -319,11 +315,12 @@ void CMotorCtrl::Stop(void)
 void CMotorCtrl::checkState(void) {
   switch (rtObj.rtDW.is_c3_Chart) {
     case 1:
-      DPRINTLN("State 1: Backward");
+      //DPRINTLN("State 1: Backward");
       digitalWrite(PIN_DIRECTION_L, LOW);
       digitalWrite(PIN_DIRECTION_R, HIGH);
       if(curState != 1 && !speed_set){
           myPID.clear();
+          myPID.configure(Kp, Ki, Kd, Hz, output_bits, output_signed);
           setpoint_l = spd;
           setpoint_r = spd;
         }
@@ -334,11 +331,12 @@ void CMotorCtrl::checkState(void) {
         }
       break;
     case 2:
-      DPRINTLN("State 2: Forward");
+      //DPRINTLN("State 2: Forward");
       digitalWrite(PIN_DIRECTION_L, HIGH);
       digitalWrite(PIN_DIRECTION_R, LOW);
       if(curState != 2 && !speed_set){
           myPID.clear();
+          myPID.configure(Kp, Ki, Kd, Hz, output_bits, output_signed);
           setpoint_l = spd;
           setpoint_r = spd;
         }
@@ -349,7 +347,7 @@ void CMotorCtrl::checkState(void) {
         }
       break;
     case 3:
-      DPRINTLN("State 3: IDLE");
+      //DPRINTLN("State 3: IDLE");
       digitalWrite(PIN_DIRECTION_L, HIGH);
       digitalWrite(PIN_DIRECTION_R, HIGH);
       if(curState != 3){
@@ -388,22 +386,24 @@ void CMotorCtrl::checkState(void) {
       m_pwmUnitLeft_o.writeMOT(LOW);
       break;
     case 4:
-      DPRINTLN("State 4: Left Turn");
+      //DPRINTLN("State 4: Left Turn");
       digitalWrite(PIN_DIRECTION_L, LOW);
       digitalWrite(PIN_DIRECTION_R, LOW);
       if(curState != 4 && !speed_set){
           myPID.clear();
+          myPID.configure(Kp, Ki, Kd, Hz, output_bits, output_signed);
           setpoint_l = spd;
           setpoint_r = spd;
         }
       curState = 4;
       break;
     case 5:
-      DPRINTLN("State 5: Right Turn");
+      //DPRINTLN("State 5: Right Turn");
       digitalWrite(PIN_DIRECTION_L, HIGH);
       digitalWrite(PIN_DIRECTION_R, HIGH);
       if(curState != 5 && !speed_set){
           myPID.clear();
+          myPID.configure(Kp, Ki, Kd, Hz, output_bits, output_signed);
           setpoint_l = spd;
           setpoint_r = spd;
         }
