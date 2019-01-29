@@ -12,7 +12,10 @@
 
 int n = 20;
 int r = 0;
+uint16_t distance = 0;
 boolean pause = false;
+boolean speed_set = false;
+uint16_t spd = 2;
 int16_T dist = 0;
 boolean control = false;
 uint16_t setpoint_l = 5; //124 = 4km/h
@@ -31,16 +34,18 @@ uint16_t counted_peaks_r = 0;
 uint16_t counted_peaks_l = 0;
 uint16_t peak_sum_l = 0;
 uint16_t peak_sum_r = 0;
-uint16_t d_way = 172; // desired way to drive in cm (1.795cm/peak) 2228==4000cm
+int16_t d_way = 0; // desired way to drive in cm (1.795cm/peak) 2228==4000cm
 boolean startBtn = false;
 boolean forward = true;
 boolean backward = false;
 int control_area = 50;
 uint16_t lower_b, upper_b, limit_var = 0;
+boolean changeDirection = false;
+int16_t remindValue = 0;
 
 int k = 0;
 Timer t;
-float Kp = 2.0, Ki = 2.0, Kd = 0, Hz = 10;
+float Kp = 2.5, Ki = 2.5, Kd = 0, Hz = 10;
 int output_bits = 16;
 bool output_signed = false;
 
@@ -124,15 +129,14 @@ void CMotorCtrl::Run(void)
     } else {
       if (pause)
       {
-        DPRINTLN("Warning Field (MtCtrl)");
+        //DPRINTLN("Warning Field (MtCtrl)");
         m_pwmUnitRight_o.writeMOT(LOW);
         m_pwmUnitLeft_o.writeMOT(LOW);
       }else{
         if(startBtn){
-          getUserInput();
+          //getUserInput();
           checkState();
           MotPI();
-          //printValues();
          }
       }
     }
@@ -152,9 +156,8 @@ void CMotorCtrl::StraightDrive(void)
         }else{
             lower_b = rtObj.rtDW.curr_angle - control_area;
       }
-
       if(rtObj.rtU.gyro_signal < rtObj.rtDW.curr_angle || rtObj.rtU.gyro_signal >= lower_b){
-        if(adapt_l - adapt_r < 15 && adapt_r - adapt_l > -15){
+        if(adapt_l - adapt_r > -20 && adapt_r - adapt_l < 20 || ctrl_side == 1){
           
             if(ctrl_side == 1){
                 adapt_r = 0;
@@ -162,16 +165,16 @@ void CMotorCtrl::StraightDrive(void)
               }
             ctrl_side =2;
             if(rtObj.rtDW.is_c3_Chart == 2){
-                  adapt_r=adapt_r-2;
-                  adapt_l=adapt_l+2;
-                  }else if(rtObj.rtDW.is_c3_Chart == 3){
-                      adapt_r=adapt_r+2;
-                      adapt_l=adapt_l-2;
+                  adapt_r=adapt_r+2;
+                  adapt_l=adapt_l-2;
+                  }else if(rtObj.rtDW.is_c3_Chart == 1){
+                      adapt_r=adapt_r-2;
+                      adapt_l=adapt_l+2;
                     }
           }
        
         }else if( rtObj.rtDW.curr_angle < rtObj.rtU.gyro_signal && rtObj.rtU.gyro_signal <= upper_b){
-            if(adapt_l - adapt_r > -15 && adapt_r - adapt_l < 15){
+            if(adapt_l - adapt_r < 20 && adapt_r - adapt_l > -20 || ctrl_side == 2){
               
                 if(ctrl_side == 2){
                   adapt_r = 0;
@@ -179,29 +182,30 @@ void CMotorCtrl::StraightDrive(void)
                 }
                 ctrl_side = 1;
                 if(rtObj.rtDW.is_c3_Chart == 2){
-                  adapt_r=adapt_r+2;
-                  adapt_l=adapt_l-2;
-                  }else if(rtObj.rtDW.is_c3_Chart == 3){
-                      adapt_r=adapt_r-2;
-                      adapt_l=adapt_l+2;
+                  adapt_r=adapt_r-2;
+                  adapt_l=adapt_l+2;
+                  }else if(rtObj.rtDW.is_c3_Chart == 1){
+                      adapt_r=adapt_r+2;
+                      adapt_l=adapt_l-2;
                     }
                 
             }
           }
-          DPRINT("gyro: ");
-  DPRINT(rtObj.rtU.gyro_signal);
-  DPRINT("; ");
-  DPRINT("curr_angle: ");
-  DPRINT(rtObj.rtDW.curr_angle);
-  DPRINT("; ");
-  DPRINT("adapt_l: ");
-  DPRINTLN(adapt_l);
+         DPRINT("gyro: ");
+          DPRINT(rtObj.rtU.gyro_signal);
+          DPRINT("; ");
+          DPRINT("adapt_l: ");
+          DPRINT(adapt_l);
+          DPRINT("; ");
+          DPRINT("adapt_r: ");
+          DPRINT(adapt_r);
+          DPRINTLN("; ");
     }
 }
 // PIControl Motors
 void CMotorCtrl::MotPI(void)
 {
-    if (control && peak_sum_r < d_way && peak_sum_l < d_way ){      
+    if (control && rtObj.rtDW.is_c3_Chart != 3){      
       StraightDrive();
  //right PI control
     feedback_r = counted_peaks_r;
@@ -231,11 +235,7 @@ void CMotorCtrl::MotPI(void)
       m_pwmUnitLeft_o.writeMOT(output_l*2+adapt_l);
     }
     control=false;
-  }else if(peak_sum_l >= d_way && peak_sum_r >= d_way){
-      m_pwmUnitRight_o.writeMOT(LOW);
-      m_pwmUnitLeft_o.writeMOT(LOW);
-      output_l = output_r = 0;
-    }
+  }
 }
 // Start Encoder Counting Interrupts
 
@@ -262,17 +262,47 @@ static void CMotorCtrl::readenc(void* context) {
 
 void CMotorCtrl::startRotation(sint16_t angle){
     rtObj.rtU.turn = angle;
-    rtObj.rtU.dist = 0;
+    rtObj.rtU.dist = d_way = 0 ;
   }
 
 void CMotorCtrl::setDistance(sint16_t dist){
-    rtObj.rtU.turn = 0;
-    rtObj.rtU.dist = dist;
+  //1 peak = 1.795cm;
+  distance = dist * (1/1.795);
+  rtObj.rtU.turn = 0;
+  peak_sum_r = peak_sum_l = 0;
+  if(rtObj.rtU.dist >= 0 && dist >= 0){
+    rtObj.rtU.dist = d_way = distance;
+    }else if(rtObj.rtU.dist <= 0 && dist < 0){
+        rtObj.rtU.dist= distance;
+        d_way = abs(distance);
+      }else if(rtObj.rtU.dist > 0 && dist < 0){
+          rtObj.rtU.dist= 0;
+          d_way = 0;
+          changeDirection = true;
+          remindValue = dist;
+        }else if(rtObj.rtU.dist < 0 && dist > 0){
+          rtObj.rtU.dist= 0;
+          d_way = 0;
+          changeDirection = true;
+          remindValue = dist;
+        }
   }
+
 void CMotorCtrl::pauseDrive(void){
     m_pwmUnitRight_o.writeMOT(LOW);
     m_pwmUnitLeft_o.writeMOT(LOW);
     pause = true;
+  }
+
+void CMotorCtrl::setPISetpoint(uint16_t setpnt){
+  if(setpnt >= 1000){
+    setpoint_l = setpoint_r = 8;
+    spd = 8;
+    }else{
+    setpoint_l = setpoint_r = spd = (setpnt/120); // mm/s in peaks per 150ms 
+    speed_set = true;
+    }
+    
   }
 void CMotorCtrl::contDrive(void){
     pause = false;
@@ -285,34 +315,48 @@ void CMotorCtrl::Stop(void)
 void CMotorCtrl::checkState(void) {
   switch (rtObj.rtDW.is_c3_Chart) {
     case 1:
-      DPRINTLN("State 1: Backward");
+      //DPRINTLN("State 1: Backward");
       digitalWrite(PIN_DIRECTION_L, LOW);
       digitalWrite(PIN_DIRECTION_R, HIGH);
-      if(curState != 1){
-          Kp = 2.0;
-          setpoint_l = 3;
-          setpoint_r = 3;
+      if(curState != 1 && !speed_set){
+          myPID.clear();
+          myPID.configure(Kp, Ki, Kd, Hz, output_bits, output_signed);
+          setpoint_l = spd;
+          setpoint_r = spd;
         }
       curState = 1;
+      if(peak_sum_r >= d_way && peak_sum_l >= d_way){
+          rtObj.rtU.dist=0;
+          d_way=0;
+        }
       break;
     case 2:
-      DPRINTLN("State 2: Forward");
+      //DPRINTLN("State 2: Forward");
       digitalWrite(PIN_DIRECTION_L, HIGH);
       digitalWrite(PIN_DIRECTION_R, LOW);
-      if(curState != 2){
-          Kp = 2.0;
-          setpoint_l = 5;
-          setpoint_r = 5;
+      if(curState != 2 && !speed_set){
+          myPID.clear();
+          myPID.configure(Kp, Ki, Kd, Hz, output_bits, output_signed);
+          setpoint_l = spd;
+          setpoint_r = spd;
         }
       curState = 2;
+      if(peak_sum_r >= d_way && peak_sum_l >= d_way){
+          rtObj.rtU.dist=0;
+          d_way=0;
+        }
       break;
     case 3:
-      DPRINTLN("State 3: IDLE");
+      //DPRINTLN("State 3: IDLE");
       digitalWrite(PIN_DIRECTION_L, HIGH);
       digitalWrite(PIN_DIRECTION_R, HIGH);
       if(curState != 3){
+          myPID.clear();
           setpoint_l = 0;
           setpoint_r = 0;
+        }
+      if(speed_set){
+          speed_set = false;
         }
       if(curState == 4 || curState == 5){
           //Feedback function for completed rotation
@@ -322,32 +366,46 @@ void CMotorCtrl::checkState(void) {
           m_iccComms_o.addTxMsg(ICC_CMD_FB_ROT, 0);
         }else if(curState == 1 || curState == 2){
             //Feedback function for completed distance
+            rtObj.rtU.dist = 0;
             DPRINT("Distance reached!");
             m_iccComms_o.addTxMsg(ICC_CMD_FB_DIST, 0);
           }
+
+      if(changeDirection){
+          k++;
+          if(k == 50){
+              changeDirection = false;
+              setDistance(remindValue);
+              remindValue = 0;
+              k = 0;
+            }
+        }
       curState = 3;
+      peak_sum_l = peak_sum_r = 0;
       m_pwmUnitRight_o.writeMOT(LOW);
       m_pwmUnitLeft_o.writeMOT(LOW);
       break;
     case 4:
-      DPRINTLN("State 4: Left Turn");
+      //DPRINTLN("State 4: Left Turn");
       digitalWrite(PIN_DIRECTION_L, LOW);
       digitalWrite(PIN_DIRECTION_R, LOW);
-      if(curState != 4){
-          Kp = 0.2;
-          setpoint_l = 3;
-          setpoint_r = 3;
+      if(curState != 4 && !speed_set){
+          myPID.clear();
+          myPID.configure(Kp, Ki, Kd, Hz, output_bits, output_signed);
+          setpoint_l = spd;
+          setpoint_r = spd;
         }
       curState = 4;
       break;
     case 5:
-      DPRINTLN("State 5: Right Turn");
+      //DPRINTLN("State 5: Right Turn");
       digitalWrite(PIN_DIRECTION_L, HIGH);
       digitalWrite(PIN_DIRECTION_R, HIGH);
-      if(curState != 5){
-          Kp = 0.2;
-          setpoint_l = 3;
-          setpoint_r = 3;
+      if(curState != 5 && !speed_set){
+          myPID.clear();
+          myPID.configure(Kp, Ki, Kd, Hz, output_bits, output_signed);
+          setpoint_l = spd;
+          setpoint_r = spd;
         }
       curState = 5;
       break;
@@ -356,76 +414,23 @@ void CMotorCtrl::checkState(void) {
 
 
 #ifdef ADAS_DEBUG
-void CMotorCtrl::getUserInput(void) {
-   if(forward && peak_sum_r < d_way && peak_sum_l < d_way){
-   CMotorCtrl::setDistance(d_way);
-   }else if(forward && peak_sum_r >= d_way && peak_sum_l >= d_way){
-      CMotorCtrl::setDistance(0);
-      k++;
-      if(k == 100 && !rotated){
-         forward = false;
-         backward = true;
-         peak_sum_r =  peak_sum_l = 0;
-         k=0;
-       }
-     }
+void CMotorCtrl::getUserInput(void) {}
 
- if(backward && !rotated && r == 0){
-     CMotorCtrl::startRotation(20);
-     r++;
-   }else if(backward && rotated){
-        CMotorCtrl::setDistance(0);
-        k++;
-        if(k == 100){
-        backward = false;
-        forward = true;
-        peak_sum_r = peak_sum_l = 0;
-       }
-     }
-  DPRINT("rotated: ");
-  DPRINT(rotated);
+void CMotorCtrl::printValues(void) {
+  DPRINT("peak_sum_l: ");
+  DPRINT(peak_sum_l);
   DPRINT("; ");
-  DPRINT("backward: ");
-  DPRINT(backward);
+  DPRINT("peak_sum_r: ");
+  DPRINT(peak_sum_r);
   DPRINT("; ");
-  DPRINT("forward: ");
-  DPRINT(forward);
-  DPRINT("; ");
-  DPRINT("r: ");
-  DPRINT(r);
-  DPRINT("; ");
+  DPRINT("desired distance: ");
+  DPRINTLN(d_way);
+  DPRINT("gyro: ");
   DPRINT(rtObj.rtU.gyro_signal);
   DPRINT("; ");
   DPRINT("curr_angle: ");
   DPRINT(rtObj.rtDW.curr_angle);
   DPRINTLN("; ");
-}
-
-void CMotorCtrl::printValues(void) {
-  DPRINTLN("____________________________________________________________________________ ");
-  DPRINTLN("Inputs and local Variables: ");
-  DPRINTLN("____________________________________________________________________________ ");
-  DPRINT("gyro_signal: ");
-  DPRINT(rtObj.rtU.gyro_signal);
-  DPRINT(" || Curr_Angle: ");
-  DPRINT(rtObj.rtDW.curr_angle);
-  DPRINT(" || Turn: ");
-  DPRINT(rtObj.rtU.turn);
-  DPRINT(" || op: ");
-  DPRINT(rtObj.rtDW.op);
-  DPRINT(" || distance: ");
-  DPRINTLN(rtObj.rtU.dist);
-  DPRINTLN("____________________________________________________________________________ ");
-  DPRINTLN("Outputs: ");
-  DPRINTLN("____________________________________________________________________________ ");
-  DPRINT("Mot_l: ");
-  DPRINT(rtObj.rtY.mot_l);
-  DPRINT(" || Dir_l: ");
-  DPRINT(rtObj.rtY.dir_l);
-  DPRINT(" || Mot_r: ");
-  DPRINT(rtObj.rtY.mot_r);
-  DPRINT(" || Dir_r: ");
-  DPRINTLN(rtObj.rtY.dir_r);
 }
 #endif
 
