@@ -1,7 +1,7 @@
 var dir_ca3d2679ad4419ce9ae765211572760b =
 [
     [ "ADAS_Cfg.h", "_a_d_a_s___cfg_8h_source.html", null ],
-    [ "ADAS_Debug.h", "_a_d_a_s___debug_8h_source.html", null ],
+    [ "ADAS_Debug.h", "_a_d_a_s___debug_8h.html", "_a_d_a_s___debug_8h" ],
     [ "ADAS_NavU.ino", "_a_d_a_s___nav_u_8ino.html", "_a_d_a_s___nav_u_8ino" ],
     [ "ADAS_Types.h", "_a_d_a_s___types_8h_source.html", null ],
     [ "App_EnvironmentalData.cpp", "_app___environmental_data_8cpp_source.html", null ],
