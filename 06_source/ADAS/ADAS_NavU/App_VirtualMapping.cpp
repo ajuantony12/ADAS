@@ -57,11 +57,11 @@ static const sint16_t atan_cordic_table[CORDIC_STAGES] =
     11520, 6800, 3593, 1824, 915, 458, 229, 114, 57, 28
 };
 
-CVMapping::CVMapping(CNavigation& NAV, CPLSComms& plsComms, uint8_t activeCheckInt):
+CVMapping::CVMapping(CNavigation& NAV, CPLSComms& plsComms):
   m_NAV(NAV),
   m_plsComms(plsComms),
-  m_RunCount(0),
-  m_ActiveCheckInterval(activeCheckInt)
+  m_driveState(false),
+  m_dataRequested(false)
 {
   //do nothing
 }
@@ -80,21 +80,38 @@ void CVMapping::Run(void)
   
   if(m_NAV.isCornerMode())
   {
-      if (m_plsComms.GetAsyncData(msg, len))
+      if (m_plsComms.DataAvailable())
       {
-          uint16_t* temp = reinterpret_cast<uint16_t*>(msg.data);
-          DPRINTLN(msg.len);
-//          if (1 == temp[90]){
-//              DPRINT("Vertical Distance = ");
-//              DPRINTLN(temp[1], DEC);
-//          }
-              m_NAV.setPLSdata(temp[1]& PLS_DIST_MASK, 0, temp[91]& PLS_DIST_MASK);
+            DPRINTLN2("VM: data available VD");
+            if (m_dataRequested)
+            {
+                m_dataRequested = false;
+            }
+          if (m_plsComms.GetAsyncData(msg, len))
+          {
+              uint16_t* temp = reinterpret_cast<uint16_t*>(msg.data);
+              DPRINTLN(msg.len);
+    //          if (1 == temp[90]){
+    //              DPRINT("Vertical Distance = ");
+    //              DPRINTLN(temp[1], DEC);
+    //          }
+                  m_NAV.setPLSdata(temp[1]& PLS_DIST_MASK, 0, temp[91]& PLS_DIST_MASK);
+          }
       }
+        if (!m_dataRequested){
+            DPRINTLN2("VM: Sending request VD");
+            m_plsComms.RequestMeasurements(true);
+            m_dataRequested = true;
+        }
       DPRINTLN("in corner mode getting vertical distance");
-      m_plsComms.RequestMeasurements(true);
   }else{
       if (m_plsComms.DataAvailable())
       {
+        DPRINTLN2("VM: Data available");
+        if (m_dataRequested)
+        {
+            m_dataRequested = false;
+        }
         DPRINTLN("Data available");
         if (m_plsComms.GetAsyncData(msg, len))
         {
@@ -105,8 +122,12 @@ void CVMapping::Run(void)
             {
                 DPRINTLN("field Breach detected");
                 wfstatus = true;
-                //stop cart
-                m_NAV.pauseDrive();
+                if (m_driveState)
+                {
+                    //stop cart
+                    m_NAV.pauseDrive();
+                    m_driveState = false;
+                }
             }
             DPRINT("Data Length ");
             DPRINTLN(len, DEC);
@@ -117,18 +138,12 @@ void CVMapping::Run(void)
             }
         }
       }
-      else{
-        m_RunCount++;
-      }
   }
-  if (m_ActiveCheckInterval < m_RunCount)
-  {
-    DPRINTLN("Sending measurement request");
-    m_plsComms.RequestMeasurements(false);
-    m_RunCount = 0; 
-  }else{
-      //do nothing
-  }
+    if (!m_dataRequested){
+        DPRINTLN2("VM: Sending request");
+        m_plsComms.RequestMeasurements(false);
+        m_dataRequested = true;
+    }
 }
 
 void CVMapping::Stop(void)
@@ -269,7 +284,11 @@ void CVMapping::calculateWallInfo(uint16_t* data, uint16_t len, bool wfStatus, b
     DPRINT("|");
     DPRINTLN(offsetx180, DEC);
     m_NAV.setPLSdata(offsetx0, wallAngleCordic, VDistance);
-    m_NAV.continueDrive();
+    if (!m_driveState)
+    {
+        m_NAV.continueDrive();
+        m_driveState = true;
+    }
 }
 
 sint16_t CVMapping::CordicATan(sint32_t y, sint32_t x)

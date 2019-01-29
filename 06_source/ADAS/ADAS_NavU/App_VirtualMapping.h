@@ -15,7 +15,7 @@
 class CVMapping: public ITask_IF
 {
 public:
-	CVMapping(CNavigation& NAV, CPLSComms& plsComms, uint8_t activeCheckInt);
+	CVMapping(CNavigation& NAV, CPLSComms& plsComms);
 	~CVMapping();
   /*
    * init
@@ -37,8 +37,8 @@ private:
     
     CNavigation& m_NAV;
     CPLSComms&   m_plsComms;
-    uint8_t m_RunCount;
-    const uint8_t m_ActiveCheckInterval;
+    bool m_driveState;
+    bool m_dataRequested;
 };
 
 #endif /*APP_V_MAPPING_H*/

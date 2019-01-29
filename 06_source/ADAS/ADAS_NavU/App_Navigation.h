@@ -120,12 +120,15 @@ class CNavigation: public ITask_IF
 
 
   private:
+  
+ 
 
 
     // Parameter to pause/run state flow
     bool runFlow = false;
     bool cornerMode;
 
+    bool newPLSdata;
 
 
     // Variables for the state machine
