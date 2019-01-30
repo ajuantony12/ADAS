@@ -1,6 +1,9 @@
 #include "App_Navigation.h"
 #include <Arduino.h>
 
+
+#define PIN_BTN 12 // test only
+
 CNavigation::CNavigation(CICCComms& ICC): m_ICC(ICC)
 {
   //do nothing
@@ -9,6 +12,8 @@ CNavigation::~CNavigation() {
   // set default values
   rotationDone = false;
   distanceDone = false;
+  cornerMode = false;
+  newPLSdata = false;
 }
 
 void CNavigation::Init(void)
@@ -17,7 +22,7 @@ void CNavigation::Init(void)
 }
 
 void CNavigation::Run(void)
-{
+{    
   // Process ICC
   m_ICC.Run();
 
@@ -31,7 +36,12 @@ void CNavigation::Run(void)
   doTransistionAction(current_state, next_state);
 
   // Set next state to current state
-  current_state = next_state;
+  if(newPLSdata || cornerMode)
+  {
+      newPLSdata = false;
+      current_state = next_state; 
+  }
+
 }
 
 void CNavigation::Stop(void)
@@ -39,11 +49,13 @@ void CNavigation::Stop(void)
   m_ICC.addTxMsg(ICC_CMD_PAUSE_DRIVE, 0);
   current_state = STATE_IDLE;
   next_state = STATE_IDLE;
+  stopDrive();
+
 }
 
 bool CNavigation::isCornerMode()
 {
-  return false;
+  return cornerMode;
 }
 
 // Function to set the current value of offset position to wall,
@@ -54,6 +66,8 @@ void CNavigation::setPLSdata(uint16_t offset, int8_t angle, uint16_t nxt_wall)
   buf_offset = offset;
   buf_angle = angle;
   buf_nxt_wall = nxt_wall;
+  
+  newPLSdata = true;
 }
 
 
@@ -67,9 +81,11 @@ void CNavigation::getNextState(bool runActive)
 
       case STATE_IDLE:
         next_state = STATE_GET_OFFSET;
+        cornerMode = false;
         break;
 
       case STATE_GET_OFFSET:
+        cornerMode = false;
         // Decide if offset is okay or has to be corrected
         if ((cur_offset < NAV_SET_OFFSET + NAV_TOL_OFFSET) && (cur_offset > NAV_SET_OFFSET - NAV_TOL_OFFSET))
         { // Offset is in tolerance
@@ -82,24 +98,30 @@ void CNavigation::getNextState(bool runActive)
 
 
       case STATE_ROT_WALL_INFRONT:
+        cornerMode = true;
         if (rotationDone)
         {
           next_state = STATE_COR_OFFSET;
+          rotationDone = false;
         }
         break;
 
       case STATE_COR_OFFSET:
+        cornerMode = true;
         if (distanceDone)
         {
           next_state = STATE_ROT_WALL_OFFSET;
+          distanceDone = false;
         }
         break;
 
 
       case STATE_ROT_WALL_OFFSET:
+        cornerMode = true;
         if (rotationDone)
         {
           next_state = STATE_DRIVE_WALL;
+          rotationDone = false;
         }
         break;
 
@@ -107,12 +129,15 @@ void CNavigation::getNextState(bool runActive)
       case STATE_GET_ANGLE:
         if (rotationDone)
         {
+          cornerMode = false;
           next_state = STATE_DRIVE_WALL;
+          rotationDone = false;
         }
         break;
 
 
       case STATE_DRIVE_WALL:
+         cornerMode = false;
         if (abs(cur_angle) > NAV_TOL_ANGLE_DRIVE)
         {
           next_state = STATE_GET_ANGLE;
@@ -121,6 +146,7 @@ void CNavigation::getNextState(bool runActive)
 
 
       default:
+        cornerMode = false;
         next_state = STATE_IDLE;
         break;
     }
@@ -171,37 +197,42 @@ void CNavigation::printChangedDebugInfo(void)
 // Debug function to print current status of state flow
 void CNavigation::printDebugInfo(void)
 {
-  DPRINTLN("-----------------------------");
-  DPRINTLN("App_Navigation:\n");
+  DPRINTLN2("-----------------------------");
+  DPRINTLN2("App_Navigation:\n");
 
   // Print current and next state
-  DPRINT("Current state: ");
+  DPRINT2("Current state: ");
   printState(current_state);
-  DPRINT("\t");
-  DPRINT("Next state: ");
+  DPRINT2("\t");
+  DPRINT2("Next state: ");
   printState(next_state);
-  DPRINTLN("");
+  DPRINTLN2("");
 
   // Print environmatal parameters
-  DPRINT("Offset: ");
-  DPRINT(cur_offset);
-  DPRINT(" (current)\t");
-  DPRINT(buf_offset);
-  DPRINTLN(" (buffer)");
+  DPRINT2("Offset: ");
+  DPRINT2(cur_offset);
+  DPRINT2(" (current)\t");
+  DPRINT2(buf_offset);
+  DPRINTLN2(" (buffer)");
 
-  DPRINT("Angle: ");
-  DPRINT(cur_angle);
-  DPRINT(" (current)\t");
-  DPRINT(buf_angle);
-  DPRINTLN(" (buffer)");
+  DPRINT2("Angle: ");
+  DPRINT2(cur_angle);
+  DPRINT2(" (current)\t");
+  DPRINT2(buf_angle);
+  DPRINTLN2(" (buffer)");
 
-  DPRINT("Next Wall: ");
-  DPRINT(cur_nxt_wall);
-  DPRINT(" (current)\t");
-  DPRINT(buf_nxt_wall);
-  DPRINTLN(" (buffer)");
+  DPRINT2("Next Wall: ");
+  DPRINT2(cur_nxt_wall);
+  DPRINT2(" (current)\t");
+  DPRINT2(buf_nxt_wall);
+  DPRINTLN2(" (buffer)");
 
-  DPRINTLN("-----------------------------");
+
+  DPRINT2("newPLSdata: ");
+  DPRINT2(newPLSdata);
+  DPRINTLN2("");
+
+  DPRINTLN2("-----------------------------");
 }
 
 // Function to print state
@@ -210,41 +241,41 @@ void CNavigation::printState(NAV_STATE state)
   switch (state)
   {
     case STATE_IDLE:
-      DPRINT("STATE_IDLE");
+      DPRINT2("STATE_IDLE");
       break;
 
     case STATE_GET_OFFSET:
-      DPRINT("STATE_GET_OFFSET");
+      DPRINT2("STATE_GET_OFFSET");
       break;
 
     case STATE_ROT_WALL_INFRONT:
-      DPRINT("STATE_ROT_WALL_INFRONT");
+      DPRINT2("STATE_ROT_WALL_INFRONT");
       break;
 
     case STATE_COR_OFFSET:
-      DPRINT("STATE_COR_OFFSET");
+      DPRINT2("STATE_COR_OFFSET");
       break;
 
     case STATE_ROT_WALL_OFFSET:
-      DPRINT("STATE_ROT_WALL_OFFSET");
+      DPRINT2("STATE_ROT_WALL_OFFSET");
       break;
 
     case STATE_GET_ANGLE:
-      DPRINT("STATE_GET_ANGLE");
+      DPRINT2("STATE_GET_ANGLE");
       break;
 
     case STATE_ROT_WALL:
-      DPRINT("STATE_ROT_WALL");
+      DPRINT2("STATE_ROT_WALL");
       break;
 
     case STATE_DRIVE_WALL:
-      DPRINT("STATE_DRIVE_WALL");
+      DPRINT2("STATE_DRIVE_WALL");
       break;
 
     default:
-      DPRINT("unknown state (");
-      DPRINT(state);
-      DPRINT(")");
+      DPRINT2("unknown state (");
+      DPRINT2(state);
+      DPRINT2(")");
       break;
   }
 }
@@ -253,8 +284,14 @@ void CNavigation::printState(NAV_STATE state)
 // Function to contine if obstacle is clear
 void CNavigation::continueDrive(void)
 {
-  runFlow = true;
-  DPRINTLN("Nav: Continue drive!");
+  if (!runFlow)
+  {
+      m_ICC.addTxMsg(ICC_CMD_CONT_DRIVE, 0);
+      runFlow = true;
+      DPRINTLN2("Nav: Continue drive!");
+  }
+  
+
 }
 
 
@@ -262,7 +299,7 @@ void CNavigation::continueDrive(void)
 void CNavigation::stopDrive(void)
 {
   runFlow = false;
-  DPRINTLN("Nav: Pause drive!");
+  DPRINTLN2("Nav: Pause drive!");
 }
 
 
@@ -277,35 +314,41 @@ void CNavigation::doTransistionAction(NAV_STATE state, NAV_STATE next)
 
     case STATE_GET_OFFSET:
       if (next == STATE_GET_ANGLE) {
-        DPRINTLN("Nav: Offset is okay.");
-        DPRINT("Nav: Rotate parallel to wall by "); DPRINT(-cur_angle); DPRINTLN(" deg");
+        DPRINTLN2("Nav: Offset is okay.");
+        DPRINT2("Nav: Rotate parallel to wall by "); DPRINT2(-cur_angle); DPRINTLN2(" deg");
+        m_ICC.addTxMsg(ICC_CMD_ROT_ANGLE, -cur_angle);
+
       } else if (next == STATE_ROT_WALL_INFRONT)
       {
-        DPRINTLN("Nav: Offset has to be corrected...");
-        DPRINT("Nav: Rotate to wall by "); DPRINT(-cur_angle + 90); DPRINTLN(" deg");
+        DPRINTLN2("Nav: Offset has to be corrected...");
+        DPRINT2("Nav: Rotate to wall by "); DPRINT2(-cur_angle + 90); DPRINTLN2(" deg");
+        m_ICC.addTxMsg(ICC_CMD_ROT_ANGLE, -cur_angle + 90);
       }
       break;
 
     case STATE_ROT_WALL_INFRONT:
       if (next == STATE_COR_OFFSET)
       {
-        DPRINTLN("Nav: Rotation done. Correct offset...");
-        DPRINT("Nav: Drive "); DPRINT(cur_nxt_wall - NAV_SET_OFFSET); DPRINTLN(" cm");
+        DPRINTLN2("Nav: Rotation done. Correct offset...");
+        DPRINT2("Nav: Drive "); DPRINT2(static_cast<sint16_t>(cur_nxt_wall) - static_cast<sint16_t>(NAV_SET_OFFSET)); DPRINTLN2(" cm");
+        m_ICC.addTxMsg(ICC_CMD_DRIVE_DIST, static_cast<sint16_t>(cur_nxt_wall) - static_cast<sint16_t>(NAV_SET_OFFSET));
       }
       break;
 
     case STATE_COR_OFFSET:
       if ( next == STATE_ROT_WALL_OFFSET)
       {
-        DPRINTLN("Nav: Offset corrected...");
-        DPRINTLN("Nav: Rotate left 90 degrees");
+        DPRINTLN2("Nav: Offset corrected...");
+        DPRINTLN2("Nav: Rotate left 90 degrees");
+        m_ICC.addTxMsg(ICC_CMD_ROT_ANGLE, -90);
       }
       break;
 
     case STATE_ROT_WALL_OFFSET:
       if (next == STATE_DRIVE_WALL)
       {
-        DPRINTLN("Nav: Drive forward");
+        DPRINTLN2("Nav: Drive forward");
+        m_ICC.addTxMsg(ICC_CMD_CONT_DRIVE_IN, 1);
       }
 
       break;
@@ -313,7 +356,8 @@ void CNavigation::doTransistionAction(NAV_STATE state, NAV_STATE next)
     case STATE_GET_ANGLE:
       if (next == STATE_DRIVE_WALL)
       {
-        DPRINTLN("Nav: Drive forward");
+        DPRINTLN2("Nav: Drive forward");
+        m_ICC.addTxMsg(ICC_CMD_CONT_DRIVE_IN, 1);
       }
       break;
 
@@ -323,8 +367,10 @@ void CNavigation::doTransistionAction(NAV_STATE state, NAV_STATE next)
     case STATE_DRIVE_WALL:
       if (next == STATE_GET_ANGLE)
       {
-        DPRINTLN("Nav: Angle out of limit! Stop drive!");
-        DPRINT("Nav: Rotate parallel to wall by "); DPRINT(-cur_angle); DPRINTLN(" deg");
+        DPRINTLN2("Nav: Angle out of limit! Stop drive!");
+        DPRINT2("Nav: Rotate parallel to wall by "); DPRINT2(-cur_angle); DPRINTLN2(" deg");
+        m_ICC.addTxMsg(ICC_CMD_ROT_ANGLE, -cur_angle);
+        cornerMode = true;
       }
       break;
 
@@ -344,7 +390,13 @@ void CNavigation::contDrive(void)
 // Pause drive due to obstacle detection
 void CNavigation::pauseDrive(void)
 {
-  m_ICC.addTxMsg(ICC_CMD_PAUSE_DRIVE, 0);
+    if(runFlow)
+    { 
+        runFlow = false;
+        m_ICC.addTxMsg(ICC_CMD_PAUSE_DRIVE, 0);
+        DPRINTLN2("Nav: Pause drive!");
+    }
+
 }
 
 
@@ -358,5 +410,12 @@ CNavigation::NAV_STATE CNavigation::getCurrentState(void)
 CNavigation::NAV_STATE CNavigation::getNextState(void)
 {
   return next_state;
+}
+
+
+void CNavigation::setRotationDone(void)
+{
+  DPRINTLN("Rotation done received");
+  rotationDone = true;
 }
 

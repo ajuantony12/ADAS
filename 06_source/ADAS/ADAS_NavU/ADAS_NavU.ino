@@ -43,7 +43,7 @@ CICCComms iccComms_o(iccPort);
 //Task
 CNavigation nav_o(iccComms_o);
 CEnvironmentalData env_o;
-CVMapping vMap_o(nav_o, plsCOmms_o, 10);
+CVMapping vMap_o(nav_o, plsCOmms_o);
 /*CUser_IF uI_o;
   CPositioning pos_o;*/
 
@@ -54,7 +54,6 @@ CTaskCtrl taskCtrl_o;
 void setup() {
   //Hw initialization
   Serial.begin(115200);
-  DPRINTLN("Hello\n\r");
   plsPort.Init();
   iccPort.Init();
   interrupts();
@@ -63,18 +62,23 @@ void setup() {
   //do not know why
   delay(100);
   plsCOmms_o.Init();
+  Serial.println("Hello\n\r");
+  delay(2000);
+  iccComms_o.Init(&nav_o);
   //Task initialization
   taskCtrl_o.Register(&vMap_o, 0);
   taskCtrl_o.Register(&nav_o, 1);
-  taskCtrl_o.Register(&env_o, 2);
-  /*taskCtrl_o.Register(&pos_o, 3);
+  /*taskCtrl_o.Register(&env_o, 2);
+  taskCtrl_o.Register(&pos_o, 3);
   taskCtrl_o.Register(&uI_o, 4);*/
   taskCtrl_o.Init();
 }
 
 void loop() {
   // put your main code here, to run repeatedly:
+  nav_o.printChangedDebugInfo();
   taskCtrl_o.Run();
+  //delay(100);
 }
 
 

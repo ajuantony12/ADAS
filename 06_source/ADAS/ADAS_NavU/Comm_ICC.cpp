@@ -1,9 +1,10 @@
 #include "ADAS_Debug.h"
 #include "Comm_ICC.h"
 #include <Arduino.h>
+#include "App_Navigation.h"
 
 CICCComms::CICCComms(CSerial& serPort)
-  : m_serPort(serPort)
+  : m_serPort(serPort), m_nav_o(NULL)
 {
   //do nothing
 }
@@ -12,9 +13,9 @@ CICCComms::~CICCComms()
   //do nothing
 }
 
-void CICCComms::Init(void)
+void CICCComms::Init(CNavigation* nav_o)
 {
-  //do nothing
+  m_nav_o = nav_o;
 }
 
 void CICCComms::Run(void)
@@ -33,19 +34,20 @@ void CICCComms::Run(void)
     DPRINT("msg.data=");
     DPRINTLN(msg.data, DEC);
 
-    // Do somethin with msg data
-	/* Example_
-	if(msg.cmd == 0x04)
-	{
-		// new rotation
-		 mcu.startRotation(msg.data);
+    switch (msg.cmd)
+    {
+      case ICC_CMD_FB_DIST:
+        DPRINTLN("Distance done!");
+        m_nav_o->distanceDone = true;
+        break;
 
-    mcu.pauseDrive();
-    mcu.contDrive();
-	}
-	*/
-	
-	
+      case ICC_CMD_FB_ROT:
+        DPRINTLN("Rotation done!");
+        m_nav_o->setRotationDone();
+        break;
+    }
+
+
 
   }
 }

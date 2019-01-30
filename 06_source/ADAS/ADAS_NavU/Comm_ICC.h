@@ -12,7 +12,7 @@
 #ifndef COMMS_ICC_H
 #define COMMS_ICC_H
 
-
+class CNavigation;
 class CICCComms
 {
   public:
@@ -27,7 +27,7 @@ class CICCComms
     /*
       init
     */
-    virtual void Init(void);
+    virtual void Init(CNavigation* nav_o);
     /*
        Run
     */
@@ -45,6 +45,7 @@ class CICCComms
 
   private:
     CSerial& m_serPort;
+    volatile CNavigation* m_nav_o;
     uint8_t m_sndBuff[ICC_SND_BUFF_SIZE];
     uint8_t m_rcvBuff[ICC_RCV_BUFF_SIZE];
 
