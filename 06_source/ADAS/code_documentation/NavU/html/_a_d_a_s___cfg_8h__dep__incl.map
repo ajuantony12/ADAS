@@ -1,0 +1,19 @@
+<map id="ADAS_Cfg.h" name="ADAS_Cfg.h">
+<area shape="rect" id="node2" href="$_a_d_a_s___debug_8h.html" title="This file contains redefinition of the serial functions for debugging purpose. " alt="" coords="477,80,590,107"/>
+<area shape="rect" id="node3" href="$_a_d_a_s___nav_u_8ino.html" title="Main file for the NavU of the ADAS project. " alt="" coords="695,304,811,331"/>
+<area shape="rect" id="node4" href="$_app___navigation_8h.html" title="Application file for navigation. " alt="" coords="36,155,159,181"/>
+<area shape="rect" id="node9" href="$_app___environmental_data_8h.html" title="Application file for environmental data. " alt="" coords="817,155,988,181"/>
+<area shape="rect" id="node13" href="$_h_a_l___serial___i_f_8cpp.html" title="Hardware Abstraction Layer (HAL) to serial interface. " alt="" coords="183,155,313,181"/>
+<area shape="rect" id="node14" href="$_comm___p_l_s_8h.html" title="Comm_PLS.h" alt="" coords="665,80,767,107"/>
+<area shape="rect" id="node15" href="$_comm___i_c_c_8h.html" title="Communication file for Inter&#45;Controller Communication (ICC) " alt="" coords="5,80,104,107"/>
+<area shape="rect" id="node16" href="$_o_s_a_l___task_ctrl_8h.html" title="OSAL_TaskCtrl.h" alt="" coords="1071,80,1193,107"/>
+<area shape="rect" id="node18" href="$_h_a_l___p_w_m_8h.html" title="Hardware Abstraction Layer (HAL) for the 10&#45;bit PWM outputs. " alt="" coords="347,80,445,107"/>
+<area shape="rect" id="node6" href="$_app___virtual_mapping_8cpp.html" title="App_VirtualMapping.cpp" alt="" coords="479,304,641,331"/>
+<area shape="rect" id="node8" href="$_comm___i_c_c_8cpp.html" title="Communication file for Inter&#45;Controller Communication (ICC) " alt="" coords="87,229,201,256"/>
+<area shape="rect" id="node11" href="$_comm___p_l_s_8cpp.html" title="Comm_PLS.cpp" alt="" coords="625,155,743,181"/>
+<area shape="rect" id="node12" href="$_h_a_l___p_w_m_8cpp.html" title="Hardware Abstraction Layer (HAL) for the 10&#45;bit PWM outputs. " alt="" coords="337,155,449,181"/>
+<area shape="rect" id="node5" href="$_app___virtual_mapping_8h.html" title="App_VirtualMapping.h" alt="" coords="527,229,676,256"/>
+<area shape="rect" id="node7" href="$_app___navigation_8cpp.html" title="Application file for navigation. " alt="" coords="225,229,361,256"/>
+<area shape="rect" id="node10" href="$_app___environmental_data_8cpp.html" title="Application file for environmental data. " alt="" coords="751,229,937,256"/>
+<area shape="rect" id="node17" href="$_o_s_a_l___task_ctrl_8cpp.html" title="OSAL_TaskCtrl.cpp" alt="" coords="1063,155,1201,181"/>
+</map>

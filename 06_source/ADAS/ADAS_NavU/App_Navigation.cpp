@@ -1,38 +1,54 @@
+/**
+* @file App_Navigation.cpp
+* @author Christoph Jurczyk
+* @date January 30, 2019
+* @brief Application file for navigation
+*
+*/
+
 #include "App_Navigation.h"
 #include <Arduino.h>
 
-
-#define PIN_BTN 12 // test only
-
+//! Constructor of CNavigation
+/*!
+	\param ICC Handover of inter-controller communication object
+*/
 CNavigation::CNavigation(CICCComms& ICC): m_ICC(ICC)
 {
-  //do nothing
+	// set default values
+	rotationDone = false;
+	distanceDone = false;
+	cornerMode = false;
+	newPLSdata = false;
+	runFlow = false;
 }
+//! Destructor of CNavigation
 CNavigation::~CNavigation() {
-  // set default values
-  rotationDone = false;
-  distanceDone = false;
-  cornerMode = false;
-  newPLSdata = false;
+	//do nothing
 }
 
+//! Initialization function of CNavigation
 void CNavigation::Init(void)
 {
 
 }
 
+//! Run function of CNavigation which is periodically called by CTaskCtrl
+/*!
+	Reads data from ICC, gets data from PLS and calculates navigation.
+*/
 void CNavigation::Run(void)
 {    
   // Process ICC
   m_ICC.Run();
 
-  // Set current environemtal data to state machine data
+  // Set current environmental data to state machine data
   getPLSBuf();
 
   // Call next state logic
   getNextState(runFlow);
 
-  // Call transistion acitions
+  // Call transition actions
   doTransistionAction(current_state, next_state);
 
   // Set next state to current state
@@ -44,22 +60,32 @@ void CNavigation::Run(void)
 
 }
 
+//! Stop function of CNavigation
 void CNavigation::Stop(void)
 {
-  m_ICC.addTxMsg(ICC_CMD_PAUSE_DRIVE, 0);
+  // Stop motors
+  m_ICC.addTxMsg(ICC_CMD_SOFT_STOP, 0);
+  // Set to idle state
   current_state = STATE_IDLE;
   next_state = STATE_IDLE;
   stopDrive();
-
 }
 
+//! Function to return if cornerMode is active
+/*!
+	\return Returns current state of corner mode (active = true)
+*/
 bool CNavigation::isCornerMode()
 {
   return cornerMode;
 }
 
-// Function to set the current value of offset position to wall,
-// current angle of the wall and current distance to wall in front to the input buffer
+//! Function to set the current value of offset position to wall, current angle of the wall and current distance to wall in front to the input buffer
+/*!
+	\param offset Offset to right wall in cm
+	\param angle Angle of right wall in degrees
+	\param nxt_wall Distance to wall in front in cm
+*/
 void CNavigation::setPLSdata(uint16_t offset, int8_t angle, uint16_t nxt_wall)
 {
   // Set input values
@@ -67,11 +93,15 @@ void CNavigation::setPLSdata(uint16_t offset, int8_t angle, uint16_t nxt_wall)
   buf_angle = angle;
   buf_nxt_wall = nxt_wall;
   
+  // Set new PLS data flag
   newPLSdata = true;
 }
 
 
-// Next state logic
+//! Function for next state logic
+/*!
+	\param runActive Boolean to enable state-machine flow
+*/
 void CNavigation::getNextState(bool runActive)
 {
   if (runActive)
@@ -157,7 +187,7 @@ void CNavigation::getNextState(bool runActive)
 }
 
 
-// Function to read environmetal data buffer to state machine variables
+//! Function to read environmental data buffer to state machine variables
 void CNavigation::getPLSBuf(void)
 {
   cur_offset = buf_offset;
@@ -165,11 +195,9 @@ void CNavigation::getPLSBuf(void)
   cur_nxt_wall = buf_nxt_wall;
 }
 
-// Debug function to print current status of state flow if changed
+//! Debug function to print current status of state flow if changed
 void CNavigation::printChangedDebugInfo(void)
 {
-
-
   if ((current_state_old != current_state) ||
       (next_state_old != next_state)       ||
       (buf_offset_old != buf_offset)       ||
@@ -194,7 +222,7 @@ void CNavigation::printChangedDebugInfo(void)
 }
 
 
-// Debug function to print current status of state flow
+//! Debug function to print current status of state flow
 void CNavigation::printDebugInfo(void)
 {
   DPRINTLN2("-----------------------------");
@@ -235,7 +263,10 @@ void CNavigation::printDebugInfo(void)
   DPRINTLN2("-----------------------------");
 }
 
-// Function to print state
+//! Function to print state
+/*!
+	\param state Current state of state-machine
+*/
 void CNavigation::printState(NAV_STATE state)
 {
   switch (state)
@@ -281,7 +312,7 @@ void CNavigation::printState(NAV_STATE state)
 }
 
 
-// Function to contine if obstacle is clear
+//! Function to continue if obstacle is clear
 void CNavigation::continueDrive(void)
 {
   if (!runFlow)
@@ -290,12 +321,10 @@ void CNavigation::continueDrive(void)
       runFlow = true;
       DPRINTLN2("Nav: Continue drive!");
   }
-  
-
 }
 
 
-// Function to stop if obstacle is detected
+//! Function to stop if obstacle is detected
 void CNavigation::stopDrive(void)
 {
   runFlow = false;
@@ -303,14 +332,18 @@ void CNavigation::stopDrive(void)
 }
 
 
-// Function to perfom transisition actions
+//! Function to perform transition actions
+/*!
+	\param state Current state of state-machine
+	\param next Next state of state-machine
+*/
 void CNavigation::doTransistionAction(NAV_STATE state, NAV_STATE next)
 {
   switch (state)
   {
     case STATE_IDLE:
-
       break;
+	  
 
     case STATE_GET_OFFSET:
       if (next == STATE_GET_ANGLE) {
@@ -325,6 +358,7 @@ void CNavigation::doTransistionAction(NAV_STATE state, NAV_STATE next)
         m_ICC.addTxMsg(ICC_CMD_ROT_ANGLE, -cur_angle + 90);
       }
       break;
+	  
 
     case STATE_ROT_WALL_INFRONT:
       if (next == STATE_COR_OFFSET)
@@ -334,6 +368,7 @@ void CNavigation::doTransistionAction(NAV_STATE state, NAV_STATE next)
         m_ICC.addTxMsg(ICC_CMD_DRIVE_DIST, static_cast<sint16_t>(cur_nxt_wall) - static_cast<sint16_t>(NAV_SET_OFFSET));
       }
       break;
+	  
 
     case STATE_COR_OFFSET:
       if ( next == STATE_ROT_WALL_OFFSET)
@@ -343,6 +378,7 @@ void CNavigation::doTransistionAction(NAV_STATE state, NAV_STATE next)
         m_ICC.addTxMsg(ICC_CMD_ROT_ANGLE, -90);
       }
       break;
+	  
 
     case STATE_ROT_WALL_OFFSET:
       if (next == STATE_DRIVE_WALL)
@@ -352,6 +388,7 @@ void CNavigation::doTransistionAction(NAV_STATE state, NAV_STATE next)
       }
 
       break;
+	  
 
     case STATE_GET_ANGLE:
       if (next == STATE_DRIVE_WALL)
@@ -360,9 +397,11 @@ void CNavigation::doTransistionAction(NAV_STATE state, NAV_STATE next)
         m_ICC.addTxMsg(ICC_CMD_CONT_DRIVE_IN, 1);
       }
       break;
+	  
 
     case STATE_ROT_WALL:
       break;
+	  
 
     case STATE_DRIVE_WALL:
       if (next == STATE_GET_ANGLE)
@@ -373,12 +412,11 @@ void CNavigation::doTransistionAction(NAV_STATE state, NAV_STATE next)
         cornerMode = true;
       }
       break;
-
   }
 }
 
 
-// Continue drive after obstacle detection
+//! Continue drive after obstacle detection
 void CNavigation::contDrive(void)
 {
   // start position correction
@@ -387,7 +425,7 @@ void CNavigation::contDrive(void)
 }
 
 
-// Pause drive due to obstacle detection
+//! Pause drive due to obstacle detection
 void CNavigation::pauseDrive(void)
 {
     if(runFlow)
@@ -396,26 +434,23 @@ void CNavigation::pauseDrive(void)
         m_ICC.addTxMsg(ICC_CMD_PAUSE_DRIVE, 0);
         DPRINTLN2("Nav: Pause drive!");
     }
-
 }
 
 
-// Function to get current state
+//! Function to get current state
+/*!
+	\return Returns current state as CNavigation::NAV_STATE 
+*/
 CNavigation::NAV_STATE CNavigation::getCurrentState(void)
 {
   return current_state;
 }
 
-// Function to get next state
+//! Function to get next state
+/*!
+	\return Returns next state as CNavigation::NAV_STATE 
+*/
 CNavigation::NAV_STATE CNavigation::getNextState(void)
 {
   return next_state;
 }
-
-
-void CNavigation::setRotationDone(void)
-{
-  DPRINTLN("Rotation done received");
-  rotationDone = true;
-}
-

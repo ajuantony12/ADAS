@@ -1,8 +1,21 @@
+/**
+* @file HAL_Serial_IF.h
+* @author Christoph Jurczyk
+* @date January 30, 2019
+* @brief Hardware Abstraction Layer (HAL) to serial interface
+*
+*/
+
 #include "ADAS_Cfg.h"
 #include "HAL_Serial_IF.h"
 #include "ADAS_Debug.h"
 #include <Arduino.h>
 
+//! Constructor of CSerial
+/*!
+	\param i_ID Selection of serial interace e.g. S1 for Serial interface 1
+	\param i_bufLen Length of receiving buffer
+*/
 CSerial::CSerial(PortID_e i_ID, uint16_t i_bufLen):
   m_ID(i_ID),
   m_rxBufLen(i_bufLen),
@@ -13,6 +26,7 @@ CSerial::CSerial(PortID_e i_ID, uint16_t i_bufLen):
 {
   m_rxBuffer = new uint8_t[i_bufLen];
 }
+//! Destructor of CSerial
 CSerial::~CSerial() {
   m_rxMsgLen = 0U;
   m_rxBufferPointer = 0U;
@@ -21,6 +35,7 @@ CSerial::~CSerial() {
   delete[] m_rxBuffer;
 }
 
+//! Initialization function of CSerial
 void CSerial::Init(void) {
   if (S1 == m_ID) {
     // Set baudrate
@@ -73,6 +88,12 @@ void CSerial::Init(void) {
   }
 }
 
+//! Function to send data in transmit buffer
+/*!
+	\param Buff Handover of transmit buffer
+	\param len Length of data
+	\return Returns a true if successfully sent
+*/
 bool CSerial::Send(char Buff[], uint8_t len) {
   uint8_t index;
   bool retVal = false;
@@ -100,14 +121,30 @@ bool CSerial::Send(char Buff[], uint8_t len) {
   return retVal;
 }
 
+//! Function to check availability of received data
+/*!
+	\return Returns a true if data in buffer is available
+*/
 bool CSerial::Available(void)
 {
   return m_rxBufferRdy;
 }
+
+//! Function to get length of data
+/*!
+	\return Returns length of data
+*/
 uint16_t CSerial::GetDataLen(void)
 {
   return (m_rxMsgLen + 6);
 }
+
+//! Function to read data from buffer
+/*!
+	\param data Pointer to destination where data shall be saved
+	\param len Length of received data
+	\return Returns a true of data is read
+*/
 bool CSerial::GetData(uint8_t* data, uint16_t len)
 {
   bool retVal = false;
@@ -120,6 +157,7 @@ bool CSerial::GetData(uint8_t* data, uint16_t len)
   return retVal;
 }
 
+//! Function to release buffer
 void CSerial::ReleaseBuffer(void)
 {
   m_rxBufferPointer = 0U;
@@ -127,6 +165,7 @@ void CSerial::ReleaseBuffer(void)
   m_rxBufferFull = false;
 }
 
+//! Function for ISR USARTn_RX_vect for PLS communication
 void CSerial::SerialISRcommPLS(void)
 {
   if ((!m_rxBufferFull) && (!m_rxBufferRdy))
@@ -172,7 +211,7 @@ void CSerial::SerialISRcommPLS(void)
   }
 }
 
-// ISR function handler for inter-controller communication
+//! Function for ISR USARTn_RX_vect for inter-controller communication
 void CSerial::SerialISRcommICC(void)
 {
   // Check for free buffer

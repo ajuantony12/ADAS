@@ -1,9 +1,99 @@
-\hypertarget{_a_d_a_s___debug_8h}{}\section{/\+Volumes/\+Macintosh S\+D/\+Github/\+A\+D\+A\+S/06\+\_\+source/\+A\+D\+A\+S/\+A\+D\+A\+S\+\_\+\+Nav\+U/\+A\+D\+A\+S\+\_\+\+Debug.h File Reference}
-\label{_a_d_a_s___debug_8h}\index{/Volumes/Macintosh SD/Github/ADAS/06\_source/ADAS/ADAS\_NavU/ADAS\_Debug.h@{/Volumes/Macintosh SD/Github/ADAS/06\_source/ADAS/ADAS\_NavU/ADAS\_Debug.h}}
+\hypertarget{_a_d_a_s___debug_8h}{}\section{A\+D\+A\+S\+\_\+\+Debug.\+h File Reference}
+\label{_a_d_a_s___debug_8h}\index{A\+D\+A\+S\+\_\+\+Debug.\+h@{A\+D\+A\+S\+\_\+\+Debug.\+h}}
 
 
 This file contains redefinition of the serial functions for debugging purpose.  
 
 
 {\ttfamily \#include \char`\"{}A\+D\+A\+S\+\_\+\+Cfg.\+h\char`\"{}}\newline
-Include dependency graph for A\+D\+A\+S\+\_\+\+Debug.\+h\+:
+Include dependency graph for A\+D\+A\+S\+\_\+\+Debug.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=165pt]{_a_d_a_s___debug_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_a_d_a_s___debug_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_a_d_a_s___debug_8h_ae33d310b25c222ae458b4a033d32b2ee}{D\+E\+B\+U\+G\+\_\+H}}
+\item 
+\#define \mbox{\hyperlink{_a_d_a_s___debug_8h_a57a35bfd7d13bdfab37a48171286ecee}{D\+P\+R\+I\+NT}}(...)
+\item 
+\#define \mbox{\hyperlink{_a_d_a_s___debug_8h_a39540ced659a9b6dfd1d185b695bd431}{D\+P\+R\+I\+N\+T\+LN}}(...)
+\item 
+\#define \mbox{\hyperlink{_a_d_a_s___debug_8h_aca77bd275e00af8a3eea089b7b0e6320}{D\+P\+R\+I\+N\+T2}}(...)~Serial.\+print(\+\_\+\+\_\+\+V\+A\+\_\+\+A\+R\+G\+S\+\_\+\+\_\+)
+\item 
+\#define \mbox{\hyperlink{_a_d_a_s___debug_8h_a5ef4c9f6c4e44b4b642a7893193f16ec}{D\+P\+R\+I\+N\+T\+L\+N2}}(...)~Serial.\+println(\+\_\+\+\_\+\+V\+A\+\_\+\+A\+R\+G\+S\+\_\+\+\_\+)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This file contains redefinition of the serial functions for debugging purpose. 
+
+\begin{DoxyAuthor}{Author}
+Christoph Jurczyk 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+January 29, 2019 
+\end{DoxyDate}
+
+
+\subsection{Macro Definition Documentation}
+\mbox{\Hypertarget{_a_d_a_s___debug_8h_ae33d310b25c222ae458b4a033d32b2ee}\label{_a_d_a_s___debug_8h_ae33d310b25c222ae458b4a033d32b2ee}} 
+\index{A\+D\+A\+S\+\_\+\+Debug.\+h@{A\+D\+A\+S\+\_\+\+Debug.\+h}!D\+E\+B\+U\+G\+\_\+H@{D\+E\+B\+U\+G\+\_\+H}}
+\index{D\+E\+B\+U\+G\+\_\+H@{D\+E\+B\+U\+G\+\_\+H}!A\+D\+A\+S\+\_\+\+Debug.\+h@{A\+D\+A\+S\+\_\+\+Debug.\+h}}
+\subsubsection{\texorpdfstring{D\+E\+B\+U\+G\+\_\+H}{DEBUG\_H}}
+{\footnotesize\ttfamily \#define D\+E\+B\+U\+G\+\_\+H}
+
+
+
+Definition at line 12 of file A\+D\+A\+S\+\_\+\+Debug.\+h.
+
+\mbox{\Hypertarget{_a_d_a_s___debug_8h_a57a35bfd7d13bdfab37a48171286ecee}\label{_a_d_a_s___debug_8h_a57a35bfd7d13bdfab37a48171286ecee}} 
+\index{A\+D\+A\+S\+\_\+\+Debug.\+h@{A\+D\+A\+S\+\_\+\+Debug.\+h}!D\+P\+R\+I\+NT@{D\+P\+R\+I\+NT}}
+\index{D\+P\+R\+I\+NT@{D\+P\+R\+I\+NT}!A\+D\+A\+S\+\_\+\+Debug.\+h@{A\+D\+A\+S\+\_\+\+Debug.\+h}}
+\subsubsection{\texorpdfstring{D\+P\+R\+I\+NT}{DPRINT}}
+{\footnotesize\ttfamily \#define D\+P\+R\+I\+NT(\begin{DoxyParamCaption}\item[{}]{... }\end{DoxyParamCaption})}
+
+Debug enabled\+: remap D\+P\+R\+I\+NT and D\+P\+R\+I\+N\+T\+LN to Serial functions 
+
+Definition at line 27 of file A\+D\+A\+S\+\_\+\+Debug.\+h.
+
+\mbox{\Hypertarget{_a_d_a_s___debug_8h_aca77bd275e00af8a3eea089b7b0e6320}\label{_a_d_a_s___debug_8h_aca77bd275e00af8a3eea089b7b0e6320}} 
+\index{A\+D\+A\+S\+\_\+\+Debug.\+h@{A\+D\+A\+S\+\_\+\+Debug.\+h}!D\+P\+R\+I\+N\+T2@{D\+P\+R\+I\+N\+T2}}
+\index{D\+P\+R\+I\+N\+T2@{D\+P\+R\+I\+N\+T2}!A\+D\+A\+S\+\_\+\+Debug.\+h@{A\+D\+A\+S\+\_\+\+Debug.\+h}}
+\subsubsection{\texorpdfstring{D\+P\+R\+I\+N\+T2}{DPRINT2}}
+{\footnotesize\ttfamily \#define D\+P\+R\+I\+N\+T2(\begin{DoxyParamCaption}\item[{}]{... }\end{DoxyParamCaption})~Serial.\+print(\+\_\+\+\_\+\+V\+A\+\_\+\+A\+R\+G\+S\+\_\+\+\_\+)}
+
+
+
+Definition at line 33 of file A\+D\+A\+S\+\_\+\+Debug.\+h.
+
+\mbox{\Hypertarget{_a_d_a_s___debug_8h_a39540ced659a9b6dfd1d185b695bd431}\label{_a_d_a_s___debug_8h_a39540ced659a9b6dfd1d185b695bd431}} 
+\index{A\+D\+A\+S\+\_\+\+Debug.\+h@{A\+D\+A\+S\+\_\+\+Debug.\+h}!D\+P\+R\+I\+N\+T\+LN@{D\+P\+R\+I\+N\+T\+LN}}
+\index{D\+P\+R\+I\+N\+T\+LN@{D\+P\+R\+I\+N\+T\+LN}!A\+D\+A\+S\+\_\+\+Debug.\+h@{A\+D\+A\+S\+\_\+\+Debug.\+h}}
+\subsubsection{\texorpdfstring{D\+P\+R\+I\+N\+T\+LN}{DPRINTLN}}
+{\footnotesize\ttfamily \#define D\+P\+R\+I\+N\+T\+LN(\begin{DoxyParamCaption}\item[{}]{... }\end{DoxyParamCaption})}
+
+
+
+Definition at line 28 of file A\+D\+A\+S\+\_\+\+Debug.\+h.
+
+\mbox{\Hypertarget{_a_d_a_s___debug_8h_a5ef4c9f6c4e44b4b642a7893193f16ec}\label{_a_d_a_s___debug_8h_a5ef4c9f6c4e44b4b642a7893193f16ec}} 
+\index{A\+D\+A\+S\+\_\+\+Debug.\+h@{A\+D\+A\+S\+\_\+\+Debug.\+h}!D\+P\+R\+I\+N\+T\+L\+N2@{D\+P\+R\+I\+N\+T\+L\+N2}}
+\index{D\+P\+R\+I\+N\+T\+L\+N2@{D\+P\+R\+I\+N\+T\+L\+N2}!A\+D\+A\+S\+\_\+\+Debug.\+h@{A\+D\+A\+S\+\_\+\+Debug.\+h}}
+\subsubsection{\texorpdfstring{D\+P\+R\+I\+N\+T\+L\+N2}{DPRINTLN2}}
+{\footnotesize\ttfamily \#define D\+P\+R\+I\+N\+T\+L\+N2(\begin{DoxyParamCaption}\item[{}]{... }\end{DoxyParamCaption})~Serial.\+println(\+\_\+\+\_\+\+V\+A\+\_\+\+A\+R\+G\+S\+\_\+\+\_\+)}
+
+
+
+Definition at line 34 of file A\+D\+A\+S\+\_\+\+Debug.\+h.
+

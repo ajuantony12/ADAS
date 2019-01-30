@@ -1,8 +1,10 @@
-/***********************************************************************
-  FILENAME :        Comm_ICC.h
-
-  DESCRIPTION : Inter-Controller communication layer
-*************************************************************************/
+/**
+* @file Comm_ICC.h
+* @author Christoph Jurczyk
+* @date January 30, 2019
+* @brief Communication file for Inter-Controller Communication (ICC)
+*
+*/
 
 #include "ADAS_Types.h"
 #include "ADAS_Cfg.h"
@@ -13,13 +15,17 @@
 #define COMMS_ICC_H
 
 class CNavigation;
+//! Inter-Controller Communication Class
 class CICCComms
 {
   public:
 
+	/**
+	*	@brief Structure for ICC messages
+	*/
     typedef struct {
-      uint8_t cmd;
-      signed int data; // CJ: Why can I not use int16_t????
+      uint8_t cmd; /**< Command as uint8_t */
+      signed int data; /**< Data as signed int */
     } Message_t;
 
     CICCComms(CSerial& serPort);
@@ -64,6 +70,5 @@ class CICCComms
     */
     void CreatePacket(CBuffAdas& buff, Message_t& msg);
 };
-
 
 #endif /*COMMS_ICC_H*/

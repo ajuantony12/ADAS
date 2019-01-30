@@ -1,0 +1,7 @@
+<map id="CPLSComms::GetAsyncData" name="CPLSComms::GetAsyncData">
+<area shape="rect" id="node2" href="$class_c_serial.html#abb43734223d937a86e7616636ea16024" title="Function to check availability of received data. " alt="" coords="274,5,397,32"/>
+<area shape="rect" id="node3" href="$class_c_serial.html#a4327d6041fe9a390612b214709027cbb" title="Function to get length of data. " alt="" coords="265,56,406,83"/>
+<area shape="rect" id="node4" href="$class_c_serial.html#abad86c07f530569b2ceeea75bda485ad" title="Function to read data from buffer. " alt="" coords="275,107,395,133"/>
+<area shape="rect" id="node5" href="$class_c_serial.html#a941e5cae2ca04518925a3b32f51110a6" title="Function to release buffer. " alt="" coords="471,132,623,159"/>
+<area shape="rect" id="node6" href="$class_c_p_l_s_comms.html#ae0cd51de8a24b261389b6f89b4b80e51" title="CPLSComms::SearchMsg" alt="" coords="248,208,423,235"/>
+</map>

@@ -25,6 +25,6 @@ var class_c_navigation =
     [ "setPLSdata", "class_c_navigation.html#a53f0409677e36f62ef232f7e15b32948", null ],
     [ "Stop", "class_c_navigation.html#a3cc8f7fdd003d6b2c5056b87ff93edd9", null ],
     [ "stopDrive", "class_c_navigation.html#a06ce71124d487f1f9febf36a0e4b2a5d", null ],
-    [ "distanceDone", "class_c_navigation.html#aa28ab8bd516f40905d4d7d113dc7f89d", null ],
-    [ "rotationDone", "class_c_navigation.html#a9f452e6ebd491583b6d309974086c86b", null ]
+    [ "distanceDone", "class_c_navigation.html#af3f718b7aa00a149c31c5682113da75e", null ],
+    [ "rotationDone", "class_c_navigation.html#a069e02947303fed95655cd4ad88a96b7", null ]
 ];

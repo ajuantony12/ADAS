@@ -1,8 +1,10 @@
-/*H**********************************************************************
-  FILENAME :        Navigation.h
-
-  DESCRIPTION : Navigation module
-*************************************************************************/
+/**
+* @file App_Navigation.h
+* @author Christoph Jurczyk
+* @date January 30, 2019
+* @brief Application file for navigation
+*
+*/
 #include "Arduino.h"
 #include "Task_if.h"
 #include "ADAS_Types.h"
@@ -12,35 +14,38 @@
 
 #ifndef APP_NAVIGATION_H
 #define APP_NAVIGATION_H
-
+ 
+//! Navigation algorithm class
 class CNavigation: public ITask_IF
 {
   public:
     CNavigation(CICCComms& ICC);
     ~CNavigation();
 
-    // States of navigation flow
+	/*!
+		@brief States of navigation flow
+	*/
     enum NAV_STATE {
-      // Idle state
+      /// Idle state
       STATE_IDLE,
-      // Get offset to the side
+      /// Get offset to the side
       STATE_GET_OFFSET,
-      // Rotate right until wall is 90 degrees to drive direction
+      /// Rotate right until wall is 90 degrees to drive direction
       STATE_ROT_WALL_INFRONT,
-      // Correct offset
+      /// Correct offset
       STATE_COR_OFFSET,
-      // Rotate left 90 degrees to be parallel to wall after offset correction
+      /// Rotate left 90 degrees to be parallel to wall after offset correction
       STATE_ROT_WALL_OFFSET,
-      // Get wall angle
+      /// Get wall angle
       STATE_GET_ANGLE,
-      // Rotate parallel to wall
+      /// Rotate parallel to wall
       STATE_ROT_WALL,
-      // Drive along wall
+      /// Drive along wall
       STATE_DRIVE_WALL,
     };
 
     /*
-       init
+       Init
     */
     virtual void Init(void);
     /*
@@ -78,14 +83,13 @@ class CNavigation: public ITask_IF
     */
     virtual NAV_STATE getNextState(void);
 
-
-    /*
+    /*!
        Parameter to show that rotation is finished
     */
     volatile bool rotationDone;
 
-    /*
-       Paramter to show that distance is reached
+    /*!
+       Parameter to show that distance is reached
     */
     volatile bool distanceDone;
 
@@ -99,37 +103,26 @@ class CNavigation: public ITask_IF
     */
     virtual void printDebugInfo(void);
 
-    void setRotationDone(void);
-
-
     /*
        Function to stop if obstacle is detected
     */
     virtual void stopDrive(void);
 
-
-
     /*
-       Function to contine if obstacle is clear
+       Function to continue if obstacle is clear
     */
     virtual void continueDrive(void);
 
+	/*
+       Function return cornerMode
+    */
     bool isCornerMode();
 
-
-
-
   private:
-  
- 
-
-
-    // Parameter to pause/run state flow
-    bool runFlow = false;
+    // Parameters
+    bool runFlow;
     bool cornerMode;
-
     bool newPLSdata;
-
 
     // Variables for the state machine
     NAV_STATE current_state = STATE_IDLE;
@@ -149,12 +142,11 @@ class CNavigation: public ITask_IF
     // Function to set next state
     void getNextState(bool runActive);
 
-    // Function to perfom transisition actions
+    // Function to perform transition actions
     void doTransistionAction(NAV_STATE state, NAV_STATE next);
 
     // Function to print state
     void printState(NAV_STATE state);
-
 
     // Variables for old value for debug print
     NAV_STATE current_state_old;
@@ -166,6 +158,7 @@ class CNavigation: public ITask_IF
     int8_t cur_angle_old;
     uint16_t cur_nxt_wall_old;
 
+	// ICC object
     CICCComms& m_ICC;
 
 };

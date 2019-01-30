@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['dprint',['DPRINT',['../_a_d_a_s___debug_8h.html#a57a35bfd7d13bdfab37a48171286ecee',1,'ADAS_Debug.h']]],
-  ['dprintln',['DPRINTLN',['../_a_d_a_s___debug_8h.html#a39540ced659a9b6dfd1d185b695bd431',1,'ADAS_Debug.h']]]
+  ['adas_5fdebug2',['ADAS_DEBUG2',['../_a_d_a_s___cfg_8h.html#af1b7294cc1d532b3a1ab577b76852a39',1,'ADAS_Cfg.h']]]
 ];
