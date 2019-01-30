@@ -1,93 +1,506 @@
 \hypertarget{class_c_navigation}{}\section{C\+Navigation Class Reference}
-\label{class_c_navigation}\index{CNavigation@{CNavigation}}
+\label{class_c_navigation}\index{C\+Navigation@{C\+Navigation}}
 
 
-Inheritance diagram for C\+Navigation\+:
-% FIG 0
+Navigation algorithm class.  
 
 
-Collaboration diagram for C\+Navigation\+:
-% FIG 1
+
+
+{\ttfamily \#include $<$App\+\_\+\+Navigation.\+h$>$}
+
+
+
+Inheritance diagram for C\+Navigation\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=211pt]{class_c_navigation__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for C\+Navigation\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=211pt]{class_c_navigation__coll__graph}
+\end{center}
+\end{figure}
 \subsection*{Public Types}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_c_navigation_add9fc966c7604990edf5c2a2e0eba32c}\label{class_c_navigation_add9fc966c7604990edf5c2a2e0eba32c}} 
-enum {\bfseries N\+A\+V\+\_\+\+S\+T\+A\+TE} \{ \newline
-{\bfseries S\+T\+A\+T\+E\+\_\+\+I\+D\+LE}, 
-{\bfseries S\+T\+A\+T\+E\+\_\+\+G\+E\+T\+\_\+\+O\+F\+F\+S\+ET}, 
-{\bfseries S\+T\+A\+T\+E\+\_\+\+R\+O\+T\+\_\+\+W\+A\+L\+L\+\_\+\+I\+N\+F\+R\+O\+NT}, 
-{\bfseries S\+T\+A\+T\+E\+\_\+\+C\+O\+R\+\_\+\+O\+F\+F\+S\+ET}, 
+enum \mbox{\hyperlink{class_c_navigation_add9fc966c7604990edf5c2a2e0eba32c}{N\+A\+V\+\_\+\+S\+T\+A\+TE}} \{ \newline
+\mbox{\hyperlink{class_c_navigation_add9fc966c7604990edf5c2a2e0eba32cad43f30d3a76f0217001df58807ce35e4}{S\+T\+A\+T\+E\+\_\+\+I\+D\+LE}}, 
+\mbox{\hyperlink{class_c_navigation_add9fc966c7604990edf5c2a2e0eba32caed2dba9e927059d4fc3558e70dc9600d}{S\+T\+A\+T\+E\+\_\+\+G\+E\+T\+\_\+\+O\+F\+F\+S\+ET}}, 
+\mbox{\hyperlink{class_c_navigation_add9fc966c7604990edf5c2a2e0eba32ca98c3278af5b38d612158bf91e361666b}{S\+T\+A\+T\+E\+\_\+\+R\+O\+T\+\_\+\+W\+A\+L\+L\+\_\+\+I\+N\+F\+R\+O\+NT}}, 
+\mbox{\hyperlink{class_c_navigation_add9fc966c7604990edf5c2a2e0eba32ca499b515432a6f3518ffdc0042e6a0d0a}{S\+T\+A\+T\+E\+\_\+\+C\+O\+R\+\_\+\+O\+F\+F\+S\+ET}}, 
 \newline
-{\bfseries S\+T\+A\+T\+E\+\_\+\+R\+O\+T\+\_\+\+W\+A\+L\+L\+\_\+\+O\+F\+F\+S\+ET}, 
-{\bfseries S\+T\+A\+T\+E\+\_\+\+G\+E\+T\+\_\+\+A\+N\+G\+LE}, 
-{\bfseries S\+T\+A\+T\+E\+\_\+\+R\+O\+T\+\_\+\+W\+A\+LL}, 
-{\bfseries S\+T\+A\+T\+E\+\_\+\+D\+R\+I\+V\+E\+\_\+\+W\+A\+LL}
+\mbox{\hyperlink{class_c_navigation_add9fc966c7604990edf5c2a2e0eba32cacaa28abfeaa777af95ae7de6c56c2f70}{S\+T\+A\+T\+E\+\_\+\+R\+O\+T\+\_\+\+W\+A\+L\+L\+\_\+\+O\+F\+F\+S\+ET}}, 
+\mbox{\hyperlink{class_c_navigation_add9fc966c7604990edf5c2a2e0eba32caec4a96c2bd42d64f06d1d9ff729439f3}{S\+T\+A\+T\+E\+\_\+\+G\+E\+T\+\_\+\+A\+N\+G\+LE}}, 
+\mbox{\hyperlink{class_c_navigation_add9fc966c7604990edf5c2a2e0eba32caf62bf4e18725aec5f8dcdb0b28ffad23}{S\+T\+A\+T\+E\+\_\+\+R\+O\+T\+\_\+\+W\+A\+LL}}, 
+\mbox{\hyperlink{class_c_navigation_add9fc966c7604990edf5c2a2e0eba32caf1c06acfa5b7fed4fa82ed8ab9c42d10}{S\+T\+A\+T\+E\+\_\+\+D\+R\+I\+V\+E\+\_\+\+W\+A\+LL}}
  \}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em States of navigation flow. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_c_navigation_a0527efabaf4644c8c4e7910efec36e82}\label{class_c_navigation_a0527efabaf4644c8c4e7910efec36e82}} 
-{\bfseries C\+Navigation} (\mbox{\hyperlink{class_c_i_c_c_comms}{C\+I\+C\+C\+Comms}} \&I\+CC)
-\item 
-\mbox{\Hypertarget{class_c_navigation_a86a0756663ccf76e9c474764b8f7a04f}\label{class_c_navigation_a86a0756663ccf76e9c474764b8f7a04f}} 
-virtual void {\bfseries Init} (void)
-\item 
-\mbox{\Hypertarget{class_c_navigation_a86acb1521aab400e542465c8eabed671}\label{class_c_navigation_a86acb1521aab400e542465c8eabed671}} 
-virtual void {\bfseries Run} (void)
-\item 
-\mbox{\Hypertarget{class_c_navigation_a3cc8f7fdd003d6b2c5056b87ff93edd9}\label{class_c_navigation_a3cc8f7fdd003d6b2c5056b87ff93edd9}} 
-virtual void {\bfseries Stop} (void)
-\item 
-\mbox{\Hypertarget{class_c_navigation_a53f0409677e36f62ef232f7e15b32948}\label{class_c_navigation_a53f0409677e36f62ef232f7e15b32948}} 
-virtual void {\bfseries set\+P\+L\+Sdata} (uint16\+\_\+t offset, int8\+\_\+t angle, uint16\+\_\+t nxt\+\_\+wall)
-\item 
-\mbox{\Hypertarget{class_c_navigation_abc7e30f72ee2cb33be7b0949efe1cb18}\label{class_c_navigation_abc7e30f72ee2cb33be7b0949efe1cb18}} 
-virtual void {\bfseries cont\+Drive} (void)
-\item 
-\mbox{\Hypertarget{class_c_navigation_a27649dc6324360829d42aea67e88e3ee}\label{class_c_navigation_a27649dc6324360829d42aea67e88e3ee}} 
-virtual void {\bfseries pause\+Drive} (void)
-\item 
-\mbox{\Hypertarget{class_c_navigation_a42982842952ac5340b54f43a661673f4}\label{class_c_navigation_a42982842952ac5340b54f43a661673f4}} 
-virtual N\+A\+V\+\_\+\+S\+T\+A\+TE {\bfseries get\+Current\+State} (void)
-\item 
-\mbox{\Hypertarget{class_c_navigation_afef253f37646558a755d956ecf2fc6e9}\label{class_c_navigation_afef253f37646558a755d956ecf2fc6e9}} 
-virtual N\+A\+V\+\_\+\+S\+T\+A\+TE {\bfseries get\+Next\+State} (void)
-\item 
-\mbox{\Hypertarget{class_c_navigation_ac491c77788ba2e953a704b6ad622a665}\label{class_c_navigation_ac491c77788ba2e953a704b6ad622a665}} 
-virtual void {\bfseries print\+Changed\+Debug\+Info} (void)
-\item 
-\mbox{\Hypertarget{class_c_navigation_a84e320cd8975593ab6f966e8794b2886}\label{class_c_navigation_a84e320cd8975593ab6f966e8794b2886}} 
-virtual void {\bfseries print\+Debug\+Info} (void)
-\item 
-\mbox{\Hypertarget{class_c_navigation_a06ce71124d487f1f9febf36a0e4b2a5d}\label{class_c_navigation_a06ce71124d487f1f9febf36a0e4b2a5d}} 
-virtual void {\bfseries stop\+Drive} (void)
-\item 
-\mbox{\Hypertarget{class_c_navigation_ab3d29f3ab4a8a922f5af439f6d78aded}\label{class_c_navigation_ab3d29f3ab4a8a922f5af439f6d78aded}} 
-virtual void {\bfseries continue\+Drive} (void)
-\item 
-\mbox{\Hypertarget{class_c_navigation_aa984fc062deefed13a85d866d997de73}\label{class_c_navigation_aa984fc062deefed13a85d866d997de73}} 
-bool {\bfseries is\+Corner\+Mode} ()
-\end{DoxyCompactItemize}
+\mbox{\hyperlink{class_c_navigation_a0527efabaf4644c8c4e7910efec36e82}{C\+Navigation}} (\mbox{\hyperlink{class_c_i_c_c_comms}{C\+I\+C\+C\+Comms}} \&I\+CC)
+\begin{DoxyCompactList}\small\item\em Constructor of \mbox{\hyperlink{class_c_navigation}{C\+Navigation}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_c_navigation_ae4c7c3e27ded45a94bc268634a7739da}{$\sim$\+C\+Navigation}} ()
+\begin{DoxyCompactList}\small\item\em Destructor of \mbox{\hyperlink{class_c_navigation}{C\+Navigation}}. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_c_navigation_a86a0756663ccf76e9c474764b8f7a04f}{Init}} (void)
+\begin{DoxyCompactList}\small\item\em Initialization function of \mbox{\hyperlink{class_c_navigation}{C\+Navigation}}. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_c_navigation_a86acb1521aab400e542465c8eabed671}{Run}} (void)
+\begin{DoxyCompactList}\small\item\em Run function of \mbox{\hyperlink{class_c_navigation}{C\+Navigation}} which is periodically called by \mbox{\hyperlink{class_c_task_ctrl}{C\+Task\+Ctrl}}. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_c_navigation_a3cc8f7fdd003d6b2c5056b87ff93edd9}{Stop}} (void)
+\begin{DoxyCompactList}\small\item\em Stop function of \mbox{\hyperlink{class_c_navigation}{C\+Navigation}}. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_c_navigation_a53f0409677e36f62ef232f7e15b32948}{set\+P\+L\+Sdata}} (\mbox{\hyperlink{_a_d_a_s___types_8h_a1f1825b69244eb3ad2c7165ddc99c956}{uint16\+\_\+t}} offset, int8\+\_\+t angle, \mbox{\hyperlink{_a_d_a_s___types_8h_a1f1825b69244eb3ad2c7165ddc99c956}{uint16\+\_\+t}} nxt\+\_\+wall)
+\begin{DoxyCompactList}\small\item\em Function to set the current value of offset position to wall, current angle of the wall and current distance to wall in front to the input buffer. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_c_navigation_abc7e30f72ee2cb33be7b0949efe1cb18}{cont\+Drive}} (void)
+\begin{DoxyCompactList}\small\item\em Continue drive after obstacle detection. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_c_navigation_a27649dc6324360829d42aea67e88e3ee}{pause\+Drive}} (void)
+\begin{DoxyCompactList}\small\item\em Pause drive due to obstacle detection. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{class_c_navigation_add9fc966c7604990edf5c2a2e0eba32c}{N\+A\+V\+\_\+\+S\+T\+A\+TE}} \mbox{\hyperlink{class_c_navigation_a42982842952ac5340b54f43a661673f4}{get\+Current\+State}} (void)
+\begin{DoxyCompactList}\small\item\em Function to get current state. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{class_c_navigation_add9fc966c7604990edf5c2a2e0eba32c}{N\+A\+V\+\_\+\+S\+T\+A\+TE}} \mbox{\hyperlink{class_c_navigation_afef253f37646558a755d956ecf2fc6e9}{get\+Next\+State}} (void)
+\begin{DoxyCompactList}\small\item\em Function to get next state. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_c_navigation_ac491c77788ba2e953a704b6ad622a665}{print\+Changed\+Debug\+Info}} (void)
+\begin{DoxyCompactList}\small\item\em Debug function to print current status of state flow if changed. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_c_navigation_a84e320cd8975593ab6f966e8794b2886}{print\+Debug\+Info}} (void)
+\begin{DoxyCompactList}\small\item\em Debug function to print current status of state flow. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_c_navigation_a06ce71124d487f1f9febf36a0e4b2a5d}{stop\+Drive}} (void)
+\begin{DoxyCompactList}\small\item\em Function to stop if obstacle is detected. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_c_navigation_ab3d29f3ab4a8a922f5af439f6d78aded}{continue\+Drive}} (void)
+\begin{DoxyCompactList}\small\item\em Function to continue if obstacle is clear. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_c_navigation_aa984fc062deefed13a85d866d997de73}{is\+Corner\+Mode}} ()
+\begin{DoxyCompactList}\small\item\em Function to return if corner\+Mode is active. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_c_navigation_a9f452e6ebd491583b6d309974086c86b}\label{class_c_navigation_a9f452e6ebd491583b6d309974086c86b}} 
-bool {\bfseries rotation\+Done}
+volatile bool \mbox{\hyperlink{class_c_navigation_a069e02947303fed95655cd4ad88a96b7}{rotation\+Done}}
 \item 
-\mbox{\Hypertarget{class_c_navigation_aa28ab8bd516f40905d4d7d113dc7f89d}\label{class_c_navigation_aa28ab8bd516f40905d4d7d113dc7f89d}} 
-bool {\bfseries distance\+Done}
+volatile bool \mbox{\hyperlink{class_c_navigation_af3f718b7aa00a149c31c5682113da75e}{distance\+Done}}
 \end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
+Navigation algorithm class. 
+
+Definition at line 19 of file App\+\_\+\+Navigation.\+h.
 
 
-Definition at line 16 of file App\+\_\+\+Navigation.\+h.
+
+\subsection{Member Enumeration Documentation}
+\mbox{\Hypertarget{class_c_navigation_add9fc966c7604990edf5c2a2e0eba32c}\label{class_c_navigation_add9fc966c7604990edf5c2a2e0eba32c}} 
+\index{C\+Navigation@{C\+Navigation}!N\+A\+V\+\_\+\+S\+T\+A\+TE@{N\+A\+V\+\_\+\+S\+T\+A\+TE}}
+\index{N\+A\+V\+\_\+\+S\+T\+A\+TE@{N\+A\+V\+\_\+\+S\+T\+A\+TE}!C\+Navigation@{C\+Navigation}}
+\subsubsection{\texorpdfstring{N\+A\+V\+\_\+\+S\+T\+A\+TE}{NAV\_STATE}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{class_c_navigation_add9fc966c7604990edf5c2a2e0eba32c}{C\+Navigation\+::\+N\+A\+V\+\_\+\+S\+T\+A\+TE}}}
+
+
+
+States of navigation flow. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{S\+T\+A\+T\+E\+\_\+\+I\+D\+LE@{S\+T\+A\+T\+E\+\_\+\+I\+D\+LE}!C\+Navigation@{C\+Navigation}}\index{C\+Navigation@{C\+Navigation}!S\+T\+A\+T\+E\+\_\+\+I\+D\+LE@{S\+T\+A\+T\+E\+\_\+\+I\+D\+LE}}}\mbox{\Hypertarget{class_c_navigation_add9fc966c7604990edf5c2a2e0eba32cad43f30d3a76f0217001df58807ce35e4}\label{class_c_navigation_add9fc966c7604990edf5c2a2e0eba32cad43f30d3a76f0217001df58807ce35e4}} 
+S\+T\+A\+T\+E\+\_\+\+I\+D\+LE&Idle state. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{S\+T\+A\+T\+E\+\_\+\+G\+E\+T\+\_\+\+O\+F\+F\+S\+ET@{S\+T\+A\+T\+E\+\_\+\+G\+E\+T\+\_\+\+O\+F\+F\+S\+ET}!C\+Navigation@{C\+Navigation}}\index{C\+Navigation@{C\+Navigation}!S\+T\+A\+T\+E\+\_\+\+G\+E\+T\+\_\+\+O\+F\+F\+S\+ET@{S\+T\+A\+T\+E\+\_\+\+G\+E\+T\+\_\+\+O\+F\+F\+S\+ET}}}\mbox{\Hypertarget{class_c_navigation_add9fc966c7604990edf5c2a2e0eba32caed2dba9e927059d4fc3558e70dc9600d}\label{class_c_navigation_add9fc966c7604990edf5c2a2e0eba32caed2dba9e927059d4fc3558e70dc9600d}} 
+S\+T\+A\+T\+E\+\_\+\+G\+E\+T\+\_\+\+O\+F\+F\+S\+ET&Get offset to the side. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{S\+T\+A\+T\+E\+\_\+\+R\+O\+T\+\_\+\+W\+A\+L\+L\+\_\+\+I\+N\+F\+R\+O\+NT@{S\+T\+A\+T\+E\+\_\+\+R\+O\+T\+\_\+\+W\+A\+L\+L\+\_\+\+I\+N\+F\+R\+O\+NT}!C\+Navigation@{C\+Navigation}}\index{C\+Navigation@{C\+Navigation}!S\+T\+A\+T\+E\+\_\+\+R\+O\+T\+\_\+\+W\+A\+L\+L\+\_\+\+I\+N\+F\+R\+O\+NT@{S\+T\+A\+T\+E\+\_\+\+R\+O\+T\+\_\+\+W\+A\+L\+L\+\_\+\+I\+N\+F\+R\+O\+NT}}}\mbox{\Hypertarget{class_c_navigation_add9fc966c7604990edf5c2a2e0eba32ca98c3278af5b38d612158bf91e361666b}\label{class_c_navigation_add9fc966c7604990edf5c2a2e0eba32ca98c3278af5b38d612158bf91e361666b}} 
+S\+T\+A\+T\+E\+\_\+\+R\+O\+T\+\_\+\+W\+A\+L\+L\+\_\+\+I\+N\+F\+R\+O\+NT&Rotate right until wall is 90 degrees to drive direction. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{S\+T\+A\+T\+E\+\_\+\+C\+O\+R\+\_\+\+O\+F\+F\+S\+ET@{S\+T\+A\+T\+E\+\_\+\+C\+O\+R\+\_\+\+O\+F\+F\+S\+ET}!C\+Navigation@{C\+Navigation}}\index{C\+Navigation@{C\+Navigation}!S\+T\+A\+T\+E\+\_\+\+C\+O\+R\+\_\+\+O\+F\+F\+S\+ET@{S\+T\+A\+T\+E\+\_\+\+C\+O\+R\+\_\+\+O\+F\+F\+S\+ET}}}\mbox{\Hypertarget{class_c_navigation_add9fc966c7604990edf5c2a2e0eba32ca499b515432a6f3518ffdc0042e6a0d0a}\label{class_c_navigation_add9fc966c7604990edf5c2a2e0eba32ca499b515432a6f3518ffdc0042e6a0d0a}} 
+S\+T\+A\+T\+E\+\_\+\+C\+O\+R\+\_\+\+O\+F\+F\+S\+ET&Correct offset. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{S\+T\+A\+T\+E\+\_\+\+R\+O\+T\+\_\+\+W\+A\+L\+L\+\_\+\+O\+F\+F\+S\+ET@{S\+T\+A\+T\+E\+\_\+\+R\+O\+T\+\_\+\+W\+A\+L\+L\+\_\+\+O\+F\+F\+S\+ET}!C\+Navigation@{C\+Navigation}}\index{C\+Navigation@{C\+Navigation}!S\+T\+A\+T\+E\+\_\+\+R\+O\+T\+\_\+\+W\+A\+L\+L\+\_\+\+O\+F\+F\+S\+ET@{S\+T\+A\+T\+E\+\_\+\+R\+O\+T\+\_\+\+W\+A\+L\+L\+\_\+\+O\+F\+F\+S\+ET}}}\mbox{\Hypertarget{class_c_navigation_add9fc966c7604990edf5c2a2e0eba32cacaa28abfeaa777af95ae7de6c56c2f70}\label{class_c_navigation_add9fc966c7604990edf5c2a2e0eba32cacaa28abfeaa777af95ae7de6c56c2f70}} 
+S\+T\+A\+T\+E\+\_\+\+R\+O\+T\+\_\+\+W\+A\+L\+L\+\_\+\+O\+F\+F\+S\+ET&Rotate left 90 degrees to be parallel to wall after offset correction. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{S\+T\+A\+T\+E\+\_\+\+G\+E\+T\+\_\+\+A\+N\+G\+LE@{S\+T\+A\+T\+E\+\_\+\+G\+E\+T\+\_\+\+A\+N\+G\+LE}!C\+Navigation@{C\+Navigation}}\index{C\+Navigation@{C\+Navigation}!S\+T\+A\+T\+E\+\_\+\+G\+E\+T\+\_\+\+A\+N\+G\+LE@{S\+T\+A\+T\+E\+\_\+\+G\+E\+T\+\_\+\+A\+N\+G\+LE}}}\mbox{\Hypertarget{class_c_navigation_add9fc966c7604990edf5c2a2e0eba32caec4a96c2bd42d64f06d1d9ff729439f3}\label{class_c_navigation_add9fc966c7604990edf5c2a2e0eba32caec4a96c2bd42d64f06d1d9ff729439f3}} 
+S\+T\+A\+T\+E\+\_\+\+G\+E\+T\+\_\+\+A\+N\+G\+LE&Get wall angle. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{S\+T\+A\+T\+E\+\_\+\+R\+O\+T\+\_\+\+W\+A\+LL@{S\+T\+A\+T\+E\+\_\+\+R\+O\+T\+\_\+\+W\+A\+LL}!C\+Navigation@{C\+Navigation}}\index{C\+Navigation@{C\+Navigation}!S\+T\+A\+T\+E\+\_\+\+R\+O\+T\+\_\+\+W\+A\+LL@{S\+T\+A\+T\+E\+\_\+\+R\+O\+T\+\_\+\+W\+A\+LL}}}\mbox{\Hypertarget{class_c_navigation_add9fc966c7604990edf5c2a2e0eba32caf62bf4e18725aec5f8dcdb0b28ffad23}\label{class_c_navigation_add9fc966c7604990edf5c2a2e0eba32caf62bf4e18725aec5f8dcdb0b28ffad23}} 
+S\+T\+A\+T\+E\+\_\+\+R\+O\+T\+\_\+\+W\+A\+LL&Rotate parallel to wall. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{S\+T\+A\+T\+E\+\_\+\+D\+R\+I\+V\+E\+\_\+\+W\+A\+LL@{S\+T\+A\+T\+E\+\_\+\+D\+R\+I\+V\+E\+\_\+\+W\+A\+LL}!C\+Navigation@{C\+Navigation}}\index{C\+Navigation@{C\+Navigation}!S\+T\+A\+T\+E\+\_\+\+D\+R\+I\+V\+E\+\_\+\+W\+A\+LL@{S\+T\+A\+T\+E\+\_\+\+D\+R\+I\+V\+E\+\_\+\+W\+A\+LL}}}\mbox{\Hypertarget{class_c_navigation_add9fc966c7604990edf5c2a2e0eba32caf1c06acfa5b7fed4fa82ed8ab9c42d10}\label{class_c_navigation_add9fc966c7604990edf5c2a2e0eba32caf1c06acfa5b7fed4fa82ed8ab9c42d10}} 
+S\+T\+A\+T\+E\+\_\+\+D\+R\+I\+V\+E\+\_\+\+W\+A\+LL&Drive along wall. \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 28 of file App\+\_\+\+Navigation.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_c_navigation_a0527efabaf4644c8c4e7910efec36e82}\label{class_c_navigation_a0527efabaf4644c8c4e7910efec36e82}} 
+\index{C\+Navigation@{C\+Navigation}!C\+Navigation@{C\+Navigation}}
+\index{C\+Navigation@{C\+Navigation}!C\+Navigation@{C\+Navigation}}
+\subsubsection{\texorpdfstring{C\+Navigation()}{CNavigation()}}
+{\footnotesize\ttfamily C\+Navigation\+::\+C\+Navigation (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_c_i_c_c_comms}{C\+I\+C\+C\+Comms}} \&}]{I\+CC }\end{DoxyParamCaption})}
+
+
+
+Constructor of \mbox{\hyperlink{class_c_navigation}{C\+Navigation}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em I\+CC} & Handover of inter-\/controller communication object \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 16 of file App\+\_\+\+Navigation.\+cpp.
+
+\mbox{\Hypertarget{class_c_navigation_ae4c7c3e27ded45a94bc268634a7739da}\label{class_c_navigation_ae4c7c3e27ded45a94bc268634a7739da}} 
+\index{C\+Navigation@{C\+Navigation}!````~C\+Navigation@{$\sim$\+C\+Navigation}}
+\index{````~C\+Navigation@{$\sim$\+C\+Navigation}!C\+Navigation@{C\+Navigation}}
+\subsubsection{\texorpdfstring{$\sim$\+C\+Navigation()}{~CNavigation()}}
+{\footnotesize\ttfamily C\+Navigation\+::$\sim$\+C\+Navigation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destructor of \mbox{\hyperlink{class_c_navigation}{C\+Navigation}}. 
+
+
+
+Definition at line 26 of file App\+\_\+\+Navigation.\+cpp.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_c_navigation_abc7e30f72ee2cb33be7b0949efe1cb18}\label{class_c_navigation_abc7e30f72ee2cb33be7b0949efe1cb18}} 
+\index{C\+Navigation@{C\+Navigation}!cont\+Drive@{cont\+Drive}}
+\index{cont\+Drive@{cont\+Drive}!C\+Navigation@{C\+Navigation}}
+\subsubsection{\texorpdfstring{cont\+Drive()}{contDrive()}}
+{\footnotesize\ttfamily void C\+Navigation\+::cont\+Drive (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Continue drive after obstacle detection. 
+
+
+
+Definition at line 420 of file App\+\_\+\+Navigation.\+cpp.
+
+\mbox{\Hypertarget{class_c_navigation_ab3d29f3ab4a8a922f5af439f6d78aded}\label{class_c_navigation_ab3d29f3ab4a8a922f5af439f6d78aded}} 
+\index{C\+Navigation@{C\+Navigation}!continue\+Drive@{continue\+Drive}}
+\index{continue\+Drive@{continue\+Drive}!C\+Navigation@{C\+Navigation}}
+\subsubsection{\texorpdfstring{continue\+Drive()}{continueDrive()}}
+{\footnotesize\ttfamily void C\+Navigation\+::continue\+Drive (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Function to continue if obstacle is clear. 
+
+
+
+Definition at line 316 of file App\+\_\+\+Navigation.\+cpp.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_c_navigation_ab3d29f3ab4a8a922f5af439f6d78aded_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_c_navigation_a42982842952ac5340b54f43a661673f4}\label{class_c_navigation_a42982842952ac5340b54f43a661673f4}} 
+\index{C\+Navigation@{C\+Navigation}!get\+Current\+State@{get\+Current\+State}}
+\index{get\+Current\+State@{get\+Current\+State}!C\+Navigation@{C\+Navigation}}
+\subsubsection{\texorpdfstring{get\+Current\+State()}{getCurrentState()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_c_navigation_add9fc966c7604990edf5c2a2e0eba32c}{C\+Navigation\+::\+N\+A\+V\+\_\+\+S\+T\+A\+TE}} C\+Navigation\+::get\+Current\+State (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Function to get current state. 
+
+\begin{DoxyReturn}{Returns}
+Returns current state as \mbox{\hyperlink{class_c_navigation_add9fc966c7604990edf5c2a2e0eba32c}{C\+Navigation\+::\+N\+A\+V\+\_\+\+S\+T\+A\+TE}} 
+\end{DoxyReturn}
+
+
+Definition at line 444 of file App\+\_\+\+Navigation.\+cpp.
+
+\mbox{\Hypertarget{class_c_navigation_afef253f37646558a755d956ecf2fc6e9}\label{class_c_navigation_afef253f37646558a755d956ecf2fc6e9}} 
+\index{C\+Navigation@{C\+Navigation}!get\+Next\+State@{get\+Next\+State}}
+\index{get\+Next\+State@{get\+Next\+State}!C\+Navigation@{C\+Navigation}}
+\subsubsection{\texorpdfstring{get\+Next\+State()}{getNextState()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_c_navigation_add9fc966c7604990edf5c2a2e0eba32c}{C\+Navigation\+::\+N\+A\+V\+\_\+\+S\+T\+A\+TE}} C\+Navigation\+::get\+Next\+State (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Function to get next state. 
+
+\begin{DoxyReturn}{Returns}
+Returns next state as \mbox{\hyperlink{class_c_navigation_add9fc966c7604990edf5c2a2e0eba32c}{C\+Navigation\+::\+N\+A\+V\+\_\+\+S\+T\+A\+TE}} 
+\end{DoxyReturn}
+
+
+Definition at line 453 of file App\+\_\+\+Navigation.\+cpp.
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=338pt]{class_c_navigation_afef253f37646558a755d956ecf2fc6e9_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_c_navigation_a86a0756663ccf76e9c474764b8f7a04f}\label{class_c_navigation_a86a0756663ccf76e9c474764b8f7a04f}} 
+\index{C\+Navigation@{C\+Navigation}!Init@{Init}}
+\index{Init@{Init}!C\+Navigation@{C\+Navigation}}
+\subsubsection{\texorpdfstring{Init()}{Init()}}
+{\footnotesize\ttfamily void C\+Navigation\+::\+Init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Initialization function of \mbox{\hyperlink{class_c_navigation}{C\+Navigation}}. 
+
+
+
+Implements \mbox{\hyperlink{class_i_task___i_f_a28f608bdb9b19658403f7b9b7421968d}{I\+Task\+\_\+\+IF}}.
+
+
+
+Definition at line 31 of file App\+\_\+\+Navigation.\+cpp.
+
+\mbox{\Hypertarget{class_c_navigation_aa984fc062deefed13a85d866d997de73}\label{class_c_navigation_aa984fc062deefed13a85d866d997de73}} 
+\index{C\+Navigation@{C\+Navigation}!is\+Corner\+Mode@{is\+Corner\+Mode}}
+\index{is\+Corner\+Mode@{is\+Corner\+Mode}!C\+Navigation@{C\+Navigation}}
+\subsubsection{\texorpdfstring{is\+Corner\+Mode()}{isCornerMode()}}
+{\footnotesize\ttfamily bool C\+Navigation\+::is\+Corner\+Mode (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Function to return if corner\+Mode is active. 
+
+\begin{DoxyReturn}{Returns}
+Returns current state of corner mode (active = true) 
+\end{DoxyReturn}
+
+
+Definition at line 78 of file App\+\_\+\+Navigation.\+cpp.
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=340pt]{class_c_navigation_aa984fc062deefed13a85d866d997de73_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_c_navigation_a27649dc6324360829d42aea67e88e3ee}\label{class_c_navigation_a27649dc6324360829d42aea67e88e3ee}} 
+\index{C\+Navigation@{C\+Navigation}!pause\+Drive@{pause\+Drive}}
+\index{pause\+Drive@{pause\+Drive}!C\+Navigation@{C\+Navigation}}
+\subsubsection{\texorpdfstring{pause\+Drive()}{pauseDrive()}}
+{\footnotesize\ttfamily void C\+Navigation\+::pause\+Drive (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Pause drive due to obstacle detection. 
+
+
+
+Definition at line 429 of file App\+\_\+\+Navigation.\+cpp.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_c_navigation_a27649dc6324360829d42aea67e88e3ee_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=327pt]{class_c_navigation_a27649dc6324360829d42aea67e88e3ee_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_c_navigation_ac491c77788ba2e953a704b6ad622a665}\label{class_c_navigation_ac491c77788ba2e953a704b6ad622a665}} 
+\index{C\+Navigation@{C\+Navigation}!print\+Changed\+Debug\+Info@{print\+Changed\+Debug\+Info}}
+\index{print\+Changed\+Debug\+Info@{print\+Changed\+Debug\+Info}!C\+Navigation@{C\+Navigation}}
+\subsubsection{\texorpdfstring{print\+Changed\+Debug\+Info()}{printChangedDebugInfo()}}
+{\footnotesize\ttfamily void C\+Navigation\+::print\+Changed\+Debug\+Info (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Debug function to print current status of state flow if changed. 
+
+
+
+Definition at line 199 of file App\+\_\+\+Navigation.\+cpp.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_c_navigation_ac491c77788ba2e953a704b6ad622a665_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=282pt]{class_c_navigation_ac491c77788ba2e953a704b6ad622a665_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_c_navigation_a84e320cd8975593ab6f966e8794b2886}\label{class_c_navigation_a84e320cd8975593ab6f966e8794b2886}} 
+\index{C\+Navigation@{C\+Navigation}!print\+Debug\+Info@{print\+Debug\+Info}}
+\index{print\+Debug\+Info@{print\+Debug\+Info}!C\+Navigation@{C\+Navigation}}
+\subsubsection{\texorpdfstring{print\+Debug\+Info()}{printDebugInfo()}}
+{\footnotesize\ttfamily void C\+Navigation\+::print\+Debug\+Info (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Debug function to print current status of state flow. 
+
+
+
+Definition at line 226 of file App\+\_\+\+Navigation.\+cpp.
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_c_navigation_a84e320cd8975593ab6f966e8794b2886_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_c_navigation_a86acb1521aab400e542465c8eabed671}\label{class_c_navigation_a86acb1521aab400e542465c8eabed671}} 
+\index{C\+Navigation@{C\+Navigation}!Run@{Run}}
+\index{Run@{Run}!C\+Navigation@{C\+Navigation}}
+\subsubsection{\texorpdfstring{Run()}{Run()}}
+{\footnotesize\ttfamily void C\+Navigation\+::\+Run (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Run function of \mbox{\hyperlink{class_c_navigation}{C\+Navigation}} which is periodically called by \mbox{\hyperlink{class_c_task_ctrl}{C\+Task\+Ctrl}}. 
+
+Reads data from I\+CC, gets data from P\+LS and calculates navigation. 
+
+Implements \mbox{\hyperlink{class_i_task___i_f_ab73cc5879a61d00fc59b72cce32cc6f7}{I\+Task\+\_\+\+IF}}.
+
+
+
+Definition at line 40 of file App\+\_\+\+Navigation.\+cpp.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_c_navigation_a86acb1521aab400e542465c8eabed671_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_c_navigation_a53f0409677e36f62ef232f7e15b32948}\label{class_c_navigation_a53f0409677e36f62ef232f7e15b32948}} 
+\index{C\+Navigation@{C\+Navigation}!set\+P\+L\+Sdata@{set\+P\+L\+Sdata}}
+\index{set\+P\+L\+Sdata@{set\+P\+L\+Sdata}!C\+Navigation@{C\+Navigation}}
+\subsubsection{\texorpdfstring{set\+P\+L\+Sdata()}{setPLSdata()}}
+{\footnotesize\ttfamily void C\+Navigation\+::set\+P\+L\+Sdata (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_a_d_a_s___types_8h_a1f1825b69244eb3ad2c7165ddc99c956}{uint16\+\_\+t}}}]{offset,  }\item[{int8\+\_\+t}]{angle,  }\item[{\mbox{\hyperlink{_a_d_a_s___types_8h_a1f1825b69244eb3ad2c7165ddc99c956}{uint16\+\_\+t}}}]{nxt\+\_\+wall }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Function to set the current value of offset position to wall, current angle of the wall and current distance to wall in front to the input buffer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em offset} & Offset to right wall in cm \\
+\hline
+{\em angle} & Angle of right wall in degrees \\
+\hline
+{\em nxt\+\_\+wall} & Distance to wall in front in cm \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 89 of file App\+\_\+\+Navigation.\+cpp.
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=331pt]{class_c_navigation_a53f0409677e36f62ef232f7e15b32948_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_c_navigation_a3cc8f7fdd003d6b2c5056b87ff93edd9}\label{class_c_navigation_a3cc8f7fdd003d6b2c5056b87ff93edd9}} 
+\index{C\+Navigation@{C\+Navigation}!Stop@{Stop}}
+\index{Stop@{Stop}!C\+Navigation@{C\+Navigation}}
+\subsubsection{\texorpdfstring{Stop()}{Stop()}}
+{\footnotesize\ttfamily void C\+Navigation\+::\+Stop (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Stop function of \mbox{\hyperlink{class_c_navigation}{C\+Navigation}}. 
+
+
+
+Implements \mbox{\hyperlink{class_i_task___i_f_af5f8fba86704c7e36d0e4681d58300c6}{I\+Task\+\_\+\+IF}}.
+
+
+
+Definition at line 64 of file App\+\_\+\+Navigation.\+cpp.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=334pt]{class_c_navigation_a3cc8f7fdd003d6b2c5056b87ff93edd9_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_c_navigation_a06ce71124d487f1f9febf36a0e4b2a5d}\label{class_c_navigation_a06ce71124d487f1f9febf36a0e4b2a5d}} 
+\index{C\+Navigation@{C\+Navigation}!stop\+Drive@{stop\+Drive}}
+\index{stop\+Drive@{stop\+Drive}!C\+Navigation@{C\+Navigation}}
+\subsubsection{\texorpdfstring{stop\+Drive()}{stopDrive()}}
+{\footnotesize\ttfamily void C\+Navigation\+::stop\+Drive (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Function to stop if obstacle is detected. 
+
+
+
+Definition at line 328 of file App\+\_\+\+Navigation.\+cpp.
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=323pt]{class_c_navigation_a06ce71124d487f1f9febf36a0e4b2a5d_icgraph}
+\end{center}
+\end{figure}
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_c_navigation_af3f718b7aa00a149c31c5682113da75e}\label{class_c_navigation_af3f718b7aa00a149c31c5682113da75e}} 
+\index{C\+Navigation@{C\+Navigation}!distance\+Done@{distance\+Done}}
+\index{distance\+Done@{distance\+Done}!C\+Navigation@{C\+Navigation}}
+\subsubsection{\texorpdfstring{distance\+Done}{distanceDone}}
+{\footnotesize\ttfamily volatile bool C\+Navigation\+::distance\+Done}
+
+Parameter to show that distance is reached 
+
+Definition at line 94 of file App\+\_\+\+Navigation.\+h.
+
+\mbox{\Hypertarget{class_c_navigation_a069e02947303fed95655cd4ad88a96b7}\label{class_c_navigation_a069e02947303fed95655cd4ad88a96b7}} 
+\index{C\+Navigation@{C\+Navigation}!rotation\+Done@{rotation\+Done}}
+\index{rotation\+Done@{rotation\+Done}!C\+Navigation@{C\+Navigation}}
+\subsubsection{\texorpdfstring{rotation\+Done}{rotationDone}}
+{\footnotesize\ttfamily volatile bool C\+Navigation\+::rotation\+Done}
+
+Parameter to show that rotation is finished 
+
+Definition at line 89 of file App\+\_\+\+Navigation.\+h.
 
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-/\+Volumes/\+Macintosh S\+D/\+Github/\+A\+D\+A\+S/06\+\_\+source/\+A\+D\+A\+S/\+A\+D\+A\+S\+\_\+\+Nav\+U/App\+\_\+\+Navigation.\+h\item 
-/\+Volumes/\+Macintosh S\+D/\+Github/\+A\+D\+A\+S/06\+\_\+source/\+A\+D\+A\+S/\+A\+D\+A\+S\+\_\+\+Nav\+U/App\+\_\+\+Navigation.\+cpp\end{DoxyCompactItemize}
+\mbox{\hyperlink{_app___navigation_8h}{App\+\_\+\+Navigation.\+h}}\item 
+\mbox{\hyperlink{_app___navigation_8cpp}{App\+\_\+\+Navigation.\+cpp}}\end{DoxyCompactItemize}

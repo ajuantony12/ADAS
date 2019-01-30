@@ -1,53 +1,325 @@
 \hypertarget{class_c_serial}{}\section{C\+Serial Class Reference}
-\label{class_c_serial}\index{CSerial@{CSerial}}
+\label{class_c_serial}\index{C\+Serial@{C\+Serial}}
+
+
+Hardware Abstraction Layer (H\+AL) Serial class.  
+
+
+
+
+{\ttfamily \#include $<$H\+A\+L\+\_\+\+Serial\+\_\+\+I\+F.\+h$>$}
+
+
+
+Collaboration diagram for C\+Serial\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=198pt]{class_c_serial__coll__graph}
+\end{center}
+\end{figure}
 \subsection*{Public Types}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_c_serial_a000039540cc90b18bafacf5744e7eda2}\label{class_c_serial_a000039540cc90b18bafacf5744e7eda2}} 
-enum {\bfseries Port\+I\+D\+\_\+e} \{ {\bfseries S1}, 
-{\bfseries S2}
+enum \mbox{\hyperlink{class_c_serial_a000039540cc90b18bafacf5744e7eda2}{Port\+I\+D\+\_\+e}} \{ \mbox{\hyperlink{class_c_serial_a000039540cc90b18bafacf5744e7eda2a2a245d3c55e5b6e7052daf261924ce08}{S1}}, 
+\mbox{\hyperlink{class_c_serial_a000039540cc90b18bafacf5744e7eda2a8cc95f4591147b0df028e003f82220a1}{S2}}
  \}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Serial interface definition. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_c_serial_a3b2b31de1529b884b8d5e354586ee981}\label{class_c_serial_a3b2b31de1529b884b8d5e354586ee981}} 
-{\bfseries C\+Serial} (Port\+I\+D\+\_\+e i\+\_\+\+ID, uint16\+\_\+t i\+\_\+buf\+Len)
-\item 
-\mbox{\Hypertarget{class_c_serial_aed500bd204c4b37665d6d228333edafb}\label{class_c_serial_aed500bd204c4b37665d6d228333edafb}} 
-void {\bfseries Init} (void)
-\item 
-\mbox{\Hypertarget{class_c_serial_ae5bec6d6a1c75839ae02cf0069d1f08e}\label{class_c_serial_ae5bec6d6a1c75839ae02cf0069d1f08e}} 
-bool {\bfseries Send} (char Buff\mbox{[}$\,$\mbox{]}, uint8\+\_\+t len)
-\item 
-\mbox{\Hypertarget{class_c_serial_abb43734223d937a86e7616636ea16024}\label{class_c_serial_abb43734223d937a86e7616636ea16024}} 
-bool {\bfseries Available} (void)
-\item 
-\mbox{\Hypertarget{class_c_serial_a4327d6041fe9a390612b214709027cbb}\label{class_c_serial_a4327d6041fe9a390612b214709027cbb}} 
-uint16\+\_\+t {\bfseries Get\+Data\+Len} (void)
-\item 
-\mbox{\Hypertarget{class_c_serial_abad86c07f530569b2ceeea75bda485ad}\label{class_c_serial_abad86c07f530569b2ceeea75bda485ad}} 
-bool {\bfseries Get\+Data} (uint8\+\_\+t $\ast$data, uint16\+\_\+t len)
-\item 
-\mbox{\Hypertarget{class_c_serial_a941e5cae2ca04518925a3b32f51110a6}\label{class_c_serial_a941e5cae2ca04518925a3b32f51110a6}} 
-void {\bfseries Release\+Buffer} (void)
-\item 
-\mbox{\Hypertarget{class_c_serial_a707841754d94fc1ab6679f52bf413d85}\label{class_c_serial_a707841754d94fc1ab6679f52bf413d85}} 
-void {\bfseries Serial\+I\+S\+Rcomm\+P\+LS} (void)
-\item 
-\mbox{\Hypertarget{class_c_serial_a974812db5ced18cb9a6a73dc9034e7c8}\label{class_c_serial_a974812db5ced18cb9a6a73dc9034e7c8}} 
-void {\bfseries Serial\+I\+S\+Rcomm\+I\+CC} (void)
-\end{DoxyCompactItemize}
+\mbox{\hyperlink{class_c_serial_a3b2b31de1529b884b8d5e354586ee981}{C\+Serial}} (\mbox{\hyperlink{class_c_serial_a000039540cc90b18bafacf5744e7eda2}{Port\+I\+D\+\_\+e}} i\+\_\+\+ID, \mbox{\hyperlink{_a_d_a_s___types_8h_a1f1825b69244eb3ad2c7165ddc99c956}{uint16\+\_\+t}} i\+\_\+buf\+Len)
+\begin{DoxyCompactList}\small\item\em Constructor of \mbox{\hyperlink{class_c_serial}{C\+Serial}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_c_serial_aff5444dd7e6a9ddc43cbce0e959edf7a}{$\sim$\+C\+Serial}} ()
+\begin{DoxyCompactList}\small\item\em Destructor of \mbox{\hyperlink{class_c_serial}{C\+Serial}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_c_serial_aed500bd204c4b37665d6d228333edafb}{Init}} (void)
+\begin{DoxyCompactList}\small\item\em Initialization function of \mbox{\hyperlink{class_c_serial}{C\+Serial}}. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_c_serial_ae5bec6d6a1c75839ae02cf0069d1f08e}{Send}} (char Buff\mbox{[}$\,$\mbox{]}, \mbox{\hyperlink{_a_d_a_s___types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} len)
+\begin{DoxyCompactList}\small\item\em Function to send data in transmit buffer. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_c_serial_abb43734223d937a86e7616636ea16024}{Available}} (void)
+\begin{DoxyCompactList}\small\item\em Function to check availability of received data. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{_a_d_a_s___types_8h_a1f1825b69244eb3ad2c7165ddc99c956}{uint16\+\_\+t}} \mbox{\hyperlink{class_c_serial_a4327d6041fe9a390612b214709027cbb}{Get\+Data\+Len}} (void)
+\begin{DoxyCompactList}\small\item\em Function to get length of data. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_c_serial_abad86c07f530569b2ceeea75bda485ad}{Get\+Data}} (\mbox{\hyperlink{_a_d_a_s___types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} $\ast$data, \mbox{\hyperlink{_a_d_a_s___types_8h_a1f1825b69244eb3ad2c7165ddc99c956}{uint16\+\_\+t}} len)
+\begin{DoxyCompactList}\small\item\em Function to read data from buffer. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_c_serial_a941e5cae2ca04518925a3b32f51110a6}{Release\+Buffer}} (void)
+\begin{DoxyCompactList}\small\item\em Function to release buffer. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_c_serial_a707841754d94fc1ab6679f52bf413d85}{Serial\+I\+S\+Rcomm\+P\+LS}} (void)
+\begin{DoxyCompactList}\small\item\em Function for I\+SR U\+S\+A\+R\+Tn\+\_\+\+R\+X\+\_\+vect for P\+LS communication. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_c_serial_a974812db5ced18cb9a6a73dc9034e7c8}{Serial\+I\+S\+Rcomm\+I\+CC}} (void)
+\begin{DoxyCompactList}\small\item\em Function for I\+SR U\+S\+A\+R\+Tn\+\_\+\+R\+X\+\_\+vect for inter-\/controller communication. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
+Hardware Abstraction Layer (H\+AL) Serial class. 
+
+Definition at line 15 of file H\+A\+L\+\_\+\+Serial\+\_\+\+I\+F.\+h.
 
 
-Definition at line 11 of file H\+A\+L\+\_\+\+Serial\+\_\+\+I\+F.\+h.
 
+\subsection{Member Enumeration Documentation}
+\mbox{\Hypertarget{class_c_serial_a000039540cc90b18bafacf5744e7eda2}\label{class_c_serial_a000039540cc90b18bafacf5744e7eda2}} 
+\index{C\+Serial@{C\+Serial}!Port\+I\+D\+\_\+e@{Port\+I\+D\+\_\+e}}
+\index{Port\+I\+D\+\_\+e@{Port\+I\+D\+\_\+e}!C\+Serial@{C\+Serial}}
+\subsubsection{\texorpdfstring{Port\+I\+D\+\_\+e}{PortID\_e}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{class_c_serial_a000039540cc90b18bafacf5744e7eda2}{C\+Serial\+::\+Port\+I\+D\+\_\+e}}}
+
+
+
+Serial interface definition. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{S1@{S1}!C\+Serial@{C\+Serial}}\index{C\+Serial@{C\+Serial}!S1@{S1}}}\mbox{\Hypertarget{class_c_serial_a000039540cc90b18bafacf5744e7eda2a2a245d3c55e5b6e7052daf261924ce08}\label{class_c_serial_a000039540cc90b18bafacf5744e7eda2a2a245d3c55e5b6e7052daf261924ce08}} 
+S1&Serial interface 1 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{S2@{S2}!C\+Serial@{C\+Serial}}\index{C\+Serial@{C\+Serial}!S2@{S2}}}\mbox{\Hypertarget{class_c_serial_a000039540cc90b18bafacf5744e7eda2a8cc95f4591147b0df028e003f82220a1}\label{class_c_serial_a000039540cc90b18bafacf5744e7eda2a8cc95f4591147b0df028e003f82220a1}} 
+S2&Serial interface 2 \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 22 of file H\+A\+L\+\_\+\+Serial\+\_\+\+I\+F.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_c_serial_a3b2b31de1529b884b8d5e354586ee981}\label{class_c_serial_a3b2b31de1529b884b8d5e354586ee981}} 
+\index{C\+Serial@{C\+Serial}!C\+Serial@{C\+Serial}}
+\index{C\+Serial@{C\+Serial}!C\+Serial@{C\+Serial}}
+\subsubsection{\texorpdfstring{C\+Serial()}{CSerial()}}
+{\footnotesize\ttfamily C\+Serial\+::\+C\+Serial (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_c_serial_a000039540cc90b18bafacf5744e7eda2}{Port\+I\+D\+\_\+e}}}]{i\+\_\+\+ID,  }\item[{\mbox{\hyperlink{_a_d_a_s___types_8h_a1f1825b69244eb3ad2c7165ddc99c956}{uint16\+\_\+t}}}]{i\+\_\+buf\+Len }\end{DoxyParamCaption})}
+
+
+
+Constructor of \mbox{\hyperlink{class_c_serial}{C\+Serial}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i\+\_\+\+ID} & Selection of serial interace e.\+g. S1 for Serial interface 1 \\
+\hline
+{\em i\+\_\+buf\+Len} & Length of receiving buffer \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 19 of file H\+A\+L\+\_\+\+Serial\+\_\+\+I\+F.\+cpp.
+
+\mbox{\Hypertarget{class_c_serial_aff5444dd7e6a9ddc43cbce0e959edf7a}\label{class_c_serial_aff5444dd7e6a9ddc43cbce0e959edf7a}} 
+\index{C\+Serial@{C\+Serial}!````~C\+Serial@{$\sim$\+C\+Serial}}
+\index{````~C\+Serial@{$\sim$\+C\+Serial}!C\+Serial@{C\+Serial}}
+\subsubsection{\texorpdfstring{$\sim$\+C\+Serial()}{~CSerial()}}
+{\footnotesize\ttfamily C\+Serial\+::$\sim$\+C\+Serial (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destructor of \mbox{\hyperlink{class_c_serial}{C\+Serial}}. 
+
+
+
+Definition at line 30 of file H\+A\+L\+\_\+\+Serial\+\_\+\+I\+F.\+cpp.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_c_serial_abb43734223d937a86e7616636ea16024}\label{class_c_serial_abb43734223d937a86e7616636ea16024}} 
+\index{C\+Serial@{C\+Serial}!Available@{Available}}
+\index{Available@{Available}!C\+Serial@{C\+Serial}}
+\subsubsection{\texorpdfstring{Available()}{Available()}}
+{\footnotesize\ttfamily bool C\+Serial\+::\+Available (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Function to check availability of received data. 
+
+\begin{DoxyReturn}{Returns}
+Returns a true if data in buffer is available 
+\end{DoxyReturn}
+
+
+Definition at line 128 of file H\+A\+L\+\_\+\+Serial\+\_\+\+I\+F.\+cpp.
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_c_serial_abb43734223d937a86e7616636ea16024_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_c_serial_abad86c07f530569b2ceeea75bda485ad}\label{class_c_serial_abad86c07f530569b2ceeea75bda485ad}} 
+\index{C\+Serial@{C\+Serial}!Get\+Data@{Get\+Data}}
+\index{Get\+Data@{Get\+Data}!C\+Serial@{C\+Serial}}
+\subsubsection{\texorpdfstring{Get\+Data()}{GetData()}}
+{\footnotesize\ttfamily bool C\+Serial\+::\+Get\+Data (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_a_d_a_s___types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} $\ast$}]{data,  }\item[{\mbox{\hyperlink{_a_d_a_s___types_8h_a1f1825b69244eb3ad2c7165ddc99c956}{uint16\+\_\+t}}}]{len }\end{DoxyParamCaption})}
+
+
+
+Function to read data from buffer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & Pointer to destination where data shall be saved \\
+\hline
+{\em len} & Length of received data \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns a true of data is read 
+\end{DoxyReturn}
+
+
+Definition at line 148 of file H\+A\+L\+\_\+\+Serial\+\_\+\+I\+F.\+cpp.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=320pt]{class_c_serial_abad86c07f530569b2ceeea75bda485ad_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_c_serial_abad86c07f530569b2ceeea75bda485ad_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_c_serial_a4327d6041fe9a390612b214709027cbb}\label{class_c_serial_a4327d6041fe9a390612b214709027cbb}} 
+\index{C\+Serial@{C\+Serial}!Get\+Data\+Len@{Get\+Data\+Len}}
+\index{Get\+Data\+Len@{Get\+Data\+Len}!C\+Serial@{C\+Serial}}
+\subsubsection{\texorpdfstring{Get\+Data\+Len()}{GetDataLen()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_a_d_a_s___types_8h_a1f1825b69244eb3ad2c7165ddc99c956}{uint16\+\_\+t}} C\+Serial\+::\+Get\+Data\+Len (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Function to get length of data. 
+
+\begin{DoxyReturn}{Returns}
+Returns length of data 
+\end{DoxyReturn}
+
+
+Definition at line 137 of file H\+A\+L\+\_\+\+Serial\+\_\+\+I\+F.\+cpp.
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_c_serial_a4327d6041fe9a390612b214709027cbb_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_c_serial_aed500bd204c4b37665d6d228333edafb}\label{class_c_serial_aed500bd204c4b37665d6d228333edafb}} 
+\index{C\+Serial@{C\+Serial}!Init@{Init}}
+\index{Init@{Init}!C\+Serial@{C\+Serial}}
+\subsubsection{\texorpdfstring{Init()}{Init()}}
+{\footnotesize\ttfamily void C\+Serial\+::\+Init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Initialization function of \mbox{\hyperlink{class_c_serial}{C\+Serial}}. 
+
+
+
+Definition at line 39 of file H\+A\+L\+\_\+\+Serial\+\_\+\+I\+F.\+cpp.
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=224pt]{class_c_serial_aed500bd204c4b37665d6d228333edafb_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_c_serial_a941e5cae2ca04518925a3b32f51110a6}\label{class_c_serial_a941e5cae2ca04518925a3b32f51110a6}} 
+\index{C\+Serial@{C\+Serial}!Release\+Buffer@{Release\+Buffer}}
+\index{Release\+Buffer@{Release\+Buffer}!C\+Serial@{C\+Serial}}
+\subsubsection{\texorpdfstring{Release\+Buffer()}{ReleaseBuffer()}}
+{\footnotesize\ttfamily void C\+Serial\+::\+Release\+Buffer (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Function to release buffer. 
+
+
+
+Definition at line 161 of file H\+A\+L\+\_\+\+Serial\+\_\+\+I\+F.\+cpp.
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_c_serial_a941e5cae2ca04518925a3b32f51110a6_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_c_serial_ae5bec6d6a1c75839ae02cf0069d1f08e}\label{class_c_serial_ae5bec6d6a1c75839ae02cf0069d1f08e}} 
+\index{C\+Serial@{C\+Serial}!Send@{Send}}
+\index{Send@{Send}!C\+Serial@{C\+Serial}}
+\subsubsection{\texorpdfstring{Send()}{Send()}}
+{\footnotesize\ttfamily bool C\+Serial\+::\+Send (\begin{DoxyParamCaption}\item[{char}]{Buff\mbox{[}$\,$\mbox{]},  }\item[{\mbox{\hyperlink{_a_d_a_s___types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}}}]{len }\end{DoxyParamCaption})}
+
+
+
+Function to send data in transmit buffer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Buff} & Handover of transmit buffer \\
+\hline
+{\em len} & Length of data \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns a true if successfully sent 
+\end{DoxyReturn}
+
+
+Definition at line 97 of file H\+A\+L\+\_\+\+Serial\+\_\+\+I\+F.\+cpp.
+
+\mbox{\Hypertarget{class_c_serial_a974812db5ced18cb9a6a73dc9034e7c8}\label{class_c_serial_a974812db5ced18cb9a6a73dc9034e7c8}} 
+\index{C\+Serial@{C\+Serial}!Serial\+I\+S\+Rcomm\+I\+CC@{Serial\+I\+S\+Rcomm\+I\+CC}}
+\index{Serial\+I\+S\+Rcomm\+I\+CC@{Serial\+I\+S\+Rcomm\+I\+CC}!C\+Serial@{C\+Serial}}
+\subsubsection{\texorpdfstring{Serial\+I\+S\+Rcomm\+I\+C\+C()}{SerialISRcommICC()}}
+{\footnotesize\ttfamily void C\+Serial\+::\+Serial\+I\+S\+Rcomm\+I\+CC (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Function for I\+SR U\+S\+A\+R\+Tn\+\_\+\+R\+X\+\_\+vect for inter-\/controller communication. 
+
+
+
+Definition at line 215 of file H\+A\+L\+\_\+\+Serial\+\_\+\+I\+F.\+cpp.
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=285pt]{class_c_serial_a974812db5ced18cb9a6a73dc9034e7c8_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_c_serial_a707841754d94fc1ab6679f52bf413d85}\label{class_c_serial_a707841754d94fc1ab6679f52bf413d85}} 
+\index{C\+Serial@{C\+Serial}!Serial\+I\+S\+Rcomm\+P\+LS@{Serial\+I\+S\+Rcomm\+P\+LS}}
+\index{Serial\+I\+S\+Rcomm\+P\+LS@{Serial\+I\+S\+Rcomm\+P\+LS}!C\+Serial@{C\+Serial}}
+\subsubsection{\texorpdfstring{Serial\+I\+S\+Rcomm\+P\+L\+S()}{SerialISRcommPLS()}}
+{\footnotesize\ttfamily void C\+Serial\+::\+Serial\+I\+S\+Rcomm\+P\+LS (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Function for I\+SR U\+S\+A\+R\+Tn\+\_\+\+R\+X\+\_\+vect for P\+LS communication. 
+
+
+
+Definition at line 169 of file H\+A\+L\+\_\+\+Serial\+\_\+\+I\+F.\+cpp.
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=288pt]{class_c_serial_a707841754d94fc1ab6679f52bf413d85_icgraph}
+\end{center}
+\end{figure}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-/\+Volumes/\+Macintosh S\+D/\+Github/\+A\+D\+A\+S/06\+\_\+source/\+A\+D\+A\+S/\+A\+D\+A\+S\+\_\+\+Nav\+U/H\+A\+L\+\_\+\+Serial\+\_\+\+I\+F.\+h\item 
-/\+Volumes/\+Macintosh S\+D/\+Github/\+A\+D\+A\+S/06\+\_\+source/\+A\+D\+A\+S/\+A\+D\+A\+S\+\_\+\+Nav\+U/H\+A\+L\+\_\+\+Serial\+\_\+\+I\+F.\+cpp\end{DoxyCompactItemize}
+\mbox{\hyperlink{_h_a_l___serial___i_f_8h}{H\+A\+L\+\_\+\+Serial\+\_\+\+I\+F.\+h}}\item 
+\mbox{\hyperlink{_h_a_l___serial___i_f_8cpp}{H\+A\+L\+\_\+\+Serial\+\_\+\+I\+F.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,7 @@
+<map id="CNavigation::Run" name="CNavigation::Run">
+<area shape="rect" id="node2" href="$class_c_i_c_c_comms.html#a8b3fa81307b3b9ba0e72b4aee8279c56" title="Run function of CICCComms which is periodically called by CNavigation. " alt="" coords="198,31,326,57"/>
+<area shape="rect" id="node6" href="$class_c_navigation.html#afef253f37646558a755d956ecf2fc6e9" title="Function to get next state. " alt="" coords="175,81,349,108"/>
+<area shape="rect" id="node3" href="$class_c_serial.html#abb43734223d937a86e7616636ea16024" title="Function to check availability of received data. " alt="" coords="397,5,520,32"/>
+<area shape="rect" id="node4" href="$class_c_serial.html#abad86c07f530569b2ceeea75bda485ad" title="Function to read data from buffer. " alt="" coords="399,56,519,83"/>
+<area shape="rect" id="node5" href="$class_c_serial.html#a941e5cae2ca04518925a3b32f51110a6" title="Function to release buffer. " alt="" coords="568,56,720,83"/>
+</map>

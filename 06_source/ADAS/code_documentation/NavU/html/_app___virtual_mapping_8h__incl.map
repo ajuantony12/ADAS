@@ -1,0 +1,11 @@
+<map id="App_VirtualMapping.h" name="App_VirtualMapping.h">
+<area shape="rect" id="node2" href="$_task___i_f_8h.html" title="Task_if.h" alt="" coords="617,155,691,181"/>
+<area shape="rect" id="node3" href="$_a_d_a_s___types_8h.html" title="ADAS_Types.h" alt="" coords="221,304,332,331"/>
+<area shape="rect" id="node4" href="$_comm___p_l_s_8h.html" title="Comm_PLS.h" alt="" coords="25,155,128,181"/>
+<area shape="rect" id="node8" href="$_app___navigation_8h.html" title="Application file for navigation. " alt="" coords="467,80,590,107"/>
+<area shape="rect" id="node5" href="$_a_d_a_s___cfg_8h.html" title="This file contains the configuration of the vehicle. " alt="" coords="315,229,409,256"/>
+<area shape="rect" id="node6" href="$_h_a_l___serial___i_f_8h.html" title="Hardware Abstraction Layer (HAL) to serial interface. " alt="" coords="24,229,140,256"/>
+<area shape="rect" id="node7" href="$_cbuffer_8h.html" title="CBuffer.h" alt="" coords="165,229,239,256"/>
+<area shape="rect" id="node10" href="$_a_d_a_s___debug_8h.html" title="This file contains redefinition of the serial functions for debugging purpose. " alt="" coords="276,155,389,181"/>
+<area shape="rect" id="node11" href="$_comm___i_c_c_8h.html" title="Communication file for Inter&#45;Controller Communication (ICC) " alt="" coords="153,155,251,181"/>
+</map>

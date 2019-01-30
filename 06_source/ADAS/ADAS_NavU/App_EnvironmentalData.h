@@ -1,8 +1,10 @@
-/*H**********************************************************************
-  FILENAME :        App_EnvironmentalData.h
-
-  DESCRIPTION : Environmetal data (e.g. battery voltage) module
-*************************************************************************/
+/**
+* @file App_EnvironmentalData.h
+* @author Christoph Jurczyk
+* @date January 30, 2019
+* @brief Application file for environmental data
+*
+*/
 
 #include "Task_if.h"
 #include "ADAS_Types.h"
@@ -13,6 +15,7 @@
 #ifndef APP_ENVIRONMENTALDATA_H
 #define APP_ENVIRONMENTALDATA_H
 
+//! Environmental Data Class
 class CEnvironmentalData: public ITask_IF
 {
   public:

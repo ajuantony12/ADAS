@@ -1,5 +1,18 @@
 \hypertarget{class_c_p_l_s_comms}{}\section{C\+P\+L\+S\+Comms Class Reference}
-\label{class_c_p_l_s_comms}\index{CPLSComms@{CPLSComms}}
+\label{class_c_p_l_s_comms}\index{C\+P\+L\+S\+Comms@{C\+P\+L\+S\+Comms}}
+
+
+{\ttfamily \#include $<$Comm\+\_\+\+P\+L\+S.\+h$>$}
+
+
+
+Collaboration diagram for C\+P\+L\+S\+Comms\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=212pt]{class_c_p_l_s_comms__coll__graph}
+\end{center}
+\end{figure}
 \subsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
@@ -8,40 +21,34 @@ struct \mbox{\hyperlink{struct_c_p_l_s_comms_1_1_message__t}{Message\+\_\+t}}
 \subsection*{Public Types}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_c_p_l_s_comms_a765bc36363f75f4faf4fd2b41d440159}\label{class_c_p_l_s_comms_a765bc36363f75f4faf4fd2b41d440159}} 
-enum {\bfseries Status\+\_\+e} \{ \newline
-{\bfseries Msg\+Success} =0, 
-{\bfseries C\+R\+C\+Check\+Fail} = 1, 
-{\bfseries Comms\+Error} = 2, 
-{\bfseries Partial\+Msg} = 3, 
+enum \mbox{\hyperlink{class_c_p_l_s_comms_a765bc36363f75f4faf4fd2b41d440159}{Status\+\_\+e}} \{ \newline
+\mbox{\hyperlink{class_c_p_l_s_comms_a765bc36363f75f4faf4fd2b41d440159ae570dcdfbc45793ba4555a0affd13537}{Msg\+Success}} =0, 
+\mbox{\hyperlink{class_c_p_l_s_comms_a765bc36363f75f4faf4fd2b41d440159a864f2f53e22e459265224c734bb9dd68}{C\+R\+C\+Check\+Fail}} = 1, 
+\mbox{\hyperlink{class_c_p_l_s_comms_a765bc36363f75f4faf4fd2b41d440159a25bac8413bc8ba52e18e0f1fd1f95ce3}{Comms\+Error}} = 2, 
+\mbox{\hyperlink{class_c_p_l_s_comms_a765bc36363f75f4faf4fd2b41d440159a0b65dd788672e08b0ef59cbf76955d81}{Partial\+Msg}} = 3, 
 \newline
-{\bfseries Msg\+\_\+\+N\+CK} =4, 
-{\bfseries Invalid\+Req} =5
+\mbox{\hyperlink{class_c_p_l_s_comms_a765bc36363f75f4faf4fd2b41d440159a97259eab94ba1eeb5d236afd0bb9c01b}{Msg\+\_\+\+N\+CK}} =4, 
+\mbox{\hyperlink{class_c_p_l_s_comms_a765bc36363f75f4faf4fd2b41d440159ada559acd2007e11466d7e8e461f9bd10}{Invalid\+Req}} =5
  \}
 \end{DoxyCompactItemize}
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_c_p_l_s_comms_ae1ec975e5e402b405389d47b8acd0a63}\label{class_c_p_l_s_comms_ae1ec975e5e402b405389d47b8acd0a63}} 
-{\bfseries C\+P\+L\+S\+Comms} (\mbox{\hyperlink{class_c_serial}{C\+Serial}} \&ser\+Port)
+\mbox{\hyperlink{class_c_p_l_s_comms_ae1ec975e5e402b405389d47b8acd0a63}{C\+P\+L\+S\+Comms}} (\mbox{\hyperlink{class_c_serial}{C\+Serial}} \&ser\+Port)
 \item 
-\mbox{\Hypertarget{class_c_p_l_s_comms_ae7f8d87ea15de35a120d65a7a8bbbb76}\label{class_c_p_l_s_comms_ae7f8d87ea15de35a120d65a7a8bbbb76}} 
-Status\+\_\+e {\bfseries Init} (void)
+\mbox{\hyperlink{class_c_p_l_s_comms_aac23966ff823f63a2ff524bbb706e549}{$\sim$\+C\+P\+L\+S\+Comms}} ()
 \item 
-\mbox{\Hypertarget{class_c_p_l_s_comms_ae8f7e9acdf4243b76f3c7f61cf766cfc}\label{class_c_p_l_s_comms_ae8f7e9acdf4243b76f3c7f61cf766cfc}} 
-void {\bfseries Request\+Measurements} (bool only\+Vert)
+\mbox{\hyperlink{class_c_p_l_s_comms_a765bc36363f75f4faf4fd2b41d440159}{Status\+\_\+e}} \mbox{\hyperlink{class_c_p_l_s_comms_ae7f8d87ea15de35a120d65a7a8bbbb76}{Init}} (void)
 \item 
-\mbox{\Hypertarget{class_c_p_l_s_comms_a3124eaa4549706962c7024c7c97e82b0}\label{class_c_p_l_s_comms_a3124eaa4549706962c7024c7c97e82b0}} 
-bool {\bfseries Get\+Async\+Data} (\mbox{\hyperlink{struct_c_p_l_s_comms_1_1_message__t}{Message\+\_\+t}} \&msg, uint16\+\_\+t \&len)
+void \mbox{\hyperlink{class_c_p_l_s_comms_ae8f7e9acdf4243b76f3c7f61cf766cfc}{Request\+Measurements}} (bool only\+Vert)
 \item 
-\mbox{\Hypertarget{class_c_p_l_s_comms_ae9d000eff184034954829d76162654a5}\label{class_c_p_l_s_comms_ae9d000eff184034954829d76162654a5}} 
-bool {\bfseries Data\+Available} ()
+bool \mbox{\hyperlink{class_c_p_l_s_comms_a3124eaa4549706962c7024c7c97e82b0}{Get\+Async\+Data}} (\mbox{\hyperlink{struct_c_p_l_s_comms_1_1_message__t}{Message\+\_\+t}} \&msg, \mbox{\hyperlink{_a_d_a_s___types_8h_a1f1825b69244eb3ad2c7165ddc99c956}{uint16\+\_\+t}} \&len)
 \item 
-\mbox{\Hypertarget{class_c_p_l_s_comms_a05149da99ab80b804699763111315f33}\label{class_c_p_l_s_comms_a05149da99ab80b804699763111315f33}} 
-Status\+\_\+e {\bfseries Get\+Status} (void)
+bool \mbox{\hyperlink{class_c_p_l_s_comms_ae9d000eff184034954829d76162654a5}{Data\+Available}} ()
 \item 
-\mbox{\Hypertarget{class_c_p_l_s_comms_ae0cd51de8a24b261389b6f89b4b80e51}\label{class_c_p_l_s_comms_ae0cd51de8a24b261389b6f89b4b80e51}} 
-bool {\bfseries Search\+Msg} (\mbox{\hyperlink{struct_c_p_l_s_comms_1_1_message__t}{Message\+\_\+t}} \&msg, uint8\+\_\+t ID, uint16\+\_\+t len)
+\mbox{\hyperlink{class_c_p_l_s_comms_a765bc36363f75f4faf4fd2b41d440159}{Status\+\_\+e}} \mbox{\hyperlink{class_c_p_l_s_comms_a05149da99ab80b804699763111315f33}{Get\+Status}} (void)
+\item 
+bool \mbox{\hyperlink{class_c_p_l_s_comms_ae0cd51de8a24b261389b6f89b4b80e51}{Search\+Msg}} (\mbox{\hyperlink{struct_c_p_l_s_comms_1_1_message__t}{Message\+\_\+t}} \&msg, \mbox{\hyperlink{_a_d_a_s___types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} ID, \mbox{\hyperlink{_a_d_a_s___types_8h_a1f1825b69244eb3ad2c7165ddc99c956}{uint16\+\_\+t}} len)
 \end{DoxyCompactItemize}
 
 
@@ -52,7 +59,195 @@ Definition at line 16 of file Comm\+\_\+\+P\+L\+S.\+h.
 
 
 
+\subsection{Member Enumeration Documentation}
+\mbox{\Hypertarget{class_c_p_l_s_comms_a765bc36363f75f4faf4fd2b41d440159}\label{class_c_p_l_s_comms_a765bc36363f75f4faf4fd2b41d440159}} 
+\index{C\+P\+L\+S\+Comms@{C\+P\+L\+S\+Comms}!Status\+\_\+e@{Status\+\_\+e}}
+\index{Status\+\_\+e@{Status\+\_\+e}!C\+P\+L\+S\+Comms@{C\+P\+L\+S\+Comms}}
+\subsubsection{\texorpdfstring{Status\+\_\+e}{Status\_e}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{class_c_p_l_s_comms_a765bc36363f75f4faf4fd2b41d440159}{C\+P\+L\+S\+Comms\+::\+Status\+\_\+e}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Msg\+Success@{Msg\+Success}!C\+P\+L\+S\+Comms@{C\+P\+L\+S\+Comms}}\index{C\+P\+L\+S\+Comms@{C\+P\+L\+S\+Comms}!Msg\+Success@{Msg\+Success}}}\mbox{\Hypertarget{class_c_p_l_s_comms_a765bc36363f75f4faf4fd2b41d440159ae570dcdfbc45793ba4555a0affd13537}\label{class_c_p_l_s_comms_a765bc36363f75f4faf4fd2b41d440159ae570dcdfbc45793ba4555a0affd13537}} 
+Msg\+Success&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+R\+C\+Check\+Fail@{C\+R\+C\+Check\+Fail}!C\+P\+L\+S\+Comms@{C\+P\+L\+S\+Comms}}\index{C\+P\+L\+S\+Comms@{C\+P\+L\+S\+Comms}!C\+R\+C\+Check\+Fail@{C\+R\+C\+Check\+Fail}}}\mbox{\Hypertarget{class_c_p_l_s_comms_a765bc36363f75f4faf4fd2b41d440159a864f2f53e22e459265224c734bb9dd68}\label{class_c_p_l_s_comms_a765bc36363f75f4faf4fd2b41d440159a864f2f53e22e459265224c734bb9dd68}} 
+C\+R\+C\+Check\+Fail&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Comms\+Error@{Comms\+Error}!C\+P\+L\+S\+Comms@{C\+P\+L\+S\+Comms}}\index{C\+P\+L\+S\+Comms@{C\+P\+L\+S\+Comms}!Comms\+Error@{Comms\+Error}}}\mbox{\Hypertarget{class_c_p_l_s_comms_a765bc36363f75f4faf4fd2b41d440159a25bac8413bc8ba52e18e0f1fd1f95ce3}\label{class_c_p_l_s_comms_a765bc36363f75f4faf4fd2b41d440159a25bac8413bc8ba52e18e0f1fd1f95ce3}} 
+Comms\+Error&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Partial\+Msg@{Partial\+Msg}!C\+P\+L\+S\+Comms@{C\+P\+L\+S\+Comms}}\index{C\+P\+L\+S\+Comms@{C\+P\+L\+S\+Comms}!Partial\+Msg@{Partial\+Msg}}}\mbox{\Hypertarget{class_c_p_l_s_comms_a765bc36363f75f4faf4fd2b41d440159a0b65dd788672e08b0ef59cbf76955d81}\label{class_c_p_l_s_comms_a765bc36363f75f4faf4fd2b41d440159a0b65dd788672e08b0ef59cbf76955d81}} 
+Partial\+Msg&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Msg\+\_\+\+N\+CK@{Msg\+\_\+\+N\+CK}!C\+P\+L\+S\+Comms@{C\+P\+L\+S\+Comms}}\index{C\+P\+L\+S\+Comms@{C\+P\+L\+S\+Comms}!Msg\+\_\+\+N\+CK@{Msg\+\_\+\+N\+CK}}}\mbox{\Hypertarget{class_c_p_l_s_comms_a765bc36363f75f4faf4fd2b41d440159a97259eab94ba1eeb5d236afd0bb9c01b}\label{class_c_p_l_s_comms_a765bc36363f75f4faf4fd2b41d440159a97259eab94ba1eeb5d236afd0bb9c01b}} 
+Msg\+\_\+\+N\+CK&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Invalid\+Req@{Invalid\+Req}!C\+P\+L\+S\+Comms@{C\+P\+L\+S\+Comms}}\index{C\+P\+L\+S\+Comms@{C\+P\+L\+S\+Comms}!Invalid\+Req@{Invalid\+Req}}}\mbox{\Hypertarget{class_c_p_l_s_comms_a765bc36363f75f4faf4fd2b41d440159ada559acd2007e11466d7e8e461f9bd10}\label{class_c_p_l_s_comms_a765bc36363f75f4faf4fd2b41d440159ada559acd2007e11466d7e8e461f9bd10}} 
+Invalid\+Req&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 19 of file Comm\+\_\+\+P\+L\+S.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_c_p_l_s_comms_ae1ec975e5e402b405389d47b8acd0a63}\label{class_c_p_l_s_comms_ae1ec975e5e402b405389d47b8acd0a63}} 
+\index{C\+P\+L\+S\+Comms@{C\+P\+L\+S\+Comms}!C\+P\+L\+S\+Comms@{C\+P\+L\+S\+Comms}}
+\index{C\+P\+L\+S\+Comms@{C\+P\+L\+S\+Comms}!C\+P\+L\+S\+Comms@{C\+P\+L\+S\+Comms}}
+\subsubsection{\texorpdfstring{C\+P\+L\+S\+Comms()}{CPLSComms()}}
+{\footnotesize\ttfamily C\+P\+L\+S\+Comms\+::\+C\+P\+L\+S\+Comms (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_c_serial}{C\+Serial}} \&}]{ser\+Port }\end{DoxyParamCaption})}
+
+
+
+Definition at line 49 of file Comm\+\_\+\+P\+L\+S.\+cpp.
+
+\mbox{\Hypertarget{class_c_p_l_s_comms_aac23966ff823f63a2ff524bbb706e549}\label{class_c_p_l_s_comms_aac23966ff823f63a2ff524bbb706e549}} 
+\index{C\+P\+L\+S\+Comms@{C\+P\+L\+S\+Comms}!````~C\+P\+L\+S\+Comms@{$\sim$\+C\+P\+L\+S\+Comms}}
+\index{````~C\+P\+L\+S\+Comms@{$\sim$\+C\+P\+L\+S\+Comms}!C\+P\+L\+S\+Comms@{C\+P\+L\+S\+Comms}}
+\subsubsection{\texorpdfstring{$\sim$\+C\+P\+L\+S\+Comms()}{~CPLSComms()}}
+{\footnotesize\ttfamily C\+P\+L\+S\+Comms\+::$\sim$\+C\+P\+L\+S\+Comms (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 55 of file Comm\+\_\+\+P\+L\+S.\+cpp.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_c_p_l_s_comms_ae9d000eff184034954829d76162654a5}\label{class_c_p_l_s_comms_ae9d000eff184034954829d76162654a5}} 
+\index{C\+P\+L\+S\+Comms@{C\+P\+L\+S\+Comms}!Data\+Available@{Data\+Available}}
+\index{Data\+Available@{Data\+Available}!C\+P\+L\+S\+Comms@{C\+P\+L\+S\+Comms}}
+\subsubsection{\texorpdfstring{Data\+Available()}{DataAvailable()}}
+{\footnotesize\ttfamily bool C\+P\+L\+S\+Comms\+::\+Data\+Available (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 469 of file Comm\+\_\+\+P\+L\+S.\+cpp.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=348pt]{class_c_p_l_s_comms_ae9d000eff184034954829d76162654a5_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=346pt]{class_c_p_l_s_comms_ae9d000eff184034954829d76162654a5_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_c_p_l_s_comms_a3124eaa4549706962c7024c7c97e82b0}\label{class_c_p_l_s_comms_a3124eaa4549706962c7024c7c97e82b0}} 
+\index{C\+P\+L\+S\+Comms@{C\+P\+L\+S\+Comms}!Get\+Async\+Data@{Get\+Async\+Data}}
+\index{Get\+Async\+Data@{Get\+Async\+Data}!C\+P\+L\+S\+Comms@{C\+P\+L\+S\+Comms}}
+\subsubsection{\texorpdfstring{Get\+Async\+Data()}{GetAsyncData()}}
+{\footnotesize\ttfamily bool C\+P\+L\+S\+Comms\+::\+Get\+Async\+Data (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_p_l_s_comms_1_1_message__t}{Message\+\_\+t}} \&}]{msg,  }\item[{\mbox{\hyperlink{_a_d_a_s___types_8h_a1f1825b69244eb3ad2c7165ddc99c956}{uint16\+\_\+t}} \&}]{len }\end{DoxyParamCaption})}
+
+
+
+Definition at line 226 of file Comm\+\_\+\+P\+L\+S.\+cpp.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_c_p_l_s_comms_a3124eaa4549706962c7024c7c97e82b0_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_c_p_l_s_comms_a3124eaa4549706962c7024c7c97e82b0_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_c_p_l_s_comms_a05149da99ab80b804699763111315f33}\label{class_c_p_l_s_comms_a05149da99ab80b804699763111315f33}} 
+\index{C\+P\+L\+S\+Comms@{C\+P\+L\+S\+Comms}!Get\+Status@{Get\+Status}}
+\index{Get\+Status@{Get\+Status}!C\+P\+L\+S\+Comms@{C\+P\+L\+S\+Comms}}
+\subsubsection{\texorpdfstring{Get\+Status()}{GetStatus()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_c_p_l_s_comms_a765bc36363f75f4faf4fd2b41d440159}{C\+P\+L\+S\+Comms\+::\+Status\+\_\+e}} C\+P\+L\+S\+Comms\+::\+Get\+Status (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 247 of file Comm\+\_\+\+P\+L\+S.\+cpp.
+
+\mbox{\Hypertarget{class_c_p_l_s_comms_ae7f8d87ea15de35a120d65a7a8bbbb76}\label{class_c_p_l_s_comms_ae7f8d87ea15de35a120d65a7a8bbbb76}} 
+\index{C\+P\+L\+S\+Comms@{C\+P\+L\+S\+Comms}!Init@{Init}}
+\index{Init@{Init}!C\+P\+L\+S\+Comms@{C\+P\+L\+S\+Comms}}
+\subsubsection{\texorpdfstring{Init()}{Init()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_c_p_l_s_comms_a765bc36363f75f4faf4fd2b41d440159}{C\+P\+L\+S\+Comms\+::\+Status\+\_\+e}} C\+P\+L\+S\+Comms\+::\+Init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 60 of file Comm\+\_\+\+P\+L\+S.\+cpp.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=305pt]{class_c_p_l_s_comms_ae7f8d87ea15de35a120d65a7a8bbbb76_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=252pt]{class_c_p_l_s_comms_ae7f8d87ea15de35a120d65a7a8bbbb76_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_c_p_l_s_comms_ae8f7e9acdf4243b76f3c7f61cf766cfc}\label{class_c_p_l_s_comms_ae8f7e9acdf4243b76f3c7f61cf766cfc}} 
+\index{C\+P\+L\+S\+Comms@{C\+P\+L\+S\+Comms}!Request\+Measurements@{Request\+Measurements}}
+\index{Request\+Measurements@{Request\+Measurements}!C\+P\+L\+S\+Comms@{C\+P\+L\+S\+Comms}}
+\subsubsection{\texorpdfstring{Request\+Measurements()}{RequestMeasurements()}}
+{\footnotesize\ttfamily void C\+P\+L\+S\+Comms\+::\+Request\+Measurements (\begin{DoxyParamCaption}\item[{bool}]{only\+Vert }\end{DoxyParamCaption})}
+
+
+
+Definition at line 212 of file Comm\+\_\+\+P\+L\+S.\+cpp.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_c_p_l_s_comms_ae8f7e9acdf4243b76f3c7f61cf766cfc_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_c_p_l_s_comms_ae8f7e9acdf4243b76f3c7f61cf766cfc_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_c_p_l_s_comms_ae0cd51de8a24b261389b6f89b4b80e51}\label{class_c_p_l_s_comms_ae0cd51de8a24b261389b6f89b4b80e51}} 
+\index{C\+P\+L\+S\+Comms@{C\+P\+L\+S\+Comms}!Search\+Msg@{Search\+Msg}}
+\index{Search\+Msg@{Search\+Msg}!C\+P\+L\+S\+Comms@{C\+P\+L\+S\+Comms}}
+\subsubsection{\texorpdfstring{Search\+Msg()}{SearchMsg()}}
+{\footnotesize\ttfamily bool C\+P\+L\+S\+Comms\+::\+Search\+Msg (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_p_l_s_comms_1_1_message__t}{Message\+\_\+t}} \&}]{msg,  }\item[{\mbox{\hyperlink{_a_d_a_s___types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}}}]{ID,  }\item[{\mbox{\hyperlink{_a_d_a_s___types_8h_a1f1825b69244eb3ad2c7165ddc99c956}{uint16\+\_\+t}}}]{len }\end{DoxyParamCaption})}
+
+
+
+Definition at line 275 of file Comm\+\_\+\+P\+L\+S.\+cpp.
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_c_p_l_s_comms_ae0cd51de8a24b261389b6f89b4b80e51_icgraph}
+\end{center}
+\end{figure}
+
+
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-/\+Volumes/\+Macintosh S\+D/\+Github/\+A\+D\+A\+S/06\+\_\+source/\+A\+D\+A\+S/\+A\+D\+A\+S\+\_\+\+Nav\+U/Comm\+\_\+\+P\+L\+S.\+h\item 
-/\+Volumes/\+Macintosh S\+D/\+Github/\+A\+D\+A\+S/06\+\_\+source/\+A\+D\+A\+S/\+A\+D\+A\+S\+\_\+\+Nav\+U/Comm\+\_\+\+P\+L\+S.\+cpp\end{DoxyCompactItemize}
+\mbox{\hyperlink{_comm___p_l_s_8h}{Comm\+\_\+\+P\+L\+S.\+h}}\item 
+\mbox{\hyperlink{_comm___p_l_s_8cpp}{Comm\+\_\+\+P\+L\+S.\+cpp}}\end{DoxyCompactItemize}

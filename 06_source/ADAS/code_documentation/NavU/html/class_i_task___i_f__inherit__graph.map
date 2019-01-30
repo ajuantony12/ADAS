@@ -1,0 +1,7 @@
+<map id="ITask_IF" name="ITask_IF">
+<area shape="rect" id="node2" href="$class_c_environmental_data.html" title="Environmental Data Class. " alt="" coords="5,233,172,384"/>
+<area shape="rect" id="node3" href="$class_c_navigation.html" title="Navigation algorithm class. " alt="" coords="196,160,371,457"/>
+<area shape="rect" id="node4" href="$class_c_positioning.html" title="{CPositioning\n||+ CPositioning()\l+ ~CPositioning()\l+ Init()\l+ Run()\l+ Stop()\l}" alt="" coords="395,241,518,377"/>
+<area shape="rect" id="node5" href="$class_c_user___i_f.html" title="{CUser_IF\n||+ CUser_IF()\l+ ~CUser_IF()\l+ Init()\l+ Run()\l+ Stop()\l}" alt="" coords="542,241,646,377"/>
+<area shape="rect" id="node6" href="$class_c_v_mapping.html" title="{CVMapping\n||+ CVMapping()\l+ ~CVMapping()\l+ Init()\l+ Run()\l+ Stop()\l}" alt="" coords="670,241,787,377"/>
+</map>
