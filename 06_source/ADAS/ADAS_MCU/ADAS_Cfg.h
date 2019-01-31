@@ -79,7 +79,7 @@
 #define ENV_VBAT_LOW                                    22000 // mV
 #define ENV_VBAT_CRI                                    20000 // mV
 
-//PI parameters
+//PID parameters
 #define KP_VALUE                                        2.5      
 #define KI_VALUE                                        2.5
 #define KD_VALUE                                        0.0
