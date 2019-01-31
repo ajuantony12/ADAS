@@ -196,230 +196,355 @@ void CMotorCtrl::StraightDrive(void)
 //! PI control of CMotorCtrl which is executed every 150ms by the timer
 /*!
   Function executes a PI controller for the left and right DC motor. As a feedback the counted peaks 
-  per 150ms are used. It is executing the position control. 
+  per 150ms are used. It is executing the position control and the function to check if the calculated output 
+  plus the adaption variables from the position control would lead to an overflow. 
 */
 void CMotorCtrl::MotPI(void)
 {
-  //Checks if the  
+  //Checks if the control variable is true and the IDLE state is not active
     if (control && rtObj.rtDW.is_c3_Chart != 3){      
-    StraightDrive();
-    //Executing right PI control
-    feedback_r = counted_peaks_r;
-    output_r = myPID.step(setpoint_r, feedback_r);
+      //Executes the position control
+      StraightDrive();
+      
+      //Executing right PI control
+      feedback_r = counted_peaks_r;
+      output_r = myPID.step(setpoint_r, feedback_r);
+      //Prevent writing a number to the motor which is out of range of the 10bit PWM signal
+      if (output_r >= 1023) {
+        output_r = 1023;
+      }
+     
+      //Executing left PI control
+      feedback_l = counted_peaks_l;
+      output_l = myPID.step(setpoint_l, feedback_l);
+      //Prevent writing a number to the motor which is out of range of the 10bit PWM signal
+      if (output_l >= 1023) {
+        output_l = 1023;
+      }
 
-    if (output_r >= 1023) {
-      output_r = 1023;
-    }
-   
-    //Executing left PI control
-    feedback_l = counted_peaks_l;
-    output_l = myPID.step(setpoint_l, feedback_l);
+      //Executes the function which checks for an overflow
+      checkOverflow();
 
-    if (output_l >= 1023) {
-      output_l = 1023;
-    }
-          
-    checkOverflow();
-    
-    control=false;
+      //set control variable to false 
+      control=false;
   }
 }
 
+//! Function to prevent writing a negative number to the DC motors
+/*!
+  In this function it is checked if the absolute value of the negative adaption variable is higher than the output variable,
+  written to the motor. If this is true the adaption variables are ignored. It is also checking if the H-bridge is enabled 
+  or if the IDLE state is active. 
+*/
 void CMotorCtrl::checkOverflow(void){
+    //Checks if the H-bridge is enables or the IDLE state is active
     if (digitalRead(PIN_ENABLE) == HIGH || rtObj.rtDW.is_c3_Chart == 3) {
+      //Stop the motor if the condition is true
       m_pwmUnitRight_o.writeMOT(LOW);
       m_pwmUnitLeft_o.writeMOT(LOW);
       output_l = output_r = 0;
     } else {
+      //Checks if the right adaption is negative
       if(adapt_r < 0){
+        //Checks if the absolute of the negative value is higher than the output which is written to the motor
           if(abs(adapt_r) > output_r*2){
+            //Ignore adaption variables
               m_pwmUnitRight_o.writeMOT(output_r*2);
               m_pwmUnitLeft_o.writeMOT(output_l*2);
             }else{
+                // Write to motor with adaption variables
                 m_pwmUnitRight_o.writeMOT(output_r*2+adapt_r);
                 m_pwmUnitLeft_o.writeMOT(output_l*2+adapt_l);
               }
+        //Checks if the left adaption is negative
         }else if(adapt_l < 0){
+          //Checks if the absolute of the negative value is higher than the output which is written to the motor
             if(abs(adapt_l) > output_l*2){
+              //Ignore adaption variables
                 m_pwmUnitRight_o.writeMOT(output_r*2);
                 m_pwmUnitLeft_o.writeMOT(output_l*2);
               }else{
+                // Write to motor with adaption variables
                   m_pwmUnitRight_o.writeMOT(output_r*2+adapt_r);
                   m_pwmUnitLeft_o.writeMOT(output_l*2+adapt_l);
                 }
           }else{
+            // Write to motor with adaption variables
               m_pwmUnitRight_o.writeMOT(output_r*2+adapt_r);
               m_pwmUnitLeft_o.writeMOT(output_l*2+adapt_l);
             }
     }
   }
 
-// Start Encoder Counting Interrupts
-
+//! Interrupt Service Routine of the left encoder
+/*!
+  In this ISR the peaks of the left encoder are counted.
+*/
 static void CMotorCtrl::EncISR_L(void)
 {
   peaks_l++;
 }
 
+//! Interrupt Service Routine of the right encoder
+/*!
+  In this ISR the peaks of the right encoder are counted.
+*/
 static void CMotorCtrl::EncISR_R(void)
 {
   peaks_r++;
 }
 
+//! Function of the CMotorCtrl where the sum of all peaks and the peaks per 150ms are read out
+/*!
+  Function is called every 150ms and resets the count of the peaks which are used in the ISR's.
+  It also reads out the count of the peaks per 150ms and sums them up. The control variable is set to 
+  true which enables the PI controller. 
+*/
 static void CMotorCtrl::readenc(void* context) {
+  // Peaks per 150ms are saved
   counted_peaks_r = peaks_r;
   counted_peaks_l = peaks_l;
+  // PI controller gets enables
   control = true;
+  // Peaks are getting summed up
   peak_sum_l = peak_sum_l + counted_peaks_l;
   peak_sum_r = peak_sum_r + counted_peaks_r;
+  // Reset of the counting variable of the ISR's
   peaks_r = 0;
   peaks_l = 0;
 }
-// End Encoder Interrupts
 
+//! API Function of the CMotorCtrl to start a rotation
+/*!
+  The function sets the turn variable of the motor control stateflow to the transmitted angle and the distance to zero.
+  A negative angle would cause a rotation to the left and a positive angle would cause a rotation to the right.
+*/
 void CMotorCtrl::startRotation(sint16_t angle){
     rtObj.rtU.turn = angle;
     rtObj.rtU.dist = d_way = 0 ;
   }
 
+
+//! API Function of the CMotorCtrl to start driving
+/*!
+  The function calculates from the transmitted distance in cm, the peaks which have to be summed up to reach the distance.
+  The summation of all peaks are resetted and the turn variable is set to zero. Then the function checks if the distance value
+  of the stateflow was setted previously and if the transmitted distance value is negative or positive. If the setted value is 
+  positive and the transmitted one is negative a state change from forward drive to backward drive must be performed. Same if
+  the setted value is negative and the transmitted one is positive.  
+*/
 void CMotorCtrl::setDistance(sint16_t dist){
-  //1 peak = 1.795cm;
+  //Calculation of the needed peaks for the transmitted distance in cm
   distance = dist * (1/1.795);
+  // Set turn parameter of the stateflow to zero
   rtObj.rtU.turn = 0;
+  // Reset of the summed up peaks
   peak_sum_r = peak_sum_l = 0;
+  // Checks if the setted distance and the transmitted distance are greater or equal to zero
   if(rtObj.rtU.dist >= 0 && dist >= 0){
+    // Sets distance parameter of the stateflow and CMotorCtrl class to calculated peaks
     rtObj.rtU.dist = d_way = distance;
+    // Checks if the setted distance is smaller or equal to zero and the transmitted distance is smaller than zero
     }else if(rtObj.rtU.dist <= 0 && dist < 0){
+        // Set distance parameter of the stateflow to calculated peaks
         rtObj.rtU.dist = distance;
-        DPRINT("Distance Stateflow: ");
-        DPRINTLN(rtObj.rtU.dist);
+        // Set CMotorCtrl distance parameter to positive value of calculated peaks
         d_way = -distance;
+      //Checks if setted distance and transmitted distance are greater than zero
       }else if(rtObj.rtU.dist > 0 && dist < 0){
+          //  Set distance parameter of stateflow to zero (state will change to IDLE)
           rtObj.rtU.dist= 0;
+          // Set CMotorCtrl distance parameter to zero
           d_way = 0;
+          // Set direction change to true and saves the latest transmitted distance to a variable
           changeDirection = true;
           remindValue = dist;
+          // Checks if setted distance and transmitted distance are smaller than zero
         }else if(rtObj.rtU.dist < 0 && dist > 0){
+          //  Set distance parameter of stateflow to zero (state will change to IDLE)
           rtObj.rtU.dist= 0;
+          // Set CMotorCtrl distance parameter to zero
           d_way = 0;
+          // Set direction change to true and saves the latest transmitted distance to a variable
           changeDirection = true;
           remindValue = dist;
         }
   }
 
+//! API Function of the CMotorCtrl to pause the current action of the motor control
+/*!
+    Function stops the DC motors and set a pause variable to true.
+*/
 void CMotorCtrl::pauseDrive(void){
     m_pwmUnitRight_o.writeMOT(LOW);
     m_pwmUnitLeft_o.writeMOT(LOW);
     pause = true;
   }
 
+//! API Function of the CMotorCtrl to set a speed for the motors
+/*!
+    Function checks first if the desired speed is too high. If the transmitted setpoint is ok it is converted from mm/s into 
+    peaks per 150ms. Then the setpoint of the PI controllers setpoint is changed to this value. 
+*/
 void CMotorCtrl::setPISetpoint(uint16_t setpnt){
+  // Checks if the transmitted speed is too high
   if(setpnt >= 1000){
-    setpoint_l = setpoint_r = 8;
-    spd = 8;
+    // Set to a safe setpoint
+    setpoint_l = setpoint_r = 5;
+    spd = 5;
     }else{
-    setpoint_l = setpoint_r = spd = (setpnt/120); // mm/s in peaks per 150ms 
-    speed_set = true;
+      // Convert transmitted speed from mm/s into peaks per 150ms and set PI controllers setpoint
+      setpoint_l = setpoint_r = spd = (setpnt/120); // mm/s in peaks per 150ms 
+      speed_set = true;
     }
     
   }
+
+//! API Function of the CMotorCtrl to continue the previously paused action of the motor control
+/*!
+    Function sets the pause variable to false and the motor control will continue with the present action.
+*/
 void CMotorCtrl::contDrive(void){
     pause = false;
   }
 
+//! Function of the CMotorCtrl to check the active state of the stateflow
+/*!
+  Function checks which state of the stateflow is active. Five states are possible: Backward, Forward, IDLE, Left Turn, 
+  and Right Turn. When first entering a state the PI controller will be resetted and reconfigured. Then the setpoint of the
+  controller is setted. In the backward and forward state is checked if the distance is reached. If true it will adapt the 
+  parameters to change into IDLE state. The IDLE state also checks if the previous state was a turn state or a drive state. 
+  It will send a "rotation done" or "distance reached" message to the navigation unit accordingly. Another thing which is 
+  handled by the IDLE state is the direction change (more information in setDistance()). If the direction change is true it 
+  will call setDirection() after a small time with the reminded value. Main aspect of this function is to active the motors
+  and set the directions according to the active state. 
+*/
 void CMotorCtrl::checkState(void) {
   switch (rtObj.rtDW.is_c3_Chart) {
     case 1:
-      DPRINTLN("State 1: Backward");
+      // Case Backward state
+      // Set the direction pins of the H-bridge to drive backwards
       digitalWrite(PIN_DIRECTION_L, LOW);
       digitalWrite(PIN_DIRECTION_R, HIGH);
+      // Checks if first enter of this state is true and the speed is not set via the API function
       if(curState != 1 && !speed_set){
+          // Clear the PI controller
           myPID.clear();
+          // Reconfigure the PI controller
           myPID.configure(KP_VALUE, KI_VALUE, KD_VALUE, HZ_VALUE, OUTPUT_BITS, OUTPUT_SIGNED);
+          // Set setpoint of the PI controller
           setpoint_l = spd;
           setpoint_r = spd;
-          DPRINT("SETPOINT SET TO : ");
-          DPRINTLN(spd);
         }
       curState = 1;
+      // Check if desired distance is reached
       if(peak_sum_r >= d_way && peak_sum_l >= d_way){
+          // Adapt stateflow and CMotorCtrl parameters to perform a state change to IDLE
           rtObj.rtU.dist=0;
           d_way=0;
         }
       break;
     case 2:
-      //DPRINTLN("State 2: Forward");
+       // Case Forward state
+       // Set the direction pins of the H-bridge to drive forward
       digitalWrite(PIN_DIRECTION_L, HIGH);
       digitalWrite(PIN_DIRECTION_R, LOW);
+      // Checks if first enter of this state is true and the speed is not set via the API function
       if(curState != 2 && !speed_set){
+        // Clear the PI controller
           myPID.clear();
+          // Reconfigure the PI controller
           myPID.configure(KP_VALUE, KI_VALUE, KD_VALUE, HZ_VALUE, OUTPUT_BITS, OUTPUT_SIGNED);
+          // Set setpoint of the PI controller
           setpoint_l = spd;
           setpoint_r = spd;
         }
       curState = 2;
+      // Check if desired distance is reached
       if(peak_sum_r >= d_way && peak_sum_l >= d_way){
+        // Adapt stateflow and CMotorCtrl parameters to perform a state change to IDLE
           rtObj.rtU.dist=0;
           d_way=0;
         }
       break;
     case 3:
-      //DPRINTLN("State 3: IDLE");
+      // Case IDLE state
+      // Set direction pins of H-bridge to high as default
       digitalWrite(PIN_DIRECTION_L, HIGH);
       digitalWrite(PIN_DIRECTION_R, HIGH);
+      // Checks if first enter of this state
       if(curState != 3){
+          // Reset PI controller
           myPID.clear();
+          // Set setpoint of PI controller to zero
           setpoint_l = 0;
           setpoint_r = 0;
         }
-      if(speed_set){
-          speed_set = false;
-        }
+      // Checks if previous state was a turn state
       if(curState == 4 || curState == 5){
-          //Feedback function for completed rotation
           DPRINT("Rotation reached!");
+          // Set turn parameter of stateflow to zero
           rtObj.rtU.turn = 0;
+          //Feedback for completed rotation
           m_iccComms_o.addTxMsg(ICC_CMD_FB_ROT, 0);
+      //Checks if previous state was a drive state
         }else if(curState == 1 || curState == 2){
-            //Feedback function for completed distance
+            // Sets distance parameter of stateflow to zero
             rtObj.rtU.dist = 0;
             DPRINT("Distance reached!");
+            //Feedback function for completed distance
             m_iccComms_o.addTxMsg(ICC_CMD_FB_DIST, 0);
           }
-
+      // Checks if a direction change should be performed
       if(changeDirection){
+          // Starts counter
           k++;
           if(k == 50){
+              // Set direction change to false
               changeDirection = false;
+              // Call API function with reminded value
               setDistance(remindValue);
+              // Reset reminded value and counter
               remindValue = 0;
               k = 0;
             }
         }
       curState = 3;
+      // Reset summed up peaks
       peak_sum_l = peak_sum_r = 0;
+      // Stop motors
       m_pwmUnitRight_o.writeMOT(LOW);
       m_pwmUnitLeft_o.writeMOT(LOW);
       break;
     case 4:
-      //DPRINTLN("State 4: Left Turn");
+      // Case Left Turn state
+      // Set direction pins of H-bridge to a left turn
       digitalWrite(PIN_DIRECTION_L, LOW);
       digitalWrite(PIN_DIRECTION_R, LOW);
+      // Checks if first enter of this state is true and the speed is not set via the API function
       if(curState != 4 && !speed_set){
+          // Reset PI controller
           myPID.clear();
+          // Reconfigure PI controller
           myPID.configure(KP_VALUE, KI_VALUE, KD_VALUE, HZ_VALUE, OUTPUT_BITS, OUTPUT_SIGNED);
+          // Set setpoint of the PI controller
           setpoint_l = spd;
           setpoint_r = spd;
         }
       curState = 4;
       break;
     case 5:
-      //DPRINTLN("State 5: Right Turn");
+      // Case Right Turn state
+      // Set direction pins of H-bridge to a right turn
       digitalWrite(PIN_DIRECTION_L, HIGH);
       digitalWrite(PIN_DIRECTION_R, HIGH);
+      // Checks if first enter of this state is true and the speed is not set via the API function
       if(curState != 5 && !speed_set){
+          // Reset PI controller
           myPID.clear();
+          // Reconfigure PI controller
           myPID.configure(KP_VALUE, KI_VALUE, KD_VALUE, HZ_VALUE, OUTPUT_BITS, OUTPUT_SIGNED);
+          // Set setpoint of the PI controller
           setpoint_l = spd;
           setpoint_r = spd;
         }
@@ -428,12 +553,13 @@ void CMotorCtrl::checkState(void) {
   }
 }
 
-// Function to perform a stateflow calculation
+//! Function of the CMotorCtrl to cperform a stateflow calculation
+/*!
+   Function performs a stateflow calculation. 
+*/
 void CMotorCtrl::rt_OneStep(void)
 {
   static boolean_T OverrunFlag = false;
-
-  // Disable interrupts here
 
   // Check for overrun
   if (OverrunFlag) {
@@ -443,19 +569,9 @@ void CMotorCtrl::rt_OneStep(void)
 
   OverrunFlag = true;
 
-  // Save FPU context here (if necessary)
-  // Re-enable timer or interrupt here
-  // Set model inputs here
-
   // Step the model
   rtObj.step();
 
-  // Get model outputs here
-
   // Indicate task complete
   OverrunFlag = false;
-
-  // Disable interrupts here
-  // Restore FPU context here (if necessary)
-  // Enable interrupts here
 }

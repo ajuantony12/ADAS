@@ -100,6 +100,9 @@ private:
     */
     void writeMOT(uint16_t n1, uint16_t n2);
 
+    /*
+       Checks if the value, written to the motor would be lead to an overflow and prevents it
+    */
     void checkOverflow(void);
 
     /*
