@@ -61,12 +61,6 @@ private:
     static void EncISR_L(void);
 
     static void readenc(void* context);
-  
-#ifdef ADAS_DEBUG
-    void getUserInput(void);
-
-    void printValues(void);
-#endif
 
     void rt_OneStep(void);
     ChartModelClass rtObj;
@@ -76,6 +70,14 @@ private:
     CEncoder& m_enc1_o;
     CEncoder& m_enc2_o;
     CICCComms& m_iccComms_o;
+
+    //variables
+    int curState, ctrl_side, k, control_area;
+    int16_t distance, adapt_r, adapt_l, remindValue;
+    boolean pause, speed_set, startBtn, changeDirection;
+    uint16_t setpoint_l, spd, setpoint_r, feedback_l, feedback_r, output_r, output_l, lower_b, upper_b, limit_var;
+    sint16_t d_way;
+
 };
 
 #endif /*APP_MOTOR_CTRL_H*/

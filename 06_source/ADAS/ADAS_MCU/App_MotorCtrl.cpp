@@ -9,47 +9,10 @@
 #include "FastPID.h"
 #include "Timer.h"
 
-
-int n = 20;
-int r = 0;
-int16_t distance = 0;
-boolean pause = false;
-boolean speed_set = false;
-uint16_t spd = 2;
+uint16_t peaks_r, peaks_l, counted_peaks_r, counted_peaks_l, peak_sum_l, peak_sum_r = 0;
 boolean control = false;
-uint16_t setpoint_l = 5; //124 = 4km/h
-uint16_t setpoint_r = 5; //124 = 4km/h
-int curState = 3;
-boolean rotated = false;
-int ctrl_side = 0;
-uint16_t feedback_l, feedback_r;
-uint16_t output_r = 0;
-int16_t adapt_r = 0;
-uint16_t output_l = 0;
-int16_t adapt_l = 0;
-uint16_t peaks_r = 0;
-uint16_t peaks_l = 0;
-uint16_t counted_peaks_r = 0;
-uint16_t counted_peaks_l = 0;
-uint16_t peak_sum_l = 0;
-uint16_t peak_sum_r = 0;
-sint16_t d_way = 0; // desired way to drive in cm (1.795cm/peak) 2228==4000cm
-boolean startBtn = false;
-boolean forward = true;
-boolean backward = false;
-int control_area = 50;
-uint16_t lower_b, upper_b, limit_var = 0;
-boolean changeDirection = false;
-int16_t remindValue = 0;
-
-int k = 0;
 Timer t;
-float Kp = 2.5, Ki = 2.5, Kd = 0, Hz = 10;
-int output_bits = 16;
-bool output_signed = false;
-
-FastPID myPID(Kp, Ki, Kd, Hz, output_bits, output_signed);
-
+FastPID myPID(KP_VALUE, KI_VALUE, KD_VALUE, HZ_VALUE, OUTPUT_BITS, OUTPUT_SIGNED);
 
 CMotorCtrl::CMotorCtrl(CIMUUnit& imu_o, CPWMUnit& pwmUnitLeft_o, CPWMUnit& pwmUnitRight_o, 
 CEncoder& enc1_o, CEncoder& enc2_o, CICCComms& iccComms_o):
@@ -59,7 +22,11 @@ CEncoder& enc1_o, CEncoder& enc2_o, CICCComms& iccComms_o):
   m_pwmUnitRight_o(pwmUnitRight_o),
   m_enc1_o(enc1_o),
   m_enc2_o(enc2_o),
-  m_iccComms_o(iccComms_o)
+  m_iccComms_o(iccComms_o),
+  distance(0), pause(false), speed_set(false), spd(2), setpoint_l(5), setpoint_r(5), curState(3),
+  ctrl_side(0), feedback_l(0), feedback_r(0), output_r(0), adapt_r(0), output_l(0), adapt_l(0),
+  d_way(0), startBtn(false), control_area(50), lower_b(0), upper_b(0), limit_var(0),
+  changeDirection(false), remindValue(0), k(0)
 {
 
 }
@@ -117,7 +84,6 @@ void CMotorCtrl::Run(void)
         startBtn = true;
       }
     
-    n++;
 
     // Call stateflow
     rt_OneStep();
@@ -137,16 +103,6 @@ void CMotorCtrl::Run(void)
           //getUserInput();
           checkState();
           MotPI();
-         
-//          DPRINT("dway: ");
-//          DPRINT(d_way);
-//          DPRINT("; ");
-//          DPRINT("peak_sum_l: ");
-//          DPRINT(peak_sum_l);
-//          DPRINT("; ");
-//          DPRINT("peak_sum_r: ");
-//          DPRINT(peak_sum_r);
-//          DPRINTLN("; ");
          }
       }
     }
@@ -201,18 +157,6 @@ void CMotorCtrl::StraightDrive(void)
                 
             }
           }
-        DPRINT("gyro: ");
-        DPRINT(rtObj.rtU.gyro_signal);
-        DPRINT("; ");
-        DPRINT("curr angle: ");
-        DPRINT(rtObj.rtDW.curr_angle);
-        DPRINTLN("; ");
-        DPRINT("adapt_r: ");
-        DPRINT(adapt_r);
-        DPRINT("; ");
-        DPRINT("adapt_l: ");
-        DPRINT(adapt_l);
-        DPRINTLN("; ");
     }
 }
 // PIControl Motors
@@ -359,7 +303,7 @@ void CMotorCtrl::checkState(void) {
       digitalWrite(PIN_DIRECTION_R, HIGH);
       if(curState != 1 && !speed_set){
           myPID.clear();
-          myPID.configure(Kp, Ki, Kd, Hz, output_bits, output_signed);
+          myPID.configure(KP_VALUE, KI_VALUE, KD_VALUE, HZ_VALUE, OUTPUT_BITS, OUTPUT_SIGNED);
           setpoint_l = spd;
           setpoint_r = spd;
           DPRINT("SETPOINT SET TO : ");
@@ -377,7 +321,7 @@ void CMotorCtrl::checkState(void) {
       digitalWrite(PIN_DIRECTION_R, LOW);
       if(curState != 2 && !speed_set){
           myPID.clear();
-          myPID.configure(Kp, Ki, Kd, Hz, output_bits, output_signed);
+          myPID.configure(KP_VALUE, KI_VALUE, KD_VALUE, HZ_VALUE, OUTPUT_BITS, OUTPUT_SIGNED);
           setpoint_l = spd;
           setpoint_r = spd;
         }
@@ -403,7 +347,6 @@ void CMotorCtrl::checkState(void) {
           //Feedback function for completed rotation
           DPRINT("Rotation reached!");
           rtObj.rtU.turn = 0;
-          rotated = true;
           m_iccComms_o.addTxMsg(ICC_CMD_FB_ROT, 0);
         }else if(curState == 1 || curState == 2){
             //Feedback function for completed distance
@@ -432,7 +375,7 @@ void CMotorCtrl::checkState(void) {
       digitalWrite(PIN_DIRECTION_R, LOW);
       if(curState != 4 && !speed_set){
           myPID.clear();
-          myPID.configure(Kp, Ki, Kd, Hz, output_bits, output_signed);
+          myPID.configure(KP_VALUE, KI_VALUE, KD_VALUE, HZ_VALUE, OUTPUT_BITS, OUTPUT_SIGNED);
           setpoint_l = spd;
           setpoint_r = spd;
         }
@@ -444,7 +387,7 @@ void CMotorCtrl::checkState(void) {
       digitalWrite(PIN_DIRECTION_R, HIGH);
       if(curState != 5 && !speed_set){
           myPID.clear();
-          myPID.configure(Kp, Ki, Kd, Hz, output_bits, output_signed);
+          myPID.configure(KP_VALUE, KI_VALUE, KD_VALUE, HZ_VALUE, OUTPUT_BITS, OUTPUT_SIGNED);
           setpoint_l = spd;
           setpoint_r = spd;
         }
@@ -452,28 +395,6 @@ void CMotorCtrl::checkState(void) {
       break;
   }
 }
-
-
-#ifdef ADAS_DEBUG
-void CMotorCtrl::getUserInput(void) {}
-
-void CMotorCtrl::printValues(void) {
-  DPRINT("peak_sum_l: ");
-  DPRINT(peak_sum_l);
-  DPRINT("; ");
-  DPRINT("peak_sum_r: ");
-  DPRINT(peak_sum_r);
-  DPRINT("; ");
-  DPRINT("desired distance: ");
-  DPRINTLN(d_way);
-  DPRINT("gyro: ");
-  DPRINT(rtObj.rtU.gyro_signal);
-  DPRINT("; ");
-  DPRINT("curr_angle: ");
-  DPRINT(rtObj.rtDW.curr_angle);
-  DPRINTLN("; ");
-}
-#endif
 
 // Function to perform a stateflow calculation
 void CMotorCtrl::rt_OneStep(void)

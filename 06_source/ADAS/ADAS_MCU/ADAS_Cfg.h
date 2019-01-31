@@ -79,5 +79,14 @@
 #define ENV_VBAT_LOW                                    22000 // mV
 #define ENV_VBAT_CRI                                    20000 // mV
 
+//PI parameters
+#define KP_VALUE                                        2.5      
+#define KI_VALUE                                        2.5
+#define KD_VALUE                                        0.0
+#define HZ_VALUE                                        10.0
+#define OUTPUT_BITS                                     16
+#define OUTPUT_SIGNED                                   false
+
+
 
 #endif /*ADAS_CFG_H*/
