@@ -17,12 +17,7 @@
 
 
 // ##### Definitions #####
-/**
- *
- * \class CInertialComm
- *
- * \brief   Intertial Communication 
-**/
+//!Define class for Inertial Communication
 class CInertialComm
 {
 public:

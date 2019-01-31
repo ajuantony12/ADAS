@@ -106,12 +106,7 @@ struct tag_RTM {
 
 
 
-/**
- *
- * \class ChartModelClass
- *
- * \brief   Class declaration for Stateflow model Chart
-**/
+//! Class declaration of the chart model
 class ChartModelClass {
   /// public data and function members
  public:
