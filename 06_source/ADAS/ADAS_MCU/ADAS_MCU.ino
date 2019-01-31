@@ -1,5 +1,5 @@
 /**
-* @file ADAS_NavU.ino
+* @file ADAS_MCU.ino
 * @author Hannes Bähr, Juliane Müller
 * @date January 29, 2019
 * @brief Main file for the NavU of the ADAS project
