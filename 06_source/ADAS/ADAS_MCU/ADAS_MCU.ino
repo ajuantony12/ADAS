@@ -1,3 +1,11 @@
+/**
+* @file ADAS_MCU.ino
+* @author Hannes Bähr, Juliane Müller
+* @date January 31, 2019
+* @brief Application file for Motor Control Unit
+*/
+
+// ##### Includes #####
 #include "ADAS_Types.h"
 #include "ADAS_Cfg.h"
 #include "ADAS_Debug.h"
@@ -28,8 +36,9 @@
   CSerial     iccPort(CSerial::S2, ICC_RCV_BUFF_SIZE);
 //comms layer
   CICCComms iccComms_o(iccPort);
-  CMotorCtrl  mCtrl_o(imu_o, pwmUnitLeft_o, pwmUnitRight_o, iccComms_o);
+  CMotorCtrl  mCtrl_o(imu_o, pwmUnitLeft_o, pwmUnitRight_o, enc1_o, enc2_o, iccComms_o);
 
+//! Intitialization function of Motor Control Unit
 void setup() {
   //Hw initialization
   Serial.begin(9600);
@@ -42,6 +51,7 @@ void setup() {
   interrupts();
 }
 
+//! Run function of Motor Control Unit
 void loop() {
   iccComms_o.Run();
   mCtrl_o.Run();
