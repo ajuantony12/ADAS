@@ -19,12 +19,7 @@
 #include "ADAS_Types.h"
 
 // ##### Definitions #####
-/**
- *
- * \class   CIMUUnit
- *
- * \brief   Class to communicate with IMU Unit
-**/
+//! Define class for IMU Unit
 class CIMUUnit{
 public:
   /*
