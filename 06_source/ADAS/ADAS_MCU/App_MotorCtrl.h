@@ -43,52 +43,81 @@ public:
 	~CMotorCtrl();
 
 
-    /// initialize the motor control
+    /*
+       Initialize the motor control
+    */
     void Init(void);
 
-    /// run the motor control
+    /*
+       Run the motor control
+    */
     void Run(void);
-    
-    void Stop(void);
 
-    /// API function to start a rotation with a desired angle
+
+    /*
+       API function to start a rotation
+    */
     void startRotation(sint16_t angle);
 
-    /// API function to drive a distance forward and backwards
+    /*
+       API function to drive a distance forward or backward
+    */
     void setDistance(sint16_t dist);
 
-    /// API function to change the speed
+    /*
+       API function to change the speed of the motors
+    */
     void setPISetpoint(uint16_t setpnt);
 
-    /// API to pause the current action of the motor control
+    /*
+       API function to pause the current action of the motor control
+    */
     void pauseDrive(void);
 
-    /// API function to continue with the action of the motor control after pausing it
+    /*
+       API function to continue a previously paused action of the motor control
+    */
     void contDrive(void);
 
 private:
-    /// Check for the current state of the motor control stateflow 
+    /*
+       Checks the current state of the motor control stateflow
+    */
     void checkState(void);
 
-    /// Position control function
+    /*
+       Position control 
+    */
     void StraightDrive(void);
 
-    /// PI control function
+    /*
+       PI control
+    */
     void MotPI(void);
 
-    /// Function to set a PWM signal to the motors
+    /*
+       Set a PWM signal to the DC motors
+    */
     void writeMOT(uint16_t n1, uint16_t n2);
 
-    /// Interrupt Service Routine to count the peaks of the right encoder
+    /*
+       Interrupt Service Routine to count the peaks of the right encoder
+    */
     static void EncISR_R(void);
 
-    /// Interrupt Service Routine to count the peaks of the left encoder
+    /*
+       Interrupt Service Routine to count the peaks of the left encoder
+    */
     static void EncISR_L(void);
 
-    /// Function to read out the encoder peaks
+    /*
+       Reading out the counted peaks of the ISRs
+    */
     static void readenc(void* context);
 
-    /// Function to perform a stateflow calculation 
+    /*
+       Function to perform a stateflow calculation
+    */
     void rt_OneStep(void);
 
     ChartModelClass rtObj;
@@ -97,7 +126,6 @@ private:
     CPWMUnit& m_pwmUnitRight_o;
     CICCComms& m_iccComms_o;
 
-    /// Declarations of necessary variables
     int curState, ctrl_side, k, control_area;
     int16_t distance, adapt_r, adapt_l, remindValue;
     boolean pause, speed_set, startBtn, changeDirection;

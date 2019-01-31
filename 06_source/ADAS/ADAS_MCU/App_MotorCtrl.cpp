@@ -1,3 +1,11 @@
+/**
+* @file App_MotorCtrl.cpp
+* @author Hannes Bähr, Juliane Müller
+* @date January 31, 2019
+* @brief Application file for environmental data
+*
+*/
+
 #include "App_MotorCtrl.h"
 #include "Arduino.h"
 #include "HAL_PWM.h" 
@@ -14,6 +22,8 @@ boolean control = false;
 Timer t;
 FastPID myPID(KP_VALUE, KI_VALUE, KD_VALUE, HZ_VALUE, OUTPUT_BITS, OUTPUT_SIGNED);
 
+
+//! Constructor of CMotorCtrl
 CMotorCtrl::CMotorCtrl(CIMUUnit& imu_o, CPWMUnit& pwmUnitLeft_o, CPWMUnit& pwmUnitRight_o, CICCComms& iccComms_o):
   rtObj(),
   m_imu_o(imu_o),
@@ -27,10 +37,16 @@ CMotorCtrl::CMotorCtrl(CIMUUnit& imu_o, CPWMUnit& pwmUnitLeft_o, CPWMUnit& pwmUn
 {
 
 }
+//! Desctructor of CMotorCtrl
 CMotorCtrl::~CMotorCtrl() {
   //do nothing
 }
 
+//! Initialization function of CMotorCtrl
+/*!
+  Function set up the PWM signal, the IMU, initializes the stateflow, and initiaizes the encoder interrupts.
+  Furthermore a timer is activated which reads out the counted peaks of the encoders every 150ms. 
+*/
 void CMotorCtrl::Init(void)
 {
   //Setup PWM
@@ -46,6 +62,8 @@ void CMotorCtrl::Init(void)
 
   m_pwmUnitLeft_o.setupPWM16();
   m_pwmUnitRight_o.setupPWM16();
+
+  //Setup IMU
   m_imu_o.Init();
 
   // Initialize stateflow
@@ -60,93 +78,112 @@ void CMotorCtrl::Init(void)
 
   //readout encoder count every 500ms
   t.every(150, CMotorCtrl::readenc, 0);
-  DPRINTLN(abs(-5));
 }
 
+//! Run function of CMotorCtrl which is executed in every loop
+/*!
+  The function checks if the motor control stateflow is valid. If yes it is reading out the 
+  gyro sensor and performs a stateflow calculation. If the H-bridge is enabled and the start 
+  button was pressed it checks for the current state and runs the PI control. At the end of 
+  the function the timer for the readout function of the encoder is updated. 
+*/
 void CMotorCtrl::Run(void)
 {
-  //Stateflow
+  //Check if Stateflow is valid
   if (rtmGetErrorStatus(rtObj.getRTM()) != (NULL)) {
     //  Called when error in stateflow
     DPRINTLN("StateFlow Error!");
     while (true) {}
-
   } else {
-
     //Set Gyro Signal
     rtObj.rtU.gyro_signal = m_imu_o.ReturnGyro();
     
+    //Safety function to start the motor control
     if(digitalRead(Btn_Start) == HIGH){
-      
         startBtn = true;
       }
-    
-
+ 
     // Call stateflow
     rt_OneStep();
 
-    //PWM
+    //Check if H-bridge is enabled
     if (digitalRead(PIN_ENABLE) == HIGH) {
       m_pwmUnitRight_o.writeMOT(LOW);
       m_pwmUnitLeft_o.writeMOT(LOW);
     } else {
       if (pause)
       {
-        //DPRINTLN("Warning Field (MtCtrl)");
         m_pwmUnitRight_o.writeMOT(LOW);
         m_pwmUnitLeft_o.writeMOT(LOW);
       }else{
         if(startBtn){
-          //getUserInput();
+          //Check for current state and run the PI control
           checkState();
           MotPI();
          }
       }
     }
   }
+  //Update the timer
   t.update();
 }
+//! Position control of CMotorCtrl which is executed every 150ms if the forward or backward driving is active
+/*!
+  The function checks if the current gyro sensor value differs from the angle which was present while entering 
+  the forward or backward state. The function increases or decreases two adaption variables which are later
+  added to the ouput value written on the motors. 
+*/
 void CMotorCtrl::StraightDrive(void)
 {
+  //Checks if forward or backward state is active
   if(rtObj.rtDW.is_c3_Chart == 2 || rtObj.rtDW.is_c3_Chart == 1){
+    //Set upper border
      if(rtObj.rtDW.curr_angle + control_area >= 360){
           upper_b = rtObj.rtDW.curr_angle + control_area - 360;
         }else{
           upper_b = rtObj.rtDW.curr_angle + control_area;
       }
+      //Set lower border 
       if(rtObj.rtDW.curr_angle - control_area < 0){
           lower_b = rtObj.rtDW.curr_angle - control_area + 360;
         }else{
             lower_b = rtObj.rtDW.curr_angle - control_area;
       }
+      //Checks if the gyro signal is smaller than the initial angle and higher than the lower border (left drift)
       if(rtObj.rtU.gyro_signal < rtObj.rtDW.curr_angle || rtObj.rtU.gyro_signal >= lower_b){
+        //Set a maximum difference between the adaption variables to prevent too high speed
         if(adapt_l - adapt_r > -15 && adapt_r - adapt_l < 15 || ctrl_side == 1){
-          
+            // Reset adaption variables at first enter of left drift adaption
             if(ctrl_side == 1){
                 adapt_r = 0;
                 adapt_l = 0;
               }
             ctrl_side =2;
+            // Adapt the variables for forward state
             if(rtObj.rtDW.is_c3_Chart == 2){
                   adapt_r=adapt_r+2;
                   adapt_l=adapt_l-2;
+                  // Adapt the variables for backward state (reversed)
                   }else if(rtObj.rtDW.is_c3_Chart == 1){
                       adapt_r=adapt_r-2;
                       adapt_l=adapt_l+2;
                     }
           }
-       
+       //Checks if the gyro signal is bigge than the initial angle and smaller than the upper border (right drift)
         }else if( rtObj.rtDW.curr_angle < rtObj.rtU.gyro_signal && rtObj.rtU.gyro_signal <= upper_b){
+          //Set a maximum difference between the adaption variables to prevent too high speed
             if(adapt_l - adapt_r < 15 && adapt_r - adapt_l > -15 || ctrl_side == 2){
-              
+              // Reset adaption variables at first enter of right drift adaption
                 if(ctrl_side == 2){
                   adapt_r = 0;
                   adapt_l = 0;
                 }
                 ctrl_side = 1;
+                // Adapt the variables for forward state
                 if(rtObj.rtDW.is_c3_Chart == 2){
                   adapt_r=adapt_r-2;
                   adapt_l=adapt_l+2;
+                  // Adapt the variables for backward state (reversed)
                   }else if(rtObj.rtDW.is_c3_Chart == 1){
                       adapt_r=adapt_r+2;
                       adapt_l=adapt_l-2;
@@ -156,13 +193,17 @@ void CMotorCtrl::StraightDrive(void)
           }
     }
 }
-// PIControl Motors
+//! PI control of CMotorCtrl which is executed every 150ms by the timer
+/*!
+  Function executes a PI controller for the left and right DC motor. As a feedback the counted peaks 
+  per 150ms are used. It is executing the position control. 
+*/
 void CMotorCtrl::MotPI(void)
 {
+  //Checks if the  
     if (control && rtObj.rtDW.is_c3_Chart != 3){      
-      
     StraightDrive();
- //right PI control
+    //right PI control
     feedback_r = counted_peaks_r;
     output_r = myPID.step(setpoint_r, feedback_r);
 
@@ -170,9 +211,7 @@ void CMotorCtrl::MotPI(void)
       output_r = 1023;
     }
    
-    
-//left PI control
-
+    //left PI control
     feedback_l = counted_peaks_l;
     output_l = myPID.step(setpoint_l, feedback_l);
 
@@ -287,10 +326,6 @@ void CMotorCtrl::setPISetpoint(uint16_t setpnt){
 void CMotorCtrl::contDrive(void){
     pause = false;
   }
-void CMotorCtrl::Stop(void)
-{
-  //do nothing
-}
 
 void CMotorCtrl::checkState(void) {
   switch (rtObj.rtDW.is_c3_Chart) {
