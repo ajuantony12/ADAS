@@ -1,18 +1,34 @@
-/*H**********************************************************************
-* FILENAME :        InterialComms.h             
-*
-* DESCRIPTION : Inertial system communication layer
-*************************************************************************/
-
-#include "ADAS_Types.h"
+/**
+* @file Comm_Inertial.h
+* @author Hannes Bähr, Juliane Müller
+* @date January 31, 2019
+* @brief Application file for communication
+* 
+*/
 
 #ifndef COMMS_INERTIAL_SYS_H
+
+// ##### Includes #####
+#include "ADAS_Types.h"
+
+// Define constant for communication
 #define COMMS_INERTIAL_SYS_H
 
+
+
+// ##### Definitions #####
+/**
+ *
+ * \class CInertialComm
+ *
+ * \brief   Intertial Communication 
+**/
 class CInertialComm
 {
 public:
+    /// Constructor
     CInertialComm();
+    /// Destructor
     ~CInertialComm();
   /*
    * init

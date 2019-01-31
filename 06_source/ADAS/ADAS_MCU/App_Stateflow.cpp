@@ -12,9 +12,6 @@
 * C/C++ source code generated on : Thu Jan 24 11:08:26 2018 
 * Embedded hardware selection: Atmel->AVR (8-bit)
 * 
-* 
-* 
-* 
 */
 
 
