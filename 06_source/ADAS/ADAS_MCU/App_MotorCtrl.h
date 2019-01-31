@@ -100,6 +100,8 @@ private:
     */
     void writeMOT(uint16_t n1, uint16_t n2);
 
+    void checkOverflow(void);
+
     /*
        Interrupt Service Routine to count the peaks of the right encoder
     */

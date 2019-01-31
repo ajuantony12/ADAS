@@ -87,6 +87,4 @@
 #define OUTPUT_BITS                                     16
 #define OUTPUT_SIGNED                                   false
 
-
-
 #endif /*ADAS_CFG_H*/

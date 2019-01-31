@@ -203,7 +203,7 @@ void CMotorCtrl::MotPI(void)
   //Checks if the  
     if (control && rtObj.rtDW.is_c3_Chart != 3){      
     StraightDrive();
-    //right PI control
+    //Executing right PI control
     feedback_r = counted_peaks_r;
     output_r = myPID.step(setpoint_r, feedback_r);
 
@@ -211,7 +211,7 @@ void CMotorCtrl::MotPI(void)
       output_r = 1023;
     }
    
-    //left PI control
+    //Executing left PI control
     feedback_l = counted_peaks_l;
     output_l = myPID.step(setpoint_l, feedback_l);
 
@@ -219,7 +219,13 @@ void CMotorCtrl::MotPI(void)
       output_l = 1023;
     }
           
-//write to motor
+    checkOverflow();
+    
+    control=false;
+  }
+}
+
+void CMotorCtrl::checkOverflow(void){
     if (digitalRead(PIN_ENABLE) == HIGH || rtObj.rtDW.is_c3_Chart == 3) {
       m_pwmUnitRight_o.writeMOT(LOW);
       m_pwmUnitLeft_o.writeMOT(LOW);
@@ -227,33 +233,27 @@ void CMotorCtrl::MotPI(void)
     } else {
       if(adapt_r < 0){
           if(abs(adapt_r) > output_r*2){
-              DPRINTLN("adaptr too low");
               m_pwmUnitRight_o.writeMOT(output_r*2);
               m_pwmUnitLeft_o.writeMOT(output_l*2);
             }else{
-              DPRINTLN("Wrote to motor with adapt");
                 m_pwmUnitRight_o.writeMOT(output_r*2+adapt_r);
                 m_pwmUnitLeft_o.writeMOT(output_l*2+adapt_l);
               }
         }else if(adapt_l < 0){
             if(abs(adapt_l) > output_l*2){
-              DPRINTLN("adaptl too low");
                 m_pwmUnitRight_o.writeMOT(output_r*2);
                 m_pwmUnitLeft_o.writeMOT(output_l*2);
               }else{
-                DPRINTLN("Wrote to motor with adapt");
                   m_pwmUnitRight_o.writeMOT(output_r*2+adapt_r);
                   m_pwmUnitLeft_o.writeMOT(output_l*2+adapt_l);
                 }
           }else{
-            DPRINTLN("Wrote to motor with adapt");
               m_pwmUnitRight_o.writeMOT(output_r*2+adapt_r);
               m_pwmUnitLeft_o.writeMOT(output_l*2+adapt_l);
             }
     }
-    control=false;
   }
-}
+
 // Start Encoder Counting Interrupts
 
 static void CMotorCtrl::EncISR_L(void)
