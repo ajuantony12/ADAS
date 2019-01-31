@@ -28,7 +28,7 @@
   CSerial     iccPort(CSerial::S2, ICC_RCV_BUFF_SIZE);
 //comms layer
   CICCComms iccComms_o(iccPort);
-  CMotorCtrl  mCtrl_o(imu_o, pwmUnitLeft_o, pwmUnitRight_o, enc1_o, enc2_o, iccComms_o);
+  CMotorCtrl  mCtrl_o(imu_o, pwmUnitLeft_o, pwmUnitRight_o, iccComms_o);
 
 void setup() {
   //Hw initialization

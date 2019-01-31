@@ -1,9 +1,9 @@
 #include "App_MotorCtrl.h"
 #include "Arduino.h"
-#include "HAL_PWM.h" //PWM header file
-#include "HAL_IMU.h" //PWM header file
-#include "App_Stateflow.h" // Model's header file
-#include "App_Stateflowtypes.h" // Type definitions
+#include "HAL_PWM.h" 
+#include "HAL_IMU.h" 
+#include "App_Stateflow.h"
+#include "App_Stateflowtypes.h"
 #include "ADAS_Debug.h"
 #include "ADAS_Cfg.h"
 #include "FastPID.h"
@@ -14,14 +14,11 @@ boolean control = false;
 Timer t;
 FastPID myPID(KP_VALUE, KI_VALUE, KD_VALUE, HZ_VALUE, OUTPUT_BITS, OUTPUT_SIGNED);
 
-CMotorCtrl::CMotorCtrl(CIMUUnit& imu_o, CPWMUnit& pwmUnitLeft_o, CPWMUnit& pwmUnitRight_o, 
-CEncoder& enc1_o, CEncoder& enc2_o, CICCComms& iccComms_o):
+CMotorCtrl::CMotorCtrl(CIMUUnit& imu_o, CPWMUnit& pwmUnitLeft_o, CPWMUnit& pwmUnitRight_o, CICCComms& iccComms_o):
   rtObj(),
   m_imu_o(imu_o),
   m_pwmUnitLeft_o(pwmUnitLeft_o),
   m_pwmUnitRight_o(pwmUnitRight_o),
-  m_enc1_o(enc1_o),
-  m_enc2_o(enc2_o),
   m_iccComms_o(iccComms_o),
   distance(0), pause(false), speed_set(false), spd(2), setpoint_l(5), setpoint_r(5), curState(3),
   ctrl_side(0), feedback_l(0), feedback_r(0), output_r(0), adapt_r(0), output_l(0), adapt_l(0),
