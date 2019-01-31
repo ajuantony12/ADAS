@@ -1,19 +1,21 @@
-//
-// File: rtwtypes.h
-//
-// Code generated for Simulink model 'Chart'.
-//
-// Model version                  : 1.37
-// Simulink Coder version         : 8.14 (R2018a) 06-Feb-2018
-// C/C++ source code generated on : Mon Dec 10 09:08:26 2018
-//
-// Target selection: ert.tlc
-// Embedded hardware selection: Atmel->AVR (8-bit)
-// Code generation objectives:
-//    1. Execution efficiency
-//    2. RAM efficiency
-// Validation result: Not run
-//
+/**
+* @file App_Stateflowtypes.h
+* @author Hannes Bähr, Juliane Müller
+* @date January 31, 2019
+* @brief Application file for Stateflowtypes
+*
+*
+* @section Code_generation code_generation
+* Code generated for Simulink model 'Chart'.
+* Model version                  : 1.37
+* Simulink Coder version         : 8.14 (R2018a) 06-Feb-2018
+* C/C++ source code generated on : Mon Dec 10 09:08:26 2018 
+* Embedded hardware selection: Atmel->AVR (8-bit)
+* 
+* 
+* 
+* 
+*/
 
 #ifndef RTWTYPES_H
 #define RTWTYPES_H

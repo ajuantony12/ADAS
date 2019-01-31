@@ -1,29 +1,34 @@
-//
-// File: Chart.cpp
-//
-// Code generated for Simulink model 'Chart'.
-//
-// Model version                  : 1.40
-// Simulink Coder version         : 8.14 (R2018a) 06-Feb-2018
-// C/C++ source code generated on : Thu Jan 24 08:11:29 2019
-//
-// Target selection: ert.tlc
-// Embedded hardware selection: Atmel->AVR (8-bit)
-// Code generation objectives:
-//    1. Execution efficiency
-//    2. RAM efficiency
-// Validation result: Not run
-//
+/**
+* @file App_Stateflow.cpp
+* @author Hannes Bähr, Juliane Müller
+* @date January 31, 2019
+* @brief Application file for Stateflow
+*
+*
+* @section Code_generation code_generation
+* Code generated for Simulink model 'Chart'.
+* Model version                  : 1.40
+* Simulink Coder version         : 8.14 (R2018a) 06-Feb-2018
+* C/C++ source code generated on : Thu Jan 24 11:08:26 2018 
+* Embedded hardware selection: Atmel->AVR (8-bit)
+* 
+* 
+* 
+* 
+*/
+
+
+// ##### Includes #####
 #include "App_Stateflow.h"
 
-// Named constants for Chart: '<Root>/Chart'
+// Define constants for Stateflowchart
 #define IN_Backward                    ((uint8_T)1U)
 #define IN_Forward                     ((uint8_T)2U)
 #define IN_Idle                        ((uint8_T)3U)
 #define IN_Turn_Left                   ((uint8_T)4U)
 #define IN_Turn_Right                  ((uint8_T)5U)
 
-// Model step function
+//! Model step function
 void ChartModelClass::step()
 {
   int16_T qY;
@@ -33,78 +38,83 @@ void ChartModelClass::step()
   boolean_T guard3 = false;
   boolean_T guard4 = false;
 
-  // Chart: '<Root>/Chart' incorporates:
-  //   Inport: '<Root>/dist'
-  //   Inport: '<Root>/gyro_signal'
-  //   Inport: '<Root>/turn'
-
   guard1 = false;
   guard2 = false;
   guard3 = false;
   guard4 = false;
   switch (rtDW.is_c3_Chart) {
+   //State to drive backward
    case IN_Backward:
+   //condition to get from backward in idle state
     if ((rtU.turn != 0) || (rtU.dist == 0)) {
+      //set local variable to current gyro signal
 		rtDW.curr_angle = rtU.gyro_signal;
-      // Outport: '<Root>/dir_r'
+      // Outport direction right motor
       rtY.dir_r = 0U;
 
-      // Outport: '<Root>/dir_l'
+      // Outport direction left motor
       rtY.dir_l = 0U;
+
+      //Next state 
       rtDW.is_c3_Chart = IN_Idle;
 
-      // Outport: '<Root>/mot_r'
+      // Outport power motor right off
       rtY.mot_r = 0U;
 
-      // Outport: '<Root>/mot_l'
+      // Outport power motor left off
       rtY.mot_l = 0U;
     } else {
-      // Outport: '<Root>/mot_r'
+      // Outport power motor right on
       rtY.mot_r = 1U;
 
-      // Outport: '<Root>/mot_l'
+      // Outport power motor left on
       rtY.mot_l = 1U;
 
-      // Outport: '<Root>/dir_r'
+      // Outport direction right motor 
       rtY.dir_r = 1U;
 
-      // Outport: '<Root>/dir_l'
+      // Outport direction left motor
       rtY.dir_l = 1U;
     }
     break;
-
+   // State forward
    case IN_Forward:
+    //condition to get in from forward to idle state
     if ((rtU.turn != 0) || (rtU.dist == 0)) {
+      //set local variable to current gyro signal
 		rtDW.curr_angle = rtU.gyro_signal;
-      // Outport: '<Root>/dir_r'
+      // Outport direction right motor 
       rtY.dir_r = 0U;
 
-      // Outport: '<Root>/dir_l'
+      // Outport direction left motor 
       rtY.dir_l = 0U;
+
+      //Next state
       rtDW.is_c3_Chart = IN_Idle;
 
-      // Outport: '<Root>/mot_r'
+      // Outport power motor right off
       rtY.mot_r = 0U;
 
-      // Outport: '<Root>/mot_l'
+      // Outport power motor left off
       rtY.mot_l = 0U;
     } else {
-      // Outport: '<Root>/mot_r'
+      // Outport power motor right on
       rtY.mot_r = 1U;
 
-      // Outport: '<Root>/mot_l'
+      // Outport power motor right on
       rtY.mot_l = 1U;
 
-      // Outport: '<Root>/dir_r'
+      // Outport direction right motor 
       rtY.dir_r = 0U;
 
-      // Outport: '<Root>/dir_l'
+      // Outport direction left motor 
       rtY.dir_l = 0U;
     }
     break;
 
    case IN_Idle:
     if (rtU.turn > 0) {
+      //set local variable to current gyro signal
       rtDW.curr_angle = rtU.gyro_signal;
       if ((rtDW.curr_angle < 0) && (rtU.turn < MIN_int16_T - rtDW.curr_angle)) {
         qY_0 = MIN_int16_T;
@@ -430,9 +440,3 @@ RT_MODEL * ChartModelClass::getRTM()
 {
   return (&rtM);
 }
-
-//
-// File trailer for generated code.
-//
-// [EOF]
-//

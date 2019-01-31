@@ -1,18 +1,31 @@
-/*H**********************************************************************
-* FILENAME :        IMU.h
-*
-* DESCRIPTION : Gyro and Acceleration sensor BNO055 header file
-*************************************************************************/
+/**
+* @file HAL_IMU.h
+* @author Hannes Bähr, Juliane Müller
+* @date January 31, 2019
+* @brief Application file for IMU
+* 
+* 
+*/
 
-#include <Wire.h>
-#include <Adafruit_Sensor.h>
-#include <Adafruit_BNO055.h>
-#include <utility/imumaths.h>
-#include "ADAS_Types.h"
 
 #ifndef HAL_IMU_UNIT_H
 #define HAL_IMU_UNIT_H
 
+// ##### Includes #####
+#include <Wire.h>
+#include <Adafruit_Sensor.h>
+#include <utility/imumaths.h>
+#include "ADAS_Types.h"
+/**Library of the IMU Modul*/
+#include <Adafruit_BNO055.h>
+
+// ##### Definitions #####
+/**
+ *
+ * \class   CIMUUnit
+ *
+ * \brief   Class to communicate with IMU Unit
+**/
 class CIMUUnit{
 public:
   /*
@@ -28,10 +41,10 @@ public:
    */
   void Init(void);
   /*
-   *
+   *Return Gyro signal
    */
    uint16_t ReturnGyro(void);
 
 };
 
-#endif /*HAL_DRIVE_UNIT_H*/
+#endif /*HAL_IMU_H*/
