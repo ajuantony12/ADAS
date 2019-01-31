@@ -30,6 +30,7 @@
 #ifndef APP_MOTOR_CTRL_H
 #define APP_MOTOR_CTRL_H
 
+//! Motor Contol Unit Class
 /**
  *
  * \class CMotorCtl
