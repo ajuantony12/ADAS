@@ -30,10 +30,10 @@
 #ifndef APP_MOTOR_CTRL_H
 #define APP_MOTOR_CTRL_H
 
-//! Motor Contol Unit Class
+//! Motor Control Unit Class
 /**
  *
- * \class CMotorCtl
+ * \class CMotorCtrl
  *
  * \brief   Class declaration for motor control
 **/
