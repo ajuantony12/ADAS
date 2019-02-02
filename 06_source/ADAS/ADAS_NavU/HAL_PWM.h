@@ -2,15 +2,16 @@
 * @file HAL_PWM.h
 * @author Christoph Jurczyk
 * @date January 29, 2019
-* @brief This file contains the Hardware Abstraction Layer (HAL) for the PWM outputs
+* @brief Hardware Abstraction Layer (HAL) for the 10-bit PWM outputs
 *
 */
 
-#ifndef PWM_16bit_H
-#define PWM_16bit_H
+#ifndef HAL_PWM_H
+#define HAL_PWM_H
 #include "ADAS_Types.h"
 #include "ADAS_Cfg.h"
 
+//! Hardware Abstraction Layer (HAL) PWM class
 class CPWMUnit{
 public:
 	
@@ -21,10 +22,10 @@ public:
     * \brief   Enum class for PWM pins
    **/
     typedef enum {
-		/// Defintion of first PWM pin (OC1A)
+		/// Definition of first PWM pin (OC1A)
         PWM1=PIN_MTR_L_PWM,
-		/// Defintion of second PWM pin (OC1B)
-        PWM2=PIN_MTR_R_PWM,
+		/// Definition of second PWM pin (OC1B)
+        PWM2=PIN_MTR_R_PWM, 
       }PWMID_e;
 	  
 	  
@@ -37,18 +38,15 @@ public:
     */
     ~CPWMUnit();
 
-    // function to initialize 16-bit PWM
-    void setupPWM16();
+    void setupPWM10();   
 
-
-    // function to write PWM duty cycle
-    // value from 0 to 65535
-    void analogWrite16(uint8_t pin, uint16_t val);
-
-    void writeMOT(uint16_t n);
+    void writeDuty(uint16_t n);
+	
 private:
    PWMID_e m_ID;
+   
+    void analogWrite10(uint8_t pin, uint16_t val);
 
-    };
+};
 
 #endif

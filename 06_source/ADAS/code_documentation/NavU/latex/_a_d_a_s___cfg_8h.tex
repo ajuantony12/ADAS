@@ -1,0 +1,559 @@
+\hypertarget{_a_d_a_s___cfg_8h}{}\section{A\+D\+A\+S\+\_\+\+Cfg.\+h File Reference}
+\label{_a_d_a_s___cfg_8h}\index{A\+D\+A\+S\+\_\+\+Cfg.\+h@{A\+D\+A\+S\+\_\+\+Cfg.\+h}}
+
+
+This file contains the configuration of the vehicle.  
+
+
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_a_d_a_s___cfg_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_a_d_a_s___cfg_8h_af1b7294cc1d532b3a1ab577b76852a39}{A\+D\+A\+S\+\_\+\+D\+E\+B\+U\+G2}}
+\item 
+\#define \mbox{\hyperlink{_a_d_a_s___cfg_8h_a00f72db64cf681b08d61977df126ec76}{P\+L\+S\+\_\+\+R\+C\+V\+\_\+\+B\+U\+F\+F\+\_\+\+S\+I\+ZE}}~500U
+\item 
+\#define \mbox{\hyperlink{_a_d_a_s___cfg_8h_ae3bd6bba60bc1008c82fe66f80428908}{P\+L\+S\+\_\+\+S\+N\+D\+\_\+\+B\+U\+F\+F\+\_\+\+S\+I\+ZE}}~50U
+\item 
+\#define \mbox{\hyperlink{_a_d_a_s___cfg_8h_abf41bed56ee0b2a8858687c4420bb110}{I\+C\+C\+\_\+\+R\+C\+V\+\_\+\+B\+U\+F\+F\+\_\+\+S\+I\+ZE}}~\mbox{\hyperlink{_a_d_a_s___cfg_8h_a17a000e80a2ce1e3be945f5484ff3dd7}{I\+C\+C\+\_\+\+L\+EN}}
+\item 
+\#define \mbox{\hyperlink{_a_d_a_s___cfg_8h_a5affc93ec51434d8a95645b2e3928148}{I\+C\+C\+\_\+\+S\+N\+D\+\_\+\+B\+U\+F\+F\+\_\+\+S\+I\+ZE}}~\mbox{\hyperlink{_a_d_a_s___cfg_8h_a17a000e80a2ce1e3be945f5484ff3dd7}{I\+C\+C\+\_\+\+L\+EN}}$\ast$10
+\item 
+\#define \mbox{\hyperlink{_a_d_a_s___cfg_8h_a1a37e37e96529dca8a9436a4cdcfad22}{M\+A\+X\+\_\+\+M\+E\+S\+\_\+\+B\+U\+F\+F\+\_\+\+S\+I\+ZE}}~(20)
+\item 
+\#define \mbox{\hyperlink{_a_d_a_s___cfg_8h_a4b4b233b2211ae3acf6ecf7c41f8acbb}{M\+A\+X\+\_\+\+N\+U\+M\+\_\+\+T\+A\+SK}}~5U
+\item 
+\#define \mbox{\hyperlink{_a_d_a_s___cfg_8h_a5ddc3cfb86290bdf3c976fc1ce56fa47}{S\+E\+R\+I\+A\+L1\+\_\+\+B\+A\+UD}}~9600
+\item 
+\#define \mbox{\hyperlink{_a_d_a_s___cfg_8h_ab7c4f69dae56ab78e8fb4e2c81701e77}{S\+E\+R\+I\+A\+L1\+\_\+\+B\+A\+U\+D\+\_\+\+P\+R\+E\+S\+C\+A\+LE}}~(((F\+\_\+\+C\+PU / (\mbox{\hyperlink{_a_d_a_s___cfg_8h_a5ddc3cfb86290bdf3c976fc1ce56fa47}{S\+E\+R\+I\+A\+L1\+\_\+\+B\+A\+UD}} $\ast$ 16\+U\+L))) -\/ 1)
+\item 
+\#define \mbox{\hyperlink{_a_d_a_s___cfg_8h_a62d0cbd008700f38d8a4fdd9aec2c554}{S\+E\+R\+I\+A\+L2\+\_\+\+B\+A\+UD}}~9600
+\item 
+\#define \mbox{\hyperlink{_a_d_a_s___cfg_8h_aaac720d7fe05f2b696f15ea9b2b56c7d}{S\+E\+R\+I\+A\+L2\+\_\+\+B\+A\+U\+D\+\_\+\+P\+R\+E\+S\+C\+A\+LE}}~(((F\+\_\+\+C\+PU / (\mbox{\hyperlink{_a_d_a_s___cfg_8h_a62d0cbd008700f38d8a4fdd9aec2c554}{S\+E\+R\+I\+A\+L2\+\_\+\+B\+A\+UD}} $\ast$ 16\+U\+L))) -\/ 1)
+\item 
+\#define \mbox{\hyperlink{_a_d_a_s___cfg_8h_aaf1f5bdadcf76f17d3f715fbbb78d567}{P\+L\+S\+\_\+\+W\+F\+\_\+\+S\+E\+G\+E\+M\+E\+N\+T\+S\+\_\+\+R\+I\+G\+HT}}~63U
+\item 
+\#define \mbox{\hyperlink{_a_d_a_s___cfg_8h_af13556a4f020d6a5a11aad1df59530e3}{P\+L\+S\+\_\+\+W\+F\+\_\+\+S\+E\+G\+E\+M\+E\+N\+T\+S\+\_\+\+L\+E\+FT}}~117U
+\item 
+\#define \mbox{\hyperlink{_a_d_a_s___cfg_8h_a56c71db74384511c149652d598bf1795}{P\+L\+S\+\_\+\+W\+A\+L\+L\+\_\+\+D\+E\+T\+E\+C\+T\+I\+O\+N\+\_\+2\+\_\+\+P\+O\+I\+NT}}~45U
+\item 
+\#define \mbox{\hyperlink{_a_d_a_s___cfg_8h_a47e1f95a0e565aaa08112811fe539950}{P\+L\+S\+\_\+\+M\+A\+X\+\_\+\+V\+E\+R\+T\+I\+C\+A\+L\+\_\+\+D\+I\+ST}}~100U
+\item 
+\#define \mbox{\hyperlink{_a_d_a_s___cfg_8h_ab2f685f6fde473fdb3a41575537af22a}{P\+L\+S\+\_\+\+L\+E\+F\+T\+\_\+\+O\+F\+F\+S\+E\+T\+\_\+\+T\+O\+L\+E\+R\+A\+N\+CE}}~5U
+\item 
+\#define \mbox{\hyperlink{_a_d_a_s___cfg_8h_aedea30baea3703d1140bb971f7d1de8a}{P\+L\+S\+\_\+\+W\+F\+\_\+\+S\+E\+G\+E\+M\+E\+N\+T\+S\+\_\+\+M\+AX}}~180U
+\item 
+\#define \mbox{\hyperlink{_a_d_a_s___cfg_8h_a8c52736558ce47242a7c679123df76a0}{S\+I\+C\+K\+\_\+\+S\+TX}}~0x02
+\item 
+\#define \mbox{\hyperlink{_a_d_a_s___cfg_8h_a4ae91f90fd4b33d0bc454db3d90cf700}{S\+I\+C\+K\+\_\+\+D\+E\+S\+TR}}~0x80
+\item 
+\#define \mbox{\hyperlink{_a_d_a_s___cfg_8h_aa170bc1a99d2c608d5508e9b66566695}{S\+I\+C\+K\+\_\+\+A\+CK}}~0x06
+\item 
+\#define \mbox{\hyperlink{_a_d_a_s___cfg_8h_a6e34ca003e6bdfd81d05bcb8ea3c5eb2}{S\+I\+C\+K\+\_\+\+N\+AK}}~0x15
+\item 
+\#define \mbox{\hyperlink{_a_d_a_s___cfg_8h_ad9c869803f9fc9e3ffc9e962c19f028d}{P\+I\+N\+\_\+\+V\+B\+AT}}~A0
+\item 
+\#define \mbox{\hyperlink{_a_d_a_s___cfg_8h_a403f98f6cd7185fbd3da8bebe3406b98}{N\+A\+V\+\_\+\+S\+E\+T\+\_\+\+O\+F\+F\+S\+ET}}~80
+\item 
+\#define \mbox{\hyperlink{_a_d_a_s___cfg_8h_a3418793fa8fb8fe470c736d2c277e8fb}{N\+A\+V\+\_\+\+T\+O\+L\+\_\+\+O\+F\+F\+S\+ET}}~5
+\item 
+\#define \mbox{\hyperlink{_a_d_a_s___cfg_8h_a7ae3d3ce8d10e859369508ecb496ac07}{N\+A\+V\+\_\+\+T\+O\+L\+\_\+\+A\+N\+G\+L\+E\+\_\+\+D\+R\+I\+VE}}~5
+\item 
+\#define \mbox{\hyperlink{_a_d_a_s___cfg_8h_ad37cb9fe48a2b3eef8b01ec7c25d2dfc}{I\+C\+C\+\_\+\+S\+T\+X1}}~0xff
+\item 
+\#define \mbox{\hyperlink{_a_d_a_s___cfg_8h_a68e8b24c1a01472ef62c60e9d934f63c}{I\+C\+C\+\_\+\+S\+T\+X2}}~0xff
+\item 
+\#define \mbox{\hyperlink{_a_d_a_s___cfg_8h_ac9943f1124269cb02f9317d42991c503}{I\+C\+C\+\_\+\+T\+TX}}~0xee
+\item 
+\#define \mbox{\hyperlink{_a_d_a_s___cfg_8h_a17a000e80a2ce1e3be945f5484ff3dd7}{I\+C\+C\+\_\+\+L\+EN}}~6U
+\item 
+\#define \mbox{\hyperlink{_a_d_a_s___cfg_8h_a40d2abfed1ddd75059dcf6cb22827768}{I\+C\+C\+\_\+\+C\+M\+D\+\_\+\+C\+O\+N\+T\+\_\+\+D\+R\+I\+V\+E\+\_\+\+IN}}~0x01
+\item 
+\#define \mbox{\hyperlink{_a_d_a_s___cfg_8h_aedeacd8d3824162ab6e36fb5daf98a63}{I\+C\+C\+\_\+\+C\+M\+D\+\_\+\+E\+M\+E\+R\+\_\+\+S\+T\+OP}}~0x02
+\item 
+\#define \mbox{\hyperlink{_a_d_a_s___cfg_8h_a6b04b7f091aca78258644ae59974760b}{I\+C\+C\+\_\+\+C\+M\+D\+\_\+\+S\+O\+F\+T\+\_\+\+S\+T\+OP}}~0x03
+\item 
+\#define \mbox{\hyperlink{_a_d_a_s___cfg_8h_afdd598eb4bc8932a5361cad0bda4ce8b}{I\+C\+C\+\_\+\+C\+M\+D\+\_\+\+D\+R\+I\+V\+E\+\_\+\+D\+I\+ST}}~0x04
+\item 
+\#define \mbox{\hyperlink{_a_d_a_s___cfg_8h_a959554139978e2a4ac7ee923a8c0caa9}{I\+C\+C\+\_\+\+C\+M\+D\+\_\+\+R\+O\+T\+\_\+\+A\+N\+G\+LE}}~0x05
+\item 
+\#define \mbox{\hyperlink{_a_d_a_s___cfg_8h_aec8c3e01e4c00ebf2a58554fe92de7cd}{I\+C\+C\+\_\+\+C\+M\+D\+\_\+\+S\+E\+T\+\_\+\+S\+P\+E\+ED}}~0x06
+\item 
+\#define \mbox{\hyperlink{_a_d_a_s___cfg_8h_ab485c094bfdf623f14b0905c50056971}{I\+C\+C\+\_\+\+C\+M\+D\+\_\+\+P\+A\+U\+S\+E\+\_\+\+D\+R\+I\+VE}}~0x07
+\item 
+\#define \mbox{\hyperlink{_a_d_a_s___cfg_8h_a6ca365181dee48355653abc899f323ef}{I\+C\+C\+\_\+\+C\+M\+D\+\_\+\+C\+O\+N\+T\+\_\+\+D\+R\+I\+VE}}~0x08
+\item 
+\#define \mbox{\hyperlink{_a_d_a_s___cfg_8h_a9c53df5529ba6243219b7339e850b44e}{I\+C\+C\+\_\+\+C\+M\+D\+\_\+\+F\+B\+\_\+\+A\+CK}}~0x01
+\item 
+\#define \mbox{\hyperlink{_a_d_a_s___cfg_8h_a747531d8f8f667e12901b8cfe38c6590}{I\+C\+C\+\_\+\+C\+M\+D\+\_\+\+F\+B\+\_\+\+D\+I\+ST}}~0x02
+\item 
+\#define \mbox{\hyperlink{_a_d_a_s___cfg_8h_afce5749f1ae59adc2b3ac85f2a624213}{I\+C\+C\+\_\+\+C\+M\+D\+\_\+\+F\+B\+\_\+\+R\+OT}}~0x03
+\item 
+\#define \mbox{\hyperlink{_a_d_a_s___cfg_8h_a9b007d258cc627ea79aa06cef42c0851}{E\+N\+V\+\_\+\+V\+B\+A\+T\+\_\+\+G\+A\+IN}}~32
+\item 
+\#define \mbox{\hyperlink{_a_d_a_s___cfg_8h_a60f7517e6d36bf5703fc24eacb2f17ed}{E\+N\+V\+\_\+\+V\+B\+A\+T\+\_\+\+O\+FF}}~0
+\item 
+\#define \mbox{\hyperlink{_a_d_a_s___cfg_8h_a6975af7b117810195e5c85c0f0352474}{E\+N\+V\+\_\+\+V\+B\+A\+T\+\_\+\+L\+OW}}~22000
+\item 
+\#define \mbox{\hyperlink{_a_d_a_s___cfg_8h_a3b11384d6b643ae55afe2904de70a208}{E\+N\+V\+\_\+\+V\+B\+A\+T\+\_\+\+C\+RI}}~20000
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This file contains the configuration of the vehicle. 
+
+\begin{DoxyAuthor}{Author}
+Christoph Jurczyk 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+January 30, 2019 
+\end{DoxyDate}
+
+
+\subsection{Macro Definition Documentation}
+\mbox{\Hypertarget{_a_d_a_s___cfg_8h_af1b7294cc1d532b3a1ab577b76852a39}\label{_a_d_a_s___cfg_8h_af1b7294cc1d532b3a1ab577b76852a39}} 
+\index{A\+D\+A\+S\+\_\+\+Cfg.\+h@{A\+D\+A\+S\+\_\+\+Cfg.\+h}!A\+D\+A\+S\+\_\+\+D\+E\+B\+U\+G2@{A\+D\+A\+S\+\_\+\+D\+E\+B\+U\+G2}}
+\index{A\+D\+A\+S\+\_\+\+D\+E\+B\+U\+G2@{A\+D\+A\+S\+\_\+\+D\+E\+B\+U\+G2}!A\+D\+A\+S\+\_\+\+Cfg.\+h@{A\+D\+A\+S\+\_\+\+Cfg.\+h}}
+\subsubsection{\texorpdfstring{A\+D\+A\+S\+\_\+\+D\+E\+B\+U\+G2}{ADAS\_DEBUG2}}
+{\footnotesize\ttfamily \#define A\+D\+A\+S\+\_\+\+D\+E\+B\+U\+G2}
+
+Enable this definition for debug print outs Enable this definition for debug2 print outs 
+
+Definition at line 15 of file A\+D\+A\+S\+\_\+\+Cfg.\+h.
+
+\mbox{\Hypertarget{_a_d_a_s___cfg_8h_a3b11384d6b643ae55afe2904de70a208}\label{_a_d_a_s___cfg_8h_a3b11384d6b643ae55afe2904de70a208}} 
+\index{A\+D\+A\+S\+\_\+\+Cfg.\+h@{A\+D\+A\+S\+\_\+\+Cfg.\+h}!E\+N\+V\+\_\+\+V\+B\+A\+T\+\_\+\+C\+RI@{E\+N\+V\+\_\+\+V\+B\+A\+T\+\_\+\+C\+RI}}
+\index{E\+N\+V\+\_\+\+V\+B\+A\+T\+\_\+\+C\+RI@{E\+N\+V\+\_\+\+V\+B\+A\+T\+\_\+\+C\+RI}!A\+D\+A\+S\+\_\+\+Cfg.\+h@{A\+D\+A\+S\+\_\+\+Cfg.\+h}}
+\subsubsection{\texorpdfstring{E\+N\+V\+\_\+\+V\+B\+A\+T\+\_\+\+C\+RI}{ENV\_VBAT\_CRI}}
+{\footnotesize\ttfamily \#define E\+N\+V\+\_\+\+V\+B\+A\+T\+\_\+\+C\+RI~20000}
+
+Definition of critical voltage battery value 
+
+Definition at line 114 of file A\+D\+A\+S\+\_\+\+Cfg.\+h.
+
+\mbox{\Hypertarget{_a_d_a_s___cfg_8h_a9b007d258cc627ea79aa06cef42c0851}\label{_a_d_a_s___cfg_8h_a9b007d258cc627ea79aa06cef42c0851}} 
+\index{A\+D\+A\+S\+\_\+\+Cfg.\+h@{A\+D\+A\+S\+\_\+\+Cfg.\+h}!E\+N\+V\+\_\+\+V\+B\+A\+T\+\_\+\+G\+A\+IN@{E\+N\+V\+\_\+\+V\+B\+A\+T\+\_\+\+G\+A\+IN}}
+\index{E\+N\+V\+\_\+\+V\+B\+A\+T\+\_\+\+G\+A\+IN@{E\+N\+V\+\_\+\+V\+B\+A\+T\+\_\+\+G\+A\+IN}!A\+D\+A\+S\+\_\+\+Cfg.\+h@{A\+D\+A\+S\+\_\+\+Cfg.\+h}}
+\subsubsection{\texorpdfstring{E\+N\+V\+\_\+\+V\+B\+A\+T\+\_\+\+G\+A\+IN}{ENV\_VBAT\_GAIN}}
+{\footnotesize\ttfamily \#define E\+N\+V\+\_\+\+V\+B\+A\+T\+\_\+\+G\+A\+IN~32}
+
+Definition of gain of the battery voltage monitor in m\+V/sample 
+
+Definition at line 108 of file A\+D\+A\+S\+\_\+\+Cfg.\+h.
+
+\mbox{\Hypertarget{_a_d_a_s___cfg_8h_a6975af7b117810195e5c85c0f0352474}\label{_a_d_a_s___cfg_8h_a6975af7b117810195e5c85c0f0352474}} 
+\index{A\+D\+A\+S\+\_\+\+Cfg.\+h@{A\+D\+A\+S\+\_\+\+Cfg.\+h}!E\+N\+V\+\_\+\+V\+B\+A\+T\+\_\+\+L\+OW@{E\+N\+V\+\_\+\+V\+B\+A\+T\+\_\+\+L\+OW}}
+\index{E\+N\+V\+\_\+\+V\+B\+A\+T\+\_\+\+L\+OW@{E\+N\+V\+\_\+\+V\+B\+A\+T\+\_\+\+L\+OW}!A\+D\+A\+S\+\_\+\+Cfg.\+h@{A\+D\+A\+S\+\_\+\+Cfg.\+h}}
+\subsubsection{\texorpdfstring{E\+N\+V\+\_\+\+V\+B\+A\+T\+\_\+\+L\+OW}{ENV\_VBAT\_LOW}}
+{\footnotesize\ttfamily \#define E\+N\+V\+\_\+\+V\+B\+A\+T\+\_\+\+L\+OW~22000}
+
+Definition of low voltage battery value 
+
+Definition at line 112 of file A\+D\+A\+S\+\_\+\+Cfg.\+h.
+
+\mbox{\Hypertarget{_a_d_a_s___cfg_8h_a60f7517e6d36bf5703fc24eacb2f17ed}\label{_a_d_a_s___cfg_8h_a60f7517e6d36bf5703fc24eacb2f17ed}} 
+\index{A\+D\+A\+S\+\_\+\+Cfg.\+h@{A\+D\+A\+S\+\_\+\+Cfg.\+h}!E\+N\+V\+\_\+\+V\+B\+A\+T\+\_\+\+O\+FF@{E\+N\+V\+\_\+\+V\+B\+A\+T\+\_\+\+O\+FF}}
+\index{E\+N\+V\+\_\+\+V\+B\+A\+T\+\_\+\+O\+FF@{E\+N\+V\+\_\+\+V\+B\+A\+T\+\_\+\+O\+FF}!A\+D\+A\+S\+\_\+\+Cfg.\+h@{A\+D\+A\+S\+\_\+\+Cfg.\+h}}
+\subsubsection{\texorpdfstring{E\+N\+V\+\_\+\+V\+B\+A\+T\+\_\+\+O\+FF}{ENV\_VBAT\_OFF}}
+{\footnotesize\ttfamily \#define E\+N\+V\+\_\+\+V\+B\+A\+T\+\_\+\+O\+FF~0}
+
+Definition of offset of battery voltage in mV 
+
+Definition at line 110 of file A\+D\+A\+S\+\_\+\+Cfg.\+h.
+
+\mbox{\Hypertarget{_a_d_a_s___cfg_8h_a6ca365181dee48355653abc899f323ef}\label{_a_d_a_s___cfg_8h_a6ca365181dee48355653abc899f323ef}} 
+\index{A\+D\+A\+S\+\_\+\+Cfg.\+h@{A\+D\+A\+S\+\_\+\+Cfg.\+h}!I\+C\+C\+\_\+\+C\+M\+D\+\_\+\+C\+O\+N\+T\+\_\+\+D\+R\+I\+VE@{I\+C\+C\+\_\+\+C\+M\+D\+\_\+\+C\+O\+N\+T\+\_\+\+D\+R\+I\+VE}}
+\index{I\+C\+C\+\_\+\+C\+M\+D\+\_\+\+C\+O\+N\+T\+\_\+\+D\+R\+I\+VE@{I\+C\+C\+\_\+\+C\+M\+D\+\_\+\+C\+O\+N\+T\+\_\+\+D\+R\+I\+VE}!A\+D\+A\+S\+\_\+\+Cfg.\+h@{A\+D\+A\+S\+\_\+\+Cfg.\+h}}
+\subsubsection{\texorpdfstring{I\+C\+C\+\_\+\+C\+M\+D\+\_\+\+C\+O\+N\+T\+\_\+\+D\+R\+I\+VE}{ICC\_CMD\_CONT\_DRIVE}}
+{\footnotesize\ttfamily \#define I\+C\+C\+\_\+\+C\+M\+D\+\_\+\+C\+O\+N\+T\+\_\+\+D\+R\+I\+VE~0x08}
+
+Inter-\/\+Controller Communication\+: Command to continue movement 
+
+Definition at line 98 of file A\+D\+A\+S\+\_\+\+Cfg.\+h.
+
+\mbox{\Hypertarget{_a_d_a_s___cfg_8h_a40d2abfed1ddd75059dcf6cb22827768}\label{_a_d_a_s___cfg_8h_a40d2abfed1ddd75059dcf6cb22827768}} 
+\index{A\+D\+A\+S\+\_\+\+Cfg.\+h@{A\+D\+A\+S\+\_\+\+Cfg.\+h}!I\+C\+C\+\_\+\+C\+M\+D\+\_\+\+C\+O\+N\+T\+\_\+\+D\+R\+I\+V\+E\+\_\+\+IN@{I\+C\+C\+\_\+\+C\+M\+D\+\_\+\+C\+O\+N\+T\+\_\+\+D\+R\+I\+V\+E\+\_\+\+IN}}
+\index{I\+C\+C\+\_\+\+C\+M\+D\+\_\+\+C\+O\+N\+T\+\_\+\+D\+R\+I\+V\+E\+\_\+\+IN@{I\+C\+C\+\_\+\+C\+M\+D\+\_\+\+C\+O\+N\+T\+\_\+\+D\+R\+I\+V\+E\+\_\+\+IN}!A\+D\+A\+S\+\_\+\+Cfg.\+h@{A\+D\+A\+S\+\_\+\+Cfg.\+h}}
+\subsubsection{\texorpdfstring{I\+C\+C\+\_\+\+C\+M\+D\+\_\+\+C\+O\+N\+T\+\_\+\+D\+R\+I\+V\+E\+\_\+\+IN}{ICC\_CMD\_CONT\_DRIVE\_IN}}
+{\footnotesize\ttfamily \#define I\+C\+C\+\_\+\+C\+M\+D\+\_\+\+C\+O\+N\+T\+\_\+\+D\+R\+I\+V\+E\+\_\+\+IN~0x01}
+
+Inter-\/\+Controller Communication\+: Command to drive continuous 
+
+Definition at line 84 of file A\+D\+A\+S\+\_\+\+Cfg.\+h.
+
+\mbox{\Hypertarget{_a_d_a_s___cfg_8h_afdd598eb4bc8932a5361cad0bda4ce8b}\label{_a_d_a_s___cfg_8h_afdd598eb4bc8932a5361cad0bda4ce8b}} 
+\index{A\+D\+A\+S\+\_\+\+Cfg.\+h@{A\+D\+A\+S\+\_\+\+Cfg.\+h}!I\+C\+C\+\_\+\+C\+M\+D\+\_\+\+D\+R\+I\+V\+E\+\_\+\+D\+I\+ST@{I\+C\+C\+\_\+\+C\+M\+D\+\_\+\+D\+R\+I\+V\+E\+\_\+\+D\+I\+ST}}
+\index{I\+C\+C\+\_\+\+C\+M\+D\+\_\+\+D\+R\+I\+V\+E\+\_\+\+D\+I\+ST@{I\+C\+C\+\_\+\+C\+M\+D\+\_\+\+D\+R\+I\+V\+E\+\_\+\+D\+I\+ST}!A\+D\+A\+S\+\_\+\+Cfg.\+h@{A\+D\+A\+S\+\_\+\+Cfg.\+h}}
+\subsubsection{\texorpdfstring{I\+C\+C\+\_\+\+C\+M\+D\+\_\+\+D\+R\+I\+V\+E\+\_\+\+D\+I\+ST}{ICC\_CMD\_DRIVE\_DIST}}
+{\footnotesize\ttfamily \#define I\+C\+C\+\_\+\+C\+M\+D\+\_\+\+D\+R\+I\+V\+E\+\_\+\+D\+I\+ST~0x04}
+
+Inter-\/\+Controller Communication\+: Command to drive a distance 
+
+Definition at line 90 of file A\+D\+A\+S\+\_\+\+Cfg.\+h.
+
+\mbox{\Hypertarget{_a_d_a_s___cfg_8h_aedeacd8d3824162ab6e36fb5daf98a63}\label{_a_d_a_s___cfg_8h_aedeacd8d3824162ab6e36fb5daf98a63}} 
+\index{A\+D\+A\+S\+\_\+\+Cfg.\+h@{A\+D\+A\+S\+\_\+\+Cfg.\+h}!I\+C\+C\+\_\+\+C\+M\+D\+\_\+\+E\+M\+E\+R\+\_\+\+S\+T\+OP@{I\+C\+C\+\_\+\+C\+M\+D\+\_\+\+E\+M\+E\+R\+\_\+\+S\+T\+OP}}
+\index{I\+C\+C\+\_\+\+C\+M\+D\+\_\+\+E\+M\+E\+R\+\_\+\+S\+T\+OP@{I\+C\+C\+\_\+\+C\+M\+D\+\_\+\+E\+M\+E\+R\+\_\+\+S\+T\+OP}!A\+D\+A\+S\+\_\+\+Cfg.\+h@{A\+D\+A\+S\+\_\+\+Cfg.\+h}}
+\subsubsection{\texorpdfstring{I\+C\+C\+\_\+\+C\+M\+D\+\_\+\+E\+M\+E\+R\+\_\+\+S\+T\+OP}{ICC\_CMD\_EMER\_STOP}}
+{\footnotesize\ttfamily \#define I\+C\+C\+\_\+\+C\+M\+D\+\_\+\+E\+M\+E\+R\+\_\+\+S\+T\+OP~0x02}
+
+Inter-\/\+Controller Communication\+: Command to do an emergency stop 
+
+Definition at line 86 of file A\+D\+A\+S\+\_\+\+Cfg.\+h.
+
+\mbox{\Hypertarget{_a_d_a_s___cfg_8h_a9c53df5529ba6243219b7339e850b44e}\label{_a_d_a_s___cfg_8h_a9c53df5529ba6243219b7339e850b44e}} 
+\index{A\+D\+A\+S\+\_\+\+Cfg.\+h@{A\+D\+A\+S\+\_\+\+Cfg.\+h}!I\+C\+C\+\_\+\+C\+M\+D\+\_\+\+F\+B\+\_\+\+A\+CK@{I\+C\+C\+\_\+\+C\+M\+D\+\_\+\+F\+B\+\_\+\+A\+CK}}
+\index{I\+C\+C\+\_\+\+C\+M\+D\+\_\+\+F\+B\+\_\+\+A\+CK@{I\+C\+C\+\_\+\+C\+M\+D\+\_\+\+F\+B\+\_\+\+A\+CK}!A\+D\+A\+S\+\_\+\+Cfg.\+h@{A\+D\+A\+S\+\_\+\+Cfg.\+h}}
+\subsubsection{\texorpdfstring{I\+C\+C\+\_\+\+C\+M\+D\+\_\+\+F\+B\+\_\+\+A\+CK}{ICC\_CMD\_FB\_ACK}}
+{\footnotesize\ttfamily \#define I\+C\+C\+\_\+\+C\+M\+D\+\_\+\+F\+B\+\_\+\+A\+CK~0x01}
+
+Inter-\/\+Controller Communication\+: Command to acknowledge message 
+
+Definition at line 100 of file A\+D\+A\+S\+\_\+\+Cfg.\+h.
+
+\mbox{\Hypertarget{_a_d_a_s___cfg_8h_a747531d8f8f667e12901b8cfe38c6590}\label{_a_d_a_s___cfg_8h_a747531d8f8f667e12901b8cfe38c6590}} 
+\index{A\+D\+A\+S\+\_\+\+Cfg.\+h@{A\+D\+A\+S\+\_\+\+Cfg.\+h}!I\+C\+C\+\_\+\+C\+M\+D\+\_\+\+F\+B\+\_\+\+D\+I\+ST@{I\+C\+C\+\_\+\+C\+M\+D\+\_\+\+F\+B\+\_\+\+D\+I\+ST}}
+\index{I\+C\+C\+\_\+\+C\+M\+D\+\_\+\+F\+B\+\_\+\+D\+I\+ST@{I\+C\+C\+\_\+\+C\+M\+D\+\_\+\+F\+B\+\_\+\+D\+I\+ST}!A\+D\+A\+S\+\_\+\+Cfg.\+h@{A\+D\+A\+S\+\_\+\+Cfg.\+h}}
+\subsubsection{\texorpdfstring{I\+C\+C\+\_\+\+C\+M\+D\+\_\+\+F\+B\+\_\+\+D\+I\+ST}{ICC\_CMD\_FB\_DIST}}
+{\footnotesize\ttfamily \#define I\+C\+C\+\_\+\+C\+M\+D\+\_\+\+F\+B\+\_\+\+D\+I\+ST~0x02}
+
+Inter-\/\+Controller Communication\+: Command to acknowledge reached distance 
+
+Definition at line 102 of file A\+D\+A\+S\+\_\+\+Cfg.\+h.
+
+\mbox{\Hypertarget{_a_d_a_s___cfg_8h_afce5749f1ae59adc2b3ac85f2a624213}\label{_a_d_a_s___cfg_8h_afce5749f1ae59adc2b3ac85f2a624213}} 
+\index{A\+D\+A\+S\+\_\+\+Cfg.\+h@{A\+D\+A\+S\+\_\+\+Cfg.\+h}!I\+C\+C\+\_\+\+C\+M\+D\+\_\+\+F\+B\+\_\+\+R\+OT@{I\+C\+C\+\_\+\+C\+M\+D\+\_\+\+F\+B\+\_\+\+R\+OT}}
+\index{I\+C\+C\+\_\+\+C\+M\+D\+\_\+\+F\+B\+\_\+\+R\+OT@{I\+C\+C\+\_\+\+C\+M\+D\+\_\+\+F\+B\+\_\+\+R\+OT}!A\+D\+A\+S\+\_\+\+Cfg.\+h@{A\+D\+A\+S\+\_\+\+Cfg.\+h}}
+\subsubsection{\texorpdfstring{I\+C\+C\+\_\+\+C\+M\+D\+\_\+\+F\+B\+\_\+\+R\+OT}{ICC\_CMD\_FB\_ROT}}
+{\footnotesize\ttfamily \#define I\+C\+C\+\_\+\+C\+M\+D\+\_\+\+F\+B\+\_\+\+R\+OT~0x03}
+
+Inter-\/\+Controller Communication\+: Command to acknowledge reached rotation 
+
+Definition at line 104 of file A\+D\+A\+S\+\_\+\+Cfg.\+h.
+
+\mbox{\Hypertarget{_a_d_a_s___cfg_8h_ab485c094bfdf623f14b0905c50056971}\label{_a_d_a_s___cfg_8h_ab485c094bfdf623f14b0905c50056971}} 
+\index{A\+D\+A\+S\+\_\+\+Cfg.\+h@{A\+D\+A\+S\+\_\+\+Cfg.\+h}!I\+C\+C\+\_\+\+C\+M\+D\+\_\+\+P\+A\+U\+S\+E\+\_\+\+D\+R\+I\+VE@{I\+C\+C\+\_\+\+C\+M\+D\+\_\+\+P\+A\+U\+S\+E\+\_\+\+D\+R\+I\+VE}}
+\index{I\+C\+C\+\_\+\+C\+M\+D\+\_\+\+P\+A\+U\+S\+E\+\_\+\+D\+R\+I\+VE@{I\+C\+C\+\_\+\+C\+M\+D\+\_\+\+P\+A\+U\+S\+E\+\_\+\+D\+R\+I\+VE}!A\+D\+A\+S\+\_\+\+Cfg.\+h@{A\+D\+A\+S\+\_\+\+Cfg.\+h}}
+\subsubsection{\texorpdfstring{I\+C\+C\+\_\+\+C\+M\+D\+\_\+\+P\+A\+U\+S\+E\+\_\+\+D\+R\+I\+VE}{ICC\_CMD\_PAUSE\_DRIVE}}
+{\footnotesize\ttfamily \#define I\+C\+C\+\_\+\+C\+M\+D\+\_\+\+P\+A\+U\+S\+E\+\_\+\+D\+R\+I\+VE~0x07}
+
+Inter-\/\+Controller Communication\+: Command to pause movement 
+
+Definition at line 96 of file A\+D\+A\+S\+\_\+\+Cfg.\+h.
+
+\mbox{\Hypertarget{_a_d_a_s___cfg_8h_a959554139978e2a4ac7ee923a8c0caa9}\label{_a_d_a_s___cfg_8h_a959554139978e2a4ac7ee923a8c0caa9}} 
+\index{A\+D\+A\+S\+\_\+\+Cfg.\+h@{A\+D\+A\+S\+\_\+\+Cfg.\+h}!I\+C\+C\+\_\+\+C\+M\+D\+\_\+\+R\+O\+T\+\_\+\+A\+N\+G\+LE@{I\+C\+C\+\_\+\+C\+M\+D\+\_\+\+R\+O\+T\+\_\+\+A\+N\+G\+LE}}
+\index{I\+C\+C\+\_\+\+C\+M\+D\+\_\+\+R\+O\+T\+\_\+\+A\+N\+G\+LE@{I\+C\+C\+\_\+\+C\+M\+D\+\_\+\+R\+O\+T\+\_\+\+A\+N\+G\+LE}!A\+D\+A\+S\+\_\+\+Cfg.\+h@{A\+D\+A\+S\+\_\+\+Cfg.\+h}}
+\subsubsection{\texorpdfstring{I\+C\+C\+\_\+\+C\+M\+D\+\_\+\+R\+O\+T\+\_\+\+A\+N\+G\+LE}{ICC\_CMD\_ROT\_ANGLE}}
+{\footnotesize\ttfamily \#define I\+C\+C\+\_\+\+C\+M\+D\+\_\+\+R\+O\+T\+\_\+\+A\+N\+G\+LE~0x05}
+
+Inter-\/\+Controller Communication\+: Command to rotate by angle 
+
+Definition at line 92 of file A\+D\+A\+S\+\_\+\+Cfg.\+h.
+
+\mbox{\Hypertarget{_a_d_a_s___cfg_8h_aec8c3e01e4c00ebf2a58554fe92de7cd}\label{_a_d_a_s___cfg_8h_aec8c3e01e4c00ebf2a58554fe92de7cd}} 
+\index{A\+D\+A\+S\+\_\+\+Cfg.\+h@{A\+D\+A\+S\+\_\+\+Cfg.\+h}!I\+C\+C\+\_\+\+C\+M\+D\+\_\+\+S\+E\+T\+\_\+\+S\+P\+E\+ED@{I\+C\+C\+\_\+\+C\+M\+D\+\_\+\+S\+E\+T\+\_\+\+S\+P\+E\+ED}}
+\index{I\+C\+C\+\_\+\+C\+M\+D\+\_\+\+S\+E\+T\+\_\+\+S\+P\+E\+ED@{I\+C\+C\+\_\+\+C\+M\+D\+\_\+\+S\+E\+T\+\_\+\+S\+P\+E\+ED}!A\+D\+A\+S\+\_\+\+Cfg.\+h@{A\+D\+A\+S\+\_\+\+Cfg.\+h}}
+\subsubsection{\texorpdfstring{I\+C\+C\+\_\+\+C\+M\+D\+\_\+\+S\+E\+T\+\_\+\+S\+P\+E\+ED}{ICC\_CMD\_SET\_SPEED}}
+{\footnotesize\ttfamily \#define I\+C\+C\+\_\+\+C\+M\+D\+\_\+\+S\+E\+T\+\_\+\+S\+P\+E\+ED~0x06}
+
+Inter-\/\+Controller Communication\+: Command to set speed 
+
+Definition at line 94 of file A\+D\+A\+S\+\_\+\+Cfg.\+h.
+
+\mbox{\Hypertarget{_a_d_a_s___cfg_8h_a6b04b7f091aca78258644ae59974760b}\label{_a_d_a_s___cfg_8h_a6b04b7f091aca78258644ae59974760b}} 
+\index{A\+D\+A\+S\+\_\+\+Cfg.\+h@{A\+D\+A\+S\+\_\+\+Cfg.\+h}!I\+C\+C\+\_\+\+C\+M\+D\+\_\+\+S\+O\+F\+T\+\_\+\+S\+T\+OP@{I\+C\+C\+\_\+\+C\+M\+D\+\_\+\+S\+O\+F\+T\+\_\+\+S\+T\+OP}}
+\index{I\+C\+C\+\_\+\+C\+M\+D\+\_\+\+S\+O\+F\+T\+\_\+\+S\+T\+OP@{I\+C\+C\+\_\+\+C\+M\+D\+\_\+\+S\+O\+F\+T\+\_\+\+S\+T\+OP}!A\+D\+A\+S\+\_\+\+Cfg.\+h@{A\+D\+A\+S\+\_\+\+Cfg.\+h}}
+\subsubsection{\texorpdfstring{I\+C\+C\+\_\+\+C\+M\+D\+\_\+\+S\+O\+F\+T\+\_\+\+S\+T\+OP}{ICC\_CMD\_SOFT\_STOP}}
+{\footnotesize\ttfamily \#define I\+C\+C\+\_\+\+C\+M\+D\+\_\+\+S\+O\+F\+T\+\_\+\+S\+T\+OP~0x03}
+
+Inter-\/\+Controller Communication\+: Command to do a soft stop 
+
+Definition at line 88 of file A\+D\+A\+S\+\_\+\+Cfg.\+h.
+
+\mbox{\Hypertarget{_a_d_a_s___cfg_8h_a17a000e80a2ce1e3be945f5484ff3dd7}\label{_a_d_a_s___cfg_8h_a17a000e80a2ce1e3be945f5484ff3dd7}} 
+\index{A\+D\+A\+S\+\_\+\+Cfg.\+h@{A\+D\+A\+S\+\_\+\+Cfg.\+h}!I\+C\+C\+\_\+\+L\+EN@{I\+C\+C\+\_\+\+L\+EN}}
+\index{I\+C\+C\+\_\+\+L\+EN@{I\+C\+C\+\_\+\+L\+EN}!A\+D\+A\+S\+\_\+\+Cfg.\+h@{A\+D\+A\+S\+\_\+\+Cfg.\+h}}
+\subsubsection{\texorpdfstring{I\+C\+C\+\_\+\+L\+EN}{ICC\_LEN}}
+{\footnotesize\ttfamily \#define I\+C\+C\+\_\+\+L\+EN~6U}
+
+Inter-\/\+Controller Communication\+: Definition of length of message (including S\+T\+Xs and T\+TX) 
+
+Definition at line 82 of file A\+D\+A\+S\+\_\+\+Cfg.\+h.
+
+\mbox{\Hypertarget{_a_d_a_s___cfg_8h_abf41bed56ee0b2a8858687c4420bb110}\label{_a_d_a_s___cfg_8h_abf41bed56ee0b2a8858687c4420bb110}} 
+\index{A\+D\+A\+S\+\_\+\+Cfg.\+h@{A\+D\+A\+S\+\_\+\+Cfg.\+h}!I\+C\+C\+\_\+\+R\+C\+V\+\_\+\+B\+U\+F\+F\+\_\+\+S\+I\+ZE@{I\+C\+C\+\_\+\+R\+C\+V\+\_\+\+B\+U\+F\+F\+\_\+\+S\+I\+ZE}}
+\index{I\+C\+C\+\_\+\+R\+C\+V\+\_\+\+B\+U\+F\+F\+\_\+\+S\+I\+ZE@{I\+C\+C\+\_\+\+R\+C\+V\+\_\+\+B\+U\+F\+F\+\_\+\+S\+I\+ZE}!A\+D\+A\+S\+\_\+\+Cfg.\+h@{A\+D\+A\+S\+\_\+\+Cfg.\+h}}
+\subsubsection{\texorpdfstring{I\+C\+C\+\_\+\+R\+C\+V\+\_\+\+B\+U\+F\+F\+\_\+\+S\+I\+ZE}{ICC\_RCV\_BUFF\_SIZE}}
+{\footnotesize\ttfamily \#define I\+C\+C\+\_\+\+R\+C\+V\+\_\+\+B\+U\+F\+F\+\_\+\+S\+I\+ZE~\mbox{\hyperlink{_a_d_a_s___cfg_8h_a17a000e80a2ce1e3be945f5484ff3dd7}{I\+C\+C\+\_\+\+L\+EN}}}
+
+Size of I\+CC receiving buffer in bits 
+
+Definition at line 25 of file A\+D\+A\+S\+\_\+\+Cfg.\+h.
+
+\mbox{\Hypertarget{_a_d_a_s___cfg_8h_a5affc93ec51434d8a95645b2e3928148}\label{_a_d_a_s___cfg_8h_a5affc93ec51434d8a95645b2e3928148}} 
+\index{A\+D\+A\+S\+\_\+\+Cfg.\+h@{A\+D\+A\+S\+\_\+\+Cfg.\+h}!I\+C\+C\+\_\+\+S\+N\+D\+\_\+\+B\+U\+F\+F\+\_\+\+S\+I\+ZE@{I\+C\+C\+\_\+\+S\+N\+D\+\_\+\+B\+U\+F\+F\+\_\+\+S\+I\+ZE}}
+\index{I\+C\+C\+\_\+\+S\+N\+D\+\_\+\+B\+U\+F\+F\+\_\+\+S\+I\+ZE@{I\+C\+C\+\_\+\+S\+N\+D\+\_\+\+B\+U\+F\+F\+\_\+\+S\+I\+ZE}!A\+D\+A\+S\+\_\+\+Cfg.\+h@{A\+D\+A\+S\+\_\+\+Cfg.\+h}}
+\subsubsection{\texorpdfstring{I\+C\+C\+\_\+\+S\+N\+D\+\_\+\+B\+U\+F\+F\+\_\+\+S\+I\+ZE}{ICC\_SND\_BUFF\_SIZE}}
+{\footnotesize\ttfamily \#define I\+C\+C\+\_\+\+S\+N\+D\+\_\+\+B\+U\+F\+F\+\_\+\+S\+I\+ZE~\mbox{\hyperlink{_a_d_a_s___cfg_8h_a17a000e80a2ce1e3be945f5484ff3dd7}{I\+C\+C\+\_\+\+L\+EN}}$\ast$10}
+
+Size of I\+CC sending buffer in bits 
+
+Definition at line 27 of file A\+D\+A\+S\+\_\+\+Cfg.\+h.
+
+\mbox{\Hypertarget{_a_d_a_s___cfg_8h_ad37cb9fe48a2b3eef8b01ec7c25d2dfc}\label{_a_d_a_s___cfg_8h_ad37cb9fe48a2b3eef8b01ec7c25d2dfc}} 
+\index{A\+D\+A\+S\+\_\+\+Cfg.\+h@{A\+D\+A\+S\+\_\+\+Cfg.\+h}!I\+C\+C\+\_\+\+S\+T\+X1@{I\+C\+C\+\_\+\+S\+T\+X1}}
+\index{I\+C\+C\+\_\+\+S\+T\+X1@{I\+C\+C\+\_\+\+S\+T\+X1}!A\+D\+A\+S\+\_\+\+Cfg.\+h@{A\+D\+A\+S\+\_\+\+Cfg.\+h}}
+\subsubsection{\texorpdfstring{I\+C\+C\+\_\+\+S\+T\+X1}{ICC\_STX1}}
+{\footnotesize\ttfamily \#define I\+C\+C\+\_\+\+S\+T\+X1~0xff}
+
+Inter-\/\+Controller Communication\+: Definition of first start byte 
+
+Definition at line 76 of file A\+D\+A\+S\+\_\+\+Cfg.\+h.
+
+\mbox{\Hypertarget{_a_d_a_s___cfg_8h_a68e8b24c1a01472ef62c60e9d934f63c}\label{_a_d_a_s___cfg_8h_a68e8b24c1a01472ef62c60e9d934f63c}} 
+\index{A\+D\+A\+S\+\_\+\+Cfg.\+h@{A\+D\+A\+S\+\_\+\+Cfg.\+h}!I\+C\+C\+\_\+\+S\+T\+X2@{I\+C\+C\+\_\+\+S\+T\+X2}}
+\index{I\+C\+C\+\_\+\+S\+T\+X2@{I\+C\+C\+\_\+\+S\+T\+X2}!A\+D\+A\+S\+\_\+\+Cfg.\+h@{A\+D\+A\+S\+\_\+\+Cfg.\+h}}
+\subsubsection{\texorpdfstring{I\+C\+C\+\_\+\+S\+T\+X2}{ICC\_STX2}}
+{\footnotesize\ttfamily \#define I\+C\+C\+\_\+\+S\+T\+X2~0xff}
+
+Inter-\/\+Controller Communication\+: Definition of second start byte 
+
+Definition at line 78 of file A\+D\+A\+S\+\_\+\+Cfg.\+h.
+
+\mbox{\Hypertarget{_a_d_a_s___cfg_8h_ac9943f1124269cb02f9317d42991c503}\label{_a_d_a_s___cfg_8h_ac9943f1124269cb02f9317d42991c503}} 
+\index{A\+D\+A\+S\+\_\+\+Cfg.\+h@{A\+D\+A\+S\+\_\+\+Cfg.\+h}!I\+C\+C\+\_\+\+T\+TX@{I\+C\+C\+\_\+\+T\+TX}}
+\index{I\+C\+C\+\_\+\+T\+TX@{I\+C\+C\+\_\+\+T\+TX}!A\+D\+A\+S\+\_\+\+Cfg.\+h@{A\+D\+A\+S\+\_\+\+Cfg.\+h}}
+\subsubsection{\texorpdfstring{I\+C\+C\+\_\+\+T\+TX}{ICC\_TTX}}
+{\footnotesize\ttfamily \#define I\+C\+C\+\_\+\+T\+TX~0xee}
+
+Inter-\/\+Controller Communication\+: Definition of stop byte 
+
+Definition at line 80 of file A\+D\+A\+S\+\_\+\+Cfg.\+h.
+
+\mbox{\Hypertarget{_a_d_a_s___cfg_8h_a1a37e37e96529dca8a9436a4cdcfad22}\label{_a_d_a_s___cfg_8h_a1a37e37e96529dca8a9436a4cdcfad22}} 
+\index{A\+D\+A\+S\+\_\+\+Cfg.\+h@{A\+D\+A\+S\+\_\+\+Cfg.\+h}!M\+A\+X\+\_\+\+M\+E\+S\+\_\+\+B\+U\+F\+F\+\_\+\+S\+I\+ZE@{M\+A\+X\+\_\+\+M\+E\+S\+\_\+\+B\+U\+F\+F\+\_\+\+S\+I\+ZE}}
+\index{M\+A\+X\+\_\+\+M\+E\+S\+\_\+\+B\+U\+F\+F\+\_\+\+S\+I\+ZE@{M\+A\+X\+\_\+\+M\+E\+S\+\_\+\+B\+U\+F\+F\+\_\+\+S\+I\+ZE}!A\+D\+A\+S\+\_\+\+Cfg.\+h@{A\+D\+A\+S\+\_\+\+Cfg.\+h}}
+\subsubsection{\texorpdfstring{M\+A\+X\+\_\+\+M\+E\+S\+\_\+\+B\+U\+F\+F\+\_\+\+S\+I\+ZE}{MAX\_MES\_BUFF\_SIZE}}
+{\footnotesize\ttfamily \#define M\+A\+X\+\_\+\+M\+E\+S\+\_\+\+B\+U\+F\+F\+\_\+\+S\+I\+ZE~(20)}
+
+Maximum number of P\+LS measurements in buffer 
+
+Definition at line 31 of file A\+D\+A\+S\+\_\+\+Cfg.\+h.
+
+\mbox{\Hypertarget{_a_d_a_s___cfg_8h_a4b4b233b2211ae3acf6ecf7c41f8acbb}\label{_a_d_a_s___cfg_8h_a4b4b233b2211ae3acf6ecf7c41f8acbb}} 
+\index{A\+D\+A\+S\+\_\+\+Cfg.\+h@{A\+D\+A\+S\+\_\+\+Cfg.\+h}!M\+A\+X\+\_\+\+N\+U\+M\+\_\+\+T\+A\+SK@{M\+A\+X\+\_\+\+N\+U\+M\+\_\+\+T\+A\+SK}}
+\index{M\+A\+X\+\_\+\+N\+U\+M\+\_\+\+T\+A\+SK@{M\+A\+X\+\_\+\+N\+U\+M\+\_\+\+T\+A\+SK}!A\+D\+A\+S\+\_\+\+Cfg.\+h@{A\+D\+A\+S\+\_\+\+Cfg.\+h}}
+\subsubsection{\texorpdfstring{M\+A\+X\+\_\+\+N\+U\+M\+\_\+\+T\+A\+SK}{MAX\_NUM\_TASK}}
+{\footnotesize\ttfamily \#define M\+A\+X\+\_\+\+N\+U\+M\+\_\+\+T\+A\+SK~5U}
+
+Maximum number of possible tasks handled by task controller 
+
+Definition at line 35 of file A\+D\+A\+S\+\_\+\+Cfg.\+h.
+
+\mbox{\Hypertarget{_a_d_a_s___cfg_8h_a403f98f6cd7185fbd3da8bebe3406b98}\label{_a_d_a_s___cfg_8h_a403f98f6cd7185fbd3da8bebe3406b98}} 
+\index{A\+D\+A\+S\+\_\+\+Cfg.\+h@{A\+D\+A\+S\+\_\+\+Cfg.\+h}!N\+A\+V\+\_\+\+S\+E\+T\+\_\+\+O\+F\+F\+S\+ET@{N\+A\+V\+\_\+\+S\+E\+T\+\_\+\+O\+F\+F\+S\+ET}}
+\index{N\+A\+V\+\_\+\+S\+E\+T\+\_\+\+O\+F\+F\+S\+ET@{N\+A\+V\+\_\+\+S\+E\+T\+\_\+\+O\+F\+F\+S\+ET}!A\+D\+A\+S\+\_\+\+Cfg.\+h@{A\+D\+A\+S\+\_\+\+Cfg.\+h}}
+\subsubsection{\texorpdfstring{N\+A\+V\+\_\+\+S\+E\+T\+\_\+\+O\+F\+F\+S\+ET}{NAV\_SET\_OFFSET}}
+{\footnotesize\ttfamily \#define N\+A\+V\+\_\+\+S\+E\+T\+\_\+\+O\+F\+F\+S\+ET~80}
+
+Navigation parameter\+: Desired offset to wall on right side in cm. 
+
+Definition at line 68 of file A\+D\+A\+S\+\_\+\+Cfg.\+h.
+
+\mbox{\Hypertarget{_a_d_a_s___cfg_8h_a7ae3d3ce8d10e859369508ecb496ac07}\label{_a_d_a_s___cfg_8h_a7ae3d3ce8d10e859369508ecb496ac07}} 
+\index{A\+D\+A\+S\+\_\+\+Cfg.\+h@{A\+D\+A\+S\+\_\+\+Cfg.\+h}!N\+A\+V\+\_\+\+T\+O\+L\+\_\+\+A\+N\+G\+L\+E\+\_\+\+D\+R\+I\+VE@{N\+A\+V\+\_\+\+T\+O\+L\+\_\+\+A\+N\+G\+L\+E\+\_\+\+D\+R\+I\+VE}}
+\index{N\+A\+V\+\_\+\+T\+O\+L\+\_\+\+A\+N\+G\+L\+E\+\_\+\+D\+R\+I\+VE@{N\+A\+V\+\_\+\+T\+O\+L\+\_\+\+A\+N\+G\+L\+E\+\_\+\+D\+R\+I\+VE}!A\+D\+A\+S\+\_\+\+Cfg.\+h@{A\+D\+A\+S\+\_\+\+Cfg.\+h}}
+\subsubsection{\texorpdfstring{N\+A\+V\+\_\+\+T\+O\+L\+\_\+\+A\+N\+G\+L\+E\+\_\+\+D\+R\+I\+VE}{NAV\_TOL\_ANGLE\_DRIVE}}
+{\footnotesize\ttfamily \#define N\+A\+V\+\_\+\+T\+O\+L\+\_\+\+A\+N\+G\+L\+E\+\_\+\+D\+R\+I\+VE~5}
+
+Navigation parameter\+: Allowed tolerance (+-\/) of angle in degrees 
+
+Definition at line 72 of file A\+D\+A\+S\+\_\+\+Cfg.\+h.
+
+\mbox{\Hypertarget{_a_d_a_s___cfg_8h_a3418793fa8fb8fe470c736d2c277e8fb}\label{_a_d_a_s___cfg_8h_a3418793fa8fb8fe470c736d2c277e8fb}} 
+\index{A\+D\+A\+S\+\_\+\+Cfg.\+h@{A\+D\+A\+S\+\_\+\+Cfg.\+h}!N\+A\+V\+\_\+\+T\+O\+L\+\_\+\+O\+F\+F\+S\+ET@{N\+A\+V\+\_\+\+T\+O\+L\+\_\+\+O\+F\+F\+S\+ET}}
+\index{N\+A\+V\+\_\+\+T\+O\+L\+\_\+\+O\+F\+F\+S\+ET@{N\+A\+V\+\_\+\+T\+O\+L\+\_\+\+O\+F\+F\+S\+ET}!A\+D\+A\+S\+\_\+\+Cfg.\+h@{A\+D\+A\+S\+\_\+\+Cfg.\+h}}
+\subsubsection{\texorpdfstring{N\+A\+V\+\_\+\+T\+O\+L\+\_\+\+O\+F\+F\+S\+ET}{NAV\_TOL\_OFFSET}}
+{\footnotesize\ttfamily \#define N\+A\+V\+\_\+\+T\+O\+L\+\_\+\+O\+F\+F\+S\+ET~5}
+
+Navigation parameter\+: Allowed tolerance (+-\/) of offset to wall on right side in cm. 
+
+Definition at line 70 of file A\+D\+A\+S\+\_\+\+Cfg.\+h.
+
+\mbox{\Hypertarget{_a_d_a_s___cfg_8h_ad9c869803f9fc9e3ffc9e962c19f028d}\label{_a_d_a_s___cfg_8h_ad9c869803f9fc9e3ffc9e962c19f028d}} 
+\index{A\+D\+A\+S\+\_\+\+Cfg.\+h@{A\+D\+A\+S\+\_\+\+Cfg.\+h}!P\+I\+N\+\_\+\+V\+B\+AT@{P\+I\+N\+\_\+\+V\+B\+AT}}
+\index{P\+I\+N\+\_\+\+V\+B\+AT@{P\+I\+N\+\_\+\+V\+B\+AT}!A\+D\+A\+S\+\_\+\+Cfg.\+h@{A\+D\+A\+S\+\_\+\+Cfg.\+h}}
+\subsubsection{\texorpdfstring{P\+I\+N\+\_\+\+V\+B\+AT}{PIN\_VBAT}}
+{\footnotesize\ttfamily \#define P\+I\+N\+\_\+\+V\+B\+AT~A0}
+
+Definition of analog input pin for battery voltage monitor 
+
+Definition at line 64 of file A\+D\+A\+S\+\_\+\+Cfg.\+h.
+
+\mbox{\Hypertarget{_a_d_a_s___cfg_8h_ab2f685f6fde473fdb3a41575537af22a}\label{_a_d_a_s___cfg_8h_ab2f685f6fde473fdb3a41575537af22a}} 
+\index{A\+D\+A\+S\+\_\+\+Cfg.\+h@{A\+D\+A\+S\+\_\+\+Cfg.\+h}!P\+L\+S\+\_\+\+L\+E\+F\+T\+\_\+\+O\+F\+F\+S\+E\+T\+\_\+\+T\+O\+L\+E\+R\+A\+N\+CE@{P\+L\+S\+\_\+\+L\+E\+F\+T\+\_\+\+O\+F\+F\+S\+E\+T\+\_\+\+T\+O\+L\+E\+R\+A\+N\+CE}}
+\index{P\+L\+S\+\_\+\+L\+E\+F\+T\+\_\+\+O\+F\+F\+S\+E\+T\+\_\+\+T\+O\+L\+E\+R\+A\+N\+CE@{P\+L\+S\+\_\+\+L\+E\+F\+T\+\_\+\+O\+F\+F\+S\+E\+T\+\_\+\+T\+O\+L\+E\+R\+A\+N\+CE}!A\+D\+A\+S\+\_\+\+Cfg.\+h@{A\+D\+A\+S\+\_\+\+Cfg.\+h}}
+\subsubsection{\texorpdfstring{P\+L\+S\+\_\+\+L\+E\+F\+T\+\_\+\+O\+F\+F\+S\+E\+T\+\_\+\+T\+O\+L\+E\+R\+A\+N\+CE}{PLS\_LEFT\_OFFSET\_TOLERANCE}}
+{\footnotesize\ttfamily \#define P\+L\+S\+\_\+\+L\+E\+F\+T\+\_\+\+O\+F\+F\+S\+E\+T\+\_\+\+T\+O\+L\+E\+R\+A\+N\+CE~5U}
+
+
+
+Definition at line 52 of file A\+D\+A\+S\+\_\+\+Cfg.\+h.
+
+\mbox{\Hypertarget{_a_d_a_s___cfg_8h_a47e1f95a0e565aaa08112811fe539950}\label{_a_d_a_s___cfg_8h_a47e1f95a0e565aaa08112811fe539950}} 
+\index{A\+D\+A\+S\+\_\+\+Cfg.\+h@{A\+D\+A\+S\+\_\+\+Cfg.\+h}!P\+L\+S\+\_\+\+M\+A\+X\+\_\+\+V\+E\+R\+T\+I\+C\+A\+L\+\_\+\+D\+I\+ST@{P\+L\+S\+\_\+\+M\+A\+X\+\_\+\+V\+E\+R\+T\+I\+C\+A\+L\+\_\+\+D\+I\+ST}}
+\index{P\+L\+S\+\_\+\+M\+A\+X\+\_\+\+V\+E\+R\+T\+I\+C\+A\+L\+\_\+\+D\+I\+ST@{P\+L\+S\+\_\+\+M\+A\+X\+\_\+\+V\+E\+R\+T\+I\+C\+A\+L\+\_\+\+D\+I\+ST}!A\+D\+A\+S\+\_\+\+Cfg.\+h@{A\+D\+A\+S\+\_\+\+Cfg.\+h}}
+\subsubsection{\texorpdfstring{P\+L\+S\+\_\+\+M\+A\+X\+\_\+\+V\+E\+R\+T\+I\+C\+A\+L\+\_\+\+D\+I\+ST}{PLS\_MAX\_VERTICAL\_DIST}}
+{\footnotesize\ttfamily \#define P\+L\+S\+\_\+\+M\+A\+X\+\_\+\+V\+E\+R\+T\+I\+C\+A\+L\+\_\+\+D\+I\+ST~100U}
+
+
+
+Definition at line 51 of file A\+D\+A\+S\+\_\+\+Cfg.\+h.
+
+\mbox{\Hypertarget{_a_d_a_s___cfg_8h_a00f72db64cf681b08d61977df126ec76}\label{_a_d_a_s___cfg_8h_a00f72db64cf681b08d61977df126ec76}} 
+\index{A\+D\+A\+S\+\_\+\+Cfg.\+h@{A\+D\+A\+S\+\_\+\+Cfg.\+h}!P\+L\+S\+\_\+\+R\+C\+V\+\_\+\+B\+U\+F\+F\+\_\+\+S\+I\+ZE@{P\+L\+S\+\_\+\+R\+C\+V\+\_\+\+B\+U\+F\+F\+\_\+\+S\+I\+ZE}}
+\index{P\+L\+S\+\_\+\+R\+C\+V\+\_\+\+B\+U\+F\+F\+\_\+\+S\+I\+ZE@{P\+L\+S\+\_\+\+R\+C\+V\+\_\+\+B\+U\+F\+F\+\_\+\+S\+I\+ZE}!A\+D\+A\+S\+\_\+\+Cfg.\+h@{A\+D\+A\+S\+\_\+\+Cfg.\+h}}
+\subsubsection{\texorpdfstring{P\+L\+S\+\_\+\+R\+C\+V\+\_\+\+B\+U\+F\+F\+\_\+\+S\+I\+ZE}{PLS\_RCV\_BUFF\_SIZE}}
+{\footnotesize\ttfamily \#define P\+L\+S\+\_\+\+R\+C\+V\+\_\+\+B\+U\+F\+F\+\_\+\+S\+I\+ZE~500U}
+
+Size of P\+LS receiving buffer in bits 
+
+Definition at line 19 of file A\+D\+A\+S\+\_\+\+Cfg.\+h.
+
+\mbox{\Hypertarget{_a_d_a_s___cfg_8h_ae3bd6bba60bc1008c82fe66f80428908}\label{_a_d_a_s___cfg_8h_ae3bd6bba60bc1008c82fe66f80428908}} 
+\index{A\+D\+A\+S\+\_\+\+Cfg.\+h@{A\+D\+A\+S\+\_\+\+Cfg.\+h}!P\+L\+S\+\_\+\+S\+N\+D\+\_\+\+B\+U\+F\+F\+\_\+\+S\+I\+ZE@{P\+L\+S\+\_\+\+S\+N\+D\+\_\+\+B\+U\+F\+F\+\_\+\+S\+I\+ZE}}
+\index{P\+L\+S\+\_\+\+S\+N\+D\+\_\+\+B\+U\+F\+F\+\_\+\+S\+I\+ZE@{P\+L\+S\+\_\+\+S\+N\+D\+\_\+\+B\+U\+F\+F\+\_\+\+S\+I\+ZE}!A\+D\+A\+S\+\_\+\+Cfg.\+h@{A\+D\+A\+S\+\_\+\+Cfg.\+h}}
+\subsubsection{\texorpdfstring{P\+L\+S\+\_\+\+S\+N\+D\+\_\+\+B\+U\+F\+F\+\_\+\+S\+I\+ZE}{PLS\_SND\_BUFF\_SIZE}}
+{\footnotesize\ttfamily \#define P\+L\+S\+\_\+\+S\+N\+D\+\_\+\+B\+U\+F\+F\+\_\+\+S\+I\+ZE~50U}
+
+Size of P\+LS sending buffer in bits 
+
+Definition at line 21 of file A\+D\+A\+S\+\_\+\+Cfg.\+h.
+
+\mbox{\Hypertarget{_a_d_a_s___cfg_8h_a56c71db74384511c149652d598bf1795}\label{_a_d_a_s___cfg_8h_a56c71db74384511c149652d598bf1795}} 
+\index{A\+D\+A\+S\+\_\+\+Cfg.\+h@{A\+D\+A\+S\+\_\+\+Cfg.\+h}!P\+L\+S\+\_\+\+W\+A\+L\+L\+\_\+\+D\+E\+T\+E\+C\+T\+I\+O\+N\+\_\+2\+\_\+\+P\+O\+I\+NT@{P\+L\+S\+\_\+\+W\+A\+L\+L\+\_\+\+D\+E\+T\+E\+C\+T\+I\+O\+N\+\_\+2\+\_\+\+P\+O\+I\+NT}}
+\index{P\+L\+S\+\_\+\+W\+A\+L\+L\+\_\+\+D\+E\+T\+E\+C\+T\+I\+O\+N\+\_\+2\+\_\+\+P\+O\+I\+NT@{P\+L\+S\+\_\+\+W\+A\+L\+L\+\_\+\+D\+E\+T\+E\+C\+T\+I\+O\+N\+\_\+2\+\_\+\+P\+O\+I\+NT}!A\+D\+A\+S\+\_\+\+Cfg.\+h@{A\+D\+A\+S\+\_\+\+Cfg.\+h}}
+\subsubsection{\texorpdfstring{P\+L\+S\+\_\+\+W\+A\+L\+L\+\_\+\+D\+E\+T\+E\+C\+T\+I\+O\+N\+\_\+2\+\_\+\+P\+O\+I\+NT}{PLS\_WALL\_DETECTION\_2\_POINT}}
+{\footnotesize\ttfamily \#define P\+L\+S\+\_\+\+W\+A\+L\+L\+\_\+\+D\+E\+T\+E\+C\+T\+I\+O\+N\+\_\+2\+\_\+\+P\+O\+I\+NT~45U}
+
+
+
+Definition at line 50 of file A\+D\+A\+S\+\_\+\+Cfg.\+h.
+
+\mbox{\Hypertarget{_a_d_a_s___cfg_8h_af13556a4f020d6a5a11aad1df59530e3}\label{_a_d_a_s___cfg_8h_af13556a4f020d6a5a11aad1df59530e3}} 
+\index{A\+D\+A\+S\+\_\+\+Cfg.\+h@{A\+D\+A\+S\+\_\+\+Cfg.\+h}!P\+L\+S\+\_\+\+W\+F\+\_\+\+S\+E\+G\+E\+M\+E\+N\+T\+S\+\_\+\+L\+E\+FT@{P\+L\+S\+\_\+\+W\+F\+\_\+\+S\+E\+G\+E\+M\+E\+N\+T\+S\+\_\+\+L\+E\+FT}}
+\index{P\+L\+S\+\_\+\+W\+F\+\_\+\+S\+E\+G\+E\+M\+E\+N\+T\+S\+\_\+\+L\+E\+FT@{P\+L\+S\+\_\+\+W\+F\+\_\+\+S\+E\+G\+E\+M\+E\+N\+T\+S\+\_\+\+L\+E\+FT}!A\+D\+A\+S\+\_\+\+Cfg.\+h@{A\+D\+A\+S\+\_\+\+Cfg.\+h}}
+\subsubsection{\texorpdfstring{P\+L\+S\+\_\+\+W\+F\+\_\+\+S\+E\+G\+E\+M\+E\+N\+T\+S\+\_\+\+L\+E\+FT}{PLS\_WF\_SEGEMENTS\_LEFT}}
+{\footnotesize\ttfamily \#define P\+L\+S\+\_\+\+W\+F\+\_\+\+S\+E\+G\+E\+M\+E\+N\+T\+S\+\_\+\+L\+E\+FT~117U}
+
+
+
+Definition at line 49 of file A\+D\+A\+S\+\_\+\+Cfg.\+h.
+
+\mbox{\Hypertarget{_a_d_a_s___cfg_8h_aedea30baea3703d1140bb971f7d1de8a}\label{_a_d_a_s___cfg_8h_aedea30baea3703d1140bb971f7d1de8a}} 
+\index{A\+D\+A\+S\+\_\+\+Cfg.\+h@{A\+D\+A\+S\+\_\+\+Cfg.\+h}!P\+L\+S\+\_\+\+W\+F\+\_\+\+S\+E\+G\+E\+M\+E\+N\+T\+S\+\_\+\+M\+AX@{P\+L\+S\+\_\+\+W\+F\+\_\+\+S\+E\+G\+E\+M\+E\+N\+T\+S\+\_\+\+M\+AX}}
+\index{P\+L\+S\+\_\+\+W\+F\+\_\+\+S\+E\+G\+E\+M\+E\+N\+T\+S\+\_\+\+M\+AX@{P\+L\+S\+\_\+\+W\+F\+\_\+\+S\+E\+G\+E\+M\+E\+N\+T\+S\+\_\+\+M\+AX}!A\+D\+A\+S\+\_\+\+Cfg.\+h@{A\+D\+A\+S\+\_\+\+Cfg.\+h}}
+\subsubsection{\texorpdfstring{P\+L\+S\+\_\+\+W\+F\+\_\+\+S\+E\+G\+E\+M\+E\+N\+T\+S\+\_\+\+M\+AX}{PLS\_WF\_SEGEMENTS\_MAX}}
+{\footnotesize\ttfamily \#define P\+L\+S\+\_\+\+W\+F\+\_\+\+S\+E\+G\+E\+M\+E\+N\+T\+S\+\_\+\+M\+AX~180U}
+
+
+
+Definition at line 53 of file A\+D\+A\+S\+\_\+\+Cfg.\+h.
+
+\mbox{\Hypertarget{_a_d_a_s___cfg_8h_aaf1f5bdadcf76f17d3f715fbbb78d567}\label{_a_d_a_s___cfg_8h_aaf1f5bdadcf76f17d3f715fbbb78d567}} 
+\index{A\+D\+A\+S\+\_\+\+Cfg.\+h@{A\+D\+A\+S\+\_\+\+Cfg.\+h}!P\+L\+S\+\_\+\+W\+F\+\_\+\+S\+E\+G\+E\+M\+E\+N\+T\+S\+\_\+\+R\+I\+G\+HT@{P\+L\+S\+\_\+\+W\+F\+\_\+\+S\+E\+G\+E\+M\+E\+N\+T\+S\+\_\+\+R\+I\+G\+HT}}
+\index{P\+L\+S\+\_\+\+W\+F\+\_\+\+S\+E\+G\+E\+M\+E\+N\+T\+S\+\_\+\+R\+I\+G\+HT@{P\+L\+S\+\_\+\+W\+F\+\_\+\+S\+E\+G\+E\+M\+E\+N\+T\+S\+\_\+\+R\+I\+G\+HT}!A\+D\+A\+S\+\_\+\+Cfg.\+h@{A\+D\+A\+S\+\_\+\+Cfg.\+h}}
+\subsubsection{\texorpdfstring{P\+L\+S\+\_\+\+W\+F\+\_\+\+S\+E\+G\+E\+M\+E\+N\+T\+S\+\_\+\+R\+I\+G\+HT}{PLS\_WF\_SEGEMENTS\_RIGHT}}
+{\footnotesize\ttfamily \#define P\+L\+S\+\_\+\+W\+F\+\_\+\+S\+E\+G\+E\+M\+E\+N\+T\+S\+\_\+\+R\+I\+G\+HT~63U}
+
+
+
+Definition at line 48 of file A\+D\+A\+S\+\_\+\+Cfg.\+h.
+
+\mbox{\Hypertarget{_a_d_a_s___cfg_8h_a5ddc3cfb86290bdf3c976fc1ce56fa47}\label{_a_d_a_s___cfg_8h_a5ddc3cfb86290bdf3c976fc1ce56fa47}} 
+\index{A\+D\+A\+S\+\_\+\+Cfg.\+h@{A\+D\+A\+S\+\_\+\+Cfg.\+h}!S\+E\+R\+I\+A\+L1\+\_\+\+B\+A\+UD@{S\+E\+R\+I\+A\+L1\+\_\+\+B\+A\+UD}}
+\index{S\+E\+R\+I\+A\+L1\+\_\+\+B\+A\+UD@{S\+E\+R\+I\+A\+L1\+\_\+\+B\+A\+UD}!A\+D\+A\+S\+\_\+\+Cfg.\+h@{A\+D\+A\+S\+\_\+\+Cfg.\+h}}
+\subsubsection{\texorpdfstring{S\+E\+R\+I\+A\+L1\+\_\+\+B\+A\+UD}{SERIAL1\_BAUD}}
+{\footnotesize\ttfamily \#define S\+E\+R\+I\+A\+L1\+\_\+\+B\+A\+UD~9600}
+
+Definition of serial1 baudrate in bit/s 
+
+Definition at line 39 of file A\+D\+A\+S\+\_\+\+Cfg.\+h.
+
+\mbox{\Hypertarget{_a_d_a_s___cfg_8h_ab7c4f69dae56ab78e8fb4e2c81701e77}\label{_a_d_a_s___cfg_8h_ab7c4f69dae56ab78e8fb4e2c81701e77}} 
+\index{A\+D\+A\+S\+\_\+\+Cfg.\+h@{A\+D\+A\+S\+\_\+\+Cfg.\+h}!S\+E\+R\+I\+A\+L1\+\_\+\+B\+A\+U\+D\+\_\+\+P\+R\+E\+S\+C\+A\+LE@{S\+E\+R\+I\+A\+L1\+\_\+\+B\+A\+U\+D\+\_\+\+P\+R\+E\+S\+C\+A\+LE}}
+\index{S\+E\+R\+I\+A\+L1\+\_\+\+B\+A\+U\+D\+\_\+\+P\+R\+E\+S\+C\+A\+LE@{S\+E\+R\+I\+A\+L1\+\_\+\+B\+A\+U\+D\+\_\+\+P\+R\+E\+S\+C\+A\+LE}!A\+D\+A\+S\+\_\+\+Cfg.\+h@{A\+D\+A\+S\+\_\+\+Cfg.\+h}}
+\subsubsection{\texorpdfstring{S\+E\+R\+I\+A\+L1\+\_\+\+B\+A\+U\+D\+\_\+\+P\+R\+E\+S\+C\+A\+LE}{SERIAL1\_BAUD\_PRESCALE}}
+{\footnotesize\ttfamily \#define S\+E\+R\+I\+A\+L1\+\_\+\+B\+A\+U\+D\+\_\+\+P\+R\+E\+S\+C\+A\+LE~(((F\+\_\+\+C\+PU / (\mbox{\hyperlink{_a_d_a_s___cfg_8h_a5ddc3cfb86290bdf3c976fc1ce56fa47}{S\+E\+R\+I\+A\+L1\+\_\+\+B\+A\+UD}} $\ast$ 16\+U\+L))) -\/ 1)}
+
+Definition of U\+B\+R\+Rn value according to \mbox{\hyperlink{_a_d_a_s___cfg_8h_a5ddc3cfb86290bdf3c976fc1ce56fa47}{S\+E\+R\+I\+A\+L1\+\_\+\+B\+A\+UD}} 
+
+Definition at line 41 of file A\+D\+A\+S\+\_\+\+Cfg.\+h.
+
+\mbox{\Hypertarget{_a_d_a_s___cfg_8h_a62d0cbd008700f38d8a4fdd9aec2c554}\label{_a_d_a_s___cfg_8h_a62d0cbd008700f38d8a4fdd9aec2c554}} 
+\index{A\+D\+A\+S\+\_\+\+Cfg.\+h@{A\+D\+A\+S\+\_\+\+Cfg.\+h}!S\+E\+R\+I\+A\+L2\+\_\+\+B\+A\+UD@{S\+E\+R\+I\+A\+L2\+\_\+\+B\+A\+UD}}
+\index{S\+E\+R\+I\+A\+L2\+\_\+\+B\+A\+UD@{S\+E\+R\+I\+A\+L2\+\_\+\+B\+A\+UD}!A\+D\+A\+S\+\_\+\+Cfg.\+h@{A\+D\+A\+S\+\_\+\+Cfg.\+h}}
+\subsubsection{\texorpdfstring{S\+E\+R\+I\+A\+L2\+\_\+\+B\+A\+UD}{SERIAL2\_BAUD}}
+{\footnotesize\ttfamily \#define S\+E\+R\+I\+A\+L2\+\_\+\+B\+A\+UD~9600}
+
+Definition of serial2 baudrate in bit/s 
+
+Definition at line 43 of file A\+D\+A\+S\+\_\+\+Cfg.\+h.
+
+\mbox{\Hypertarget{_a_d_a_s___cfg_8h_aaac720d7fe05f2b696f15ea9b2b56c7d}\label{_a_d_a_s___cfg_8h_aaac720d7fe05f2b696f15ea9b2b56c7d}} 
+\index{A\+D\+A\+S\+\_\+\+Cfg.\+h@{A\+D\+A\+S\+\_\+\+Cfg.\+h}!S\+E\+R\+I\+A\+L2\+\_\+\+B\+A\+U\+D\+\_\+\+P\+R\+E\+S\+C\+A\+LE@{S\+E\+R\+I\+A\+L2\+\_\+\+B\+A\+U\+D\+\_\+\+P\+R\+E\+S\+C\+A\+LE}}
+\index{S\+E\+R\+I\+A\+L2\+\_\+\+B\+A\+U\+D\+\_\+\+P\+R\+E\+S\+C\+A\+LE@{S\+E\+R\+I\+A\+L2\+\_\+\+B\+A\+U\+D\+\_\+\+P\+R\+E\+S\+C\+A\+LE}!A\+D\+A\+S\+\_\+\+Cfg.\+h@{A\+D\+A\+S\+\_\+\+Cfg.\+h}}
+\subsubsection{\texorpdfstring{S\+E\+R\+I\+A\+L2\+\_\+\+B\+A\+U\+D\+\_\+\+P\+R\+E\+S\+C\+A\+LE}{SERIAL2\_BAUD\_PRESCALE}}
+{\footnotesize\ttfamily \#define S\+E\+R\+I\+A\+L2\+\_\+\+B\+A\+U\+D\+\_\+\+P\+R\+E\+S\+C\+A\+LE~(((F\+\_\+\+C\+PU / (\mbox{\hyperlink{_a_d_a_s___cfg_8h_a62d0cbd008700f38d8a4fdd9aec2c554}{S\+E\+R\+I\+A\+L2\+\_\+\+B\+A\+UD}} $\ast$ 16\+U\+L))) -\/ 1)}
+
+Definition of U\+B\+R\+Rn value according to \mbox{\hyperlink{_a_d_a_s___cfg_8h_a62d0cbd008700f38d8a4fdd9aec2c554}{S\+E\+R\+I\+A\+L2\+\_\+\+B\+A\+UD}} 
+
+Definition at line 45 of file A\+D\+A\+S\+\_\+\+Cfg.\+h.
+
+\mbox{\Hypertarget{_a_d_a_s___cfg_8h_aa170bc1a99d2c608d5508e9b66566695}\label{_a_d_a_s___cfg_8h_aa170bc1a99d2c608d5508e9b66566695}} 
+\index{A\+D\+A\+S\+\_\+\+Cfg.\+h@{A\+D\+A\+S\+\_\+\+Cfg.\+h}!S\+I\+C\+K\+\_\+\+A\+CK@{S\+I\+C\+K\+\_\+\+A\+CK}}
+\index{S\+I\+C\+K\+\_\+\+A\+CK@{S\+I\+C\+K\+\_\+\+A\+CK}!A\+D\+A\+S\+\_\+\+Cfg.\+h@{A\+D\+A\+S\+\_\+\+Cfg.\+h}}
+\subsubsection{\texorpdfstring{S\+I\+C\+K\+\_\+\+A\+CK}{SICK\_ACK}}
+{\footnotesize\ttfamily \#define S\+I\+C\+K\+\_\+\+A\+CK~0x06}
+
+
+
+Definition at line 57 of file A\+D\+A\+S\+\_\+\+Cfg.\+h.
+
+\mbox{\Hypertarget{_a_d_a_s___cfg_8h_a4ae91f90fd4b33d0bc454db3d90cf700}\label{_a_d_a_s___cfg_8h_a4ae91f90fd4b33d0bc454db3d90cf700}} 
+\index{A\+D\+A\+S\+\_\+\+Cfg.\+h@{A\+D\+A\+S\+\_\+\+Cfg.\+h}!S\+I\+C\+K\+\_\+\+D\+E\+S\+TR@{S\+I\+C\+K\+\_\+\+D\+E\+S\+TR}}
+\index{S\+I\+C\+K\+\_\+\+D\+E\+S\+TR@{S\+I\+C\+K\+\_\+\+D\+E\+S\+TR}!A\+D\+A\+S\+\_\+\+Cfg.\+h@{A\+D\+A\+S\+\_\+\+Cfg.\+h}}
+\subsubsection{\texorpdfstring{S\+I\+C\+K\+\_\+\+D\+E\+S\+TR}{SICK\_DESTR}}
+{\footnotesize\ttfamily \#define S\+I\+C\+K\+\_\+\+D\+E\+S\+TR~0x80}
+
+
+
+Definition at line 56 of file A\+D\+A\+S\+\_\+\+Cfg.\+h.
+
+\mbox{\Hypertarget{_a_d_a_s___cfg_8h_a6e34ca003e6bdfd81d05bcb8ea3c5eb2}\label{_a_d_a_s___cfg_8h_a6e34ca003e6bdfd81d05bcb8ea3c5eb2}} 
+\index{A\+D\+A\+S\+\_\+\+Cfg.\+h@{A\+D\+A\+S\+\_\+\+Cfg.\+h}!S\+I\+C\+K\+\_\+\+N\+AK@{S\+I\+C\+K\+\_\+\+N\+AK}}
+\index{S\+I\+C\+K\+\_\+\+N\+AK@{S\+I\+C\+K\+\_\+\+N\+AK}!A\+D\+A\+S\+\_\+\+Cfg.\+h@{A\+D\+A\+S\+\_\+\+Cfg.\+h}}
+\subsubsection{\texorpdfstring{S\+I\+C\+K\+\_\+\+N\+AK}{SICK\_NAK}}
+{\footnotesize\ttfamily \#define S\+I\+C\+K\+\_\+\+N\+AK~0x15}
+
+
+
+Definition at line 58 of file A\+D\+A\+S\+\_\+\+Cfg.\+h.
+
+\mbox{\Hypertarget{_a_d_a_s___cfg_8h_a8c52736558ce47242a7c679123df76a0}\label{_a_d_a_s___cfg_8h_a8c52736558ce47242a7c679123df76a0}} 
+\index{A\+D\+A\+S\+\_\+\+Cfg.\+h@{A\+D\+A\+S\+\_\+\+Cfg.\+h}!S\+I\+C\+K\+\_\+\+S\+TX@{S\+I\+C\+K\+\_\+\+S\+TX}}
+\index{S\+I\+C\+K\+\_\+\+S\+TX@{S\+I\+C\+K\+\_\+\+S\+TX}!A\+D\+A\+S\+\_\+\+Cfg.\+h@{A\+D\+A\+S\+\_\+\+Cfg.\+h}}
+\subsubsection{\texorpdfstring{S\+I\+C\+K\+\_\+\+S\+TX}{SICK\_STX}}
+{\footnotesize\ttfamily \#define S\+I\+C\+K\+\_\+\+S\+TX~0x02}
+
+
+
+Definition at line 55 of file A\+D\+A\+S\+\_\+\+Cfg.\+h.
+

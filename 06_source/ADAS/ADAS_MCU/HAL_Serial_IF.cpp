@@ -1,5 +1,6 @@
 #include "ADAS_Cfg.h"
 #include "HAL_Serial_IF.h"
+#include "ADAS_Debug.h"
 #include <Arduino.h>
 
 CSerial::CSerial(PortID_e i_ID, uint16_t i_bufLen):
@@ -22,7 +23,6 @@ CSerial::~CSerial() {
 
 void CSerial::Init(void) {
   if (S1 == m_ID) {
-
     // Set baudrate
     UBRR1L = SERIAL1_BAUD_PRESCALE;
     UBRR1H = (SERIAL1_BAUD_PRESCALE >> 8);
@@ -36,7 +36,6 @@ void CSerial::Init(void) {
     bitWrite(UCSR1C, UPM11, 1);
 
     // 8-bit mode
-    bitWrite(UCSR1C, UCSZ12, 0);
     bitWrite(UCSR1C, UCSZ11, 1);
     bitWrite(UCSR1C, UCSZ10, 1);
 
@@ -49,8 +48,8 @@ void CSerial::Init(void) {
     bitWrite(UCSR1B, RXCIE1, 1);
   } else {
     // Set baudrate
-    UBRR1L = SERIAL2_BAUD_PRESCALE;
-    UBRR1H = (SERIAL2_BAUD_PRESCALE >> 8);
+    UBRR2L = SERIAL2_BAUD_PRESCALE;
+    UBRR2H = (SERIAL2_BAUD_PRESCALE >> 8);
 
     // Ayncrhonous USART
     bitWrite(UCSR2C, UMSEL20, 0);
@@ -61,7 +60,6 @@ void CSerial::Init(void) {
     bitWrite(UCSR2C, UPM21, 1);
 
     // 8-bit mode
-    bitWrite(UCSR2C, UCSZ22, 0);
     bitWrite(UCSR2C, UCSZ21, 1);
     bitWrite(UCSR2C, UCSZ20, 1);
 
@@ -73,7 +71,6 @@ void CSerial::Init(void) {
     // Enable receive interrupt
     bitWrite(UCSR2B, RXCIE2, 1);
   }
-  sei();
 }
 
 bool CSerial::Send(char Buff[], uint8_t len) {
@@ -182,16 +179,15 @@ void CSerial::SerialISRcommICC(void)
   if (!m_rxBufferRdy)
   {
     // Read incoming data
-
     // Write rx data to buffer
     m_rxBuffer[m_rxBufferPointer] = (m_ID == S1) ? UDR1 : UDR2;
     m_rxBufferPointer++;
 
     // wait for 2 bytes to detect STXs
-    if (m_rxBufferPointer == 2)
+    if (m_rxBufferPointer >= 2)
     {
       // Check for start bytes
-      if ((m_rxBuffer[0] != ICC_STX1) || (m_rxBuffer[1] != ICC_STX1))
+      if ((m_rxBuffer[0] != ICC_STX1) || (m_rxBuffer[1] != ICC_STX2))
       {
         // STXs not found => overwrite received data
         m_rxBufferPointer = 0;
@@ -219,4 +215,3 @@ void CSerial::SerialISRcommICC(void)
     }
   }
 }
-

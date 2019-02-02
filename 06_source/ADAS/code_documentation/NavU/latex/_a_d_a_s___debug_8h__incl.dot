@@ -1,9 +1,0 @@
-digraph "/Volumes/Macintosh SD/Github/ADAS/06_source/ADAS/ADAS_NavU/ADAS_Debug.h"
-{
- // LATEX_PDF_SIZE
-  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
-  node [fontname="Helvetica",fontsize="10",shape=record];
-  Node0 [label="/Volumes/Macintosh\l SD/Github/ADAS/06_source\l/ADAS/ADAS_NavU/ADAS_Debug.h",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="This file contains redefinition of the serial functions for debugging purpose."];
-  Node0 -> Node1 [color="midnightblue",fontsize="10",style="solid"];
-  Node1 [label="ADAS_Cfg.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_a_d_a_s___cfg_8h_source.html",tooltip=" "];
-}

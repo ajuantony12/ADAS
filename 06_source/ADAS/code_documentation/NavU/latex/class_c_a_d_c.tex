@@ -1,24 +1,121 @@
 \hypertarget{class_c_a_d_c}{}\section{C\+A\+DC Class Reference}
-\label{class_c_a_d_c}\index{CADC@{CADC}}
+\label{class_c_a_d_c}\index{C\+A\+DC@{C\+A\+DC}}
+
+
+Hardware Abstraction Layer (H\+AL) A\+DC class.  
+
+
+
+
+{\ttfamily \#include $<$H\+A\+L\+\_\+\+A\+D\+C.\+h$>$}
+
+
+
+Collaboration diagram for C\+A\+DC\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=179pt]{class_c_a_d_c__coll__graph}
+\end{center}
+\end{figure}
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_c_a_d_c_a09118c55821cd6f0c9b2e2d2edd40d33}\label{class_c_a_d_c_a09118c55821cd6f0c9b2e2d2edd40d33}} 
-void {\bfseries Init} ()
-\item 
-\mbox{\Hypertarget{class_c_a_d_c_ac2f897fc64f605751ac3ffe7d2704ba6}\label{class_c_a_d_c_ac2f897fc64f605751ac3ffe7d2704ba6}} 
-uint16\+\_\+t {\bfseries Read\+A\+D\+C\+Value} (uint8\+\_\+t pin)
-\end{DoxyCompactItemize}
+\mbox{\hyperlink{class_c_a_d_c_aa312b17b94e31c72be8463a4a14838ec}{C\+A\+DC}} ()
+\begin{DoxyCompactList}\small\item\em Constructor of \mbox{\hyperlink{class_c_a_d_c}{C\+A\+DC}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_c_a_d_c_ab8a5414ebb4c3707ac1575d63635efd8}{$\sim$\+C\+A\+DC}} ()
+\begin{DoxyCompactList}\small\item\em Destructor of \mbox{\hyperlink{class_c_a_d_c}{C\+A\+DC}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_c_a_d_c_a09118c55821cd6f0c9b2e2d2edd40d33}{Init}} ()
+\begin{DoxyCompactList}\small\item\em Initialization function of \mbox{\hyperlink{class_c_a_d_c}{C\+A\+DC}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{_a_d_a_s___types_8h_a1f1825b69244eb3ad2c7165ddc99c956}{uint16\+\_\+t}} \mbox{\hyperlink{class_c_a_d_c_ac2f897fc64f605751ac3ffe7d2704ba6}{Read\+A\+D\+C\+Value}} (\mbox{\hyperlink{_a_d_a_s___types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} pin)
+\begin{DoxyCompactList}\small\item\em Function to read A\+DC value. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
+Hardware Abstraction Layer (H\+AL) A\+DC class. 
+
+Definition at line 15 of file H\+A\+L\+\_\+\+A\+D\+C.\+h.
 
 
-Definition at line 12 of file H\+A\+L\+\_\+\+A\+D\+C.\+h.
 
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_c_a_d_c_aa312b17b94e31c72be8463a4a14838ec}\label{class_c_a_d_c_aa312b17b94e31c72be8463a4a14838ec}} 
+\index{C\+A\+DC@{C\+A\+DC}!C\+A\+DC@{C\+A\+DC}}
+\index{C\+A\+DC@{C\+A\+DC}!C\+A\+DC@{C\+A\+DC}}
+\subsubsection{\texorpdfstring{C\+A\+D\+C()}{CADC()}}
+{\footnotesize\ttfamily C\+A\+D\+C\+::\+C\+A\+DC (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Constructor of \mbox{\hyperlink{class_c_a_d_c}{C\+A\+DC}}. 
+
+
+
+Definition at line 13 of file H\+A\+L\+\_\+\+A\+D\+C.\+cpp.
+
+\mbox{\Hypertarget{class_c_a_d_c_ab8a5414ebb4c3707ac1575d63635efd8}\label{class_c_a_d_c_ab8a5414ebb4c3707ac1575d63635efd8}} 
+\index{C\+A\+DC@{C\+A\+DC}!````~C\+A\+DC@{$\sim$\+C\+A\+DC}}
+\index{````~C\+A\+DC@{$\sim$\+C\+A\+DC}!C\+A\+DC@{C\+A\+DC}}
+\subsubsection{\texorpdfstring{$\sim$\+C\+A\+D\+C()}{~CADC()}}
+{\footnotesize\ttfamily C\+A\+D\+C\+::$\sim$\+C\+A\+DC (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destructor of \mbox{\hyperlink{class_c_a_d_c}{C\+A\+DC}}. 
+
+
+
+Definition at line 18 of file H\+A\+L\+\_\+\+A\+D\+C.\+cpp.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_c_a_d_c_a09118c55821cd6f0c9b2e2d2edd40d33}\label{class_c_a_d_c_a09118c55821cd6f0c9b2e2d2edd40d33}} 
+\index{C\+A\+DC@{C\+A\+DC}!Init@{Init}}
+\index{Init@{Init}!C\+A\+DC@{C\+A\+DC}}
+\subsubsection{\texorpdfstring{Init()}{Init()}}
+{\footnotesize\ttfamily void C\+A\+D\+C\+::\+Init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Initialization function of \mbox{\hyperlink{class_c_a_d_c}{C\+A\+DC}}. 
+
+
+
+Definition at line 22 of file H\+A\+L\+\_\+\+A\+D\+C.\+cpp.
+
+\mbox{\Hypertarget{class_c_a_d_c_ac2f897fc64f605751ac3ffe7d2704ba6}\label{class_c_a_d_c_ac2f897fc64f605751ac3ffe7d2704ba6}} 
+\index{C\+A\+DC@{C\+A\+DC}!Read\+A\+D\+C\+Value@{Read\+A\+D\+C\+Value}}
+\index{Read\+A\+D\+C\+Value@{Read\+A\+D\+C\+Value}!C\+A\+DC@{C\+A\+DC}}
+\subsubsection{\texorpdfstring{Read\+A\+D\+C\+Value()}{ReadADCValue()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_a_d_a_s___types_8h_a1f1825b69244eb3ad2c7165ddc99c956}{uint16\+\_\+t}} C\+A\+D\+C\+::\+Read\+A\+D\+C\+Value (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_a_d_a_s___types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}}}]{pin }\end{DoxyParamCaption})}
+
+
+
+Function to read A\+DC value. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pin} & Pin number e.\+g. A0 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns current A\+DC value 
+\end{DoxyReturn}
+
+
+Definition at line 30 of file H\+A\+L\+\_\+\+A\+D\+C.\+cpp.
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_c_a_d_c_ac2f897fc64f605751ac3ffe7d2704ba6_icgraph}
+\end{center}
+\end{figure}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-/\+Volumes/\+Macintosh S\+D/\+Github/\+A\+D\+A\+S/06\+\_\+source/\+A\+D\+A\+S/\+A\+D\+A\+S\+\_\+\+Nav\+U/H\+A\+L\+\_\+\+A\+D\+C.\+h\item 
-/\+Volumes/\+Macintosh S\+D/\+Github/\+A\+D\+A\+S/06\+\_\+source/\+A\+D\+A\+S/\+A\+D\+A\+S\+\_\+\+Nav\+U/H\+A\+L\+\_\+\+A\+D\+C.\+cpp\end{DoxyCompactItemize}
+\mbox{\hyperlink{_h_a_l___a_d_c_8h}{H\+A\+L\+\_\+\+A\+D\+C.\+h}}\item 
+\mbox{\hyperlink{_h_a_l___a_d_c_8cpp}{H\+A\+L\+\_\+\+A\+D\+C.\+cpp}}\end{DoxyCompactItemize}

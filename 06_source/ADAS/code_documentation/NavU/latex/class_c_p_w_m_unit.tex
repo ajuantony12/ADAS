@@ -1,0 +1,152 @@
+\hypertarget{class_c_p_w_m_unit}{}\section{C\+P\+W\+M\+Unit Class Reference}
+\label{class_c_p_w_m_unit}\index{C\+P\+W\+M\+Unit@{C\+P\+W\+M\+Unit}}
+
+
+Hardware Abstraction Layer (H\+AL) P\+WM class.  
+
+
+
+
+{\ttfamily \#include $<$H\+A\+L\+\_\+\+P\+W\+M.\+h$>$}
+
+
+
+Collaboration diagram for C\+P\+W\+M\+Unit\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=171pt]{class_c_p_w_m_unit__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{class_c_p_w_m_unit_ad3e55d1df0367d8a090d4b835704be44}{P\+W\+M\+I\+D\+\_\+e}} \{ \mbox{\hyperlink{class_c_p_w_m_unit_ad3e55d1df0367d8a090d4b835704be44a3f6167a7882e80f1ad05c8bff5e538c0}{P\+W\+M1}} =P\+I\+N\+\_\+\+M\+T\+R\+\_\+\+L\+\_\+\+P\+WM, 
+\mbox{\hyperlink{class_c_p_w_m_unit_ad3e55d1df0367d8a090d4b835704be44afc7888ea63be5da5551d10db3d676185}{P\+W\+M2}} =P\+I\+N\+\_\+\+M\+T\+R\+\_\+\+R\+\_\+\+P\+WM
+ \}
+\begin{DoxyCompactList}\small\item\em Enum class for P\+WM pins. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_c_p_w_m_unit_a9e68713e9f26f6d36714a58648494afb}{C\+P\+W\+M\+Unit}} (\mbox{\hyperlink{class_c_p_w_m_unit_ad3e55d1df0367d8a090d4b835704be44}{P\+W\+M\+I\+D\+\_\+e}} ID)
+\begin{DoxyCompactList}\small\item\em Constructor of \mbox{\hyperlink{class_c_p_w_m_unit}{C\+P\+W\+M\+Unit}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_c_p_w_m_unit_aabfa153a1f1019befa096147428a3822}{$\sim$\+C\+P\+W\+M\+Unit}} ()
+\begin{DoxyCompactList}\small\item\em Destructor of \mbox{\hyperlink{class_c_p_w_m_unit}{C\+P\+W\+M\+Unit}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_c_p_w_m_unit_aa36627883e91d3dec4a76fe187588071}{setup\+P\+W\+M10}} ()
+\begin{DoxyCompactList}\small\item\em Function to initialize timers for 10-\/bit P\+WM. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_c_p_w_m_unit_a60f8be5eabf779f57e6392a0432bf7f2}{write\+Duty}} (\mbox{\hyperlink{_a_d_a_s___types_8h_a1f1825b69244eb3ad2c7165ddc99c956}{uint16\+\_\+t}} n)
+\begin{DoxyCompactList}\small\item\em Function write duty cycle. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Hardware Abstraction Layer (H\+AL) P\+WM class. 
+
+Definition at line 15 of file H\+A\+L\+\_\+\+P\+W\+M.\+h.
+
+
+
+\subsection{Member Enumeration Documentation}
+\mbox{\Hypertarget{class_c_p_w_m_unit_ad3e55d1df0367d8a090d4b835704be44}\label{class_c_p_w_m_unit_ad3e55d1df0367d8a090d4b835704be44}} 
+\index{C\+P\+W\+M\+Unit@{C\+P\+W\+M\+Unit}!P\+W\+M\+I\+D\+\_\+e@{P\+W\+M\+I\+D\+\_\+e}}
+\index{P\+W\+M\+I\+D\+\_\+e@{P\+W\+M\+I\+D\+\_\+e}!C\+P\+W\+M\+Unit@{C\+P\+W\+M\+Unit}}
+\subsubsection{\texorpdfstring{P\+W\+M\+I\+D\+\_\+e}{PWMID\_e}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{class_c_p_w_m_unit_ad3e55d1df0367d8a090d4b835704be44}{C\+P\+W\+M\+Unit\+::\+P\+W\+M\+I\+D\+\_\+e}}}
+
+
+
+Enum class for P\+WM pins. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{P\+W\+M1@{P\+W\+M1}!C\+P\+W\+M\+Unit@{C\+P\+W\+M\+Unit}}\index{C\+P\+W\+M\+Unit@{C\+P\+W\+M\+Unit}!P\+W\+M1@{P\+W\+M1}}}\mbox{\Hypertarget{class_c_p_w_m_unit_ad3e55d1df0367d8a090d4b835704be44a3f6167a7882e80f1ad05c8bff5e538c0}\label{class_c_p_w_m_unit_ad3e55d1df0367d8a090d4b835704be44a3f6167a7882e80f1ad05c8bff5e538c0}} 
+P\+W\+M1&Definition of first P\+WM pin (O\+C1A) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{P\+W\+M2@{P\+W\+M2}!C\+P\+W\+M\+Unit@{C\+P\+W\+M\+Unit}}\index{C\+P\+W\+M\+Unit@{C\+P\+W\+M\+Unit}!P\+W\+M2@{P\+W\+M2}}}\mbox{\Hypertarget{class_c_p_w_m_unit_ad3e55d1df0367d8a090d4b835704be44afc7888ea63be5da5551d10db3d676185}\label{class_c_p_w_m_unit_ad3e55d1df0367d8a090d4b835704be44afc7888ea63be5da5551d10db3d676185}} 
+P\+W\+M2&Definition of second P\+WM pin (O\+C1B) \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 24 of file H\+A\+L\+\_\+\+P\+W\+M.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_c_p_w_m_unit_a9e68713e9f26f6d36714a58648494afb}\label{class_c_p_w_m_unit_a9e68713e9f26f6d36714a58648494afb}} 
+\index{C\+P\+W\+M\+Unit@{C\+P\+W\+M\+Unit}!C\+P\+W\+M\+Unit@{C\+P\+W\+M\+Unit}}
+\index{C\+P\+W\+M\+Unit@{C\+P\+W\+M\+Unit}!C\+P\+W\+M\+Unit@{C\+P\+W\+M\+Unit}}
+\subsubsection{\texorpdfstring{C\+P\+W\+M\+Unit()}{CPWMUnit()}}
+{\footnotesize\ttfamily C\+P\+W\+M\+Unit\+::\+C\+P\+W\+M\+Unit (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_c_p_w_m_unit_ad3e55d1df0367d8a090d4b835704be44}{P\+W\+M\+I\+D\+\_\+e}}}]{ID }\end{DoxyParamCaption})}
+
+
+
+Constructor of \mbox{\hyperlink{class_c_p_w_m_unit}{C\+P\+W\+M\+Unit}}. 
+
+Constructor of class
+
+
+\begin{DoxyParams}{Parameters}
+{\em ID} & Pin number \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 19 of file H\+A\+L\+\_\+\+P\+W\+M.\+cpp.
+
+\mbox{\Hypertarget{class_c_p_w_m_unit_aabfa153a1f1019befa096147428a3822}\label{class_c_p_w_m_unit_aabfa153a1f1019befa096147428a3822}} 
+\index{C\+P\+W\+M\+Unit@{C\+P\+W\+M\+Unit}!````~C\+P\+W\+M\+Unit@{$\sim$\+C\+P\+W\+M\+Unit}}
+\index{````~C\+P\+W\+M\+Unit@{$\sim$\+C\+P\+W\+M\+Unit}!C\+P\+W\+M\+Unit@{C\+P\+W\+M\+Unit}}
+\subsubsection{\texorpdfstring{$\sim$\+C\+P\+W\+M\+Unit()}{~CPWMUnit()}}
+{\footnotesize\ttfamily C\+P\+W\+M\+Unit\+::$\sim$\+C\+P\+W\+M\+Unit (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destructor of \mbox{\hyperlink{class_c_p_w_m_unit}{C\+P\+W\+M\+Unit}}. 
+
+Destructor of class 
+
+Definition at line 25 of file H\+A\+L\+\_\+\+P\+W\+M.\+cpp.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_c_p_w_m_unit_aa36627883e91d3dec4a76fe187588071}\label{class_c_p_w_m_unit_aa36627883e91d3dec4a76fe187588071}} 
+\index{C\+P\+W\+M\+Unit@{C\+P\+W\+M\+Unit}!setup\+P\+W\+M10@{setup\+P\+W\+M10}}
+\index{setup\+P\+W\+M10@{setup\+P\+W\+M10}!C\+P\+W\+M\+Unit@{C\+P\+W\+M\+Unit}}
+\subsubsection{\texorpdfstring{setup\+P\+W\+M10()}{setupPWM10()}}
+{\footnotesize\ttfamily void C\+P\+W\+M\+Unit\+::setup\+P\+W\+M10 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Function to initialize timers for 10-\/bit P\+WM. 
+
+
+
+Definition at line 30 of file H\+A\+L\+\_\+\+P\+W\+M.\+cpp.
+
+\mbox{\Hypertarget{class_c_p_w_m_unit_a60f8be5eabf779f57e6392a0432bf7f2}\label{class_c_p_w_m_unit_a60f8be5eabf779f57e6392a0432bf7f2}} 
+\index{C\+P\+W\+M\+Unit@{C\+P\+W\+M\+Unit}!write\+Duty@{write\+Duty}}
+\index{write\+Duty@{write\+Duty}!C\+P\+W\+M\+Unit@{C\+P\+W\+M\+Unit}}
+\subsubsection{\texorpdfstring{write\+Duty()}{writeDuty()}}
+{\footnotesize\ttfamily void C\+P\+W\+M\+Unit\+::write\+Duty (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_a_d_a_s___types_8h_a1f1825b69244eb3ad2c7165ddc99c956}{uint16\+\_\+t}}}]{n }\end{DoxyParamCaption})}
+
+
+
+Function write duty cycle. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & Duty cycle (0 = 0\% and 1023 = 100\%) \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 63 of file H\+A\+L\+\_\+\+P\+W\+M.\+cpp.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_h_a_l___p_w_m_8h}{H\+A\+L\+\_\+\+P\+W\+M.\+h}}\item 
+\mbox{\hyperlink{_h_a_l___p_w_m_8cpp}{H\+A\+L\+\_\+\+P\+W\+M.\+cpp}}\end{DoxyCompactItemize}

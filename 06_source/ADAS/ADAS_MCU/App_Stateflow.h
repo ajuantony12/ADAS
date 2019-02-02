@@ -1,25 +1,26 @@
-//
-// File: Chart.h
-//
-// Code generated for Simulink model 'Chart'.
-//
-// Model version                  : 1.37
-// Simulink Coder version         : 8.14 (R2018a) 06-Feb-2018
-// C/C++ source code generated on : Mon Dec 10 09:08:26 2018
-//
-// Target selection: ert.tlc
-// Embedded hardware selection: Atmel->AVR (8-bit)
-// Code generation objectives:
-//    1. Execution efficiency
-//    2. RAM efficiency
-// Validation result: Not run
-//
+/**
+* @file App_Stateflow.h
+* @author Hannes Bähr, Juliane Müller
+* @date January 31, 2019
+* @brief Application file for Stateflow
+*
+*
+* @section Code_generation code_generation
+* Code generated for Simulink model 'Chart'.
+* Model version                  : 1.37
+* Simulink Coder version         : 8.14 (R2018a) 06-Feb-2018
+* C/C++ source code generated on : Mon Dec 10 09:08:26 2018 
+* Embedded hardware selection: Atmel->AVR (8-bit)
+* 
+* 
+* 
+* 
+*/
+
 #ifndef RTW_HEADER_Chart_h_
 #define RTW_HEADER_Chart_h_
 #ifndef Chart_COMMON_INCLUDES_
 # define Chart_COMMON_INCLUDES_
-#include "App_Stateflowtypes.h"
-#endif                                 // Chart_COMMON_INCLUDES_
 
 // Macros for accessing real-time model data structure
 #ifndef rtmGetErrorStatus
@@ -30,95 +31,121 @@
 # define rtmSetErrorStatus(rtm, val)   ((rtm)->errorStatus = (val))
 #endif
 
-// Forward declaration for rtModel
+
+// ##### Includes #####
+#include "App_Stateflowtypes.h"
+#endif                                
+
+
+// ##### Definitions #####
+/**
+ *
+ * \struct tag_RTM RT_MODEL
+ *
+ * \brief   Forward declaration for rtModel
+**/
 typedef struct tag_RTM RT_MODEL;
 
-// Block signals and states (default storage) for system '<Root>'
+/**
+ *
+ * \struct DW
+ *
+ * \brief   Local signals for Stateflow
+**/
 typedef struct {
-  int16_T curr_angle;                  // '<Root>/Chart'
-  int16_T op;                          // '<Root>/Chart'
-  uint8_T is_c3_Chart;                 // '<Root>/Chart'
+  ///Definition of local variable for current angle
+  int16_T curr_angle;                  
+  ///Definiton of local variable operation point
+  int16_T op;
+  ///Definiton of local variable to handle stateflow                         
+  uint8_T is_c3_Chart;                 
 } DW;
 
-// External inputs (root inport signals with default storage)
+/**
+ *
+ * \struct ExtU
+ *
+ * \brief   External inputs for Stateflow
+**/
 typedef struct {
-  int16_T gyro_signal;                 // '<Root>/gyro_signal'
-  int16_T turn;                        // '<Root>/turn'
-  int16_T dist;                        // '<Root>/dist'
+  ///Definition input for the gyro signal 
+  int16_T gyro_signal;                 
+  ///Definition input for the turn set 
+  int16_T turn;                        
+  ///Definition input for the distance set 
+  int16_T dist;                        
 } ExtU;
 
-// External outputs (root outports fed by signals with default storage)
+/**
+ *
+ * \struct ExtY
+ *
+ * \brief   External outputs for Stateflow
+**/ 
 typedef struct {
-  uint8_T mot_r;                       // '<Root>/mot_r'
-  uint8_T dir_l;                       // '<Root>/dir_l'
-  uint8_T dir_r;                       // '<Root>/dir_r'
-  uint8_T mot_l;                       // '<Root>/mot_l'
+  ///Definition output power motor right 
+  uint8_T mot_r;                       
+  ///Definition output direction motor left 
+  uint8_T dir_l;                       
+  ///Definition output direction motor right
+  uint8_T dir_r;                       
+  ///Definition output power motor right 
+  uint8_T mot_l;                       
 } ExtY;
 
-// Real-time Model Data Structure
+
+/**
+ *
+ * \struct tag_RTM
+ *
+ * \brief   Real-time Model Data Structure for Stateflow
+**/
 struct tag_RTM {
   const char_T * volatile errorStatus;
 };
 
-// Class declaration for model Chart
+
+
+/**
+ *
+ * \class ChartModelClass
+ *
+ * \brief   Class declaration for Stateflow model Chart
+**/
 class ChartModelClass {
-  // public data and function members
+  /// public data and function members
  public:
- // Block signals and states
+ /// Block signals and states
   DW rtDW;
-  // External inputs
+  /// External inputs
   ExtU rtU;
 
-  // External outputs
+  /// External outputs
   ExtY rtY;
 
-  // model initialize function
+  /// model initialize function
   void initialize();
 
-  // model step function
+  /// model step function
   void step();
 
-  // Constructor
+  /// Constructor
   ChartModelClass();
 
-  // Destructor
+  /// Destructor
   ~ChartModelClass();
 
-  // Real-Time Model get method
+  /// Real-Time Model get method
   RT_MODEL * getRTM();
 
-  // private data and function members
+  /// private data and function members
  private:
   
 
-  // Real-Time Model
+  /// Real-Time Model
   RT_MODEL rtM;
 };
 
-//-
-//  The generated code includes comments that allow you to trace directly
-//  back to the appropriate location in the model.  The basic format
-//  is <system>/block_name, where system is the system number (uniquely
-//  assigned by Simulink) and block_name is the name of the block.
-//
-//  Note that this particular code originates from a subsystem build,
-//  and has its own system numbers different from the parent model.
-//  Refer to the system hierarchy for this subsystem below, and use the
-//  MATLAB hilite_system command to trace the generated code back
-//  to the parent model.  For example,
-//
-//  hilite_system('Motor_control_simulation/Control/Chart')    - opens subsystem Motor_control_simulation/Control/Chart
-//  hilite_system('Motor_control_simulation/Control/Chart/Kp') - opens and selects block Kp
-//
-//  Here is the system hierarchy for this model
-//
-//  '<Root>' : 'Motor_control_simulation/Control'
-//  '<S1>'   : 'Motor_control_simulation/Control/Chart'
 
-#endif                                 // RTW_HEADER_Chart_h_
 
-//
-// File trailer for generated code.
-//
-// [EOF]
-//
+#endif                                 /*APP_Stateflow_H*/

@@ -1,45 +1,190 @@
 \hypertarget{class_c_i_c_c_comms}{}\section{C\+I\+C\+C\+Comms Class Reference}
-\label{class_c_i_c_c_comms}\index{CICCComms@{CICCComms}}
+\label{class_c_i_c_c_comms}\index{C\+I\+C\+C\+Comms@{C\+I\+C\+C\+Comms}}
 
 
-Collaboration diagram for C\+I\+C\+C\+Comms\+:
-% FIG 0
+Inter-\/\+Controller Communication Class.  
+
+
+
+
+{\ttfamily \#include $<$Comm\+\_\+\+I\+C\+C.\+h$>$}
+
+
+
+Collaboration diagram for C\+I\+C\+C\+Comms\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=207pt]{class_c_i_c_c_comms__coll__graph}
+\end{center}
+\end{figure}
 \subsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
 struct \mbox{\hyperlink{struct_c_i_c_c_comms_1_1_message__t}{Message\+\_\+t}}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Structure for I\+CC messages. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_c_i_c_c_comms_af2cb9bb6ab473bc5ea2b4aa2f98084ff}\label{class_c_i_c_c_comms_af2cb9bb6ab473bc5ea2b4aa2f98084ff}} 
-{\bfseries C\+I\+C\+C\+Comms} (\mbox{\hyperlink{class_c_serial}{C\+Serial}} \&ser\+Port)
-\item 
-\mbox{\Hypertarget{class_c_i_c_c_comms_a08eb020323826c69109ec0f9bb9b7ee5}\label{class_c_i_c_c_comms_a08eb020323826c69109ec0f9bb9b7ee5}} 
-virtual void {\bfseries Init} (void)
-\item 
-\mbox{\Hypertarget{class_c_i_c_c_comms_a8b3fa81307b3b9ba0e72b4aee8279c56}\label{class_c_i_c_c_comms_a8b3fa81307b3b9ba0e72b4aee8279c56}} 
-virtual void {\bfseries Run} (void)
-\item 
-\mbox{\Hypertarget{class_c_i_c_c_comms_ab925dd7ff82f30ccd9f770ab2281b3ab}\label{class_c_i_c_c_comms_ab925dd7ff82f30ccd9f770ab2281b3ab}} 
-virtual void {\bfseries add\+Tx\+Msg} (uint8\+\_\+t cmd, signed int data)
-\end{DoxyCompactItemize}
+\mbox{\hyperlink{class_c_i_c_c_comms_af2cb9bb6ab473bc5ea2b4aa2f98084ff}{C\+I\+C\+C\+Comms}} (\mbox{\hyperlink{class_c_serial}{C\+Serial}} \&ser\+Port)
+\begin{DoxyCompactList}\small\item\em Constructor of \mbox{\hyperlink{class_c_i_c_c_comms}{C\+I\+C\+C\+Comms}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_c_i_c_c_comms_a951ae11fd2024309bd4ecf67981287e7}{$\sim$\+C\+I\+C\+C\+Comms}} ()
+\begin{DoxyCompactList}\small\item\em Destructor of \mbox{\hyperlink{class_c_i_c_c_comms}{C\+I\+C\+C\+Comms}}. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_c_i_c_c_comms_ad1d35d2145363d2ab970f9f5cd1dfc23}{Init}} (\mbox{\hyperlink{class_c_navigation}{C\+Navigation}} $\ast$\mbox{\hyperlink{_a_d_a_s___nav_u_8ino_a8abc3c3b0c6950fd83525420d5ca0dd2}{nav\+\_\+o}})
+\begin{DoxyCompactList}\small\item\em Initialization function of \mbox{\hyperlink{class_c_i_c_c_comms}{C\+I\+C\+C\+Comms}}. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_c_i_c_c_comms_a8b3fa81307b3b9ba0e72b4aee8279c56}{Run}} (void)
+\begin{DoxyCompactList}\small\item\em Run function of \mbox{\hyperlink{class_c_i_c_c_comms}{C\+I\+C\+C\+Comms}} which is periodically called by \mbox{\hyperlink{class_c_navigation}{C\+Navigation}}. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_c_i_c_c_comms_ab925dd7ff82f30ccd9f770ab2281b3ab}{add\+Tx\+Msg}} (\mbox{\hyperlink{_a_d_a_s___types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} cmd, signed int data)
+\begin{DoxyCompactList}\small\item\em Function to append message which shall be sent. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_c_i_c_c_comms_a35a59d11110d830b70ab5e2a5644bbb9}\label{class_c_i_c_c_comms_a35a59d11110d830b70ab5e2a5644bbb9}} 
-\mbox{\hyperlink{struct_c_i_c_c_comms_1_1_message__t}{Message\+\_\+t}} {\bfseries msg}
+\mbox{\hyperlink{struct_c_i_c_c_comms_1_1_message__t}{Message\+\_\+t}} \mbox{\hyperlink{class_c_i_c_c_comms_a35a59d11110d830b70ab5e2a5644bbb9}{msg}}
 \end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
+Inter-\/\+Controller Communication Class. 
+
+Definition at line 19 of file Comm\+\_\+\+I\+C\+C.\+h.
 
 
-Definition at line 16 of file Comm\+\_\+\+I\+C\+C.\+h.
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_c_i_c_c_comms_af2cb9bb6ab473bc5ea2b4aa2f98084ff}\label{class_c_i_c_c_comms_af2cb9bb6ab473bc5ea2b4aa2f98084ff}} 
+\index{C\+I\+C\+C\+Comms@{C\+I\+C\+C\+Comms}!C\+I\+C\+C\+Comms@{C\+I\+C\+C\+Comms}}
+\index{C\+I\+C\+C\+Comms@{C\+I\+C\+C\+Comms}!C\+I\+C\+C\+Comms@{C\+I\+C\+C\+Comms}}
+\subsubsection{\texorpdfstring{C\+I\+C\+C\+Comms()}{CICCComms()}}
+{\footnotesize\ttfamily C\+I\+C\+C\+Comms\+::\+C\+I\+C\+C\+Comms (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_c_serial}{C\+Serial}} \&}]{ser\+Port }\end{DoxyParamCaption})}
+
+
+
+Constructor of \mbox{\hyperlink{class_c_i_c_c_comms}{C\+I\+C\+C\+Comms}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ser\+Port} & Handover of serial interface object \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 18 of file Comm\+\_\+\+I\+C\+C.\+cpp.
+
+\mbox{\Hypertarget{class_c_i_c_c_comms_a951ae11fd2024309bd4ecf67981287e7}\label{class_c_i_c_c_comms_a951ae11fd2024309bd4ecf67981287e7}} 
+\index{C\+I\+C\+C\+Comms@{C\+I\+C\+C\+Comms}!````~C\+I\+C\+C\+Comms@{$\sim$\+C\+I\+C\+C\+Comms}}
+\index{````~C\+I\+C\+C\+Comms@{$\sim$\+C\+I\+C\+C\+Comms}!C\+I\+C\+C\+Comms@{C\+I\+C\+C\+Comms}}
+\subsubsection{\texorpdfstring{$\sim$\+C\+I\+C\+C\+Comms()}{~CICCComms()}}
+{\footnotesize\ttfamily C\+I\+C\+C\+Comms\+::$\sim$\+C\+I\+C\+C\+Comms (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destructor of \mbox{\hyperlink{class_c_i_c_c_comms}{C\+I\+C\+C\+Comms}}. 
+
+
+
+Definition at line 24 of file Comm\+\_\+\+I\+C\+C.\+cpp.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_c_i_c_c_comms_ab925dd7ff82f30ccd9f770ab2281b3ab}\label{class_c_i_c_c_comms_ab925dd7ff82f30ccd9f770ab2281b3ab}} 
+\index{C\+I\+C\+C\+Comms@{C\+I\+C\+C\+Comms}!add\+Tx\+Msg@{add\+Tx\+Msg}}
+\index{add\+Tx\+Msg@{add\+Tx\+Msg}!C\+I\+C\+C\+Comms@{C\+I\+C\+C\+Comms}}
+\subsubsection{\texorpdfstring{add\+Tx\+Msg()}{addTxMsg()}}
+{\footnotesize\ttfamily void C\+I\+C\+C\+Comms\+::add\+Tx\+Msg (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_a_d_a_s___types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}}}]{cmd,  }\item[{signed int}]{data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Function to append message which shall be sent. 
+
+This function can be called outside of the class to send message to the other controller. 
+\begin{DoxyParams}{Parameters}
+{\em cmd} & Command of message \\
+\hline
+{\em data} & Data of message \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 125 of file Comm\+\_\+\+I\+C\+C.\+cpp.
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_c_i_c_c_comms_ab925dd7ff82f30ccd9f770ab2281b3ab_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_c_i_c_c_comms_ad1d35d2145363d2ab970f9f5cd1dfc23}\label{class_c_i_c_c_comms_ad1d35d2145363d2ab970f9f5cd1dfc23}} 
+\index{C\+I\+C\+C\+Comms@{C\+I\+C\+C\+Comms}!Init@{Init}}
+\index{Init@{Init}!C\+I\+C\+C\+Comms@{C\+I\+C\+C\+Comms}}
+\subsubsection{\texorpdfstring{Init()}{Init()}}
+{\footnotesize\ttfamily void C\+I\+C\+C\+Comms\+::\+Init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_c_navigation}{C\+Navigation}} $\ast$}]{nav\+\_\+o }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Initialization function of \mbox{\hyperlink{class_c_i_c_c_comms}{C\+I\+C\+C\+Comms}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nav\+\_\+o} & Handover of navigation unit object \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 33 of file Comm\+\_\+\+I\+C\+C.\+cpp.
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=249pt]{class_c_i_c_c_comms_ad1d35d2145363d2ab970f9f5cd1dfc23_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_c_i_c_c_comms_a8b3fa81307b3b9ba0e72b4aee8279c56}\label{class_c_i_c_c_comms_a8b3fa81307b3b9ba0e72b4aee8279c56}} 
+\index{C\+I\+C\+C\+Comms@{C\+I\+C\+C\+Comms}!Run@{Run}}
+\index{Run@{Run}!C\+I\+C\+C\+Comms@{C\+I\+C\+C\+Comms}}
+\subsubsection{\texorpdfstring{Run()}{Run()}}
+{\footnotesize\ttfamily void C\+I\+C\+C\+Comms\+::\+Run (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Run function of \mbox{\hyperlink{class_c_i_c_c_comms}{C\+I\+C\+C\+Comms}} which is periodically called by \mbox{\hyperlink{class_c_navigation}{C\+Navigation}}. 
+
+Function reads serial buffer, parses and processes message. Received commands will call the dedicated functions. 
+
+Definition at line 43 of file Comm\+\_\+\+I\+C\+C.\+cpp.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_c_i_c_c_comms_a8b3fa81307b3b9ba0e72b4aee8279c56_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=303pt]{class_c_i_c_c_comms_a8b3fa81307b3b9ba0e72b4aee8279c56_icgraph}
+\end{center}
+\end{figure}
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_c_i_c_c_comms_a35a59d11110d830b70ab5e2a5644bbb9}\label{class_c_i_c_c_comms_a35a59d11110d830b70ab5e2a5644bbb9}} 
+\index{C\+I\+C\+C\+Comms@{C\+I\+C\+C\+Comms}!msg@{msg}}
+\index{msg@{msg}!C\+I\+C\+C\+Comms@{C\+I\+C\+C\+Comms}}
+\subsubsection{\texorpdfstring{msg}{msg}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_c_i_c_c_comms_1_1_message__t}{Message\+\_\+t}} C\+I\+C\+C\+Comms\+::msg}
+
+
+
+Definition at line 50 of file Comm\+\_\+\+I\+C\+C.\+h.
 
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-/\+Volumes/\+Macintosh S\+D/\+Github/\+A\+D\+A\+S/06\+\_\+source/\+A\+D\+A\+S/\+A\+D\+A\+S\+\_\+\+Nav\+U/Comm\+\_\+\+I\+C\+C.\+h\item 
-/\+Volumes/\+Macintosh S\+D/\+Github/\+A\+D\+A\+S/06\+\_\+source/\+A\+D\+A\+S/\+A\+D\+A\+S\+\_\+\+Nav\+U/Comm\+\_\+\+I\+C\+C.\+cpp\end{DoxyCompactItemize}
+\mbox{\hyperlink{_comm___i_c_c_8h}{Comm\+\_\+\+I\+C\+C.\+h}}\item 
+\mbox{\hyperlink{_comm___i_c_c_8cpp}{Comm\+\_\+\+I\+C\+C.\+cpp}}\end{DoxyCompactItemize}
