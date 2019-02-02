@@ -1,0 +1,84 @@
+\hypertarget{_a_d_a_s___nav_u_8ino}{}\section{/\+Volumes/\+Macintosh S\+D/\+Github/\+A\+D\+A\+S/06\+\_\+source/\+A\+D\+A\+S/\+A\+D\+A\+S\+\_\+\+Nav\+U/\+A\+D\+A\+S\+\_\+\+NavU.ino File Reference}
+\label{_a_d_a_s___nav_u_8ino}\index{/Volumes/Macintosh SD/Github/ADAS/06\_source/ADAS/ADAS\_NavU/ADAS\_NavU.ino@{/Volumes/Macintosh SD/Github/ADAS/06\_source/ADAS/ADAS\_NavU/ADAS\_NavU.ino}}
+
+
+Main file for the NavU of the A\+D\+AS project.  
+
+
+{\ttfamily \#include \char`\"{}A\+D\+A\+S\+\_\+\+Types.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}A\+D\+A\+S\+\_\+\+Cfg.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}A\+D\+A\+S\+\_\+\+Debug.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}H\+A\+L\+\_\+\+A\+D\+C.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}H\+A\+L\+\_\+\+Serial\+\_\+\+I\+F.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Comm\+\_\+\+P\+L\+S.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Comm\+\_\+\+I\+C\+C.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}App\+\_\+\+Navigation.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}App\+\_\+\+Positioning.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}App\+\_\+\+User\+Interface.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}App\+\_\+\+Virtual\+Mapping.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}App\+\_\+\+Environmental\+Data.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}O\+S\+A\+L\+\_\+\+Task\+Ctrl.\+h\char`\"{}}\newline
+Include dependency graph for A\+D\+A\+S\+\_\+\+Nav\+U.\+ino\+:
+% FIG 0
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{_a_d_a_s___nav_u_8ino_a4fc01d736fe50cf5b977f755b675f11d}\label{_a_d_a_s___nav_u_8ino_a4fc01d736fe50cf5b977f755b675f11d}} 
+void {\bfseries setup} ()
+\item 
+\mbox{\Hypertarget{_a_d_a_s___nav_u_8ino_afe461d27b9c48d5921c00d521181f12f}\label{_a_d_a_s___nav_u_8ino_afe461d27b9c48d5921c00d521181f12f}} 
+void {\bfseries loop} ()
+\item 
+\mbox{\Hypertarget{_a_d_a_s___nav_u_8ino_ae6e8a8009a9ae0c59f25a496d1cf5a84}\label{_a_d_a_s___nav_u_8ino_ae6e8a8009a9ae0c59f25a496d1cf5a84}} 
+{\bfseries I\+SR} (U\+S\+A\+R\+T1\+\_\+\+R\+X\+\_\+vect)
+\item 
+\mbox{\Hypertarget{_a_d_a_s___nav_u_8ino_a63a86aad9ba2e355fe6380da553f554e}\label{_a_d_a_s___nav_u_8ino_a63a86aad9ba2e355fe6380da553f554e}} 
+{\bfseries I\+SR} (U\+S\+A\+R\+T2\+\_\+\+R\+X\+\_\+vect)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_c_serial}{C\+Serial}} \mbox{\hyperlink{_a_d_a_s___nav_u_8ino_a5427ed2b254fc7bb97bb9c8b92af7d60}{pls\+Port}} (C\+Serial\+::\+S1, P\+L\+S\+\_\+\+R\+C\+V\+\_\+\+B\+U\+F\+F\+\_\+\+S\+I\+ZE)
+\item 
+\mbox{\Hypertarget{_a_d_a_s___nav_u_8ino_ad1e6d9fed4369104e412a46c019634d2}\label{_a_d_a_s___nav_u_8ino_ad1e6d9fed4369104e412a46c019634d2}} 
+\mbox{\hyperlink{class_c_serial}{C\+Serial}} {\bfseries icc\+Port} (C\+Serial\+::\+S2, I\+C\+C\+\_\+\+R\+C\+V\+\_\+\+B\+U\+F\+F\+\_\+\+S\+I\+ZE)
+\item 
+\mbox{\Hypertarget{_a_d_a_s___nav_u_8ino_add0df3806d74ba741b1d6bc5452d7e79}\label{_a_d_a_s___nav_u_8ino_add0df3806d74ba741b1d6bc5452d7e79}} 
+\mbox{\hyperlink{class_c_p_l_s_comms}{C\+P\+L\+S\+Comms}} {\bfseries pls\+C\+Omms\+\_\+o} (\mbox{\hyperlink{_a_d_a_s___nav_u_8ino_a5427ed2b254fc7bb97bb9c8b92af7d60}{pls\+Port}})
+\item 
+\mbox{\Hypertarget{_a_d_a_s___nav_u_8ino_a62ef6b3308259edb69af585549178324}\label{_a_d_a_s___nav_u_8ino_a62ef6b3308259edb69af585549178324}} 
+\mbox{\hyperlink{class_c_i_c_c_comms}{C\+I\+C\+C\+Comms}} {\bfseries icc\+Comms\+\_\+o} (icc\+Port)
+\item 
+\mbox{\Hypertarget{_a_d_a_s___nav_u_8ino_a8abc3c3b0c6950fd83525420d5ca0dd2}\label{_a_d_a_s___nav_u_8ino_a8abc3c3b0c6950fd83525420d5ca0dd2}} 
+\mbox{\hyperlink{class_c_navigation}{C\+Navigation}} {\bfseries nav\+\_\+o} (icc\+Comms\+\_\+o)
+\item 
+\mbox{\Hypertarget{_a_d_a_s___nav_u_8ino_a6c839a9b171c9b833a61a0d7612e2da8}\label{_a_d_a_s___nav_u_8ino_a6c839a9b171c9b833a61a0d7612e2da8}} 
+\mbox{\hyperlink{class_c_environmental_data}{C\+Environmental\+Data}} {\bfseries env\+\_\+o}
+\item 
+\mbox{\Hypertarget{_a_d_a_s___nav_u_8ino_a7ce4fc0ae24a704f84deb379a8f515a3}\label{_a_d_a_s___nav_u_8ino_a7ce4fc0ae24a704f84deb379a8f515a3}} 
+\mbox{\hyperlink{class_c_v_mapping}{C\+V\+Mapping}} {\bfseries v\+Map\+\_\+o} (nav\+\_\+o, pls\+C\+Omms\+\_\+o, 10)
+\item 
+\mbox{\Hypertarget{_a_d_a_s___nav_u_8ino_a4e98d90206033e0ef6b58d0d11930bac}\label{_a_d_a_s___nav_u_8ino_a4e98d90206033e0ef6b58d0d11930bac}} 
+\mbox{\hyperlink{class_c_task_ctrl}{C\+Task\+Ctrl}} {\bfseries task\+Ctrl\+\_\+o}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Main file for the NavU of the A\+D\+AS project. 
+
+\begin{DoxyAuthor}{Author}
+Aju Antony Jose, Christoph Jurczyk 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+January 29, 2019 
+\end{DoxyDate}
+
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{_a_d_a_s___nav_u_8ino_a5427ed2b254fc7bb97bb9c8b92af7d60}\label{_a_d_a_s___nav_u_8ino_a5427ed2b254fc7bb97bb9c8b92af7d60}} 
+\index{ADAS\_NavU.ino@{ADAS\_NavU.ino}!plsPort@{plsPort}}
+\index{plsPort@{plsPort}!ADAS\_NavU.ino@{ADAS\_NavU.ino}}
+\subsubsection{\texorpdfstring{plsPort}{plsPort}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_c_serial}{C\+Serial}} pls\+Port(C\+Serial\+::\+S1, P\+L\+S\+\_\+\+R\+C\+V\+\_\+\+B\+U\+F\+F\+\_\+\+S\+I\+ZE)}
+
+Basics Periperals Comms layer App Layer O\+S\+AL 

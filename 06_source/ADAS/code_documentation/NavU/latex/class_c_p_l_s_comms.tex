@@ -1,0 +1,58 @@
+\hypertarget{class_c_p_l_s_comms}{}\section{C\+P\+L\+S\+Comms Class Reference}
+\label{class_c_p_l_s_comms}\index{CPLSComms@{CPLSComms}}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_c_p_l_s_comms_1_1_message__t}{Message\+\_\+t}}
+\end{DoxyCompactItemize}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_c_p_l_s_comms_a765bc36363f75f4faf4fd2b41d440159}\label{class_c_p_l_s_comms_a765bc36363f75f4faf4fd2b41d440159}} 
+enum {\bfseries Status\+\_\+e} \{ \newline
+{\bfseries Msg\+Success} =0, 
+{\bfseries C\+R\+C\+Check\+Fail} = 1, 
+{\bfseries Comms\+Error} = 2, 
+{\bfseries Partial\+Msg} = 3, 
+\newline
+{\bfseries Msg\+\_\+\+N\+CK} =4, 
+{\bfseries Invalid\+Req} =5
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_c_p_l_s_comms_ae1ec975e5e402b405389d47b8acd0a63}\label{class_c_p_l_s_comms_ae1ec975e5e402b405389d47b8acd0a63}} 
+{\bfseries C\+P\+L\+S\+Comms} (\mbox{\hyperlink{class_c_serial}{C\+Serial}} \&ser\+Port)
+\item 
+\mbox{\Hypertarget{class_c_p_l_s_comms_ae7f8d87ea15de35a120d65a7a8bbbb76}\label{class_c_p_l_s_comms_ae7f8d87ea15de35a120d65a7a8bbbb76}} 
+Status\+\_\+e {\bfseries Init} (void)
+\item 
+\mbox{\Hypertarget{class_c_p_l_s_comms_ae8f7e9acdf4243b76f3c7f61cf766cfc}\label{class_c_p_l_s_comms_ae8f7e9acdf4243b76f3c7f61cf766cfc}} 
+void {\bfseries Request\+Measurements} (bool only\+Vert)
+\item 
+\mbox{\Hypertarget{class_c_p_l_s_comms_a3124eaa4549706962c7024c7c97e82b0}\label{class_c_p_l_s_comms_a3124eaa4549706962c7024c7c97e82b0}} 
+bool {\bfseries Get\+Async\+Data} (\mbox{\hyperlink{struct_c_p_l_s_comms_1_1_message__t}{Message\+\_\+t}} \&msg, uint16\+\_\+t \&len)
+\item 
+\mbox{\Hypertarget{class_c_p_l_s_comms_ae9d000eff184034954829d76162654a5}\label{class_c_p_l_s_comms_ae9d000eff184034954829d76162654a5}} 
+bool {\bfseries Data\+Available} ()
+\item 
+\mbox{\Hypertarget{class_c_p_l_s_comms_a05149da99ab80b804699763111315f33}\label{class_c_p_l_s_comms_a05149da99ab80b804699763111315f33}} 
+Status\+\_\+e {\bfseries Get\+Status} (void)
+\item 
+\mbox{\Hypertarget{class_c_p_l_s_comms_ae0cd51de8a24b261389b6f89b4b80e51}\label{class_c_p_l_s_comms_ae0cd51de8a24b261389b6f89b4b80e51}} 
+bool {\bfseries Search\+Msg} (\mbox{\hyperlink{struct_c_p_l_s_comms_1_1_message__t}{Message\+\_\+t}} \&msg, uint8\+\_\+t ID, uint16\+\_\+t len)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 16 of file Comm\+\_\+\+P\+L\+S.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/\+Volumes/\+Macintosh S\+D/\+Github/\+A\+D\+A\+S/06\+\_\+source/\+A\+D\+A\+S/\+A\+D\+A\+S\+\_\+\+Nav\+U/Comm\+\_\+\+P\+L\+S.\+h\item 
+/\+Volumes/\+Macintosh S\+D/\+Github/\+A\+D\+A\+S/06\+\_\+source/\+A\+D\+A\+S/\+A\+D\+A\+S\+\_\+\+Nav\+U/Comm\+\_\+\+P\+L\+S.\+cpp\end{DoxyCompactItemize}
