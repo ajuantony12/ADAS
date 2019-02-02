@@ -8,7 +8,8 @@
 #define ADAS_CFG_H
 //one time configuration
 //#define ONE_TIME_CFG
-#define ADAS_DEBUG
+//#define ADAS_DEBUG
+#define ADAS_DEBUG2
 
 //PLS Buffer
 #define PLS_RCV_BUFF_SIZE                                   500U

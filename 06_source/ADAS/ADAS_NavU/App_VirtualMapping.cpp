@@ -57,11 +57,11 @@ static const sint16_t atan_cordic_table[CORDIC_STAGES] =
     11520, 6800, 3593, 1824, 915, 458, 229, 114, 57, 28
 };
 
-CVMapping::CVMapping(CNavigation& NAV, CPLSComms& plsComms, uint8_t activeCheckInt):
+CVMapping::CVMapping(CNavigation& NAV, CPLSComms& plsComms):
   m_NAV(NAV),
   m_plsComms(plsComms),
-  m_RunCount(0),
-  m_ActiveCheckInterval(activeCheckInt)
+  m_driveState(false),
+  m_dataRequested(false)
 {
   //do nothing
 }
@@ -80,19 +80,38 @@ void CVMapping::Run(void)
   
   if(m_NAV.isCornerMode())
   {
-      if (m_plsComms.GetAsyncData(msg, len))
+      if (m_plsComms.DataAvailable())
       {
-          uint16_t* temp = reinterpret_cast<uint16_t*>(msg.data);
-          if (1 == temp[0]){
-              DPRINT("Vertical Distance = ");
-              DPRINTLN(temp[1], DEC);
+            DPRINTLN2("VM: data available VD");
+            if (m_dataRequested)
+            {
+                m_dataRequested = false;
+            }
+          if (m_plsComms.GetAsyncData(msg, len))
+          {
+              uint16_t* temp = reinterpret_cast<uint16_t*>(msg.data);
+              DPRINTLN(msg.len);
+    //          if (1 == temp[90]){
+    //              DPRINT("Vertical Distance = ");
+    //              DPRINTLN(temp[1], DEC);
+    //          }
+                  m_NAV.setPLSdata(temp[1]& PLS_DIST_MASK, 0, temp[91]& PLS_DIST_MASK);
           }
       }
+        if (!m_dataRequested){
+            DPRINTLN2("VM: Sending request VD");
+            m_plsComms.RequestMeasurements(true);
+            m_dataRequested = true;
+        }
       DPRINTLN("in corner mode getting vertical distance");
-      m_plsComms.RequestMeasurements(true);
   }else{
       if (m_plsComms.DataAvailable())
       {
+        DPRINTLN2("VM: Data available");
+        if (m_dataRequested)
+        {
+            m_dataRequested = false;
+        }
         DPRINTLN("Data available");
         if (m_plsComms.GetAsyncData(msg, len))
         {
@@ -103,8 +122,12 @@ void CVMapping::Run(void)
             {
                 DPRINTLN("field Breach detected");
                 wfstatus = true;
-                //stop cart
-                m_NAV.pauseDrive();
+                if (m_driveState)
+                {
+                    //stop cart
+                    m_NAV.pauseDrive();
+                    m_driveState = false;
+                }
             }
             DPRINT("Data Length ");
             DPRINTLN(len, DEC);
@@ -115,18 +138,12 @@ void CVMapping::Run(void)
             }
         }
       }
-      else{
-        m_RunCount++;
-      }
   }
-  if (m_ActiveCheckInterval < m_RunCount)
-  {
-    DPRINTLN("Sending measurement request");
-    m_plsComms.RequestMeasurements(false);
-    m_RunCount = 0; 
-  }else{
-      //do nothing
-  }
+    if (!m_dataRequested){
+        DPRINTLN2("VM: Sending request");
+        m_plsComms.RequestMeasurements(false);
+        m_dataRequested = true;
+    }
 }
 
 void CVMapping::Stop(void)
@@ -140,32 +157,31 @@ uint16_t CVMapping::OrganizeData(uint16_t* data, const uint16_t len)
     memmove(data, &data[1], (retVal*2));
     return retVal;
 }
-bool CVMapping::searchforPFBreach(uint16_t* data, uint16_t len, bool pfStatus)
+bool CVMapping::searchforPFBreach(uint16_t* data, uint16_t len, bool& pfStatus)
 {
     bool retVal = false;
     uint8_t wfSeg = 0;
     uint16_t i;
     DPRINTLN(" ");
-    for (i=0; ((i < len) && (false == retVal)); i++)
+    for (i=0; i < len; i++)
     {
         DPRINT(data[i], HEX);
         DPRINT(" ");
-        retVal = (data[i] & PLS_PF_MASK) ? true : false;
-        if ((false == retVal) && (wfSeg < PLS_WF_SEGEMENTS_RIGHT))
+        if (false == pfStatus){
+            pfStatus = (data[i] & PLS_PF_MASK) ? true : false;
+        }
+        if ((false == retVal) && (i < PLS_WF_SEGEMENTS_RIGHT))
         {
             retVal = (data[i] & PLS_WF_MASK) ? true : false;
-        }else if (true == retVal){
-            pfStatus = true;
         }
     }
-    DPRINTLN(i, DEC);
-    return retVal;
+    return (retVal || pfStatus);
 }
 void CVMapping::calculateWallInfo(uint16_t* data, uint16_t len, bool wfStatus, bool pfStatus)
 {
     uint16_t VDistance = PLS_MAX_VERTICAL_DIST;
-    uint16_t offsetx0 = data[0] & PLS_DIST_MASK;
-    uint16_t offsetx180 = data[PLS_WF_SEGEMENTS_MAX - 1] & PLS_DIST_MASK;
+    sint16_t offsetx0 = data[0] & PLS_DIST_MASK;
+    sint16_t offsetx180 = data[PLS_WF_SEGEMENTS_MAX - 1] & PLS_DIST_MASK;
     int16_t wallAngleCordic = 0;
     if (pfStatus){
         DPRINTLN("PF Breach halt");
@@ -173,41 +189,55 @@ void CVMapping::calculateWallInfo(uint16_t* data, uint16_t len, bool wfStatus, b
     } else if (wfStatus)
     {
         DPRINTLN("WF BREACH checking");
-        uint16_t temp = 0;
+        sint16_t temp = 0;
+        sint16_t tempy = 0;
         uint16_t index = PLS_WF_SEGEMENTS_RIGHT;
         uint8_t angle = 0;
         for (; index < PLS_WF_SEGEMENTS_LEFT; index++)
         {
-            angle = (index > 89)? (180 - (index+1)) : (index+1);
+            angle = (index > 90)? (180 - index) : (index);
             if (data[index] & PLS_WF_MASK)
             {
-                temp = (static_cast<sint32_t>(data[index] & PLS_DIST_MASK) * sine_tab[index]) >> TRIG_NORM_SHIFT;
-                DPRINT(temp, DEC);
+                temp = static_cast<sint16_t>((static_cast<sint32_t>(data[index] & PLS_DIST_MASK) * sine_tab[index]) >> TRIG_NORM_SHIFT);
                 if (temp < VDistance)
                 {
                     VDistance = temp;
+                    DPRINTLN(VDistance, DEC);
                 }
             }
         }
         DPRINT("VDistance ");
         DPRINTLN(VDistance, DEC);
         index = 0;
-        uint16_t offsetx1 = offsetx0;
+        sint16_t offsetx1 = offsetx0;
+        sint16_t offsety = 0;
         DPRINTLN("WF BREACH RIGHT checking");
         for (int i = 1; i < PLS_WF_SEGEMENTS_RIGHT; i++)
         {
-            temp = (static_cast<sint32_t>(data[i] & PLS_DIST_MASK) * cos_tab[i+1]) >> TRIG_NORM_SHIFT;
-            if (temp < offsetx1)
-            {
-                DPRINT(temp, DEC);
-                index = i;
-                offsetx1 = temp;
+            if (PLS_WF_MASK & data[i]){
+                angle = (i > 90)? (180 - i) : (i);
+                temp = static_cast<sint16_t>((static_cast<sint32_t>(data[i] & PLS_DIST_MASK) * cos_tab[angle]) >> TRIG_NORM_SHIFT);
+                tempy = static_cast<sint16_t>((static_cast<sint32_t>(data[i] & PLS_DIST_MASK) * sine_tab[angle]) >> TRIG_NORM_SHIFT);
+                if ((temp < offsetx1) && (tempy < VDistance))
+                {
+                    DPRINTLN(" ");
+                    DPRINT(i, DEC);
+                    DPRINT("-");
+                    DPRINT(temp, DEC);
+                    DPRINT("|");
+                    DPRINTLN(tempy, DEC);
+                    index = i;
+                    offsetx1 = temp;
+                    offsety = tempy;
+                }
             }
         }
         if ((offsetx0 - offsetx1) > PLS_LEFT_OFFSET_TOLERANCE)
         {
-            uint16_t offsety = (static_cast<sint32_t>(data[index] & PLS_DIST_MASK) * sine_tab[index+1]) >> TRIG_NORM_SHIFT;
-            wallAngleCordic = -(90 - (CordicATan(static_cast<sint32_t>(offsety)<<16, static_cast<sint32_t>(offsetx0 - offsetx1)<<16)>>8)); 
+            wallAngleCordic = static_cast<sint16_t>(CordicATan(static_cast<sint32_t>(offsety)<<16, static_cast<sint32_t>(offsetx0 - offsetx1)<<16)>>8); 
+            wallAngleCordic = 90 - wallAngleCordic;
+            
+            DPRINTLN(" ");
             DPRINT("MINIMUM right dist : ");
             DPRINT((data[index] & PLS_DIST_MASK), DEC);
             DPRINT(" | ");
@@ -218,8 +248,8 @@ void CVMapping::calculateWallInfo(uint16_t* data, uint16_t len, bool wfStatus, b
             DPRINTLN(offsety, DEC);
         }
     }else{
-        uint16_t offsetx1 = (static_cast<sint32_t>(data[PLS_WALL_DETECTION_2_POINT] & PLS_DIST_MASK) * cos_tab[PLS_WALL_DETECTION_2_POINT+1]) >> TRIG_NORM_SHIFT;
-        uint16_t offsety = (static_cast<sint32_t>(data[PLS_WALL_DETECTION_2_POINT] & PLS_DIST_MASK) * sine_tab[PLS_WALL_DETECTION_2_POINT+1]) >> TRIG_NORM_SHIFT;
+        sint16_t offsetx1 = static_cast<sint16_t>((static_cast<sint32_t>(data[PLS_WALL_DETECTION_2_POINT] & PLS_DIST_MASK) * cos_tab[PLS_WALL_DETECTION_2_POINT]) >> TRIG_NORM_SHIFT);
+        sint16_t offsety = static_cast<sint16_t>((static_cast<sint32_t>(data[PLS_WALL_DETECTION_2_POINT] & PLS_DIST_MASK) * sine_tab[PLS_WALL_DETECTION_2_POINT]) >> TRIG_NORM_SHIFT);
         DPRINT("2nd point ");
         DPRINT((data[PLS_WALL_DETECTION_2_POINT] & PLS_DIST_MASK), HEX);
         DPRINT(" | ");
@@ -227,18 +257,20 @@ void CVMapping::calculateWallInfo(uint16_t* data, uint16_t len, bool wfStatus, b
         DPRINT(" | ");
         DPRINT(offsety, DEC);
         DPRINT(" | cos :");
-        DPRINT(cos_tab[PLS_WALL_DETECTION_2_POINT+1], DEC);
+        DPRINT(cos_tab[PLS_WALL_DETECTION_2_POINT], DEC);
         DPRINT(" | sin :");
-        DPRINTLN(cos_tab[PLS_WALL_DETECTION_2_POINT+1], DEC);
+        DPRINTLN(cos_tab[PLS_WALL_DETECTION_2_POINT], DEC);
         if (offsetx1 > offsetx0){
             DPRINTLN("need to turn to right");
             if ((offsetx1 - offsetx0) > PLS_LEFT_OFFSET_TOLERANCE){
-                wallAngleCordic = (90 - CordicATan(static_cast<sint32_t>(offsety)<<16, static_cast<sint32_t>(offsetx1 - offsetx0)<<16)>>8);
+                wallAngleCordic = static_cast<sint16_t>(CordicATan(static_cast<sint32_t>(offsety)<<16, static_cast<sint32_t>(offsetx1 - offsetx0)<<16)>>8);
+                wallAngleCordic = -90 + wallAngleCordic;
             }
         }else{
             DPRINTLN("need to turn to left");
             if ((offsetx0 - offsetx1) > PLS_LEFT_OFFSET_TOLERANCE){
-                wallAngleCordic = -(90 -(CordicATan(static_cast<sint32_t>(offsety)<<16, static_cast<sint32_t>(offsetx0 - offsetx1)<<16)>>8)); 
+                wallAngleCordic = static_cast<sint16_t>(CordicATan(static_cast<sint32_t>(offsety)<<16, static_cast<sint32_t>(offsetx0 - offsetx1)<<16)>>8); 
+                wallAngleCordic = 90 - wallAngleCordic;
             }
         }
 
@@ -252,7 +284,11 @@ void CVMapping::calculateWallInfo(uint16_t* data, uint16_t len, bool wfStatus, b
     DPRINT("|");
     DPRINTLN(offsetx180, DEC);
     m_NAV.setPLSdata(offsetx0, wallAngleCordic, VDistance);
-    m_NAV.contDrive();
+    if (!m_driveState)
+    {
+        m_NAV.continueDrive();
+        m_driveState = true;
+    }
 }
 
 sint16_t CVMapping::CordicATan(sint32_t y, sint32_t x)
@@ -260,7 +296,7 @@ sint16_t CVMapping::CordicATan(sint32_t y, sint32_t x)
     sint32_t result = 0;
     sint32_t temp;
     sint16_t z = 0;
-/*     DPRINT(x, DEC);
+    /*DPRINT(x, DEC);
     DPRINT("|");
     DPRINT(y, DEC);
     DPRINT("|");
@@ -273,21 +309,21 @@ sint16_t CVMapping::CordicATan(sint32_t y, sint32_t x)
             x = x - (y>>i);
             y = y + (temp>>i);
             z = z - atan_cordic_table[i];
-/*             DPRINT("- |");
+/*           DPRINT("- |");
             DPRINTLN(atan_cordic_table[i]); */
         }
         else{
             x = x + (y>>i);
             y = y - (temp >>i);
             z = z + atan_cordic_table[i];
-/*             DPRINT("+ |");
+/*          DPRINT("+ |");
             DPRINTLN(atan_cordic_table[i]); */
         }
-/*         DPRINT(x, DEC);
+/*        DPRINT(x, DEC);
         DPRINT("|");
         DPRINT(y, DEC);
         DPRINT("|");
-        DPRINTLN(z, DEC); */
+        DPRINTLN(z, DEC);*/
         if (0 == y)
         {
             break;
