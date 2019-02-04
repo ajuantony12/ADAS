@@ -15,25 +15,25 @@
 #include "ADAS_Debug.h"
 #include "ADAS_Cfg.h"
 #include "FastPID.h"
-#include "Timer.h"
 
-uint16_t peaks_r, peaks_l, counted_peaks_r, counted_peaks_l, peak_sum_l, peak_sum_r = 0;
-boolean control = false;
-Timer t;
 FastPID myPID(KP_VALUE, KI_VALUE, KD_VALUE, HZ_VALUE, OUTPUT_BITS, OUTPUT_SIGNED);
 
 
 //! Constructor of CMotorCtrl
-CMotorCtrl::CMotorCtrl(CIMUUnit& imu_o, CPWMUnit& pwmUnitLeft_o, CPWMUnit& pwmUnitRight_o, CICCComms& iccComms_o):
+CMotorCtrl::CMotorCtrl(CIMUUnit& imu_o, CPWMUnit& pwmUnitLeft_o, CPWMUnit& pwmUnitRight_o, CEncoder& enc1_o, CEncoder& enc2_o,
+CICCComms& iccComms_o):
   rtObj(),
   m_imu_o(imu_o),
   m_pwmUnitLeft_o(pwmUnitLeft_o),
   m_pwmUnitRight_o(pwmUnitRight_o),
+  m_enc1_o(enc1_o),
+  m_enc2_o(enc2_o),
   m_iccComms_o(iccComms_o),
   distance(0), pause(false), speed_set(false), spd(2), setpoint_l(5), setpoint_r(5), curState(3),
   ctrl_side(0), feedback_l(0), feedback_r(0), output_r(0), adapt_r(0), output_l(0), adapt_l(0),
   d_way(0), startBtn(false), control_area(50), lower_b(0), upper_b(0), limit_var(0),
-  changeDirection(false), remindValue(0), k(0)
+  changeDirection(false), remindValue(0), k(0), control(false), counted_peaks_r(0), counted_peaks_l(0),
+  peak_sum_r(0), peak_sum_l(0)
 {
 
 }
@@ -68,16 +68,6 @@ void CMotorCtrl::Init(void)
 
   // Initialize stateflow
   rtObj.initialize();
-
-  //Initialize encoder interrupts
-  pinMode(PIN_ENC_R, INPUT_PULLUP);
-  pinMode(PIN_ENC_L, INPUT_PULLUP);
-  
-  attachInterrupt(digitalPinToInterrupt(PIN_ENC_R), CMotorCtrl::EncISR_R, RISING);
-  attachInterrupt(digitalPinToInterrupt(PIN_ENC_L), CMotorCtrl::EncISR_L, RISING);
-
-  //readout encoder count every 500ms
-  t.every(150, CMotorCtrl::readenc, 0);
 }
 
 //! Run function of CMotorCtrl which is executed in every loop
@@ -120,12 +110,16 @@ void CMotorCtrl::Run(void)
           //Check for current state and run the PI control
           checkState();
           MotPI();
+          DPRINT("peaks_l");
+          DPRINT(peak_sum_l);
+          DPRINT("; ");
+          DPRINT("peaks_r");
+          DPRINT(peak_sum_r);
+          DPRINTLN("; ");
          }
       }
     }
   }
-  //Update the timer
-  t.update();
 }
 //! Position control of CMotorCtrl which is executed every 150ms if the forward or backward driving is active
 /*!
@@ -276,42 +270,21 @@ void CMotorCtrl::checkOverflow(void){
     }
   }
 
-//! Interrupt Service Routine of the left encoder
-/*!
-  In this ISR the peaks of the left encoder are counted.
-*/
-static void CMotorCtrl::EncISR_L(void)
-{
-  peaks_l++;
-}
-
-//! Interrupt Service Routine of the right encoder
-/*!
-  In this ISR the peaks of the right encoder are counted.
-*/
-static void CMotorCtrl::EncISR_R(void)
-{
-  peaks_r++;
-}
 
 //! Function of the CMotorCtrl where the sum of all peaks and the peaks per 150ms are read out
 /*!
-  Function is called every 150ms and resets the count of the peaks which are used in the ISR's.
-  It also reads out the count of the peaks per 150ms and sums them up. The control variable is set to 
-  true which enables the PI controller. 
+  Function is called every 150ms and reads out the count of the peaks per 150ms and sums them up. 
+  The control variable is set to true which enables the PI controller. 
 */
-static void CMotorCtrl::readenc(void* context) {
+void CMotorCtrl::readenc(void) {
   // Peaks per 150ms are saved
-  counted_peaks_r = peaks_r;
-  counted_peaks_l = peaks_l;
+  counted_peaks_r = m_enc1_o.ReadCount();
+  counted_peaks_l = m_enc2_o.ReadCount();
   // PI controller gets enables
   control = true;
   // Peaks are getting summed up
-  peak_sum_l = peak_sum_l + counted_peaks_l;
-  peak_sum_r = peak_sum_r + counted_peaks_r;
-  // Reset of the counting variable of the ISR's
-  peaks_r = 0;
-  peaks_l = 0;
+  peak_sum_l = m_enc2_o.ReadSum();
+  peak_sum_r = m_enc1_o.ReadSum();
 }
 
 //! API Function of the CMotorCtrl to start a rotation
@@ -340,6 +313,8 @@ void CMotorCtrl::setDistance(sint16_t dist){
   rtObj.rtU.turn = 0;
   // Reset of the summed up peaks
   peak_sum_r = peak_sum_l = 0;
+  m_enc1_o.reset();
+  m_enc2_o.reset();
   // Checks if the setted distance and the transmitted distance are greater or equal to zero
   if(rtObj.rtU.dist >= 0 && dist >= 0){
     // Sets distance parameter of the stateflow and CMotorCtrl class to calculated peaks
@@ -512,6 +487,8 @@ void CMotorCtrl::checkState(void) {
       curState = 3;
       // Reset summed up peaks
       peak_sum_l = peak_sum_r = 0;
+      m_enc1_o.reset();
+      m_enc2_o.reset();
       // Stop motors
       m_pwmUnitRight_o.writeMOT(LOW);
       m_pwmUnitLeft_o.writeMOT(LOW);

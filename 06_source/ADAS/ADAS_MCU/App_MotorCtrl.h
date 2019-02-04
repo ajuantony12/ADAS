@@ -40,7 +40,8 @@
 class CMotorCtrl
 {
 public:
-	CMotorCtrl(CIMUUnit& imu_o, CPWMUnit& pwmUnitLeft_o, CPWMUnit& pwmUnitRight_o, CICCComms& iccComms_o);
+	CMotorCtrl(CIMUUnit& imu_o, CPWMUnit& pwmUnitLeft_o, CPWMUnit& pwmUnitRight_o, CEncoder& enc1_o, CEncoder& enc2_o,
+	CICCComms& iccComms_o);
 	~CMotorCtrl();
 
 
@@ -79,6 +80,10 @@ public:
        API function to continue a previously paused action of the motor control
     */
     void contDrive(void);
+    /*
+       Reading out the counted peaks of the Ecnoder ISRs
+    */
+    void readenc(void);
 
 private:
     /*
@@ -107,21 +112,6 @@ private:
     void checkOverflow(void);
 
     /*
-       Interrupt Service Routine to count the peaks of the right encoder
-    */
-    static void EncISR_R(void);
-
-    /*
-       Interrupt Service Routine to count the peaks of the left encoder
-    */
-    static void EncISR_L(void);
-
-    /*
-       Reading out the counted peaks of the ISRs
-    */
-    static void readenc(void* context);
-
-    /*
        Function to perform a stateflow calculation
     */
     void rt_OneStep(void);
@@ -130,12 +120,15 @@ private:
     CIMUUnit& m_imu_o;
     CPWMUnit& m_pwmUnitLeft_o;
     CPWMUnit& m_pwmUnitRight_o;
+    CEncoder& m_enc1_o; 
+    CEncoder& m_enc2_o;
     CICCComms& m_iccComms_o;
 
     int curState, ctrl_side, k, control_area;
     int16_t distance, adapt_r, adapt_l, remindValue;
-    boolean pause, speed_set, startBtn, changeDirection;
-    uint16_t setpoint_l, spd, setpoint_r, feedback_l, feedback_r, output_r, output_l, lower_b, upper_b, limit_var;
+    boolean pause, speed_set, startBtn, changeDirection, control;
+    uint16_t setpoint_l, spd, setpoint_r, feedback_l, feedback_r, output_r, output_l, lower_b, upper_b, limit_var, peaks_r, 
+    peaks_l, counted_peaks_r, counted_peaks_l, peak_sum_l, peak_sum_r;;
     sint16_t d_way;
 
 };
