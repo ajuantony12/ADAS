@@ -1,0 +1,97 @@
+\hypertarget{_app___stateflow_8h}{}\section{App\+\_\+\+Stateflow.\+h File Reference}
+\label{_app___stateflow_8h}\index{App\_Stateflow.h@{App\_Stateflow.h}}
+
+
+Application file for Stateflow.  
+
+
+{\ttfamily \#include \char`\"{}App\+\_\+\+Stateflowtypes.\+h\char`\"{}}\newline
+Include dependency graph for App\+\_\+\+Stateflow.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_d_w}{DW}}
+\begin{DoxyCompactList}\small\item\em Local signals for Stateflow. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_ext_u}{ExtU}}
+\begin{DoxyCompactList}\small\item\em External inputs for Stateflow. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_ext_y}{ExtY}}
+\begin{DoxyCompactList}\small\item\em External outputs for Stateflow. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structtag___r_t_m}{tag\+\_\+\+R\+TM}}
+\begin{DoxyCompactList}\small\item\em Forward declaration for rt\+Model. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_chart_model_class}{Chart\+Model\+Class}}
+\begin{DoxyCompactList}\small\item\em Class declaration of the chart model. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_app___stateflow_8h_a124ad07e78ce88e087803a80c5fd00aa}{Chart\+\_\+\+C\+O\+M\+M\+O\+N\+\_\+\+I\+N\+C\+L\+U\+D\+E\+S\+\_\+}}
+\item 
+\#define \mbox{\hyperlink{_app___stateflow_8h_a557d264325c9e243515f06d77552c662}{rtm\+Get\+Error\+Status}}(rtm)~((rtm)-\/$>$error\+Status)
+\item 
+\#define \mbox{\hyperlink{_app___stateflow_8h_a068bf11f899627a85b3c169391608c78}{rtm\+Set\+Error\+Status}}(rtm,  val)~((rtm)-\/$>$error\+Status = (val))
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{structtag___r_t_m}{tag\+\_\+\+R\+TM}} \mbox{\hyperlink{_app___stateflow_8h_a6f32dbbab0d15102b3fe6ec3fe6a72ba}{R\+T\+\_\+\+M\+O\+D\+EL}}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Application file for Stateflow. 
+
+\begin{DoxyAuthor}{Author}
+Hannes Bähr, Juliane Müller 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+January 31, 2019 
+\end{DoxyDate}
+\hypertarget{_app___stateflowtypes_8h_Code_generation}{}\subsection{code\+\_\+generation}\label{_app___stateflowtypes_8h_Code_generation}
+Code generated for Simulink model \textquotesingle{}Chart\textquotesingle{}. Model version \+: 1.\+37 Simulink Coder version \+: 8.\+14 (R2018a) 06-\/Feb-\/2018 C/\+C++ source code generated on \+: Mon Dec 10 09\+:08\+:26 2018 Embedded hardware selection\+: Atmel-\/$>$A\+VR (8-\/bit) 
+
+\subsection{Macro Definition Documentation}
+\mbox{\Hypertarget{_app___stateflow_8h_a124ad07e78ce88e087803a80c5fd00aa}\label{_app___stateflow_8h_a124ad07e78ce88e087803a80c5fd00aa}} 
+\index{App\_Stateflow.h@{App\_Stateflow.h}!Chart\_COMMON\_INCLUDES\_@{Chart\_COMMON\_INCLUDES\_}}
+\index{Chart\_COMMON\_INCLUDES\_@{Chart\_COMMON\_INCLUDES\_}!App\_Stateflow.h@{App\_Stateflow.h}}
+\subsubsection{\texorpdfstring{Chart\_COMMON\_INCLUDES\_}{Chart\_COMMON\_INCLUDES\_}}
+{\footnotesize\ttfamily \#define Chart\+\_\+\+C\+O\+M\+M\+O\+N\+\_\+\+I\+N\+C\+L\+U\+D\+E\+S\+\_\+}
+
+
+
+Definition at line 23 of file App\+\_\+\+Stateflow.\+h.
+
+\mbox{\Hypertarget{_app___stateflow_8h_a557d264325c9e243515f06d77552c662}\label{_app___stateflow_8h_a557d264325c9e243515f06d77552c662}} 
+\index{App\_Stateflow.h@{App\_Stateflow.h}!rtmGetErrorStatus@{rtmGetErrorStatus}}
+\index{rtmGetErrorStatus@{rtmGetErrorStatus}!App\_Stateflow.h@{App\_Stateflow.h}}
+\subsubsection{\texorpdfstring{rtmGetErrorStatus}{rtmGetErrorStatus}}
+{\footnotesize\ttfamily \#define rtm\+Get\+Error\+Status(\begin{DoxyParamCaption}\item[{}]{rtm }\end{DoxyParamCaption})~((rtm)-\/$>$error\+Status)}
+
+
+
+Definition at line 27 of file App\+\_\+\+Stateflow.\+h.
+
+\mbox{\Hypertarget{_app___stateflow_8h_a068bf11f899627a85b3c169391608c78}\label{_app___stateflow_8h_a068bf11f899627a85b3c169391608c78}} 
+\index{App\_Stateflow.h@{App\_Stateflow.h}!rtmSetErrorStatus@{rtmSetErrorStatus}}
+\index{rtmSetErrorStatus@{rtmSetErrorStatus}!App\_Stateflow.h@{App\_Stateflow.h}}
+\subsubsection{\texorpdfstring{rtmSetErrorStatus}{rtmSetErrorStatus}}
+{\footnotesize\ttfamily \#define rtm\+Set\+Error\+Status(\begin{DoxyParamCaption}\item[{}]{rtm,  }\item[{}]{val }\end{DoxyParamCaption})~((rtm)-\/$>$error\+Status = (val))}
+
+
+
+Definition at line 31 of file App\+\_\+\+Stateflow.\+h.
+
+
+
+\subsection{Typedef Documentation}
+\mbox{\Hypertarget{_app___stateflow_8h_a6f32dbbab0d15102b3fe6ec3fe6a72ba}\label{_app___stateflow_8h_a6f32dbbab0d15102b3fe6ec3fe6a72ba}} 
+\index{App\_Stateflow.h@{App\_Stateflow.h}!RT\_MODEL@{RT\_MODEL}}
+\index{RT\_MODEL@{RT\_MODEL}!App\_Stateflow.h@{App\_Stateflow.h}}
+\subsubsection{\texorpdfstring{RT\_MODEL}{RT\_MODEL}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structtag___r_t_m}{tag\+\_\+\+R\+TM}} \mbox{\hyperlink{_app___stateflow_8h_a6f32dbbab0d15102b3fe6ec3fe6a72ba}{R\+T\+\_\+\+M\+O\+D\+EL}}}
+
+
+
+Definition at line 47 of file App\+\_\+\+Stateflow.\+h.
+

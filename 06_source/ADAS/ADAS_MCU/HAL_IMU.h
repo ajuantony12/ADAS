@@ -12,20 +12,14 @@
 #define HAL_IMU_UNIT_H
 
 // ##### Includes #####
+#include <Adafruit_BNO055.h>
 #include <Wire.h>
 #include <Adafruit_Sensor.h>
 #include <utility/imumaths.h>
 #include "ADAS_Types.h"
-/**Library of the IMU Modul*/
-#include <Adafruit_BNO055.h>
 
 // ##### Definitions #####
-/**
- *
- * \class   CIMUUnit
- *
- * \brief   Class to communicate with IMU Unit
-**/
+//! Define class for IMU Unit
 class CIMUUnit{
 public:
   /*

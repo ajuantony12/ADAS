@@ -1,47 +1,66 @@
+// ##### Includes #####
 #include "HAL_Encoder.h"
 #include "Arduino.h"
 #include "ADAS_Debug.h"
-#define PIN_ENC 3
+#include "ADAS_Cfg.h"
 
-unsigned long time;
-unsigned long enc_last_time = 0;
-unsigned long enc_t = 0;
-uint16_t rpm = 0;
-  
+  //! Constructor of CEncoder
 CEncoder::CEncoder(EncoderID_e ID):
-  m_ID(ID)
+  m_ID(ID),
+  peaks(0),
+  count(0),
+  sum(0)
 {
-  //do nothing
+//! Destructor of CEncoder
 }
 CEncoder::~CEncoder(){
   m_ID = E1;
 }
 
+//! Initialization of CEncoder
+/*!
+  The pin of the encoder is initialized 
+*/
 void CEncoder::Init(){
-	pinMode(PIN_ENC, INPUT_PULLUP);
-  //attachInterrupt(digitalPinToInterrupt(PIN_ENC), EncISR, RISING);
+  //Initialize encoder interrupts
+  pinMode(m_ID, INPUT_PULLUP);
+  
 }
 
-unsigned int Read()
+//! Function to read out the peak count per 150ms
+/*!
+  In this function the peaks are counted. It is called by the MCU every 150ms, which defines the
+  counting time of the peaks. 
+*/
+uint16_t CEncoder::ReadCount()
 {
-	   time = micros();
-     rpm = 1.0/(70.0*enc_t)*1e6;
-     DPRINT("rpm = ");
-     DPRINTLN(1.0/(70.0*enc_t)*1e6); // in 1/min
-     DPRINT(" enc_t = ");
-     DPRINTLN(enc_t); // time between two teeth in microseconds
-
-     return enc_t;
+	  count = peaks;
+    peaks = 0;
+    return count;
 }
 
-bool reset()
+//! Function to sum up the counted peaks
+/*!
+  In this function the counted peaks per 150ms are summed up. It is called by the MCU every 150ms.  
+*/
+uint16_t CEncoder::ReadSum()
 {
-	//to do 
-	return true;
+    sum = sum + count;
+
+    return sum;
 }
 
+//! Function to reset all values of the encoder
+void CEncoder::reset(void){
+    peaks = 0;
+    count = 0;
+    sum = 0;
+  }
+//! Interrupt Service Routine of the encoder
+/*!
+  In this ISR the peaks of the left encoder are counted.
+*/
 void CEncoder::EncISR(void)
 {
-  enc_t = time - enc_last_time;
-  enc_last_time = time;
+  peaks++;
 }

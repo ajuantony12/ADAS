@@ -1,0 +1,146 @@
+\hypertarget{_app___motor_ctrl_8cpp}{}\section{App\+\_\+\+Motor\+Ctrl.\+cpp File Reference}
+\label{_app___motor_ctrl_8cpp}\index{App\_MotorCtrl.cpp@{App\_MotorCtrl.cpp}}
+
+
+Application file for environmental data.  
+
+
+{\ttfamily \#include \char`\"{}App\+\_\+\+Motor\+Ctrl.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Arduino.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}H\+A\+L\+\_\+\+P\+W\+M.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}H\+A\+L\+\_\+\+I\+M\+U.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}App\+\_\+\+Stateflow.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}App\+\_\+\+Stateflowtypes.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}A\+D\+A\+S\+\_\+\+Debug.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}A\+D\+A\+S\+\_\+\+Cfg.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Fast\+P\+I\+D.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Timer.\+h\char`\"{}}\newline
+Include dependency graph for App\+\_\+\+Motor\+Ctrl.\+cpp\+:
+% FIG 0
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+Fast\+P\+ID \mbox{\hyperlink{_app___motor_ctrl_8cpp_aa41e1b5c2174ccb61c9fe7545bb09671}{my\+P\+ID}} (\mbox{\hyperlink{_a_d_a_s___cfg_8h_a102ddcd5ac5b86b152eca510f7534217}{K\+P\+\_\+\+V\+A\+L\+UE}}, \mbox{\hyperlink{_a_d_a_s___cfg_8h_a3eb670721689464bf00169bb32bc24dd}{K\+I\+\_\+\+V\+A\+L\+UE}}, \mbox{\hyperlink{_a_d_a_s___cfg_8h_af81a477761bfcd182218e889d5621136}{K\+D\+\_\+\+V\+A\+L\+UE}}, \mbox{\hyperlink{_a_d_a_s___cfg_8h_a75812224390676391d7f859fc713b179}{H\+Z\+\_\+\+V\+A\+L\+UE}}, \mbox{\hyperlink{_a_d_a_s___cfg_8h_a228258bc6d42395f2071025f21649372}{O\+U\+T\+P\+U\+T\+\_\+\+B\+I\+TS}}, \mbox{\hyperlink{_a_d_a_s___cfg_8h_a6266f3a31bb7dda2d4d94fcf6b00e89b}{O\+U\+T\+P\+U\+T\+\_\+\+S\+I\+G\+N\+ED}})
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_a_d_a_s___types_8h_a1f1825b69244eb3ad2c7165ddc99c956}{uint16\+\_\+t}} \mbox{\hyperlink{_app___motor_ctrl_8cpp_adfc97231878500014b3c0e3e98f0ea67}{peaks\+\_\+r}}
+\item 
+\mbox{\hyperlink{_a_d_a_s___types_8h_a1f1825b69244eb3ad2c7165ddc99c956}{uint16\+\_\+t}} \mbox{\hyperlink{_app___motor_ctrl_8cpp_af0181e9ce411c76009bb00ff87968e74}{peaks\+\_\+l}}
+\item 
+\mbox{\hyperlink{_a_d_a_s___types_8h_a1f1825b69244eb3ad2c7165ddc99c956}{uint16\+\_\+t}} \mbox{\hyperlink{_app___motor_ctrl_8cpp_a33560a6f18bb798c64d27a112d2c626a}{counted\+\_\+peaks\+\_\+r}}
+\item 
+\mbox{\hyperlink{_a_d_a_s___types_8h_a1f1825b69244eb3ad2c7165ddc99c956}{uint16\+\_\+t}} \mbox{\hyperlink{_app___motor_ctrl_8cpp_a6d1de2772c4d71ffbdfb8baaa20e0e31}{counted\+\_\+peaks\+\_\+l}}
+\item 
+\mbox{\hyperlink{_a_d_a_s___types_8h_a1f1825b69244eb3ad2c7165ddc99c956}{uint16\+\_\+t}} \mbox{\hyperlink{_app___motor_ctrl_8cpp_aa0df7c51806d000680a93a2d67b45570}{peak\+\_\+sum\+\_\+l}}
+\item 
+\mbox{\hyperlink{_a_d_a_s___types_8h_a1f1825b69244eb3ad2c7165ddc99c956}{uint16\+\_\+t}} \mbox{\hyperlink{_app___motor_ctrl_8cpp_a0bfe82e7104e57eae8ef96e4141e7f6a}{peak\+\_\+sum\+\_\+r}} = 0
+\item 
+boolean \mbox{\hyperlink{_app___motor_ctrl_8cpp_a9843b8d7ad13021633feedd939cfedb6}{control}} = \mbox{\hyperlink{_app___stateflowtypes_8h_a65e9886d74aaee76545e83dd09011727}{false}}
+\item 
+Timer \mbox{\hyperlink{_app___motor_ctrl_8cpp_a978d88b393c8a37dc2614c88788b3442}{t}}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Application file for environmental data. 
+
+\begin{DoxyAuthor}{Author}
+Hannes Bähr, Juliane Müller 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+January 31, 2019 
+\end{DoxyDate}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{_app___motor_ctrl_8cpp_aa41e1b5c2174ccb61c9fe7545bb09671}\label{_app___motor_ctrl_8cpp_aa41e1b5c2174ccb61c9fe7545bb09671}} 
+\index{App\_MotorCtrl.cpp@{App\_MotorCtrl.cpp}!myPID@{myPID}}
+\index{myPID@{myPID}!App\_MotorCtrl.cpp@{App\_MotorCtrl.cpp}}
+\subsubsection{\texorpdfstring{myPID()}{myPID()}}
+{\footnotesize\ttfamily Fast\+P\+ID my\+P\+ID (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_a_d_a_s___cfg_8h_a102ddcd5ac5b86b152eca510f7534217}{K\+P\+\_\+\+V\+A\+L\+UE}}}]{,  }\item[{\mbox{\hyperlink{_a_d_a_s___cfg_8h_a3eb670721689464bf00169bb32bc24dd}{K\+I\+\_\+\+V\+A\+L\+UE}}}]{,  }\item[{\mbox{\hyperlink{_a_d_a_s___cfg_8h_af81a477761bfcd182218e889d5621136}{K\+D\+\_\+\+V\+A\+L\+UE}}}]{,  }\item[{\mbox{\hyperlink{_a_d_a_s___cfg_8h_a75812224390676391d7f859fc713b179}{H\+Z\+\_\+\+V\+A\+L\+UE}}}]{,  }\item[{\mbox{\hyperlink{_a_d_a_s___cfg_8h_a228258bc6d42395f2071025f21649372}{O\+U\+T\+P\+U\+T\+\_\+\+B\+I\+TS}}}]{,  }\item[{\mbox{\hyperlink{_a_d_a_s___cfg_8h_a6266f3a31bb7dda2d4d94fcf6b00e89b}{O\+U\+T\+P\+U\+T\+\_\+\+S\+I\+G\+N\+ED}}}]{ }\end{DoxyParamCaption})}
+
+
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{_app___motor_ctrl_8cpp_a9843b8d7ad13021633feedd939cfedb6}\label{_app___motor_ctrl_8cpp_a9843b8d7ad13021633feedd939cfedb6}} 
+\index{App\_MotorCtrl.cpp@{App\_MotorCtrl.cpp}!control@{control}}
+\index{control@{control}!App\_MotorCtrl.cpp@{App\_MotorCtrl.cpp}}
+\subsubsection{\texorpdfstring{control}{control}}
+{\footnotesize\ttfamily boolean control = \mbox{\hyperlink{_app___stateflowtypes_8h_a65e9886d74aaee76545e83dd09011727}{false}}}
+
+
+
+Definition at line 21 of file App\+\_\+\+Motor\+Ctrl.\+cpp.
+
+\mbox{\Hypertarget{_app___motor_ctrl_8cpp_a6d1de2772c4d71ffbdfb8baaa20e0e31}\label{_app___motor_ctrl_8cpp_a6d1de2772c4d71ffbdfb8baaa20e0e31}} 
+\index{App\_MotorCtrl.cpp@{App\_MotorCtrl.cpp}!counted\_peaks\_l@{counted\_peaks\_l}}
+\index{counted\_peaks\_l@{counted\_peaks\_l}!App\_MotorCtrl.cpp@{App\_MotorCtrl.cpp}}
+\subsubsection{\texorpdfstring{counted\_peaks\_l}{counted\_peaks\_l}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_a_d_a_s___types_8h_a1f1825b69244eb3ad2c7165ddc99c956}{uint16\+\_\+t}} counted\+\_\+peaks\+\_\+l}
+
+
+
+Definition at line 20 of file App\+\_\+\+Motor\+Ctrl.\+cpp.
+
+\mbox{\Hypertarget{_app___motor_ctrl_8cpp_a33560a6f18bb798c64d27a112d2c626a}\label{_app___motor_ctrl_8cpp_a33560a6f18bb798c64d27a112d2c626a}} 
+\index{App\_MotorCtrl.cpp@{App\_MotorCtrl.cpp}!counted\_peaks\_r@{counted\_peaks\_r}}
+\index{counted\_peaks\_r@{counted\_peaks\_r}!App\_MotorCtrl.cpp@{App\_MotorCtrl.cpp}}
+\subsubsection{\texorpdfstring{counted\_peaks\_r}{counted\_peaks\_r}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_a_d_a_s___types_8h_a1f1825b69244eb3ad2c7165ddc99c956}{uint16\+\_\+t}} counted\+\_\+peaks\+\_\+r}
+
+
+
+Definition at line 20 of file App\+\_\+\+Motor\+Ctrl.\+cpp.
+
+\mbox{\Hypertarget{_app___motor_ctrl_8cpp_aa0df7c51806d000680a93a2d67b45570}\label{_app___motor_ctrl_8cpp_aa0df7c51806d000680a93a2d67b45570}} 
+\index{App\_MotorCtrl.cpp@{App\_MotorCtrl.cpp}!peak\_sum\_l@{peak\_sum\_l}}
+\index{peak\_sum\_l@{peak\_sum\_l}!App\_MotorCtrl.cpp@{App\_MotorCtrl.cpp}}
+\subsubsection{\texorpdfstring{peak\_sum\_l}{peak\_sum\_l}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_a_d_a_s___types_8h_a1f1825b69244eb3ad2c7165ddc99c956}{uint16\+\_\+t}} peak\+\_\+sum\+\_\+l}
+
+
+
+Definition at line 20 of file App\+\_\+\+Motor\+Ctrl.\+cpp.
+
+\mbox{\Hypertarget{_app___motor_ctrl_8cpp_a0bfe82e7104e57eae8ef96e4141e7f6a}\label{_app___motor_ctrl_8cpp_a0bfe82e7104e57eae8ef96e4141e7f6a}} 
+\index{App\_MotorCtrl.cpp@{App\_MotorCtrl.cpp}!peak\_sum\_r@{peak\_sum\_r}}
+\index{peak\_sum\_r@{peak\_sum\_r}!App\_MotorCtrl.cpp@{App\_MotorCtrl.cpp}}
+\subsubsection{\texorpdfstring{peak\_sum\_r}{peak\_sum\_r}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_a_d_a_s___types_8h_a1f1825b69244eb3ad2c7165ddc99c956}{uint16\+\_\+t}} peak\+\_\+sum\+\_\+r = 0}
+
+
+
+Definition at line 20 of file App\+\_\+\+Motor\+Ctrl.\+cpp.
+
+\mbox{\Hypertarget{_app___motor_ctrl_8cpp_af0181e9ce411c76009bb00ff87968e74}\label{_app___motor_ctrl_8cpp_af0181e9ce411c76009bb00ff87968e74}} 
+\index{App\_MotorCtrl.cpp@{App\_MotorCtrl.cpp}!peaks\_l@{peaks\_l}}
+\index{peaks\_l@{peaks\_l}!App\_MotorCtrl.cpp@{App\_MotorCtrl.cpp}}
+\subsubsection{\texorpdfstring{peaks\_l}{peaks\_l}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_a_d_a_s___types_8h_a1f1825b69244eb3ad2c7165ddc99c956}{uint16\+\_\+t}} peaks\+\_\+l}
+
+
+
+Definition at line 20 of file App\+\_\+\+Motor\+Ctrl.\+cpp.
+
+\mbox{\Hypertarget{_app___motor_ctrl_8cpp_adfc97231878500014b3c0e3e98f0ea67}\label{_app___motor_ctrl_8cpp_adfc97231878500014b3c0e3e98f0ea67}} 
+\index{App\_MotorCtrl.cpp@{App\_MotorCtrl.cpp}!peaks\_r@{peaks\_r}}
+\index{peaks\_r@{peaks\_r}!App\_MotorCtrl.cpp@{App\_MotorCtrl.cpp}}
+\subsubsection{\texorpdfstring{peaks\_r}{peaks\_r}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_a_d_a_s___types_8h_a1f1825b69244eb3ad2c7165ddc99c956}{uint16\+\_\+t}} peaks\+\_\+r}
+
+
+
+Definition at line 20 of file App\+\_\+\+Motor\+Ctrl.\+cpp.
+
+\mbox{\Hypertarget{_app___motor_ctrl_8cpp_a978d88b393c8a37dc2614c88788b3442}\label{_app___motor_ctrl_8cpp_a978d88b393c8a37dc2614c88788b3442}} 
+\index{App\_MotorCtrl.cpp@{App\_MotorCtrl.cpp}!t@{t}}
+\index{t@{t}!App\_MotorCtrl.cpp@{App\_MotorCtrl.cpp}}
+\subsubsection{\texorpdfstring{t}{t}}
+{\footnotesize\ttfamily Timer t}
+
+
+
+Definition at line 22 of file App\+\_\+\+Motor\+Ctrl.\+cpp.
+
