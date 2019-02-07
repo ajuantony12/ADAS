@@ -22,7 +22,7 @@
 //ICC Buffer
 /** Size of ICC receiving buffer in bytes*/
 #define ICC_RCV_BUFF_SIZE                                   ICC_LEN
-/** Size of ICC sending buffer in bits */
+/** Size of ICC sending buffer in bytes*/
 #define ICC_SND_BUFF_SIZE                                   ICC_LEN*10
 //Virtual mapping Buffer
 #define MAX_MES_BUFF_SIZE                                   (20)
