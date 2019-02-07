@@ -49,5 +49,12 @@
 #define ICC_CMD_FB_DIST                                 0x02
 #define ICC_CMD_FB_ROT                                  0x03
 
+/** PLS | telegram start byte*/
+#define SICK_STX                                        0x02
+/** PLS | telegram reciever Address*/
+#define SICK_DESTR                                      0x80
+/** PLS | telegram acknowledgement byte*/
+#define SICK_ACK                                        0x06
+
 
 #endif /*ADAS_CFG_H*/
