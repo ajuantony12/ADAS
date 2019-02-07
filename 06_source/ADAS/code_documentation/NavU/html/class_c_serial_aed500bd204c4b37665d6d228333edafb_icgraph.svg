@@ -10,21 +10,24 @@
 <title>CSerial::Init</title>
 <!-- Node23 -->
 <g id="node1" class="node"><title>Node23</title>
-<polygon fill="#bfbfbf" stroke="black" points="0,-0.5 0,-19.5 67,-19.5 67,-0.5 0,-0.5"/>
-<text text-anchor="middle" x="33.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">CSerial::Init</text>
+<g id="a_node1"><a xlink:title="Initialization function of CSerial.">
+<polygon fill="#bfbfbf" stroke="black" points="77,-0.5 77,-19.5 144,-19.5 144,-0.5 77,-0.5"/>
+<text text-anchor="middle" x="110.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">CSerial::Init</text>
+</a>
+</g>
 </g>
 <!-- Node24 -->
 <g id="node2" class="node"><title>Node24</title>
-<g id="a_node2"><a xlink:href="_a_d_a_s___nav_u_8ino.html#a4fc01d736fe50cf5b977f755b675f11d" target="_top" xlink:title="setup">
-<polygon fill="none" stroke="black" points="103,-0.5 103,-19.5 144,-19.5 144,-0.5 103,-0.5"/>
-<text text-anchor="middle" x="123.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">setup</text>
+<g id="a_node2"><a xlink:href="_a_d_a_s___nav_u_8ino.html#a4fc01d736fe50cf5b977f755b675f11d" target="_top" xlink:title=" ">
+<polygon fill="none" stroke="black" points="0,-0.5 0,-19.5 41,-19.5 41,-0.5 0,-0.5"/>
+<text text-anchor="middle" x="20.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">setup</text>
 </a>
 </g>
 </g>
 <!-- Node23&#45;&gt;Node24 -->
 <g id="edge1" class="edge"><title>Node23&#45;&gt;Node24</title>
-<path fill="none" stroke="midnightblue" d="M77.523,-10C86.3518,-10 95.2332,-10 102.744,-10"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="77.268,-6.5001 67.268,-10 77.2679,-13.5001 77.268,-6.5001"/>
+<path fill="none" stroke="midnightblue" d="M66.477,-10C57.6482,-10 48.7668,-10 41.2558,-10"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="66.7321,-13.5001 76.732,-10 66.732,-6.5001 66.7321,-13.5001"/>
 </g>
 </g>
 </svg>

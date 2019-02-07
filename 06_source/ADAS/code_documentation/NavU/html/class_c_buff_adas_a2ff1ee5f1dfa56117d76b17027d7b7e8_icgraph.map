@@ -1,6 +1,7 @@
 <map id="CBuffAdas::Reset" name="CBuffAdas::Reset">
-<area shape="rect" id="node2" href="$class_c_p_l_s_comms.html#ae7f8d87ea15de35a120d65a7a8bbbb76" title="CPLSComms::Init" alt="" coords="237,5,363,32"/>
-<area shape="rect" id="node4" href="$class_c_p_l_s_comms.html#ae8f7e9acdf4243b76f3c7f61cf766cfc" title="CPLSComms::RequestMeasurements" alt="" coords="179,56,421,83"/>
-<area shape="rect" id="node3" href="$_a_d_a_s___nav_u_8ino.html#a4fc01d736fe50cf5b977f755b675f11d" title="setup" alt="" coords="502,5,557,32"/>
-<area shape="rect" id="node5" href="$class_c_v_mapping.html#a8f064fcfd01953d7072efd5de23f89ef" title="CVMapping::Run" alt="" coords="469,56,589,83"/>
+<area shape="rect" id="node1" title="reset buffer" alt="" coords="464,31,589,57"/>
+<area shape="rect" id="node2" href="$class_c_p_l_s_comms.html#ae7f8d87ea15de35a120d65a7a8bbbb76" title="PLS communication initialization." alt="" coords="231,5,358,32"/>
+<area shape="rect" id="node4" href="$class_c_p_l_s_comms.html#ab69a49f5c4cd7b4b9f63fa16c7792920" title="Request measurement from PLS." alt="" coords="173,56,416,83"/>
+<area shape="rect" id="node3" href="$_a_d_a_s___nav_u_8ino.html#a4fc01d736fe50cf5b977f755b675f11d" title=" " alt="" coords="38,5,93,32"/>
+<area shape="rect" id="node5" href="$class_c_v_mapping.html#a8f064fcfd01953d7072efd5de23f89ef" title="Run function of virtual mapping Application." alt="" coords="5,56,125,83"/>
 </map>

@@ -1,0 +1,5 @@
+<map id="CPLSComms::SearchMsg" name="CPLSComms::SearchMsg">
+<area shape="rect" id="node1" title="Search recieved data for message." alt="" coords="416,5,591,32"/>
+<area shape="rect" id="node2" href="$class_c_p_l_s_comms.html#a3124eaa4549706962c7024c7c97e82b0" title="Get asynchronous data recieved from PLS." alt="" coords="173,5,368,32"/>
+<area shape="rect" id="node3" href="$class_c_v_mapping.html#a8f064fcfd01953d7072efd5de23f89ef" title="Run function of virtual mapping Application." alt="" coords="5,5,125,32"/>
+</map>

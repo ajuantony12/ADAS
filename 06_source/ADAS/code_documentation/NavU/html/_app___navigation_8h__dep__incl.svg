@@ -10,12 +10,15 @@
 <title>App_Navigation.h</title>
 <!-- Node9 -->
 <g id="node1" class="node"><title>Node9</title>
+<g id="a_node1"><a xlink:title="Application file for navigation.">
 <polygon fill="#bfbfbf" stroke="black" points="143.5,-112.5 143.5,-131.5 235.5,-131.5 235.5,-112.5 143.5,-112.5"/>
 <text text-anchor="middle" x="189.5" y="-119.5" font-family="Helvetica,sans-Serif" font-size="10.00">App_Navigation.h</text>
+</a>
+</g>
 </g>
 <!-- Node10 -->
 <g id="node2" class="node"><title>Node10</title>
-<g id="a_node2"><a xlink:href="_a_d_a_s___nav_u_8ino.html" target="_top" xlink:title="Main file for the NavU of the ADAS project. ">
+<g id="a_node2"><a xlink:href="_a_d_a_s___nav_u_8ino.html" target="_top" xlink:title="Main file for the NavU of the ADAS project.">
 <polygon fill="none" stroke="black" points="0,-0.5 0,-19.5 87,-19.5 87,-0.5 0,-0.5"/>
 <text text-anchor="middle" x="43.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">ADAS_NavU.ino</text>
 </a>
@@ -28,7 +31,7 @@
 </g>
 <!-- Node11 -->
 <g id="node3" class="node"><title>Node11</title>
-<g id="a_node3"><a xlink:href="_app___virtual_mapping_8h.html" target="_top" xlink:title="App_VirtualMapping.h">
+<g id="a_node3"><a xlink:href="_app___virtual_mapping_8h.html" target="_top" xlink:title="Virtual mapping application header file.">
 <polygon fill="none" stroke="black" points="71.5,-56.5 71.5,-75.5 183.5,-75.5 183.5,-56.5 71.5,-56.5"/>
 <text text-anchor="middle" x="127.5" y="-63.5" font-family="Helvetica,sans-Serif" font-size="10.00">App_VirtualMapping.h</text>
 </a>
@@ -41,7 +44,7 @@
 </g>
 <!-- Node13 -->
 <g id="node5" class="node"><title>Node13</title>
-<g id="a_node5"><a xlink:href="_app___navigation_8cpp.html" target="_top" xlink:title="Application file for navigation. ">
+<g id="a_node5"><a xlink:href="_app___navigation_8cpp.html" target="_top" xlink:title="Application file for navigation.">
 <polygon fill="none" stroke="black" points="201.5,-56.5 201.5,-75.5 303.5,-75.5 303.5,-56.5 201.5,-56.5"/>
 <text text-anchor="middle" x="252.5" y="-63.5" font-family="Helvetica,sans-Serif" font-size="10.00">App_Navigation.cpp</text>
 </a>
@@ -54,7 +57,7 @@
 </g>
 <!-- Node14 -->
 <g id="node6" class="node"><title>Node14</title>
-<g id="a_node6"><a xlink:href="_comm___i_c_c_8cpp.html" target="_top" xlink:title="Communication file for Inter&#45;Controller Communication (ICC) ">
+<g id="a_node6"><a xlink:href="_comm___i_c_c_8cpp.html" target="_top" xlink:title="Communication file for Inter&#45;Controller Communication (ICC)">
 <polygon fill="none" stroke="black" points="322,-56.5 322,-75.5 407,-75.5 407,-56.5 322,-56.5"/>
 <text text-anchor="middle" x="364.5" y="-63.5" font-family="Helvetica,sans-Serif" font-size="10.00">Comm_ICC.cpp</text>
 </a>
@@ -72,7 +75,7 @@
 </g>
 <!-- Node12 -->
 <g id="node4" class="node"><title>Node12</title>
-<g id="a_node4"><a xlink:href="_app___virtual_mapping_8cpp.html" target="_top" xlink:title="App_VirtualMapping.cpp">
+<g id="a_node4"><a xlink:href="_app___virtual_mapping_8cpp.html" target="_top" xlink:title="Virtual mapping application source file.">
 <polygon fill="none" stroke="black" points="105.5,-0.5 105.5,-19.5 227.5,-19.5 227.5,-0.5 105.5,-0.5"/>
 <text text-anchor="middle" x="166.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">App_VirtualMapping.cpp</text>
 </a>

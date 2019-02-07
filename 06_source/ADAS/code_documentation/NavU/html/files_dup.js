@@ -42,10 +42,6 @@ var files_dup =
     [ "HAL_ADC.h", "_h_a_l___a_d_c_8h.html", [
       [ "CADC", "class_c_a_d_c.html", "class_c_a_d_c" ]
     ] ],
-    [ "HAL_PWM.cpp", "_h_a_l___p_w_m_8cpp.html", "_h_a_l___p_w_m_8cpp" ],
-    [ "HAL_PWM.h", "_h_a_l___p_w_m_8h.html", [
-      [ "CPWMUnit", "class_c_p_w_m_unit.html", "class_c_p_w_m_unit" ]
-    ] ],
     [ "HAL_Serial_IF.cpp", "_h_a_l___serial___i_f_8cpp.html", null ],
     [ "HAL_Serial_IF.h", "_h_a_l___serial___i_f_8h.html", [
       [ "CSerial", "class_c_serial.html", "class_c_serial" ]

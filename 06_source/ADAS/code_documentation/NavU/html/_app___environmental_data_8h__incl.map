@@ -1,7 +1,8 @@
 <map id="App_EnvironmentalData.h" name="App_EnvironmentalData.h">
-<area shape="rect" id="node2" href="$_task___i_f_8h.html" title="Task_if.h" alt="" coords="5,80,80,107"/>
-<area shape="rect" id="node3" href="$_a_d_a_s___types_8h.html" title="ADAS_Types.h" alt="" coords="62,155,173,181"/>
-<area shape="rect" id="node4" href="$_a_d_a_s___cfg_8h.html" title="This file contains the configuration of the vehicle. " alt="" coords="285,155,379,181"/>
-<area shape="rect" id="node5" href="$_a_d_a_s___debug_8h.html" title="This file contains redefinition of the serial functions for debugging purpose. " alt="" coords="323,80,437,107"/>
-<area shape="rect" id="node6" href="$_h_a_l___a_d_c_8h.html" title="Hardware Abstraction Layer (HAL) to interface ADC. " alt="" coords="155,80,247,107"/>
+<area shape="rect" id="node1" title="Application file for environmental data." alt="" coords="116,5,287,32"/>
+<area shape="rect" id="node2" href="$_task___i_f_8h.html" title="Task controller interface header." alt="" coords="5,80,80,107"/>
+<area shape="rect" id="node3" href="$_a_d_a_s___types_8h.html" title="internal datatype mapping file" alt="" coords="62,155,173,181"/>
+<area shape="rect" id="node4" href="$_a_d_a_s___cfg_8h.html" title="This file contains the configuration of the vehicle." alt="" coords="285,155,379,181"/>
+<area shape="rect" id="node5" href="$_a_d_a_s___debug_8h.html" title="This file contains redefinition of the serial functions for debugging purpose." alt="" coords="323,80,437,107"/>
+<area shape="rect" id="node6" href="$_h_a_l___a_d_c_8h.html" title="Hardware Abstraction Layer (HAL) to interface ADC." alt="" coords="155,80,247,107"/>
 </map>

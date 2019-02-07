@@ -1,4 +1,5 @@
 <map id="CNavigation::printDebugInfo" name="CNavigation::printDebugInfo">
-<area shape="rect" id="node2" href="$class_c_navigation.html#ac491c77788ba2e953a704b6ad622a665" title="Debug function to print current status of state flow if changed. " alt="" coords="233,5,408,47"/>
-<area shape="rect" id="node3" href="$_a_d_a_s___nav_u_8ino.html#afe461d27b9c48d5921c00d521181f12f" title="loop" alt="" coords="456,13,503,39"/>
+<area shape="rect" id="node1" title="Debug function to print current status of state flow." alt="" coords="323,13,503,39"/>
+<area shape="rect" id="node2" href="$class_c_navigation.html#ac491c77788ba2e953a704b6ad622a665" title="Debug function to print current status of state flow if changed." alt="" coords="100,5,275,47"/>
+<area shape="rect" id="node3" href="$_a_d_a_s___nav_u_8ino.html#afe461d27b9c48d5921c00d521181f12f" title=" " alt="" coords="5,13,52,39"/>
 </map>

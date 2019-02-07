@@ -10,12 +10,15 @@
 <title>Cbuffer.h</title>
 <!-- Node2 -->
 <g id="node1" class="node"><title>Node2</title>
+<g id="a_node1"><a xlink:title="general purpose buffer">
 <polygon fill="#bfbfbf" stroke="black" points="358.666,-224.5 358.666,-243.5 413.666,-243.5 413.666,-224.5 358.666,-224.5"/>
 <text text-anchor="middle" x="386.166" y="-231.5" font-family="Helvetica,sans-Serif" font-size="10.00">Cbuffer.h</text>
+</a>
+</g>
 </g>
 <!-- Node3 -->
 <g id="node2" class="node"><title>Node3</title>
-<g id="a_node2"><a xlink:href="_comm___p_l_s_8h.html" target="_top" xlink:title="Comm_PLS.h">
+<g id="a_node2"><a xlink:href="_comm___p_l_s_8h.html" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="79.6655,-112.5 79.6655,-131.5 156.666,-131.5 156.666,-112.5 79.6655,-112.5"/>
 <text text-anchor="middle" x="118.166" y="-119.5" font-family="Helvetica,sans-Serif" font-size="10.00">Comm_PLS.h</text>
 </a>
@@ -28,7 +31,7 @@
 </g>
 <!-- Node8 -->
 <g id="node7" class="node"><title>Node8</title>
-<g id="a_node7"><a xlink:href="_comm___i_c_c_8h.html" target="_top" xlink:title="Communication file for Inter&#45;Controller Communication (ICC) ">
+<g id="a_node7"><a xlink:href="_comm___i_c_c_8h.html" target="_top" xlink:title="Communication file for Inter&#45;Controller Communication (ICC)">
 <polygon fill="none" stroke="black" points="349.166,-168.5 349.166,-187.5 423.166,-187.5 423.166,-168.5 349.166,-168.5"/>
 <text text-anchor="middle" x="386.166" y="-175.5" font-family="Helvetica,sans-Serif" font-size="10.00">Comm_ICC.h</text>
 </a>
@@ -41,7 +44,7 @@
 </g>
 <!-- Node12 -->
 <g id="node11" class="node"><title>Node12</title>
-<g id="a_node11"><a xlink:href="_cbuffer_8cpp.html" target="_top" xlink:title="Cbuffer.cpp">
+<g id="a_node11"><a xlink:href="_cbuffer_8cpp.html" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="441.666,-168.5 441.666,-187.5 506.666,-187.5 506.666,-168.5 441.666,-168.5"/>
 <text text-anchor="middle" x="474.166" y="-175.5" font-family="Helvetica,sans-Serif" font-size="10.00">Cbuffer.cpp</text>
 </a>
@@ -54,7 +57,7 @@
 </g>
 <!-- Node4 -->
 <g id="node3" class="node"><title>Node4</title>
-<g id="a_node3"><a xlink:href="_a_d_a_s___nav_u_8ino.html" target="_top" xlink:title="Main file for the NavU of the ADAS project. ">
+<g id="a_node3"><a xlink:href="_a_d_a_s___nav_u_8ino.html" target="_top" xlink:title="Main file for the NavU of the ADAS project.">
 <polygon fill="none" stroke="black" points="217.666,-0.5 217.666,-19.5 304.666,-19.5 304.666,-0.5 217.666,-0.5"/>
 <text text-anchor="middle" x="261.166" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">ADAS_NavU.ino</text>
 </a>
@@ -67,7 +70,7 @@
 </g>
 <!-- Node5 -->
 <g id="node4" class="node"><title>Node5</title>
-<g id="a_node4"><a xlink:href="_app___virtual_mapping_8h.html" target="_top" xlink:title="App_VirtualMapping.h">
+<g id="a_node4"><a xlink:href="_app___virtual_mapping_8h.html" target="_top" xlink:title="Virtual mapping application header file.">
 <polygon fill="none" stroke="black" points="121.166,-56.5 121.166,-75.5 233.166,-75.5 233.166,-56.5 121.166,-56.5"/>
 <text text-anchor="middle" x="177.166" y="-63.5" font-family="Helvetica,sans-Serif" font-size="10.00">App_VirtualMapping.h</text>
 </a>
@@ -80,7 +83,7 @@
 </g>
 <!-- Node7 -->
 <g id="node6" class="node"><title>Node7</title>
-<g id="a_node6"><a xlink:href="_comm___p_l_s_8cpp.html" target="_top" xlink:title="Comm_PLS.cpp">
+<g id="a_node6"><a xlink:href="_comm___p_l_s_8cpp.html" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="15.1655,-56.5 15.1655,-75.5 103.166,-75.5 103.166,-56.5 15.1655,-56.5"/>
 <text text-anchor="middle" x="59.1655" y="-63.5" font-family="Helvetica,sans-Serif" font-size="10.00">Comm_PLS.cpp</text>
 </a>
@@ -98,7 +101,7 @@
 </g>
 <!-- Node6 -->
 <g id="node5" class="node"><title>Node6</title>
-<g id="a_node5"><a xlink:href="_app___virtual_mapping_8cpp.html" target="_top" xlink:title="App_VirtualMapping.cpp">
+<g id="a_node5"><a xlink:href="_app___virtual_mapping_8cpp.html" target="_top" xlink:title="Virtual mapping application source file.">
 <polygon fill="none" stroke="black" points="77.1655,-0.5 77.1655,-19.5 199.166,-19.5 199.166,-0.5 77.1655,-0.5"/>
 <text text-anchor="middle" x="138.166" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">App_VirtualMapping.cpp</text>
 </a>
@@ -116,7 +119,7 @@
 </g>
 <!-- Node9 -->
 <g id="node8" class="node"><title>Node9</title>
-<g id="a_node8"><a xlink:href="_app___navigation_8h.html" target="_top" xlink:title="Application file for navigation. ">
+<g id="a_node8"><a xlink:href="_app___navigation_8h.html" target="_top" xlink:title="Application file for navigation.">
 <polygon fill="none" stroke="black" points="294.166,-112.5 294.166,-131.5 386.166,-131.5 386.166,-112.5 294.166,-112.5"/>
 <text text-anchor="middle" x="340.166" y="-119.5" font-family="Helvetica,sans-Serif" font-size="10.00">App_Navigation.h</text>
 </a>
@@ -129,7 +132,7 @@
 </g>
 <!-- Node11 -->
 <g id="node10" class="node"><title>Node11</title>
-<g id="a_node10"><a xlink:href="_comm___i_c_c_8cpp.html" target="_top" xlink:title="Communication file for Inter&#45;Controller Communication (ICC) ">
+<g id="a_node10"><a xlink:href="_comm___i_c_c_8cpp.html" target="_top" xlink:title="Communication file for Inter&#45;Controller Communication (ICC)">
 <polygon fill="none" stroke="black" points="409.666,-56.5 409.666,-75.5 494.666,-75.5 494.666,-56.5 409.666,-56.5"/>
 <text text-anchor="middle" x="452.166" y="-63.5" font-family="Helvetica,sans-Serif" font-size="10.00">Comm_ICC.cpp</text>
 </a>
@@ -152,7 +155,7 @@
 </g>
 <!-- Node10 -->
 <g id="node9" class="node"><title>Node10</title>
-<g id="a_node9"><a xlink:href="_app___navigation_8cpp.html" target="_top" xlink:title="Application file for navigation. ">
+<g id="a_node9"><a xlink:href="_app___navigation_8cpp.html" target="_top" xlink:title="Application file for navigation.">
 <polygon fill="none" stroke="black" points="289.166,-56.5 289.166,-75.5 391.166,-75.5 391.166,-56.5 289.166,-56.5"/>
 <text text-anchor="middle" x="340.166" y="-63.5" font-family="Helvetica,sans-Serif" font-size="10.00">App_Navigation.cpp</text>
 </a>

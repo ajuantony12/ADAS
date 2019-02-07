@@ -1,3 +1,4 @@
 <map id="CNavigation::pauseDrive" name="CNavigation::pauseDrive">
-<area shape="rect" id="node2" href="$class_c_v_mapping.html#a8f064fcfd01953d7072efd5de23f89ef" title="CVMapping::Run" alt="" coords="215,5,335,32"/>
+<area shape="rect" id="node1" title="Pause drive due to obstacle detection." alt="" coords="173,5,335,32"/>
+<area shape="rect" id="node2" href="$class_c_v_mapping.html#a8f064fcfd01953d7072efd5de23f89ef" title="Run function of virtual mapping Application." alt="" coords="5,5,125,32"/>
 </map>

@@ -1,12 +1,18 @@
 \hypertarget{class_c_task_ctrl}{}\section{C\+Task\+Ctrl Class Reference}
-\label{class_c_task_ctrl}\index{C\+Task\+Ctrl@{C\+Task\+Ctrl}}
+\label{class_c_task_ctrl}\index{CTaskCtrl@{CTaskCtrl}}
+
+
+Task scheduler class.  
+
+
 
 
 {\ttfamily \#include $<$O\+S\+A\+L\+\_\+\+Task\+Ctrl.\+h$>$}
 
 
 
-Collaboration diagram for C\+Task\+Ctrl\+:\nopagebreak
+Collaboration diagram for C\+Task\+Ctrl\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -17,66 +23,82 @@ Collaboration diagram for C\+Task\+Ctrl\+:\nopagebreak
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{class_c_task_ctrl_a4d459479b49c5d6e1d07e9306748abe3}{C\+Task\+Ctrl}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Task controller class constructor. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_c_task_ctrl_a525a2b4438270d4ea5fce41e646c5b17}{$\sim$\+C\+Task\+Ctrl}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Task controller class destructor. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_c_task_ctrl_a12ec6e8d4a490eba9ebdf22d32cf292b}{Init}} (void)
-\item 
+\begin{DoxyCompactList}\small\item\em Initialization function task controller. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{class_c_task_ctrl_a20457bd4d4a033c8aeeb44e9d4dc3c7c}{Register}} (\mbox{\hyperlink{class_i_task___i_f}{I\+Task\+\_\+\+IF}} $\ast$p\+Task, \mbox{\hyperlink{_a_d_a_s___types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} ID)
-\item 
+\begin{DoxyCompactList}\small\item\em A\+PI for registering an application. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_c_task_ctrl_ab36ffef43b3bd33303ed7d068b2e89cf}{Run}} (void)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em run all task run function one by one \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
+Task scheduler class. 
 
+implements scheduling functionality for A\+D\+AS 
 
-Definition at line 13 of file O\+S\+A\+L\+\_\+\+Task\+Ctrl.\+h.
+Definition at line 18 of file O\+S\+A\+L\+\_\+\+Task\+Ctrl.\+h.
 
 
 
 \subsection{Constructor \& Destructor Documentation}
 \mbox{\Hypertarget{class_c_task_ctrl_a4d459479b49c5d6e1d07e9306748abe3}\label{class_c_task_ctrl_a4d459479b49c5d6e1d07e9306748abe3}} 
-\index{C\+Task\+Ctrl@{C\+Task\+Ctrl}!C\+Task\+Ctrl@{C\+Task\+Ctrl}}
-\index{C\+Task\+Ctrl@{C\+Task\+Ctrl}!C\+Task\+Ctrl@{C\+Task\+Ctrl}}
-\subsubsection{\texorpdfstring{C\+Task\+Ctrl()}{CTaskCtrl()}}
+\index{CTaskCtrl@{CTaskCtrl}!CTaskCtrl@{CTaskCtrl}}
+\index{CTaskCtrl@{CTaskCtrl}!CTaskCtrl@{CTaskCtrl}}
+\subsubsection{\texorpdfstring{CTaskCtrl()}{CTaskCtrl()}}
 {\footnotesize\ttfamily C\+Task\+Ctrl\+::\+C\+Task\+Ctrl (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
-Definition at line 4 of file O\+S\+A\+L\+\_\+\+Task\+Ctrl.\+cpp.
-
-\mbox{\Hypertarget{class_c_task_ctrl_a525a2b4438270d4ea5fce41e646c5b17}\label{class_c_task_ctrl_a525a2b4438270d4ea5fce41e646c5b17}} 
-\index{C\+Task\+Ctrl@{C\+Task\+Ctrl}!````~C\+Task\+Ctrl@{$\sim$\+C\+Task\+Ctrl}}
-\index{````~C\+Task\+Ctrl@{$\sim$\+C\+Task\+Ctrl}!C\+Task\+Ctrl@{C\+Task\+Ctrl}}
-\subsubsection{\texorpdfstring{$\sim$\+C\+Task\+Ctrl()}{~CTaskCtrl()}}
-{\footnotesize\ttfamily C\+Task\+Ctrl\+::$\sim$\+C\+Task\+Ctrl (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
-
-
-Definition at line 8 of file O\+S\+A\+L\+\_\+\+Task\+Ctrl.\+cpp.
-
-
-
-\subsection{Member Function Documentation}
-\mbox{\Hypertarget{class_c_task_ctrl_a12ec6e8d4a490eba9ebdf22d32cf292b}\label{class_c_task_ctrl_a12ec6e8d4a490eba9ebdf22d32cf292b}} 
-\index{C\+Task\+Ctrl@{C\+Task\+Ctrl}!Init@{Init}}
-\index{Init@{Init}!C\+Task\+Ctrl@{C\+Task\+Ctrl}}
-\subsubsection{\texorpdfstring{Init()}{Init()}}
-{\footnotesize\ttfamily void C\+Task\+Ctrl\+::\+Init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+Task controller class constructor. 
 
 
 
 Definition at line 12 of file O\+S\+A\+L\+\_\+\+Task\+Ctrl.\+cpp.
 
-Here is the call graph for this function\+:\nopagebreak
+\mbox{\Hypertarget{class_c_task_ctrl_a525a2b4438270d4ea5fce41e646c5b17}\label{class_c_task_ctrl_a525a2b4438270d4ea5fce41e646c5b17}} 
+\index{CTaskCtrl@{CTaskCtrl}!````~CTaskCtrl@{$\sim$CTaskCtrl}}
+\index{````~CTaskCtrl@{$\sim$CTaskCtrl}!CTaskCtrl@{CTaskCtrl}}
+\subsubsection{\texorpdfstring{$\sim$CTaskCtrl()}{~CTaskCtrl()}}
+{\footnotesize\ttfamily C\+Task\+Ctrl\+::$\sim$\+C\+Task\+Ctrl (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Task controller class destructor. 
+
+
+
+Definition at line 18 of file O\+S\+A\+L\+\_\+\+Task\+Ctrl.\+cpp.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_c_task_ctrl_a12ec6e8d4a490eba9ebdf22d32cf292b}\label{class_c_task_ctrl_a12ec6e8d4a490eba9ebdf22d32cf292b}} 
+\index{CTaskCtrl@{CTaskCtrl}!Init@{Init}}
+\index{Init@{Init}!CTaskCtrl@{CTaskCtrl}}
+\subsubsection{\texorpdfstring{Init()}{Init()}}
+{\footnotesize\ttfamily void C\+Task\+Ctrl\+::\+Init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Initialization function task controller. 
+
+Initialize all application. 
+
+Definition at line 23 of file O\+S\+A\+L\+\_\+\+Task\+Ctrl.\+cpp.
+
+Here is the call graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=266pt]{class_c_task_ctrl_a12ec6e8d4a490eba9ebdf22d32cf292b_cgraph}
 \end{center}
 \end{figure}
-Here is the caller graph for this function\+:\nopagebreak
+Here is the caller graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -84,16 +106,31 @@ Here is the caller graph for this function\+:\nopagebreak
 \end{center}
 \end{figure}
 \mbox{\Hypertarget{class_c_task_ctrl_a20457bd4d4a033c8aeeb44e9d4dc3c7c}\label{class_c_task_ctrl_a20457bd4d4a033c8aeeb44e9d4dc3c7c}} 
-\index{C\+Task\+Ctrl@{C\+Task\+Ctrl}!Register@{Register}}
-\index{Register@{Register}!C\+Task\+Ctrl@{C\+Task\+Ctrl}}
+\index{CTaskCtrl@{CTaskCtrl}!Register@{Register}}
+\index{Register@{Register}!CTaskCtrl@{CTaskCtrl}}
 \subsubsection{\texorpdfstring{Register()}{Register()}}
 {\footnotesize\ttfamily bool C\+Task\+Ctrl\+::\+Register (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_i_task___i_f}{I\+Task\+\_\+\+IF}} $\ast$}]{p\+Task,  }\item[{\mbox{\hyperlink{_a_d_a_s___types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}}}]{ID }\end{DoxyParamCaption})}
 
 
 
-Definition at line 23 of file O\+S\+A\+L\+\_\+\+Task\+Ctrl.\+cpp.
+A\+PI for registering an application. 
 
-Here is the caller graph for this function\+:\nopagebreak
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em p\+Task} & pointer to application \\
+\hline
+\mbox{\texttt{ in}}  & {\em ID} & priority\+ID of application \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if successful 
+\end{DoxyReturn}
+
+
+Definition at line 34 of file O\+S\+A\+L\+\_\+\+Task\+Ctrl.\+cpp.
+
+Here is the caller graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -101,23 +138,29 @@ Here is the caller graph for this function\+:\nopagebreak
 \end{center}
 \end{figure}
 \mbox{\Hypertarget{class_c_task_ctrl_ab36ffef43b3bd33303ed7d068b2e89cf}\label{class_c_task_ctrl_ab36ffef43b3bd33303ed7d068b2e89cf}} 
-\index{C\+Task\+Ctrl@{C\+Task\+Ctrl}!Run@{Run}}
-\index{Run@{Run}!C\+Task\+Ctrl@{C\+Task\+Ctrl}}
+\index{CTaskCtrl@{CTaskCtrl}!Run@{Run}}
+\index{Run@{Run}!CTaskCtrl@{CTaskCtrl}}
 \subsubsection{\texorpdfstring{Run()}{Run()}}
 {\footnotesize\ttfamily void C\+Task\+Ctrl\+::\+Run (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
 
 
 
-Definition at line 37 of file O\+S\+A\+L\+\_\+\+Task\+Ctrl.\+cpp.
+run all task run function one by one 
 
-Here is the call graph for this function\+:\nopagebreak
+run all run of applications one by one 
+
+Definition at line 48 of file O\+S\+A\+L\+\_\+\+Task\+Ctrl.\+cpp.
+
+Here is the call graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=276pt]{class_c_task_ctrl_ab36ffef43b3bd33303ed7d068b2e89cf_cgraph}
 \end{center}
 \end{figure}
-Here is the caller graph for this function\+:\nopagebreak
+Here is the caller graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode

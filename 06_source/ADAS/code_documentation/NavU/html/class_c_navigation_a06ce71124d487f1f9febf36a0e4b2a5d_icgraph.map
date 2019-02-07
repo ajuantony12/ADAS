@@ -1,3 +1,4 @@
 <map id="CNavigation::stopDrive" name="CNavigation::stopDrive">
-<area shape="rect" id="node2" href="$class_c_navigation.html#a3cc8f7fdd003d6b2c5056b87ff93edd9" title="Stop function of CNavigation. " alt="" coords="204,5,329,32"/>
+<area shape="rect" id="node1" title="Function to stop if obstacle is detected." alt="" coords="179,5,329,32"/>
+<area shape="rect" id="node2" href="$class_c_navigation.html#a3cc8f7fdd003d6b2c5056b87ff93edd9" title="Stop function of CNavigation." alt="" coords="5,5,131,32"/>
 </map>

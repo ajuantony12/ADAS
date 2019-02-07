@@ -1,3 +1,4 @@
 <map id="CICCComms::Run" name="CICCComms::Run">
-<area shape="rect" id="node2" href="$class_c_navigation.html#a86acb1521aab400e542465c8eabed671" title="Run function of CNavigation which is periodically called by CTaskCtrl. " alt="" coords="181,5,303,32"/>
+<area shape="rect" id="node1" title="Run function of CICCComms which is periodically called by CNavigation." alt="" coords="175,5,303,32"/>
+<area shape="rect" id="node2" href="$class_c_navigation.html#a86acb1521aab400e542465c8eabed671" title="Run function of CNavigation which is periodically called by CTaskCtrl." alt="" coords="5,5,127,32"/>
 </map>

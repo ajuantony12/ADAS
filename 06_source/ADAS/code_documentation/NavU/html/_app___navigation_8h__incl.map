@@ -1,9 +1,11 @@
 <map id="App_Navigation.h" name="App_Navigation.h">
-<area shape="rect" id="node3" href="$_task___i_f_8h.html" title="Task_if.h" alt="" coords="59,155,133,181"/>
-<area shape="rect" id="node4" href="$_a_d_a_s___types_8h.html" title="ADAS_Types.h" alt="" coords="290,229,401,256"/>
-<area shape="rect" id="node5" href="$_a_d_a_s___cfg_8h.html" title="This file contains the configuration of the vehicle. " alt="" coords="213,155,307,181"/>
-<area shape="rect" id="node6" href="$_a_d_a_s___debug_8h.html" title="This file contains redefinition of the serial functions for debugging purpose. " alt="" coords="259,80,373,107"/>
-<area shape="rect" id="node7" href="$_comm___i_c_c_8h.html" title="Communication file for Inter&#45;Controller Communication (ICC) " alt="" coords="397,80,496,107"/>
-<area shape="rect" id="node8" href="$_h_a_l___serial___i_f_8h.html" title="Hardware Abstraction Layer (HAL) to serial interface. " alt="" coords="383,155,499,181"/>
-<area shape="rect" id="node9" href="$_cbuffer_8h.html" title="CBuffer.h" alt="" coords="524,155,599,181"/>
+<area shape="rect" id="node1" title="Application file for navigation." alt="" coords="135,5,257,32"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,80,83,107"/>
+<area shape="rect" id="node3" href="$_task___i_f_8h.html" title="Task controller interface header." alt="" coords="59,155,133,181"/>
+<area shape="rect" id="node4" href="$_a_d_a_s___types_8h.html" title="internal datatype mapping file" alt="" coords="290,229,401,256"/>
+<area shape="rect" id="node5" href="$_a_d_a_s___cfg_8h.html" title="This file contains the configuration of the vehicle." alt="" coords="213,155,307,181"/>
+<area shape="rect" id="node6" href="$_a_d_a_s___debug_8h.html" title="This file contains redefinition of the serial functions for debugging purpose." alt="" coords="259,80,373,107"/>
+<area shape="rect" id="node7" href="$_comm___i_c_c_8h.html" title="Communication file for Inter&#45;Controller Communication (ICC)" alt="" coords="397,80,496,107"/>
+<area shape="rect" id="node8" href="$_h_a_l___serial___i_f_8h.html" title="Hardware Abstraction Layer (HAL) to serial interface." alt="" coords="383,155,499,181"/>
+<area shape="rect" id="node9" href="$_cbuffer_8h.html" title="general purpose buffer" alt="" coords="524,155,599,181"/>
 </map>

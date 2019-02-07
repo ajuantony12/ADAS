@@ -10,12 +10,15 @@
 <title>CNavigation::pauseDrive</title>
 <!-- Node19 -->
 <g id="node1" class="node"><title>Node19</title>
+<g id="a_node1"><a xlink:title="Pause drive due to obstacle detection.">
 <polygon fill="#bfbfbf" stroke="black" points="0,-0.5 0,-19.5 121,-19.5 121,-0.5 0,-0.5"/>
 <text text-anchor="middle" x="60.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">CNavigation::pauseDrive</text>
+</a>
+</g>
 </g>
 <!-- Node20 -->
 <g id="node2" class="node"><title>Node20</title>
-<g id="a_node2"><a xlink:href="class_c_i_c_c_comms.html#ab925dd7ff82f30ccd9f770ab2281b3ab" target="_top" xlink:title="Function to append message which shall be sent. ">
+<g id="a_node2"><a xlink:href="class_c_i_c_c_comms.html#ab925dd7ff82f30ccd9f770ab2281b3ab" target="_top" xlink:title="Function to append message which shall be sent.">
 <polygon fill="none" stroke="black" points="157,-0.5 157,-19.5 281,-19.5 281,-0.5 157,-0.5"/>
 <text text-anchor="middle" x="219" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">CICCComms::addTxMsg</text>
 </a>

@@ -10,12 +10,15 @@
 <title>ADAS_Debug.h</title>
 <!-- Node0 -->
 <g id="node1" class="node"><title>Node0</title>
+<g id="a_node1"><a xlink:title="This file contains redefinition of the serial functions for debugging purpose.">
 <polygon fill="#bfbfbf" stroke="black" points="0,-56.5 0,-75.5 85,-75.5 85,-56.5 0,-56.5"/>
 <text text-anchor="middle" x="42.5" y="-63.5" font-family="Helvetica,sans-Serif" font-size="10.00">ADAS_Debug.h</text>
+</a>
+</g>
 </g>
 <!-- Node1 -->
 <g id="node2" class="node"><title>Node1</title>
-<g id="a_node2"><a xlink:href="_a_d_a_s___cfg_8h.html" target="_top" xlink:title="This file contains the configuration of the vehicle. ">
+<g id="a_node2"><a xlink:href="_a_d_a_s___cfg_8h.html" target="_top" xlink:title="This file contains the configuration of the vehicle.">
 <polygon fill="none" stroke="black" points="7,-0.5 7,-19.5 78,-19.5 78,-0.5 7,-0.5"/>
 <text text-anchor="middle" x="42.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">ADAS_Cfg.h</text>
 </a>
