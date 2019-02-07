@@ -10,13 +10,16 @@
 <title>CNavigation::printChangedDebugInfo</title>
 <!-- Node23 -->
 <g id="node1" class="node"><title>Node23</title>
+<g id="a_node1"><a xlink:title="Debug function to print current status of state flow if changed.">
 <polygon fill="#bfbfbf" stroke="black" points="0,-0.5 0,-30.5 131,-30.5 131,-0.5 0,-0.5"/>
 <text text-anchor="start" x="8" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">CNavigation::printChanged</text>
 <text text-anchor="middle" x="65.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">DebugInfo</text>
+</a>
+</g>
 </g>
 <!-- Node24 -->
 <g id="node2" class="node"><title>Node24</title>
-<g id="a_node2"><a xlink:href="class_c_navigation.html#a84e320cd8975593ab6f966e8794b2886" target="_top" xlink:title="Debug function to print current status of state flow. ">
+<g id="a_node2"><a xlink:href="class_c_navigation.html#a84e320cd8975593ab6f966e8794b2886" target="_top" xlink:title="Debug function to print current status of state flow.">
 <polygon fill="none" stroke="black" points="167,-6 167,-25 302,-25 302,-6 167,-6"/>
 <text text-anchor="middle" x="234.5" y="-13" font-family="Helvetica,sans-Serif" font-size="10.00">CNavigation::printDebugInfo</text>
 </a>

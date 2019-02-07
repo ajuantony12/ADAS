@@ -1,3 +1,4 @@
 <map id="CSerial::SerialISRcommICC" name="CSerial::SerialISRcommICC">
-<area shape="rect" id="node2" href="$_a_d_a_s___nav_u_8ino.html#a63a86aad9ba2e355fe6380da553f554e" title="ISR" alt="" coords="236,5,279,32"/>
+<area shape="rect" id="node1" title="Function for ISR USARTn_RX_vect for inter&#45;controller communication." alt="" coords="96,5,279,32"/>
+<area shape="rect" id="node2" href="$_a_d_a_s___nav_u_8ino.html#a63a86aad9ba2e355fe6380da553f554e" title="UART2 interrupt." alt="" coords="5,5,48,32"/>
 </map>

@@ -10,12 +10,15 @@
 <title>CSerial::GetData</title>
 <!-- Node11 -->
 <g id="node1" class="node"><title>Node11</title>
+<g id="a_node1"><a xlink:title="Function to read data from buffer.">
 <polygon fill="#bfbfbf" stroke="black" points="0,-0.5 0,-19.5 90,-19.5 90,-0.5 0,-0.5"/>
 <text text-anchor="middle" x="45" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">CSerial::GetData</text>
+</a>
+</g>
 </g>
 <!-- Node12 -->
 <g id="node2" class="node"><title>Node12</title>
-<g id="a_node2"><a xlink:href="class_c_serial.html#a941e5cae2ca04518925a3b32f51110a6" target="_top" xlink:title="Function to release buffer. ">
+<g id="a_node2"><a xlink:href="class_c_serial.html#a941e5cae2ca04518925a3b32f51110a6" target="_top" xlink:title="Function to release buffer.">
 <polygon fill="none" stroke="black" points="126,-0.5 126,-19.5 240,-19.5 240,-0.5 126,-0.5"/>
 <text text-anchor="middle" x="183" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">CSerial::ReleaseBuffer</text>
 </a>

@@ -1,3 +1,4 @@
 <map id="ISR" name="ISR">
-<area shape="rect" id="node2" href="$class_c_serial.html#a707841754d94fc1ab6679f52bf413d85" title="Function for ISR USARTn_RX_vect for PLS communication. " alt="" coords="96,5,283,32"/>
+<area shape="rect" id="node1" title="UART1 interrupt." alt="" coords="5,5,48,32"/>
+<area shape="rect" id="node2" href="$class_c_serial.html#a707841754d94fc1ab6679f52bf413d85" title="Function for ISR USARTn_RX_vect for PLS communication." alt="" coords="96,5,283,32"/>
 </map>

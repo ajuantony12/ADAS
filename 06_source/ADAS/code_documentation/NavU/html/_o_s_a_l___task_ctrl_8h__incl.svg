@@ -10,12 +10,15 @@
 <title>OSAL_TaskCtrl.h</title>
 <!-- Node0 -->
 <g id="node1" class="node"><title>Node0</title>
+<g id="a_node1"><a xlink:title="Task controller header file.">
 <polygon fill="#bfbfbf" stroke="black" points="24.5,-112.5 24.5,-131.5 116.5,-131.5 116.5,-112.5 24.5,-112.5"/>
 <text text-anchor="middle" x="70.5" y="-119.5" font-family="Helvetica,sans-Serif" font-size="10.00">OSAL_TaskCtrl.h</text>
+</a>
+</g>
 </g>
 <!-- Node1 -->
 <g id="node2" class="node"><title>Node1</title>
-<g id="a_node2"><a xlink:href="_a_d_a_s___types_8h.html" target="_top" xlink:title="ADAS_Types.h">
+<g id="a_node2"><a xlink:href="_a_d_a_s___types_8h.html" target="_top" xlink:title="internal datatype mapping file">
 <polygon fill="none" stroke="black" points="0,-0.5 0,-19.5 83,-19.5 83,-0.5 0,-0.5"/>
 <text text-anchor="middle" x="41.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">ADAS_Types.h</text>
 </a>
@@ -28,7 +31,7 @@
 </g>
 <!-- Node2 -->
 <g id="node3" class="node"><title>Node2</title>
-<g id="a_node3"><a xlink:href="_task___i_f_8h.html" target="_top" xlink:title="Task_IF.h">
+<g id="a_node3"><a xlink:href="_task___i_f_8h.html" target="_top" xlink:title="Task controller interface header.">
 <polygon fill="none" stroke="black" points="41,-56.5 41,-75.5 100,-75.5 100,-56.5 41,-56.5"/>
 <text text-anchor="middle" x="70.5" y="-63.5" font-family="Helvetica,sans-Serif" font-size="10.00">Task_IF.h</text>
 </a>
@@ -41,7 +44,7 @@
 </g>
 <!-- Node3 -->
 <g id="node4" class="node"><title>Node3</title>
-<g id="a_node4"><a xlink:href="_a_d_a_s___cfg_8h.html" target="_top" xlink:title="This file contains the configuration of the vehicle. ">
+<g id="a_node4"><a xlink:href="_a_d_a_s___cfg_8h.html" target="_top" xlink:title="This file contains the configuration of the vehicle.">
 <polygon fill="none" stroke="black" points="118,-56.5 118,-75.5 189,-75.5 189,-56.5 118,-56.5"/>
 <text text-anchor="middle" x="153.5" y="-63.5" font-family="Helvetica,sans-Serif" font-size="10.00">ADAS_Cfg.h</text>
 </a>

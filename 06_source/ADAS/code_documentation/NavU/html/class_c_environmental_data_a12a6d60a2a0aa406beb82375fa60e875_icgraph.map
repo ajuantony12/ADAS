@@ -1,3 +1,4 @@
 <map id="CEnvironmentalData::GetVbat" name="CEnvironmentalData::GetVbat">
-<area shape="rect" id="node2" href="$class_c_environmental_data.html#a586a729d3aab2873812517d950c91242" title="Run function of CEnvironmentalData which is periodically called by CTaskCtrl. " alt="" coords="192,13,363,39"/>
+<area shape="rect" id="node1" title="Function to convert ADC value into mV." alt="" coords="224,5,363,47"/>
+<area shape="rect" id="node2" href="$class_c_environmental_data.html#a586a729d3aab2873812517d950c91242" title="Run function of CEnvironmentalData which is periodically called by CTaskCtrl." alt="" coords="5,13,176,39"/>
 </map>

@@ -63,13 +63,14 @@ void setup() {
   delay(100);
   plsCOmms_o.Init();
   Serial.println("Hello\n\r");
+  /*delay for synchoronozing boards/
   delay(2000);
   iccComms_o.Init(&nav_o);
-  //Task initialization
+  //Task registeration and initialization
   taskCtrl_o.Register(&vMap_o, 0);
   taskCtrl_o.Register(&nav_o, 1);
-  /*taskCtrl_o.Register(&env_o, 2);
-  taskCtrl_o.Register(&pos_o, 3);
+  taskCtrl_o.Register(&env_o, 2);
+  /*taskCtrl_o.Register(&pos_o, 3);
   taskCtrl_o.Register(&uI_o, 4);*/
   taskCtrl_o.Init();
 }
@@ -81,15 +82,17 @@ void loop() {
   //delay(100);
 }
 
-
-// UART1 interrupt
+/*!
+    @brief UART1 interrupt
+*/
 ISR(USART1_RX_vect)
 {
   plsPort.SerialISRcommPLS();
 }
 
-
-// UART2 interrupt
+/*!
+    @brief UART2 interrupt
+*/
 ISR(USART2_RX_vect)
 {
   iccPort.SerialISRcommICC();

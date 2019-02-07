@@ -1,0 +1,194 @@
+\hypertarget{class_c_serial}{}\section{C\+Serial Class Reference}
+\label{class_c_serial}\index{CSerial@{CSerial}}
+
+
+{\ttfamily \#include $<$H\+A\+L\+\_\+\+Serial\+\_\+\+I\+F.\+h$>$}
+
+
+
+Collaboration diagram for C\+Serial\+:
+% FIG 0
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{class_c_serial_a000039540cc90b18bafacf5744e7eda2}{Port\+I\+D\+\_\+e}} \{ \mbox{\hyperlink{class_c_serial_a000039540cc90b18bafacf5744e7eda2a2a245d3c55e5b6e7052daf261924ce08}{S1}}, 
+\mbox{\hyperlink{class_c_serial_a000039540cc90b18bafacf5744e7eda2a8cc95f4591147b0df028e003f82220a1}{S2}}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_c_serial_a3b2b31de1529b884b8d5e354586ee981}{C\+Serial}} (\mbox{\hyperlink{class_c_serial_a000039540cc90b18bafacf5744e7eda2}{Port\+I\+D\+\_\+e}} i\+\_\+\+ID, \mbox{\hyperlink{_a_d_a_s___types_8h_a1f1825b69244eb3ad2c7165ddc99c956}{uint16\+\_\+t}} i\+\_\+buf\+Len)
+\item 
+\mbox{\hyperlink{class_c_serial_aff5444dd7e6a9ddc43cbce0e959edf7a}{$\sim$\+C\+Serial}} ()
+\item 
+void \mbox{\hyperlink{class_c_serial_aed500bd204c4b37665d6d228333edafb}{Init}} (void)
+\item 
+bool \mbox{\hyperlink{class_c_serial_ae5bec6d6a1c75839ae02cf0069d1f08e}{Send}} (char Buff\mbox{[}$\,$\mbox{]}, \mbox{\hyperlink{_a_d_a_s___types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} len)
+\item 
+bool \mbox{\hyperlink{class_c_serial_abb43734223d937a86e7616636ea16024}{Available}} (void)
+\item 
+\mbox{\hyperlink{_a_d_a_s___types_8h_a1f1825b69244eb3ad2c7165ddc99c956}{uint16\+\_\+t}} \mbox{\hyperlink{class_c_serial_a4327d6041fe9a390612b214709027cbb}{Get\+Data\+Len}} (void)
+\item 
+bool \mbox{\hyperlink{class_c_serial_abad86c07f530569b2ceeea75bda485ad}{Get\+Data}} (\mbox{\hyperlink{_a_d_a_s___types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} $\ast$data, \mbox{\hyperlink{_a_d_a_s___types_8h_a1f1825b69244eb3ad2c7165ddc99c956}{uint16\+\_\+t}} len)
+\item 
+void \mbox{\hyperlink{class_c_serial_a941e5cae2ca04518925a3b32f51110a6}{Release\+Buffer}} (void)
+\item 
+void \mbox{\hyperlink{class_c_serial_a707841754d94fc1ab6679f52bf413d85}{Serial\+I\+S\+Rcomm\+P\+LS}} (void)
+\item 
+void \mbox{\hyperlink{class_c_serial_a974812db5ced18cb9a6a73dc9034e7c8}{Serial\+I\+S\+Rcomm\+I\+CC}} (void)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 11 of file H\+A\+L\+\_\+\+Serial\+\_\+\+I\+F.\+h.
+
+
+
+\subsection{Member Enumeration Documentation}
+\mbox{\Hypertarget{class_c_serial_a000039540cc90b18bafacf5744e7eda2}\label{class_c_serial_a000039540cc90b18bafacf5744e7eda2}} 
+\index{CSerial@{CSerial}!PortID\_e@{PortID\_e}}
+\index{PortID\_e@{PortID\_e}!CSerial@{CSerial}}
+\subsubsection{\texorpdfstring{PortID\_e}{PortID\_e}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{class_c_serial_a000039540cc90b18bafacf5744e7eda2}{C\+Serial\+::\+Port\+I\+D\+\_\+e}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{S1@{S1}!CSerial@{CSerial}}\index{CSerial@{CSerial}!S1@{S1}}}\mbox{\Hypertarget{class_c_serial_a000039540cc90b18bafacf5744e7eda2a2a245d3c55e5b6e7052daf261924ce08}\label{class_c_serial_a000039540cc90b18bafacf5744e7eda2a2a245d3c55e5b6e7052daf261924ce08}} 
+S1&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{S2@{S2}!CSerial@{CSerial}}\index{CSerial@{CSerial}!S2@{S2}}}\mbox{\Hypertarget{class_c_serial_a000039540cc90b18bafacf5744e7eda2a8cc95f4591147b0df028e003f82220a1}\label{class_c_serial_a000039540cc90b18bafacf5744e7eda2a8cc95f4591147b0df028e003f82220a1}} 
+S2&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 14 of file H\+A\+L\+\_\+\+Serial\+\_\+\+I\+F.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_c_serial_a3b2b31de1529b884b8d5e354586ee981}\label{class_c_serial_a3b2b31de1529b884b8d5e354586ee981}} 
+\index{CSerial@{CSerial}!CSerial@{CSerial}}
+\index{CSerial@{CSerial}!CSerial@{CSerial}}
+\subsubsection{\texorpdfstring{CSerial()}{CSerial()}}
+{\footnotesize\ttfamily C\+Serial\+::\+C\+Serial (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_c_serial_a000039540cc90b18bafacf5744e7eda2}{Port\+I\+D\+\_\+e}}}]{i\+\_\+\+ID,  }\item[{\mbox{\hyperlink{_a_d_a_s___types_8h_a1f1825b69244eb3ad2c7165ddc99c956}{uint16\+\_\+t}}}]{i\+\_\+buf\+Len }\end{DoxyParamCaption})}
+
+
+
+Definition at line 6 of file H\+A\+L\+\_\+\+Serial\+\_\+\+I\+F.\+cpp.
+
+\mbox{\Hypertarget{class_c_serial_aff5444dd7e6a9ddc43cbce0e959edf7a}\label{class_c_serial_aff5444dd7e6a9ddc43cbce0e959edf7a}} 
+\index{CSerial@{CSerial}!````~CSerial@{$\sim$CSerial}}
+\index{````~CSerial@{$\sim$CSerial}!CSerial@{CSerial}}
+\subsubsection{\texorpdfstring{$\sim$CSerial()}{~CSerial()}}
+{\footnotesize\ttfamily C\+Serial\+::$\sim$\+C\+Serial (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 16 of file H\+A\+L\+\_\+\+Serial\+\_\+\+I\+F.\+cpp.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_c_serial_abb43734223d937a86e7616636ea16024}\label{class_c_serial_abb43734223d937a86e7616636ea16024}} 
+\index{CSerial@{CSerial}!Available@{Available}}
+\index{Available@{Available}!CSerial@{CSerial}}
+\subsubsection{\texorpdfstring{Available()}{Available()}}
+{\footnotesize\ttfamily bool C\+Serial\+::\+Available (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 103 of file H\+A\+L\+\_\+\+Serial\+\_\+\+I\+F.\+cpp.
+
+Here is the caller graph for this function\+:
+% FIG 1
+\mbox{\Hypertarget{class_c_serial_abad86c07f530569b2ceeea75bda485ad}\label{class_c_serial_abad86c07f530569b2ceeea75bda485ad}} 
+\index{CSerial@{CSerial}!GetData@{GetData}}
+\index{GetData@{GetData}!CSerial@{CSerial}}
+\subsubsection{\texorpdfstring{GetData()}{GetData()}}
+{\footnotesize\ttfamily bool C\+Serial\+::\+Get\+Data (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_a_d_a_s___types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} $\ast$}]{data,  }\item[{\mbox{\hyperlink{_a_d_a_s___types_8h_a1f1825b69244eb3ad2c7165ddc99c956}{uint16\+\_\+t}}}]{len }\end{DoxyParamCaption})}
+
+
+
+Definition at line 111 of file H\+A\+L\+\_\+\+Serial\+\_\+\+I\+F.\+cpp.
+
+Here is the call graph for this function\+:
+% FIG 2
+Here is the caller graph for this function\+:
+% FIG 3
+\mbox{\Hypertarget{class_c_serial_a4327d6041fe9a390612b214709027cbb}\label{class_c_serial_a4327d6041fe9a390612b214709027cbb}} 
+\index{CSerial@{CSerial}!GetDataLen@{GetDataLen}}
+\index{GetDataLen@{GetDataLen}!CSerial@{CSerial}}
+\subsubsection{\texorpdfstring{GetDataLen()}{GetDataLen()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_a_d_a_s___types_8h_a1f1825b69244eb3ad2c7165ddc99c956}{uint16\+\_\+t}} C\+Serial\+::\+Get\+Data\+Len (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 107 of file H\+A\+L\+\_\+\+Serial\+\_\+\+I\+F.\+cpp.
+
+\mbox{\Hypertarget{class_c_serial_aed500bd204c4b37665d6d228333edafb}\label{class_c_serial_aed500bd204c4b37665d6d228333edafb}} 
+\index{CSerial@{CSerial}!Init@{Init}}
+\index{Init@{Init}!CSerial@{CSerial}}
+\subsubsection{\texorpdfstring{Init()}{Init()}}
+{\footnotesize\ttfamily void C\+Serial\+::\+Init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 24 of file H\+A\+L\+\_\+\+Serial\+\_\+\+I\+F.\+cpp.
+
+Here is the caller graph for this function\+:
+% FIG 4
+\mbox{\Hypertarget{class_c_serial_a941e5cae2ca04518925a3b32f51110a6}\label{class_c_serial_a941e5cae2ca04518925a3b32f51110a6}} 
+\index{CSerial@{CSerial}!ReleaseBuffer@{ReleaseBuffer}}
+\index{ReleaseBuffer@{ReleaseBuffer}!CSerial@{CSerial}}
+\subsubsection{\texorpdfstring{ReleaseBuffer()}{ReleaseBuffer()}}
+{\footnotesize\ttfamily void C\+Serial\+::\+Release\+Buffer (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 123 of file H\+A\+L\+\_\+\+Serial\+\_\+\+I\+F.\+cpp.
+
+Here is the caller graph for this function\+:
+% FIG 5
+\mbox{\Hypertarget{class_c_serial_ae5bec6d6a1c75839ae02cf0069d1f08e}\label{class_c_serial_ae5bec6d6a1c75839ae02cf0069d1f08e}} 
+\index{CSerial@{CSerial}!Send@{Send}}
+\index{Send@{Send}!CSerial@{CSerial}}
+\subsubsection{\texorpdfstring{Send()}{Send()}}
+{\footnotesize\ttfamily bool C\+Serial\+::\+Send (\begin{DoxyParamCaption}\item[{char}]{Buff\mbox{[}$\,$\mbox{]},  }\item[{\mbox{\hyperlink{_a_d_a_s___types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}}}]{len }\end{DoxyParamCaption})}
+
+
+
+Definition at line 76 of file H\+A\+L\+\_\+\+Serial\+\_\+\+I\+F.\+cpp.
+
+\mbox{\Hypertarget{class_c_serial_a974812db5ced18cb9a6a73dc9034e7c8}\label{class_c_serial_a974812db5ced18cb9a6a73dc9034e7c8}} 
+\index{CSerial@{CSerial}!SerialISRcommICC@{SerialISRcommICC}}
+\index{SerialISRcommICC@{SerialISRcommICC}!CSerial@{CSerial}}
+\subsubsection{\texorpdfstring{SerialISRcommICC()}{SerialISRcommICC()}}
+{\footnotesize\ttfamily void C\+Serial\+::\+Serial\+I\+S\+Rcomm\+I\+CC (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 176 of file H\+A\+L\+\_\+\+Serial\+\_\+\+I\+F.\+cpp.
+
+Here is the caller graph for this function\+:
+% FIG 6
+\mbox{\Hypertarget{class_c_serial_a707841754d94fc1ab6679f52bf413d85}\label{class_c_serial_a707841754d94fc1ab6679f52bf413d85}} 
+\index{CSerial@{CSerial}!SerialISRcommPLS@{SerialISRcommPLS}}
+\index{SerialISRcommPLS@{SerialISRcommPLS}!CSerial@{CSerial}}
+\subsubsection{\texorpdfstring{SerialISRcommPLS()}{SerialISRcommPLS()}}
+{\footnotesize\ttfamily void C\+Serial\+::\+Serial\+I\+S\+Rcomm\+P\+LS (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 130 of file H\+A\+L\+\_\+\+Serial\+\_\+\+I\+F.\+cpp.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_h_a_l___serial___i_f_8h}{H\+A\+L\+\_\+\+Serial\+\_\+\+I\+F.\+h}}\item 
+\mbox{\hyperlink{_h_a_l___serial___i_f_8cpp}{H\+A\+L\+\_\+\+Serial\+\_\+\+I\+F.\+cpp}}\end{DoxyCompactItemize}

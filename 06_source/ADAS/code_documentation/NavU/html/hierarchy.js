@@ -4,7 +4,6 @@ var hierarchy =
     [ "CBuffAdas", "class_c_buff_adas.html", null ],
     [ "CICCComms", "class_c_i_c_c_comms.html", null ],
     [ "CPLSComms", "class_c_p_l_s_comms.html", null ],
-    [ "CPWMUnit", "class_c_p_w_m_unit.html", null ],
     [ "CSerial", "class_c_serial.html", null ],
     [ "CTaskCtrl", "class_c_task_ctrl.html", null ],
     [ "ITask_IF", "class_i_task___i_f.html", [

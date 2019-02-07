@@ -10,12 +10,15 @@
 <title>OSAL_TaskCtrl.h</title>
 <!-- Node4 -->
 <g id="node1" class="node"><title>Node4</title>
+<g id="a_node1"><a xlink:title="Task controller header file.">
 <polygon fill="#bfbfbf" stroke="black" points="53.5,-56.5 53.5,-75.5 145.5,-75.5 145.5,-56.5 53.5,-56.5"/>
 <text text-anchor="middle" x="99.5" y="-63.5" font-family="Helvetica,sans-Serif" font-size="10.00">OSAL_TaskCtrl.h</text>
+</a>
+</g>
 </g>
 <!-- Node5 -->
 <g id="node2" class="node"><title>Node5</title>
-<g id="a_node2"><a xlink:href="_a_d_a_s___nav_u_8ino.html" target="_top" xlink:title="Main file for the NavU of the ADAS project. ">
+<g id="a_node2"><a xlink:href="_a_d_a_s___nav_u_8ino.html" target="_top" xlink:title="Main file for the NavU of the ADAS project.">
 <polygon fill="none" stroke="black" points="0,-0.5 0,-19.5 87,-19.5 87,-0.5 0,-0.5"/>
 <text text-anchor="middle" x="43.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">ADAS_NavU.ino</text>
 </a>
@@ -28,7 +31,7 @@
 </g>
 <!-- Node6 -->
 <g id="node3" class="node"><title>Node6</title>
-<g id="a_node3"><a xlink:href="_o_s_a_l___task_ctrl_8cpp.html" target="_top" xlink:title="OSAL_TaskCtrl.cpp">
+<g id="a_node3"><a xlink:href="_o_s_a_l___task_ctrl_8cpp.html" target="_top" xlink:title="Task controller source file.">
 <polygon fill="none" stroke="black" points="105,-0.5 105,-19.5 208,-19.5 208,-0.5 105,-0.5"/>
 <text text-anchor="middle" x="156.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">OSAL_TaskCtrl.cpp</text>
 </a>

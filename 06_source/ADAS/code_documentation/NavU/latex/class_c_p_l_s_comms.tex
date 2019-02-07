@@ -1,5 +1,10 @@
 \hypertarget{class_c_p_l_s_comms}{}\section{C\+P\+L\+S\+Comms Class Reference}
-\label{class_c_p_l_s_comms}\index{C\+P\+L\+S\+Comms@{C\+P\+L\+S\+Comms}}
+\label{class_c_p_l_s_comms}\index{CPLSComms@{CPLSComms}}
+
+
+P\+LS communication class.  
+
+
 
 
 {\ttfamily \#include $<$Comm\+\_\+\+P\+L\+S.\+h$>$}
@@ -17,120 +22,146 @@ Collaboration diagram for C\+P\+L\+S\+Comms\+:\nopagebreak
 \begin{DoxyCompactItemize}
 \item 
 struct \mbox{\hyperlink{struct_c_p_l_s_comms_1_1_message__t}{Message\+\_\+t}}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Structure for I\+CC messages. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Public Types}
 \begin{DoxyCompactItemize}
 \item 
 enum \mbox{\hyperlink{class_c_p_l_s_comms_a765bc36363f75f4faf4fd2b41d440159}{Status\+\_\+e}} \{ \newline
-\mbox{\hyperlink{class_c_p_l_s_comms_a765bc36363f75f4faf4fd2b41d440159ae570dcdfbc45793ba4555a0affd13537}{Msg\+Success}} =0, 
+\mbox{\hyperlink{class_c_p_l_s_comms_a765bc36363f75f4faf4fd2b41d440159ae570dcdfbc45793ba4555a0affd13537}{Msg\+Success}} = 0, 
 \mbox{\hyperlink{class_c_p_l_s_comms_a765bc36363f75f4faf4fd2b41d440159a864f2f53e22e459265224c734bb9dd68}{C\+R\+C\+Check\+Fail}} = 1, 
 \mbox{\hyperlink{class_c_p_l_s_comms_a765bc36363f75f4faf4fd2b41d440159a25bac8413bc8ba52e18e0f1fd1f95ce3}{Comms\+Error}} = 2, 
 \mbox{\hyperlink{class_c_p_l_s_comms_a765bc36363f75f4faf4fd2b41d440159a0b65dd788672e08b0ef59cbf76955d81}{Partial\+Msg}} = 3, 
 \newline
-\mbox{\hyperlink{class_c_p_l_s_comms_a765bc36363f75f4faf4fd2b41d440159a97259eab94ba1eeb5d236afd0bb9c01b}{Msg\+\_\+\+N\+CK}} =4, 
-\mbox{\hyperlink{class_c_p_l_s_comms_a765bc36363f75f4faf4fd2b41d440159ada559acd2007e11466d7e8e461f9bd10}{Invalid\+Req}} =5
+\mbox{\hyperlink{class_c_p_l_s_comms_a765bc36363f75f4faf4fd2b41d440159a97259eab94ba1eeb5d236afd0bb9c01b}{Msg\+\_\+\+N\+CK}} = 4, 
+\mbox{\hyperlink{class_c_p_l_s_comms_a765bc36363f75f4faf4fd2b41d440159ada559acd2007e11466d7e8e461f9bd10}{Invalid\+Req}} = 5
  \}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em P\+LS communication status. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{class_c_p_l_s_comms_ae1ec975e5e402b405389d47b8acd0a63}{C\+P\+L\+S\+Comms}} (\mbox{\hyperlink{class_c_serial}{C\+Serial}} \&ser\+Port)
-\item 
+\begin{DoxyCompactList}\small\item\em P\+LS communicator class constructor. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_c_p_l_s_comms_aac23966ff823f63a2ff524bbb706e549}{$\sim$\+C\+P\+L\+S\+Comms}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em P\+LS communicator class destructor. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_c_p_l_s_comms_a765bc36363f75f4faf4fd2b41d440159}{Status\+\_\+e}} \mbox{\hyperlink{class_c_p_l_s_comms_ae7f8d87ea15de35a120d65a7a8bbbb76}{Init}} (void)
-\item 
-void \mbox{\hyperlink{class_c_p_l_s_comms_ae8f7e9acdf4243b76f3c7f61cf766cfc}{Request\+Measurements}} (bool only\+Vert)
-\item 
+\begin{DoxyCompactList}\small\item\em P\+LS communication initialization. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_c_p_l_s_comms_ab69a49f5c4cd7b4b9f63fa16c7792920}{Request\+Measurements}} (const bool only\+Vert)
+\begin{DoxyCompactList}\small\item\em Request measurement from P\+LS. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{class_c_p_l_s_comms_a3124eaa4549706962c7024c7c97e82b0}{Get\+Async\+Data}} (\mbox{\hyperlink{struct_c_p_l_s_comms_1_1_message__t}{Message\+\_\+t}} \&msg, \mbox{\hyperlink{_a_d_a_s___types_8h_a1f1825b69244eb3ad2c7165ddc99c956}{uint16\+\_\+t}} \&len)
-\item 
+\begin{DoxyCompactList}\small\item\em Get asynchronous data recieved from P\+LS. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{class_c_p_l_s_comms_ae9d000eff184034954829d76162654a5}{Data\+Available}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em check if any data recieved from P\+LS \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_c_p_l_s_comms_a765bc36363f75f4faf4fd2b41d440159}{Status\+\_\+e}} \mbox{\hyperlink{class_c_p_l_s_comms_a05149da99ab80b804699763111315f33}{Get\+Status}} (void)
-\item 
-bool \mbox{\hyperlink{class_c_p_l_s_comms_ae0cd51de8a24b261389b6f89b4b80e51}{Search\+Msg}} (\mbox{\hyperlink{struct_c_p_l_s_comms_1_1_message__t}{Message\+\_\+t}} \&msg, \mbox{\hyperlink{_a_d_a_s___types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} ID, \mbox{\hyperlink{_a_d_a_s___types_8h_a1f1825b69244eb3ad2c7165ddc99c956}{uint16\+\_\+t}} len)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em get pls communication status \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_c_p_l_s_comms_a14754b4119b9a3d613579c2a80220cc0}{Search\+Msg}} (\mbox{\hyperlink{struct_c_p_l_s_comms_1_1_message__t}{Message\+\_\+t}} \&msg, const \mbox{\hyperlink{_a_d_a_s___types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} ID, const \mbox{\hyperlink{_a_d_a_s___types_8h_a1f1825b69244eb3ad2c7165ddc99c956}{uint16\+\_\+t}} len)
+\begin{DoxyCompactList}\small\item\em Search recieved data for message. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
+P\+LS communication class. 
 
+This class provides functionality to communicate to P\+LS device initialize and request P\+LS for scan data 
 
-Definition at line 16 of file Comm\+\_\+\+P\+L\+S.\+h.
+Definition at line 21 of file Comm\+\_\+\+P\+L\+S.\+h.
 
 
 
 \subsection{Member Enumeration Documentation}
 \mbox{\Hypertarget{class_c_p_l_s_comms_a765bc36363f75f4faf4fd2b41d440159}\label{class_c_p_l_s_comms_a765bc36363f75f4faf4fd2b41d440159}} 
-\index{C\+P\+L\+S\+Comms@{C\+P\+L\+S\+Comms}!Status\+\_\+e@{Status\+\_\+e}}
-\index{Status\+\_\+e@{Status\+\_\+e}!C\+P\+L\+S\+Comms@{C\+P\+L\+S\+Comms}}
-\subsubsection{\texorpdfstring{Status\+\_\+e}{Status\_e}}
+\index{CPLSComms@{CPLSComms}!Status\_e@{Status\_e}}
+\index{Status\_e@{Status\_e}!CPLSComms@{CPLSComms}}
+\subsubsection{\texorpdfstring{Status\_e}{Status\_e}}
 {\footnotesize\ttfamily enum \mbox{\hyperlink{class_c_p_l_s_comms_a765bc36363f75f4faf4fd2b41d440159}{C\+P\+L\+S\+Comms\+::\+Status\+\_\+e}}}
 
+
+
+P\+LS communication status. 
+
 \begin{DoxyEnumFields}{Enumerator}
-\raisebox{\heightof{T}}[0pt][0pt]{\index{Msg\+Success@{Msg\+Success}!C\+P\+L\+S\+Comms@{C\+P\+L\+S\+Comms}}\index{C\+P\+L\+S\+Comms@{C\+P\+L\+S\+Comms}!Msg\+Success@{Msg\+Success}}}\mbox{\Hypertarget{class_c_p_l_s_comms_a765bc36363f75f4faf4fd2b41d440159ae570dcdfbc45793ba4555a0affd13537}\label{class_c_p_l_s_comms_a765bc36363f75f4faf4fd2b41d440159ae570dcdfbc45793ba4555a0affd13537}} 
-Msg\+Success&\\
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MsgSuccess@{MsgSuccess}!CPLSComms@{CPLSComms}}\index{CPLSComms@{CPLSComms}!MsgSuccess@{MsgSuccess}}}\mbox{\Hypertarget{class_c_p_l_s_comms_a765bc36363f75f4faf4fd2b41d440159ae570dcdfbc45793ba4555a0affd13537}\label{class_c_p_l_s_comms_a765bc36363f75f4faf4fd2b41d440159ae570dcdfbc45793ba4555a0affd13537}} 
+Msg\+Success&Message status success. \\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+R\+C\+Check\+Fail@{C\+R\+C\+Check\+Fail}!C\+P\+L\+S\+Comms@{C\+P\+L\+S\+Comms}}\index{C\+P\+L\+S\+Comms@{C\+P\+L\+S\+Comms}!C\+R\+C\+Check\+Fail@{C\+R\+C\+Check\+Fail}}}\mbox{\Hypertarget{class_c_p_l_s_comms_a765bc36363f75f4faf4fd2b41d440159a864f2f53e22e459265224c734bb9dd68}\label{class_c_p_l_s_comms_a765bc36363f75f4faf4fd2b41d440159a864f2f53e22e459265224c734bb9dd68}} 
-C\+R\+C\+Check\+Fail&\\
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CRCCheckFail@{CRCCheckFail}!CPLSComms@{CPLSComms}}\index{CPLSComms@{CPLSComms}!CRCCheckFail@{CRCCheckFail}}}\mbox{\Hypertarget{class_c_p_l_s_comms_a765bc36363f75f4faf4fd2b41d440159a864f2f53e22e459265224c734bb9dd68}\label{class_c_p_l_s_comms_a765bc36363f75f4faf4fd2b41d440159a864f2f53e22e459265224c734bb9dd68}} 
+C\+R\+C\+Check\+Fail&C\+RC check failure. \\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{Comms\+Error@{Comms\+Error}!C\+P\+L\+S\+Comms@{C\+P\+L\+S\+Comms}}\index{C\+P\+L\+S\+Comms@{C\+P\+L\+S\+Comms}!Comms\+Error@{Comms\+Error}}}\mbox{\Hypertarget{class_c_p_l_s_comms_a765bc36363f75f4faf4fd2b41d440159a25bac8413bc8ba52e18e0f1fd1f95ce3}\label{class_c_p_l_s_comms_a765bc36363f75f4faf4fd2b41d440159a25bac8413bc8ba52e18e0f1fd1f95ce3}} 
-Comms\+Error&\\
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CommsError@{CommsError}!CPLSComms@{CPLSComms}}\index{CPLSComms@{CPLSComms}!CommsError@{CommsError}}}\mbox{\Hypertarget{class_c_p_l_s_comms_a765bc36363f75f4faf4fd2b41d440159a25bac8413bc8ba52e18e0f1fd1f95ce3}\label{class_c_p_l_s_comms_a765bc36363f75f4faf4fd2b41d440159a25bac8413bc8ba52e18e0f1fd1f95ce3}} 
+Comms\+Error&communication error. \\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{Partial\+Msg@{Partial\+Msg}!C\+P\+L\+S\+Comms@{C\+P\+L\+S\+Comms}}\index{C\+P\+L\+S\+Comms@{C\+P\+L\+S\+Comms}!Partial\+Msg@{Partial\+Msg}}}\mbox{\Hypertarget{class_c_p_l_s_comms_a765bc36363f75f4faf4fd2b41d440159a0b65dd788672e08b0ef59cbf76955d81}\label{class_c_p_l_s_comms_a765bc36363f75f4faf4fd2b41d440159a0b65dd788672e08b0ef59cbf76955d81}} 
-Partial\+Msg&\\
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PartialMsg@{PartialMsg}!CPLSComms@{CPLSComms}}\index{CPLSComms@{CPLSComms}!PartialMsg@{PartialMsg}}}\mbox{\Hypertarget{class_c_p_l_s_comms_a765bc36363f75f4faf4fd2b41d440159a0b65dd788672e08b0ef59cbf76955d81}\label{class_c_p_l_s_comms_a765bc36363f75f4faf4fd2b41d440159a0b65dd788672e08b0ef59cbf76955d81}} 
+Partial\+Msg&Partial message recieved. \\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{Msg\+\_\+\+N\+CK@{Msg\+\_\+\+N\+CK}!C\+P\+L\+S\+Comms@{C\+P\+L\+S\+Comms}}\index{C\+P\+L\+S\+Comms@{C\+P\+L\+S\+Comms}!Msg\+\_\+\+N\+CK@{Msg\+\_\+\+N\+CK}}}\mbox{\Hypertarget{class_c_p_l_s_comms_a765bc36363f75f4faf4fd2b41d440159a97259eab94ba1eeb5d236afd0bb9c01b}\label{class_c_p_l_s_comms_a765bc36363f75f4faf4fd2b41d440159a97259eab94ba1eeb5d236afd0bb9c01b}} 
-Msg\+\_\+\+N\+CK&\\
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Msg\_NCK@{Msg\_NCK}!CPLSComms@{CPLSComms}}\index{CPLSComms@{CPLSComms}!Msg\_NCK@{Msg\_NCK}}}\mbox{\Hypertarget{class_c_p_l_s_comms_a765bc36363f75f4faf4fd2b41d440159a97259eab94ba1eeb5d236afd0bb9c01b}\label{class_c_p_l_s_comms_a765bc36363f75f4faf4fd2b41d440159a97259eab94ba1eeb5d236afd0bb9c01b}} 
+Msg\+\_\+\+N\+CK&Message not acknowledged. \\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{Invalid\+Req@{Invalid\+Req}!C\+P\+L\+S\+Comms@{C\+P\+L\+S\+Comms}}\index{C\+P\+L\+S\+Comms@{C\+P\+L\+S\+Comms}!Invalid\+Req@{Invalid\+Req}}}\mbox{\Hypertarget{class_c_p_l_s_comms_a765bc36363f75f4faf4fd2b41d440159ada559acd2007e11466d7e8e461f9bd10}\label{class_c_p_l_s_comms_a765bc36363f75f4faf4fd2b41d440159ada559acd2007e11466d7e8e461f9bd10}} 
-Invalid\+Req&\\
+\raisebox{\heightof{T}}[0pt][0pt]{\index{InvalidReq@{InvalidReq}!CPLSComms@{CPLSComms}}\index{CPLSComms@{CPLSComms}!InvalidReq@{InvalidReq}}}\mbox{\Hypertarget{class_c_p_l_s_comms_a765bc36363f75f4faf4fd2b41d440159ada559acd2007e11466d7e8e461f9bd10}\label{class_c_p_l_s_comms_a765bc36363f75f4faf4fd2b41d440159ada559acd2007e11466d7e8e461f9bd10}} 
+Invalid\+Req&Invalid request. \\
 \hline
 
 \end{DoxyEnumFields}
 
 
-Definition at line 19 of file Comm\+\_\+\+P\+L\+S.\+h.
+Definition at line 27 of file Comm\+\_\+\+P\+L\+S.\+h.
 
 
 
 \subsection{Constructor \& Destructor Documentation}
 \mbox{\Hypertarget{class_c_p_l_s_comms_ae1ec975e5e402b405389d47b8acd0a63}\label{class_c_p_l_s_comms_ae1ec975e5e402b405389d47b8acd0a63}} 
-\index{C\+P\+L\+S\+Comms@{C\+P\+L\+S\+Comms}!C\+P\+L\+S\+Comms@{C\+P\+L\+S\+Comms}}
-\index{C\+P\+L\+S\+Comms@{C\+P\+L\+S\+Comms}!C\+P\+L\+S\+Comms@{C\+P\+L\+S\+Comms}}
-\subsubsection{\texorpdfstring{C\+P\+L\+S\+Comms()}{CPLSComms()}}
+\index{CPLSComms@{CPLSComms}!CPLSComms@{CPLSComms}}
+\index{CPLSComms@{CPLSComms}!CPLSComms@{CPLSComms}}
+\subsubsection{\texorpdfstring{CPLSComms()}{CPLSComms()}}
 {\footnotesize\ttfamily C\+P\+L\+S\+Comms\+::\+C\+P\+L\+S\+Comms (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_c_serial}{C\+Serial}} \&}]{ser\+Port }\end{DoxyParamCaption})}
 
 
 
-Definition at line 49 of file Comm\+\_\+\+P\+L\+S.\+cpp.
+P\+LS communicator class constructor. 
+
+Instantiation and initialization 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em ser\+Port} & reference to Serial interface object \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 67 of file Comm\+\_\+\+P\+L\+S.\+cpp.
 
 \mbox{\Hypertarget{class_c_p_l_s_comms_aac23966ff823f63a2ff524bbb706e549}\label{class_c_p_l_s_comms_aac23966ff823f63a2ff524bbb706e549}} 
-\index{C\+P\+L\+S\+Comms@{C\+P\+L\+S\+Comms}!````~C\+P\+L\+S\+Comms@{$\sim$\+C\+P\+L\+S\+Comms}}
-\index{````~C\+P\+L\+S\+Comms@{$\sim$\+C\+P\+L\+S\+Comms}!C\+P\+L\+S\+Comms@{C\+P\+L\+S\+Comms}}
-\subsubsection{\texorpdfstring{$\sim$\+C\+P\+L\+S\+Comms()}{~CPLSComms()}}
+\index{CPLSComms@{CPLSComms}!````~CPLSComms@{$\sim$CPLSComms}}
+\index{````~CPLSComms@{$\sim$CPLSComms}!CPLSComms@{CPLSComms}}
+\subsubsection{\texorpdfstring{$\sim$CPLSComms()}{~CPLSComms()}}
 {\footnotesize\ttfamily C\+P\+L\+S\+Comms\+::$\sim$\+C\+P\+L\+S\+Comms (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
-Definition at line 55 of file Comm\+\_\+\+P\+L\+S.\+cpp.
+P\+LS communicator class destructor. 
+
+P\+LS communicator class constructor. 
+
+Definition at line 74 of file Comm\+\_\+\+P\+L\+S.\+cpp.
 
 
 
 \subsection{Member Function Documentation}
 \mbox{\Hypertarget{class_c_p_l_s_comms_ae9d000eff184034954829d76162654a5}\label{class_c_p_l_s_comms_ae9d000eff184034954829d76162654a5}} 
-\index{C\+P\+L\+S\+Comms@{C\+P\+L\+S\+Comms}!Data\+Available@{Data\+Available}}
-\index{Data\+Available@{Data\+Available}!C\+P\+L\+S\+Comms@{C\+P\+L\+S\+Comms}}
-\subsubsection{\texorpdfstring{Data\+Available()}{DataAvailable()}}
+\index{CPLSComms@{CPLSComms}!DataAvailable@{DataAvailable}}
+\index{DataAvailable@{DataAvailable}!CPLSComms@{CPLSComms}}
+\subsubsection{\texorpdfstring{DataAvailable()}{DataAvailable()}}
 {\footnotesize\ttfamily bool C\+P\+L\+S\+Comms\+::\+Data\+Available (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
-Definition at line 469 of file Comm\+\_\+\+P\+L\+S.\+cpp.
+check if any data recieved from P\+LS 
+
+\begin{DoxyReturn}{Returns}
+true if recieved 
+\end{DoxyReturn}
+
+
+Definition at line 518 of file Comm\+\_\+\+P\+L\+S.\+cpp.
 
 Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
@@ -147,14 +178,28 @@ Here is the caller graph for this function\+:\nopagebreak
 \end{center}
 \end{figure}
 \mbox{\Hypertarget{class_c_p_l_s_comms_a3124eaa4549706962c7024c7c97e82b0}\label{class_c_p_l_s_comms_a3124eaa4549706962c7024c7c97e82b0}} 
-\index{C\+P\+L\+S\+Comms@{C\+P\+L\+S\+Comms}!Get\+Async\+Data@{Get\+Async\+Data}}
-\index{Get\+Async\+Data@{Get\+Async\+Data}!C\+P\+L\+S\+Comms@{C\+P\+L\+S\+Comms}}
-\subsubsection{\texorpdfstring{Get\+Async\+Data()}{GetAsyncData()}}
+\index{CPLSComms@{CPLSComms}!GetAsyncData@{GetAsyncData}}
+\index{GetAsyncData@{GetAsyncData}!CPLSComms@{CPLSComms}}
+\subsubsection{\texorpdfstring{GetAsyncData()}{GetAsyncData()}}
 {\footnotesize\ttfamily bool C\+P\+L\+S\+Comms\+::\+Get\+Async\+Data (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_p_l_s_comms_1_1_message__t}{Message\+\_\+t}} \&}]{msg,  }\item[{\mbox{\hyperlink{_a_d_a_s___types_8h_a1f1825b69244eb3ad2c7165ddc99c956}{uint16\+\_\+t}} \&}]{len }\end{DoxyParamCaption})}
 
 
 
-Definition at line 226 of file Comm\+\_\+\+P\+L\+S.\+cpp.
+Get asynchronous data recieved from P\+LS. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in,out}}  & {\em msg} & message recieved from pls \\
+\hline
+\mbox{\texttt{ in,out}}  & {\em len} & message length \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+false if no data available and true vice versa 
+\end{DoxyReturn}
+
+
+Definition at line 258 of file Comm\+\_\+\+P\+L\+S.\+cpp.
 
 Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
@@ -171,24 +216,38 @@ Here is the caller graph for this function\+:\nopagebreak
 \end{center}
 \end{figure}
 \mbox{\Hypertarget{class_c_p_l_s_comms_a05149da99ab80b804699763111315f33}\label{class_c_p_l_s_comms_a05149da99ab80b804699763111315f33}} 
-\index{C\+P\+L\+S\+Comms@{C\+P\+L\+S\+Comms}!Get\+Status@{Get\+Status}}
-\index{Get\+Status@{Get\+Status}!C\+P\+L\+S\+Comms@{C\+P\+L\+S\+Comms}}
-\subsubsection{\texorpdfstring{Get\+Status()}{GetStatus()}}
+\index{CPLSComms@{CPLSComms}!GetStatus@{GetStatus}}
+\index{GetStatus@{GetStatus}!CPLSComms@{CPLSComms}}
+\subsubsection{\texorpdfstring{GetStatus()}{GetStatus()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{class_c_p_l_s_comms_a765bc36363f75f4faf4fd2b41d440159}{C\+P\+L\+S\+Comms\+::\+Status\+\_\+e}} C\+P\+L\+S\+Comms\+::\+Get\+Status (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
 
 
 
-Definition at line 247 of file Comm\+\_\+\+P\+L\+S.\+cpp.
+get pls communication status 
+
+\begin{DoxyReturn}{Returns}
+Status\+\_\+e communication status 
+\end{DoxyReturn}
+
+
+Definition at line 280 of file Comm\+\_\+\+P\+L\+S.\+cpp.
 
 \mbox{\Hypertarget{class_c_p_l_s_comms_ae7f8d87ea15de35a120d65a7a8bbbb76}\label{class_c_p_l_s_comms_ae7f8d87ea15de35a120d65a7a8bbbb76}} 
-\index{C\+P\+L\+S\+Comms@{C\+P\+L\+S\+Comms}!Init@{Init}}
-\index{Init@{Init}!C\+P\+L\+S\+Comms@{C\+P\+L\+S\+Comms}}
+\index{CPLSComms@{CPLSComms}!Init@{Init}}
+\index{Init@{Init}!CPLSComms@{CPLSComms}}
 \subsubsection{\texorpdfstring{Init()}{Init()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{class_c_p_l_s_comms_a765bc36363f75f4faf4fd2b41d440159}{C\+P\+L\+S\+Comms\+::\+Status\+\_\+e}} C\+P\+L\+S\+Comms\+::\+Init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
 
 
 
-Definition at line 60 of file Comm\+\_\+\+P\+L\+S.\+cpp.
+P\+LS communication initialization. 
+
+intialize class and P\+LS \begin{DoxyReturn}{Returns}
+pls initialization status 
+\end{DoxyReturn}
+
+
+Definition at line 80 of file Comm\+\_\+\+P\+L\+S.\+cpp.
 
 Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
@@ -204,45 +263,73 @@ Here is the caller graph for this function\+:\nopagebreak
 \includegraphics[width=252pt]{class_c_p_l_s_comms_ae7f8d87ea15de35a120d65a7a8bbbb76_icgraph}
 \end{center}
 \end{figure}
-\mbox{\Hypertarget{class_c_p_l_s_comms_ae8f7e9acdf4243b76f3c7f61cf766cfc}\label{class_c_p_l_s_comms_ae8f7e9acdf4243b76f3c7f61cf766cfc}} 
-\index{C\+P\+L\+S\+Comms@{C\+P\+L\+S\+Comms}!Request\+Measurements@{Request\+Measurements}}
-\index{Request\+Measurements@{Request\+Measurements}!C\+P\+L\+S\+Comms@{C\+P\+L\+S\+Comms}}
-\subsubsection{\texorpdfstring{Request\+Measurements()}{RequestMeasurements()}}
-{\footnotesize\ttfamily void C\+P\+L\+S\+Comms\+::\+Request\+Measurements (\begin{DoxyParamCaption}\item[{bool}]{only\+Vert }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{class_c_p_l_s_comms_ab69a49f5c4cd7b4b9f63fa16c7792920}\label{class_c_p_l_s_comms_ab69a49f5c4cd7b4b9f63fa16c7792920}} 
+\index{CPLSComms@{CPLSComms}!RequestMeasurements@{RequestMeasurements}}
+\index{RequestMeasurements@{RequestMeasurements}!CPLSComms@{CPLSComms}}
+\subsubsection{\texorpdfstring{RequestMeasurements()}{RequestMeasurements()}}
+{\footnotesize\ttfamily void C\+P\+L\+S\+Comms\+::\+Request\+Measurements (\begin{DoxyParamCaption}\item[{const bool}]{only\+Vert }\end{DoxyParamCaption})}
 
 
 
-Definition at line 212 of file Comm\+\_\+\+P\+L\+S.\+cpp.
+Request measurement from P\+LS. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em only\+Vert} & request only vertical if true \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+pls initialization status 
+\end{DoxyReturn}
+
+
+Definition at line 242 of file Comm\+\_\+\+P\+L\+S.\+cpp.
 
 Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=350pt]{class_c_p_l_s_comms_ae8f7e9acdf4243b76f3c7f61cf766cfc_cgraph}
+\includegraphics[width=350pt]{class_c_p_l_s_comms_ab69a49f5c4cd7b4b9f63fa16c7792920_cgraph}
 \end{center}
 \end{figure}
 Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=350pt]{class_c_p_l_s_comms_ae8f7e9acdf4243b76f3c7f61cf766cfc_icgraph}
+\includegraphics[width=350pt]{class_c_p_l_s_comms_ab69a49f5c4cd7b4b9f63fa16c7792920_icgraph}
 \end{center}
 \end{figure}
-\mbox{\Hypertarget{class_c_p_l_s_comms_ae0cd51de8a24b261389b6f89b4b80e51}\label{class_c_p_l_s_comms_ae0cd51de8a24b261389b6f89b4b80e51}} 
-\index{C\+P\+L\+S\+Comms@{C\+P\+L\+S\+Comms}!Search\+Msg@{Search\+Msg}}
-\index{Search\+Msg@{Search\+Msg}!C\+P\+L\+S\+Comms@{C\+P\+L\+S\+Comms}}
-\subsubsection{\texorpdfstring{Search\+Msg()}{SearchMsg()}}
-{\footnotesize\ttfamily bool C\+P\+L\+S\+Comms\+::\+Search\+Msg (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_p_l_s_comms_1_1_message__t}{Message\+\_\+t}} \&}]{msg,  }\item[{\mbox{\hyperlink{_a_d_a_s___types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}}}]{ID,  }\item[{\mbox{\hyperlink{_a_d_a_s___types_8h_a1f1825b69244eb3ad2c7165ddc99c956}{uint16\+\_\+t}}}]{len }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{class_c_p_l_s_comms_a14754b4119b9a3d613579c2a80220cc0}\label{class_c_p_l_s_comms_a14754b4119b9a3d613579c2a80220cc0}} 
+\index{CPLSComms@{CPLSComms}!SearchMsg@{SearchMsg}}
+\index{SearchMsg@{SearchMsg}!CPLSComms@{CPLSComms}}
+\subsubsection{\texorpdfstring{SearchMsg()}{SearchMsg()}}
+{\footnotesize\ttfamily bool C\+P\+L\+S\+Comms\+::\+Search\+Msg (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_p_l_s_comms_1_1_message__t}{Message\+\_\+t}} \&}]{msg,  }\item[{const \mbox{\hyperlink{_a_d_a_s___types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}}}]{ID,  }\item[{const \mbox{\hyperlink{_a_d_a_s___types_8h_a1f1825b69244eb3ad2c7165ddc99c956}{uint16\+\_\+t}}}]{len }\end{DoxyParamCaption})}
 
 
 
-Definition at line 275 of file Comm\+\_\+\+P\+L\+S.\+cpp.
+Search recieved data for message. 
+
+search for message with message ID \textquotesingle{}ID\textquotesingle{} 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em msg} & Message recieved from P\+LS \\
+\hline
+\mbox{\texttt{ in}}  & {\em ID} & ID of message to be searched \\
+\hline
+\mbox{\texttt{ in}}  & {\em len} & length of message \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+boolean true if message found 
+\end{DoxyReturn}
+
+
+Definition at line 310 of file Comm\+\_\+\+P\+L\+S.\+cpp.
 
 Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=350pt]{class_c_p_l_s_comms_ae0cd51de8a24b261389b6f89b4b80e51_icgraph}
+\includegraphics[width=350pt]{class_c_p_l_s_comms_a14754b4119b9a3d613579c2a80220cc0_icgraph}
 \end{center}
 \end{figure}
 

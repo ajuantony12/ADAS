@@ -1,3 +1,4 @@
 <map id="CSerial::GetData" name="CSerial::GetData">
-<area shape="rect" id="node2" href="$class_c_serial.html#a941e5cae2ca04518925a3b32f51110a6" title="Function to release buffer. " alt="" coords="173,5,325,32"/>
+<area shape="rect" id="node1" title="Function to read data from buffer." alt="" coords="5,5,125,32"/>
+<area shape="rect" id="node2" href="$class_c_serial.html#a941e5cae2ca04518925a3b32f51110a6" title="Function to release buffer." alt="" coords="173,5,325,32"/>
 </map>

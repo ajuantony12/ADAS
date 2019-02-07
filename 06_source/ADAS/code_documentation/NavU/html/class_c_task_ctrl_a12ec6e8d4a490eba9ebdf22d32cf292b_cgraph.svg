@@ -10,12 +10,15 @@
 <title>CTaskCtrl::Init</title>
 <!-- Node4 -->
 <g id="node1" class="node"><title>Node4</title>
+<g id="a_node1"><a xlink:title="Initialization function task controller.">
 <polygon fill="#bfbfbf" stroke="black" points="0,-0.5 0,-19.5 78,-19.5 78,-0.5 0,-0.5"/>
 <text text-anchor="middle" x="39" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">CTaskCtrl::Init</text>
+</a>
+</g>
 </g>
 <!-- Node5 -->
 <g id="node2" class="node"><title>Node5</title>
-<g id="a_node2"><a xlink:href="class_i_task___i_f.html#a28f608bdb9b19658403f7b9b7421968d" target="_top" xlink:title="ITask_IF::Init">
+<g id="a_node2"><a xlink:href="class_i_task___i_f.html#a28f608bdb9b19658403f7b9b7421968d" target="_top" xlink:title="Initialization pure virtual method.">
 <polygon fill="none" stroke="black" points="114,-0.5 114,-19.5 186,-19.5 186,-0.5 114,-0.5"/>
 <text text-anchor="middle" x="150" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">ITask_IF::Init</text>
 </a>

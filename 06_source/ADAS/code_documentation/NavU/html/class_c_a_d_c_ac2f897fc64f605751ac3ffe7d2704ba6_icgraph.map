@@ -1,4 +1,5 @@
 <map id="CADC::ReadADCValue" name="CADC::ReadADCValue">
-<area shape="rect" id="node2" href="$class_c_environmental_data.html#a12a6d60a2a0aa406beb82375fa60e875" title="Function to convert ADC value into mV. " alt="" coords="209,5,348,47"/>
-<area shape="rect" id="node3" href="$class_c_environmental_data.html#a586a729d3aab2873812517d950c91242" title="Run function of CEnvironmentalData which is periodically called by CTaskCtrl. " alt="" coords="396,13,567,39"/>
+<area shape="rect" id="node1" title="Function to read ADC value." alt="" coords="411,13,567,39"/>
+<area shape="rect" id="node2" href="$class_c_environmental_data.html#a12a6d60a2a0aa406beb82375fa60e875" title="Function to convert ADC value into mV." alt="" coords="224,5,363,47"/>
+<area shape="rect" id="node3" href="$class_c_environmental_data.html#a586a729d3aab2873812517d950c91242" title="Run function of CEnvironmentalData which is periodically called by CTaskCtrl." alt="" coords="5,13,176,39"/>
 </map>

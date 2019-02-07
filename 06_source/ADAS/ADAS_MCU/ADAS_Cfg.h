@@ -34,23 +34,12 @@
 //Serial Port
 /** Definition of serial1 baudrate in bit/s */
 #define SERIAL1_BAUD                                    9600
-/** Definition of UBRRn value according to ::SERIAL1_BAUD */  
+/** Definition of UBRRn value according to ::SERIAL1_BAUD */
 #define SERIAL1_BAUD_PRESCALE                           (((F_CPU / (SERIAL1_BAUD * 16UL))) - 1)
 /** Definition of serial2 baudrate in bit/s */
 #define SERIAL2_BAUD                                    9600
 /** Definition of UBRRn value according to ::SERIAL2_BAUD */
 #define SERIAL2_BAUD_PRESCALE                           (((F_CPU / (SERIAL2_BAUD * 16UL))) - 1)
-
-//Number of segements on right
-#define PLS_WF_SEGEMENTS_RIGHT                          0x03
-#define PLS_WALL_DETECTION_2_POINT                      84
-#define PLS_WF_CORNER_RIGHT                             122
-
-//PLS Comms Constant
-#define SICK_STX                                        0x02
-#define SICK_DESTR                                      0x80
-#define SICK_ACK                                        0x06
-#define SICK_NAK                                        0x15
 
 //Pins
 /** PWM for Left Motor*/
@@ -114,9 +103,15 @@
 /** Inter-Controller Communication: Command to acknowledge reached rotation */
 #define ICC_CMD_FB_ROT                                  0x03
 
+/** PLS | telegram start byte*/
+#define SICK_STX                                        0x02
+/** PLS | telegram reciever Address*/
+#define SICK_DESTR                                      0x80
+/** PLS | telegram acknowledgement byte*/
+#define SICK_ACK                                        0x06
 //Environmetal parameters
 /** Definition of gain of the battery voltage monitor in mV/sample */
-#define ENV_VBAT_GAIN                                   33 // mV/sample (33.7*1000/1024)       
+#define ENV_VBAT_GAIN                                   33 // mV/sample (33.7*1000/1024)
 /** Definition of offset of battery voltage in mV */
 #define ENV_VBAT_OFF                                    0  // mV
 /** Definition of low voltage battery value */
@@ -126,7 +121,7 @@
 
 //PID parameters
 /** Definition of Proportional Gain */
-#define KP_VALUE                                        2.5      
+#define KP_VALUE                                        2.5
 /** Definition of Integral Gain */
 #define KI_VALUE                                        2.5
 /** Definition of Differential Gain */

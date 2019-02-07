@@ -10,6 +10,7 @@
 <title>CICCComms</title>
 <!-- Node1 -->
 <g id="node1" class="node"><title>Node1</title>
+<g id="a_node1"><a xlink:title="Inter&#45;Controller Communication Class.">
 <polygon fill="#bfbfbf" stroke="black" points="16.5,-0.5 16.5,-101.5 110.5,-101.5 110.5,-0.5 16.5,-0.5"/>
 <text text-anchor="middle" x="63.5" y="-89.5" font-family="Helvetica,sans-Serif" font-size="10.00">CICCComms</text>
 <polyline fill="none" stroke="black" points="16.5,-82.5 110.5,-82.5 "/>
@@ -20,10 +21,12 @@
 <text text-anchor="start" x="24.5" y="-29.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ Init()</text>
 <text text-anchor="start" x="24.5" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ Run()</text>
 <text text-anchor="start" x="24.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ addTxMsg()</text>
+</a>
+</g>
 </g>
 <!-- Node2 -->
 <g id="node2" class="node"><title>Node2</title>
-<g id="a_node2"><a xlink:href="struct_c_i_c_c_comms_1_1_message__t.html" target="_top" xlink:title="Structure for ICC messages. ">
+<g id="a_node2"><a xlink:href="struct_c_i_c_c_comms_1_1_message__t.html" target="_top" xlink:title="Structure for ICC messages.">
 <polygon fill="none" stroke="black" points="0,-149.5 0,-217.5 127,-217.5 127,-149.5 0,-149.5"/>
 <text text-anchor="middle" x="63.5" y="-205.5" font-family="Helvetica,sans-Serif" font-size="10.00">CICCComms::Message_t</text>
 <polyline fill="none" stroke="black" points="0,-198.5 127,-198.5 "/>

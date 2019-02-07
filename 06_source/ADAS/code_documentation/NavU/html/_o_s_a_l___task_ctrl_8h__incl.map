@@ -1,5 +1,6 @@
 <map id="OSAL_TaskCtrl.h" name="OSAL_TaskCtrl.h">
-<area shape="rect" id="node2" href="$_a_d_a_s___types_8h.html" title="ADAS_Types.h" alt="" coords="5,155,116,181"/>
-<area shape="rect" id="node3" href="$_task___i_f_8h.html" title="Task_IF.h" alt="" coords="60,80,139,107"/>
-<area shape="rect" id="node4" href="$_a_d_a_s___cfg_8h.html" title="This file contains the configuration of the vehicle. " alt="" coords="163,80,257,107"/>
+<area shape="rect" id="node1" title="Task controller header file." alt="" coords="38,5,161,32"/>
+<area shape="rect" id="node2" href="$_a_d_a_s___types_8h.html" title="internal datatype mapping file" alt="" coords="5,155,116,181"/>
+<area shape="rect" id="node3" href="$_task___i_f_8h.html" title="Task controller interface header." alt="" coords="60,80,139,107"/>
+<area shape="rect" id="node4" href="$_a_d_a_s___cfg_8h.html" title="This file contains the configuration of the vehicle." alt="" coords="163,80,257,107"/>
 </map>

@@ -1,3 +1,4 @@
 <map id="CTaskCtrl::Init" name="CTaskCtrl::Init">
-<area shape="rect" id="node2" href="$class_i_task___i_f.html#a28f608bdb9b19658403f7b9b7421968d" title="ITask_IF::Init" alt="" coords="157,5,253,32"/>
+<area shape="rect" id="node1" title="Initialization function task controller." alt="" coords="5,5,109,32"/>
+<area shape="rect" id="node2" href="$class_i_task___i_f.html#a28f608bdb9b19658403f7b9b7421968d" title="Initialization pure virtual method." alt="" coords="157,5,253,32"/>
 </map>

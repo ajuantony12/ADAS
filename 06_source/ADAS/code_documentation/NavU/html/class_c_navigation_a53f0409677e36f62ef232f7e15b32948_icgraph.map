@@ -1,3 +1,4 @@
 <map id="CNavigation::setPLSdata" name="CNavigation::setPLSdata">
-<area shape="rect" id="node2" href="$class_c_v_mapping.html#a8f064fcfd01953d7072efd5de23f89ef" title="CVMapping::Run" alt="" coords="220,5,340,32"/>
+<area shape="rect" id="node1" title="Function to set the current value of offset position to wall, current angle of the wall and current d..." alt="" coords="173,5,340,32"/>
+<area shape="rect" id="node2" href="$class_c_v_mapping.html#a8f064fcfd01953d7072efd5de23f89ef" title="Run function of virtual mapping Application." alt="" coords="5,5,125,32"/>
 </map>

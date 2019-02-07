@@ -10,6 +10,7 @@
 <title>CEnvironmentalData</title>
 <!-- Node2 -->
 <g id="node1" class="node"><title>Node2</title>
+<g id="a_node1"><a xlink:title="Environmental Data Class.">
 <polygon fill="#bfbfbf" stroke="black" points="0,-0.5 0,-112.5 125,-112.5 125,-0.5 0,-0.5"/>
 <text text-anchor="middle" x="62.5" y="-100.5" font-family="Helvetica,sans-Serif" font-size="10.00">CEnvironmentalData</text>
 <polyline fill="none" stroke="black" points="0,-93.5 125,-93.5 "/>
@@ -21,10 +22,12 @@
 <text text-anchor="start" x="8" y="-29.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ Run()</text>
 <text text-anchor="start" x="8" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ Stop()</text>
 <text text-anchor="start" x="8" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ GetVbat()</text>
+</a>
+</g>
 </g>
 <!-- Node3 -->
 <g id="node2" class="node"><title>Node3</title>
-<g id="a_node2"><a xlink:href="class_i_task___i_f.html" target="_top" xlink:title="{ITask_IF\n||+ Init()\l+ Run()\l+ Stop()\l}">
+<g id="a_node2"><a xlink:href="class_i_task___i_f.html" target="_top" xlink:title="Task scheduler class interface class.">
 <polygon fill="none" stroke="black" points="36,-149.5 36,-228.5 89,-228.5 89,-149.5 36,-149.5"/>
 <text text-anchor="middle" x="62.5" y="-216.5" font-family="Helvetica,sans-Serif" font-size="10.00">ITask_IF</text>
 <polyline fill="none" stroke="black" points="36,-209.5 89,-209.5 "/>

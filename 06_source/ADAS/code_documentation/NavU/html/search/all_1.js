@@ -1,7 +1,7 @@
 var searchData=
 [
   ['cadc',['CADC',['../class_c_a_d_c.html',1,'CADC'],['../class_c_a_d_c.html#aa312b17b94e31c72be8463a4a14838ec',1,'CADC::CADC()']]],
-  ['cbuffadas',['CBuffAdas',['../class_c_buff_adas.html',1,'CBuffAdas'],['../class_c_buff_adas.html#afb14758fc413199161d48963a83edadb',1,'CBuffAdas::CBuffAdas()']]],
+  ['cbuffadas',['CBuffAdas',['../class_c_buff_adas.html',1,'CBuffAdas'],['../class_c_buff_adas.html#a7491e123b003457b2565435ae7ac9ce4',1,'CBuffAdas::CBuffAdas()']]],
   ['cbuffer_2ecpp',['Cbuffer.cpp',['../_cbuffer_8cpp.html',1,'']]],
   ['cbuffer_2eh',['Cbuffer.h',['../_cbuffer_8h.html',1,'']]],
   ['cenvironmentaldata',['CEnvironmentalData',['../class_c_environmental_data.html',1,'CEnvironmentalData'],['../class_c_environmental_data.html#a93b5c52fc18b109c6f1de9d3a5007033',1,'CEnvironmentalData::CEnvironmentalData()']]],
@@ -19,7 +19,6 @@ var searchData=
   ['cordic_5fstages',['CORDIC_STAGES',['../_app___virtual_mapping_8cpp.html#a7cda3d30ec2c560f7ad909faf73820d2',1,'App_VirtualMapping.cpp']]],
   ['cplscomms',['CPLSComms',['../class_c_p_l_s_comms.html',1,'CPLSComms'],['../class_c_p_l_s_comms.html#ae1ec975e5e402b405389d47b8acd0a63',1,'CPLSComms::CPLSComms()']]],
   ['cpositioning',['CPositioning',['../class_c_positioning.html',1,'CPositioning'],['../class_c_positioning.html#a2ef1dd3d4755b30ac7b800876de70869',1,'CPositioning::CPositioning()']]],
-  ['cpwmunit',['CPWMUnit',['../class_c_p_w_m_unit.html',1,'CPWMUnit'],['../class_c_p_w_m_unit.html#a9e68713e9f26f6d36714a58648494afb',1,'CPWMUnit::CPWMUnit()']]],
   ['crc16_5fgen_5fpol',['CRC16_GEN_POL',['../_comm___p_l_s_8cpp.html#a087c979734116b73cd94fd4f73abdeab',1,'Comm_PLS.cpp']]],
   ['crccheckfail',['CRCCheckFail',['../class_c_p_l_s_comms.html#a765bc36363f75f4faf4fd2b41d440159a864f2f53e22e459265224c734bb9dd68',1,'CPLSComms']]],
   ['cserial',['CSerial',['../class_c_serial.html',1,'CSerial'],['../class_c_serial.html#a3b2b31de1529b884b8d5e354586ee981',1,'CSerial::CSerial()']]],

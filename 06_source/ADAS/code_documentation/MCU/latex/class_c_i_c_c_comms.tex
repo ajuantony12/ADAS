@@ -1,0 +1,121 @@
+\hypertarget{class_c_i_c_c_comms}{}\section{C\+I\+C\+C\+Comms Class Reference}
+\label{class_c_i_c_c_comms}\index{CICCComms@{CICCComms}}
+
+
+{\ttfamily \#include $<$Comm\+\_\+\+I\+C\+C.\+h$>$}
+
+
+
+Collaboration diagram for C\+I\+C\+C\+Comms\+:
+% FIG 0
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_c_i_c_c_comms_1_1_message__t}{Message\+\_\+t}}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_c_i_c_c_comms_af2cb9bb6ab473bc5ea2b4aa2f98084ff}{C\+I\+C\+C\+Comms}} (\mbox{\hyperlink{class_c_serial}{C\+Serial}} \&ser\+Port)
+\item 
+\mbox{\hyperlink{class_c_i_c_c_comms_a951ae11fd2024309bd4ecf67981287e7}{$\sim$\+C\+I\+C\+C\+Comms}} ()
+\item 
+virtual void \mbox{\hyperlink{class_c_i_c_c_comms_a56fc0858965ed1f1f9b3295602472c7e}{Init}} (\mbox{\hyperlink{class_c_motor_ctrl}{C\+Motor\+Ctrl}} $\ast$\mbox{\hyperlink{_a_d_a_s___m_c_u_8ino_ab618fa643b3224c905b4fcbd074fb481}{m\+Ctrl\+\_\+o}})
+\item 
+virtual void \mbox{\hyperlink{class_c_i_c_c_comms_a8b3fa81307b3b9ba0e72b4aee8279c56}{Run}} (void)
+\item 
+virtual void \mbox{\hyperlink{class_c_i_c_c_comms_ab925dd7ff82f30ccd9f770ab2281b3ab}{add\+Tx\+Msg}} (\mbox{\hyperlink{_a_d_a_s___types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} cmd, signed int data)
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_c_i_c_c_comms_1_1_message__t}{Message\+\_\+t}} \mbox{\hyperlink{class_c_i_c_c_comms_a35a59d11110d830b70ab5e2a5644bbb9}{msg}}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 17 of file Comm\+\_\+\+I\+C\+C.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_c_i_c_c_comms_af2cb9bb6ab473bc5ea2b4aa2f98084ff}\label{class_c_i_c_c_comms_af2cb9bb6ab473bc5ea2b4aa2f98084ff}} 
+\index{CICCComms@{CICCComms}!CICCComms@{CICCComms}}
+\index{CICCComms@{CICCComms}!CICCComms@{CICCComms}}
+\subsubsection{\texorpdfstring{CICCComms()}{CICCComms()}}
+{\footnotesize\ttfamily C\+I\+C\+C\+Comms\+::\+C\+I\+C\+C\+Comms (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_c_serial}{C\+Serial}} \&}]{ser\+Port }\end{DoxyParamCaption})}
+
+
+
+Definition at line 6 of file Comm\+\_\+\+I\+C\+C.\+cpp.
+
+\mbox{\Hypertarget{class_c_i_c_c_comms_a951ae11fd2024309bd4ecf67981287e7}\label{class_c_i_c_c_comms_a951ae11fd2024309bd4ecf67981287e7}} 
+\index{CICCComms@{CICCComms}!````~CICCComms@{$\sim$CICCComms}}
+\index{````~CICCComms@{$\sim$CICCComms}!CICCComms@{CICCComms}}
+\subsubsection{\texorpdfstring{$\sim$CICCComms()}{~CICCComms()}}
+{\footnotesize\ttfamily C\+I\+C\+C\+Comms\+::$\sim$\+C\+I\+C\+C\+Comms (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 11 of file Comm\+\_\+\+I\+C\+C.\+cpp.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_c_i_c_c_comms_ab925dd7ff82f30ccd9f770ab2281b3ab}\label{class_c_i_c_c_comms_ab925dd7ff82f30ccd9f770ab2281b3ab}} 
+\index{CICCComms@{CICCComms}!addTxMsg@{addTxMsg}}
+\index{addTxMsg@{addTxMsg}!CICCComms@{CICCComms}}
+\subsubsection{\texorpdfstring{addTxMsg()}{addTxMsg()}}
+{\footnotesize\ttfamily void C\+I\+C\+C\+Comms\+::add\+Tx\+Msg (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_a_d_a_s___types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}}}]{cmd,  }\item[{signed int}]{data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Definition at line 107 of file Comm\+\_\+\+I\+C\+C.\+cpp.
+
+\mbox{\Hypertarget{class_c_i_c_c_comms_a56fc0858965ed1f1f9b3295602472c7e}\label{class_c_i_c_c_comms_a56fc0858965ed1f1f9b3295602472c7e}} 
+\index{CICCComms@{CICCComms}!Init@{Init}}
+\index{Init@{Init}!CICCComms@{CICCComms}}
+\subsubsection{\texorpdfstring{Init()}{Init()}}
+{\footnotesize\ttfamily void C\+I\+C\+C\+Comms\+::\+Init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_c_motor_ctrl}{C\+Motor\+Ctrl}} $\ast$}]{m\+Ctrl\+\_\+o }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Definition at line 16 of file Comm\+\_\+\+I\+C\+C.\+cpp.
+
+Here is the caller graph for this function\+:
+% FIG 1
+\mbox{\Hypertarget{class_c_i_c_c_comms_a8b3fa81307b3b9ba0e72b4aee8279c56}\label{class_c_i_c_c_comms_a8b3fa81307b3b9ba0e72b4aee8279c56}} 
+\index{CICCComms@{CICCComms}!Run@{Run}}
+\index{Run@{Run}!CICCComms@{CICCComms}}
+\subsubsection{\texorpdfstring{Run()}{Run()}}
+{\footnotesize\ttfamily void C\+I\+C\+C\+Comms\+::\+Run (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Definition at line 21 of file Comm\+\_\+\+I\+C\+C.\+cpp.
+
+Here is the call graph for this function\+:
+% FIG 2
+Here is the caller graph for this function\+:
+% FIG 3
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_c_i_c_c_comms_a35a59d11110d830b70ab5e2a5644bbb9}\label{class_c_i_c_c_comms_a35a59d11110d830b70ab5e2a5644bbb9}} 
+\index{CICCComms@{CICCComms}!msg@{msg}}
+\index{msg@{msg}!CICCComms@{CICCComms}}
+\subsubsection{\texorpdfstring{msg}{msg}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_c_i_c_c_comms_1_1_message__t}{Message\+\_\+t}} C\+I\+C\+C\+Comms\+::msg}
+
+
+
+Definition at line 45 of file Comm\+\_\+\+I\+C\+C.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_comm___i_c_c_8h}{Comm\+\_\+\+I\+C\+C.\+h}}\item 
+\mbox{\hyperlink{_comm___i_c_c_8cpp}{Comm\+\_\+\+I\+C\+C.\+cpp}}\end{DoxyCompactItemize}

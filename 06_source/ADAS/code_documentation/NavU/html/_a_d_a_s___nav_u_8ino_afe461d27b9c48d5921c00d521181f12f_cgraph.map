@@ -1,6 +1,7 @@
 <map id="loop" name="loop">
-<area shape="rect" id="node2" href="$class_c_navigation.html#ac491c77788ba2e953a704b6ad622a665" title="Debug function to print current status of state flow if changed. " alt="" coords="100,5,275,47"/>
-<area shape="rect" id="node4" href="$class_c_task_ctrl.html#ab36ffef43b3bd33303ed7d068b2e89cf" title="CTaskCtrl::Run" alt="" coords="132,71,243,98"/>
-<area shape="rect" id="node3" href="$class_c_navigation.html#a84e320cd8975593ab6f966e8794b2886" title="Debug function to print current status of state flow. " alt="" coords="323,13,503,39"/>
-<area shape="rect" id="node5" href="$class_i_task___i_f.html#ab73cc5879a61d00fc59b72cce32cc6f7" title="ITask_IF::Run" alt="" coords="361,71,464,98"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,42,52,69"/>
+<area shape="rect" id="node2" href="$class_c_navigation.html#ac491c77788ba2e953a704b6ad622a665" title="Debug function to print current status of state flow if changed." alt="" coords="100,5,275,47"/>
+<area shape="rect" id="node4" href="$class_c_task_ctrl.html#ab36ffef43b3bd33303ed7d068b2e89cf" title="run all task run function one by one" alt="" coords="132,71,243,98"/>
+<area shape="rect" id="node3" href="$class_c_navigation.html#a84e320cd8975593ab6f966e8794b2886" title="Debug function to print current status of state flow." alt="" coords="323,13,503,39"/>
+<area shape="rect" id="node5" href="$class_i_task___i_f.html#ab73cc5879a61d00fc59b72cce32cc6f7" title="run pure virtual method" alt="" coords="361,71,464,98"/>
 </map>

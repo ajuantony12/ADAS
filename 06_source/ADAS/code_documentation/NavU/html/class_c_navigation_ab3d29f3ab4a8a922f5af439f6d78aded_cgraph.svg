@@ -10,12 +10,15 @@
 <title>CNavigation::continueDrive</title>
 <!-- Node6 -->
 <g id="node1" class="node"><title>Node6</title>
+<g id="a_node1"><a xlink:title="Function to continue if obstacle is clear.">
 <polygon fill="#bfbfbf" stroke="black" points="0,-0.5 0,-19.5 131,-19.5 131,-0.5 0,-0.5"/>
 <text text-anchor="middle" x="65.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">CNavigation::continueDrive</text>
+</a>
+</g>
 </g>
 <!-- Node7 -->
 <g id="node2" class="node"><title>Node7</title>
-<g id="a_node2"><a xlink:href="class_c_i_c_c_comms.html#ab925dd7ff82f30ccd9f770ab2281b3ab" target="_top" xlink:title="Function to append message which shall be sent. ">
+<g id="a_node2"><a xlink:href="class_c_i_c_c_comms.html#ab925dd7ff82f30ccd9f770ab2281b3ab" target="_top" xlink:title="Function to append message which shall be sent.">
 <polygon fill="none" stroke="black" points="167,-0.5 167,-19.5 291,-19.5 291,-0.5 167,-0.5"/>
 <text text-anchor="middle" x="229" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">CICCComms::addTxMsg</text>
 </a>

@@ -10,21 +10,24 @@
 <title>CICCComms::Init</title>
 <!-- Node11 -->
 <g id="node1" class="node"><title>Node11</title>
-<polygon fill="#bfbfbf" stroke="black" points="0,-0.5 0,-19.5 92,-19.5 92,-0.5 0,-0.5"/>
-<text text-anchor="middle" x="46" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">CICCComms::Init</text>
+<g id="a_node1"><a xlink:title="Initialization function of CICCComms.">
+<polygon fill="#bfbfbf" stroke="black" points="77,-0.5 77,-19.5 169,-19.5 169,-0.5 77,-0.5"/>
+<text text-anchor="middle" x="123" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">CICCComms::Init</text>
+</a>
+</g>
 </g>
 <!-- Node12 -->
 <g id="node2" class="node"><title>Node12</title>
-<g id="a_node2"><a xlink:href="_a_d_a_s___nav_u_8ino.html#a4fc01d736fe50cf5b977f755b675f11d" target="_top" xlink:title="setup">
-<polygon fill="none" stroke="black" points="128,-0.5 128,-19.5 169,-19.5 169,-0.5 128,-0.5"/>
-<text text-anchor="middle" x="148.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">setup</text>
+<g id="a_node2"><a xlink:href="_a_d_a_s___nav_u_8ino.html#a4fc01d736fe50cf5b977f755b675f11d" target="_top" xlink:title=" ">
+<polygon fill="none" stroke="black" points="0,-0.5 0,-19.5 41,-19.5 41,-0.5 0,-0.5"/>
+<text text-anchor="middle" x="20.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">setup</text>
 </a>
 </g>
 </g>
 <!-- Node11&#45;&gt;Node12 -->
 <g id="edge1" class="edge"><title>Node11&#45;&gt;Node12</title>
-<path fill="none" stroke="midnightblue" d="M102.539,-10C111.619,-10 120.466,-10 127.877,-10"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="102.252,-6.5001 92.252,-10 102.252,-13.5001 102.252,-6.5001"/>
+<path fill="none" stroke="midnightblue" d="M66.4614,-10C57.3813,-10 48.5341,-10 41.1235,-10"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="66.748,-13.5001 76.748,-10 66.748,-6.5001 66.748,-13.5001"/>
 </g>
 </g>
 </svg>
