@@ -20,9 +20,9 @@
 #define PLS_SND_BUFF_SIZE                                   50U
 
 //ICC Buffer
-/** Size of ICC receiving buffer in bytes*/
+/** Size of ICC receiving buffer in bits */
 #define ICC_RCV_BUFF_SIZE                                   ICC_LEN
-/** Size of ICC sending buffer in bytes*/
+/** Size of ICC sending buffer in bits */
 #define ICC_SND_BUFF_SIZE                                   ICC_LEN*10
 //Virtual mapping Buffer
 #define MAX_MES_BUFF_SIZE                                   (20)
@@ -110,16 +110,6 @@
 #define ICC_CMD_FB_DIST                                 0x02
 /** Inter-Controller Communication: Command to acknowledge reached rotation */
 #define ICC_CMD_FB_ROT                                  0x03
-
-//Environmetal parameters
-/** Definition of gain of the battery voltage monitor in mV/sample */
-#define ENV_VBAT_GAIN                                   33 // mV/sample (33.7*1000/1024)       
-/** Definition of offset of battery voltage in mV */
-#define ENV_VBAT_OFF                                    0  // mV
-/** Definition of low voltage battery value */
-#define ENV_VBAT_LOW                                    22000 // mV
-/** Definition of critical voltage battery value */
-#define ENV_VBAT_CRI                                    20000 // mV
 
 //PID parameters
 /** Definition of Proportional Gain */
