@@ -24,18 +24,18 @@ public:
     */
     ~CPWMUnit();
 
-    // function to initialize 16-bit PWM
-    void setupPWM16();
+    // function to initialize 10-bit PWM
+    void setupPWM10();
 
-
+    /*
+    * Function to write a PWM duty cycle on the specific pin
+    */
+    void writeDuty(uint16_t n);
+private:
+   PWMID_e m_ID;
     // function to write PWM duty cycle
     // value from 0 to 65535
     void analogWrite16(uint8_t pin, uint16_t val);
-
-    void writeMOT(uint16_t n);
-private:
-   PWMID_e m_ID;
-
     };
 
 #endif

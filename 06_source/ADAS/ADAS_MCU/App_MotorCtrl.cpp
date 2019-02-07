@@ -98,13 +98,13 @@ void CMotorCtrl::Run(void)
 
     //Check if H-bridge is enabled
     if (digitalRead(PIN_ENABLE) == HIGH) {
-      m_pwmUnitRight_o.writeMOT(LOW);
-      m_pwmUnitLeft_o.writeMOT(LOW);
+      m_pwmUnitRight_o.writeDuty(LOW);
+      m_pwmUnitLeft_o.writeDuty(LOW);
     } else {
       if (pause)
       {
-        m_pwmUnitRight_o.writeMOT(LOW);
-        m_pwmUnitLeft_o.writeMOT(LOW);
+        m_pwmUnitRight_o.writeDuty(LOW);
+        m_pwmUnitLeft_o.writeDuty(LOW);
       }else{
         if(startBtn){
           //Check for current state and run the PI control
@@ -234,8 +234,8 @@ void CMotorCtrl::checkOverflow(void){
     //Checks if the H-bridge is enables or the IDLE state is active
     if (digitalRead(PIN_ENABLE) == HIGH || rtObj.rtDW.is_c3_Chart == 3) {
       //Stop the motor if the condition is true
-      m_pwmUnitRight_o.writeMOT(LOW);
-      m_pwmUnitLeft_o.writeMOT(LOW);
+      m_pwmUnitRight_o.writeDuty(LOW);
+      m_pwmUnitLeft_o.writeDuty(LOW);
       output_l = output_r = 0;
     } else {
       //Checks if the right adaption is negative
@@ -243,29 +243,29 @@ void CMotorCtrl::checkOverflow(void){
         //Checks if the absolute of the negative value is higher than the output which is written to the motor
           if(abs(adapt_r) > output_r*2){
             //Ignore adaption variables
-              m_pwmUnitRight_o.writeMOT(output_r*2);
-              m_pwmUnitLeft_o.writeMOT(output_l*2);
+              m_pwmUnitRight_o.writeDuty(output_r*2);
+              m_pwmUnitLeft_o.writeDuty(output_l*2);
             }else{
                 // Write to motor with adaption variables
-                m_pwmUnitRight_o.writeMOT(output_r*2+adapt_r);
-                m_pwmUnitLeft_o.writeMOT(output_l*2+adapt_l);
+                m_pwmUnitRight_o.writeDuty(output_r*2+adapt_r);
+                m_pwmUnitLeft_o.writeDuty(output_l*2+adapt_l);
               }
         //Checks if the left adaption is negative
         }else if(adapt_l < 0){
           //Checks if the absolute of the negative value is higher than the output which is written to the motor
             if(abs(adapt_l) > output_l*2){
               //Ignore adaption variables
-                m_pwmUnitRight_o.writeMOT(output_r*2);
-                m_pwmUnitLeft_o.writeMOT(output_l*2);
+                m_pwmUnitRight_o.writeDuty(output_r*2);
+                m_pwmUnitLeft_o.writeDuty(output_l*2);
               }else{
                 // Write to motor with adaption variables
-                  m_pwmUnitRight_o.writeMOT(output_r*2+adapt_r);
-                  m_pwmUnitLeft_o.writeMOT(output_l*2+adapt_l);
+                  m_pwmUnitRight_o.writeDuty(output_r*2+adapt_r);
+                  m_pwmUnitLeft_o.writeDuty(output_l*2+adapt_l);
                 }
           }else{
             // Write to motor with adaption variables
-              m_pwmUnitRight_o.writeMOT(output_r*2+adapt_r);
-              m_pwmUnitLeft_o.writeMOT(output_l*2+adapt_l);
+              m_pwmUnitRight_o.writeDuty(output_r*2+adapt_r);
+              m_pwmUnitLeft_o.writeDuty(output_l*2+adapt_l);
             }
     }
   }
@@ -351,8 +351,8 @@ void CMotorCtrl::setDistance(sint16_t dist){
     Function stops the DC motors and set a pause variable to true.
 */
 void CMotorCtrl::pauseDrive(void){
-    m_pwmUnitRight_o.writeMOT(LOW);
-    m_pwmUnitLeft_o.writeMOT(LOW);
+    m_pwmUnitRight_o.writeDuty(LOW);
+    m_pwmUnitLeft_o.writeDuty(LOW);
     pause = true;
   }
 
@@ -360,7 +360,7 @@ void CMotorCtrl::pauseDrive(void){
 /*!
     Function checks first if the desired speed is too high. If the transmitted setpoint is ok it is converted from mm/s into 
     peaks per 150ms. Then the setpoint of the PI controllers setpoint is changed to this value. 
-*/
+*/ where 
 void CMotorCtrl::setPISetpoint(uint16_t setpnt){
   // Checks if the transmitted speed is too high
   if(setpnt >= 1000){
@@ -447,6 +447,9 @@ void CMotorCtrl::checkState(void) {
       // Set direction pins of H-bridge to high as default
       digitalWrite(PIN_DIRECTION_L, HIGH);
       digitalWrite(PIN_DIRECTION_R, HIGH);
+      // Stop motors
+      m_pwmUnitRight_o.writeDuty(LOW);
+      m_pwmUnitLeft_o.writeDuty(LOW);
       // Checks if first enter of this state
       if(curState != 3){
           // Reset PI controller
@@ -489,9 +492,6 @@ void CMotorCtrl::checkState(void) {
       peak_sum_l = peak_sum_r = 0;
       m_enc1_o.reset();
       m_enc2_o.reset();
-      // Stop motors
-      m_pwmUnitRight_o.writeMOT(LOW);
-      m_pwmUnitLeft_o.writeMOT(LOW);
       break;
     case 4:
       // Case Left Turn state
