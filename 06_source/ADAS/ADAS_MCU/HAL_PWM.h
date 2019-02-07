@@ -35,7 +35,7 @@ private:
    PWMID_e m_ID;
     // function to write PWM duty cycle
     // value from 0 to 65535
-    void analogWrite16(uint8_t pin, uint16_t val);
+    void analogWrite10(uint8_t pin, uint16_t val);
     };
 
 #endif

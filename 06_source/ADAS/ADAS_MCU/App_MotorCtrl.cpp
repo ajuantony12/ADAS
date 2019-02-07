@@ -60,8 +60,8 @@ void CMotorCtrl::Init(void)
   digitalWrite(PIN_DIRECTION_R, HIGH);
   digitalWrite(PIN_DIRECTION_L, HIGH);
 
-  m_pwmUnitLeft_o.setupPWM16();
-  m_pwmUnitRight_o.setupPWM16();
+  m_pwmUnitLeft_o.setupPWM10();
+  m_pwmUnitRight_o.setupPWM10();
 
   //Setup IMU
   m_imu_o.Init();
@@ -360,7 +360,7 @@ void CMotorCtrl::pauseDrive(void){
 /*!
     Function checks first if the desired speed is too high. If the transmitted setpoint is ok it is converted from mm/s into 
     peaks per 150ms. Then the setpoint of the PI controllers setpoint is changed to this value. 
-*/ where 
+*/ 
 void CMotorCtrl::setPISetpoint(uint16_t setpnt){
   // Checks if the transmitted speed is too high
   if(setpnt >= 1000){
