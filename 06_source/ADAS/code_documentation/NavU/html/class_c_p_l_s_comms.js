@@ -15,6 +15,6 @@ var class_c_p_l_s_comms =
     [ "GetAsyncData", "class_c_p_l_s_comms.html#a3124eaa4549706962c7024c7c97e82b0", null ],
     [ "GetStatus", "class_c_p_l_s_comms.html#a05149da99ab80b804699763111315f33", null ],
     [ "Init", "class_c_p_l_s_comms.html#ae7f8d87ea15de35a120d65a7a8bbbb76", null ],
-    [ "RequestMeasurements", "class_c_p_l_s_comms.html#ae8f7e9acdf4243b76f3c7f61cf766cfc", null ],
-    [ "SearchMsg", "class_c_p_l_s_comms.html#ae0cd51de8a24b261389b6f89b4b80e51", null ]
+    [ "RequestMeasurements", "class_c_p_l_s_comms.html#ab69a49f5c4cd7b4b9f63fa16c7792920", null ],
+    [ "SearchMsg", "class_c_p_l_s_comms.html#a14754b4119b9a3d613579c2a80220cc0", null ]
 ];

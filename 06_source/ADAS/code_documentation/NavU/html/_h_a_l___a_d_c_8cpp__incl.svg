@@ -10,12 +10,15 @@
 <title>HAL_ADC.cpp</title>
 <!-- Node0 -->
 <g id="node1" class="node"><title>Node0</title>
+<g id="a_node1"><a xlink:title="Hardware Abstraction Layer (HAL) to interface ADC.">
 <polygon fill="#bfbfbf" stroke="black" points="42.5,-112.5 42.5,-131.5 122.5,-131.5 122.5,-112.5 42.5,-112.5"/>
 <text text-anchor="middle" x="82.5" y="-119.5" font-family="Helvetica,sans-Serif" font-size="10.00">HAL_ADC.cpp</text>
+</a>
+</g>
 </g>
 <!-- Node1 -->
 <g id="node2" class="node"><title>Node1</title>
-<g id="a_node2"><a xlink:href="_h_a_l___a_d_c_8h.html" target="_top" xlink:title="Hardware Abstraction Layer (HAL) to interface ADC. ">
+<g id="a_node2"><a xlink:href="_h_a_l___a_d_c_8h.html" target="_top" xlink:title="Hardware Abstraction Layer (HAL) to interface ADC.">
 <polygon fill="none" stroke="black" points="7,-56.5 7,-75.5 76,-75.5 76,-56.5 7,-56.5"/>
 <text text-anchor="middle" x="41.5" y="-63.5" font-family="Helvetica,sans-Serif" font-size="10.00">HAL_ADC.h</text>
 </a>
@@ -28,8 +31,11 @@
 </g>
 <!-- Node3 -->
 <g id="node4" class="node"><title>Node3</title>
+<g id="a_node4"><a xlink:title=" ">
 <polygon fill="none" stroke="#bfbfbf" points="94.5,-56.5 94.5,-75.5 152.5,-75.5 152.5,-56.5 94.5,-56.5"/>
 <text text-anchor="middle" x="123.5" y="-63.5" font-family="Helvetica,sans-Serif" font-size="10.00">Arduino.h</text>
+</a>
+</g>
 </g>
 <!-- Node0&#45;&gt;Node3 -->
 <g id="edge3" class="edge"><title>Node0&#45;&gt;Node3</title>
@@ -38,7 +44,7 @@
 </g>
 <!-- Node2 -->
 <g id="node3" class="node"><title>Node2</title>
-<g id="a_node3"><a xlink:href="_a_d_a_s___types_8h.html" target="_top" xlink:title="ADAS_Types.h">
+<g id="a_node3"><a xlink:href="_a_d_a_s___types_8h.html" target="_top" xlink:title="internal datatype mapping file">
 <polygon fill="none" stroke="black" points="0,-0.5 0,-19.5 83,-19.5 83,-0.5 0,-0.5"/>
 <text text-anchor="middle" x="41.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">ADAS_Types.h</text>
 </a>

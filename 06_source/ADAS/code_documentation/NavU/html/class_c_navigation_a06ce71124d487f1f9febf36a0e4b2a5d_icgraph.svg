@@ -10,21 +10,24 @@
 <title>CNavigation::stopDrive</title>
 <!-- Node46 -->
 <g id="node1" class="node"><title>Node46</title>
-<polygon fill="#bfbfbf" stroke="black" points="0,-0.5 0,-19.5 113,-19.5 113,-0.5 0,-0.5"/>
-<text text-anchor="middle" x="56.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">CNavigation::stopDrive</text>
+<g id="a_node1"><a xlink:title="Function to stop if obstacle is detected.">
+<polygon fill="#bfbfbf" stroke="black" points="130,-0.5 130,-19.5 243,-19.5 243,-0.5 130,-0.5"/>
+<text text-anchor="middle" x="186.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">CNavigation::stopDrive</text>
+</a>
+</g>
 </g>
 <!-- Node47 -->
 <g id="node2" class="node"><title>Node47</title>
-<g id="a_node2"><a xlink:href="class_c_navigation.html#a3cc8f7fdd003d6b2c5056b87ff93edd9" target="_top" xlink:title="Stop function of CNavigation. ">
-<polygon fill="none" stroke="black" points="149,-0.5 149,-19.5 243,-19.5 243,-0.5 149,-0.5"/>
-<text text-anchor="middle" x="196" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">CNavigation::Stop</text>
+<g id="a_node2"><a xlink:href="class_c_navigation.html#a3cc8f7fdd003d6b2c5056b87ff93edd9" target="_top" xlink:title="Stop function of CNavigation.">
+<polygon fill="none" stroke="black" points="0,-0.5 0,-19.5 94,-19.5 94,-0.5 0,-0.5"/>
+<text text-anchor="middle" x="47" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">CNavigation::Stop</text>
 </a>
 </g>
 </g>
 <!-- Node46&#45;&gt;Node47 -->
 <g id="edge1" class="edge"><title>Node46&#45;&gt;Node47</title>
-<path fill="none" stroke="midnightblue" d="M123.19,-10C131.898,-10 140.672,-10 148.952,-10"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="123.03,-6.5001 113.03,-10 123.03,-13.5001 123.03,-6.5001"/>
+<path fill="none" stroke="midnightblue" d="M119.81,-10C111.102,-10 102.328,-10 94.0484,-10"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="119.97,-13.5001 129.97,-10 119.97,-6.5001 119.97,-13.5001"/>
 </g>
 </g>
 </svg>

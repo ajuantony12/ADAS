@@ -1,3 +1,4 @@
 <map id="CNavigation::pauseDrive" name="CNavigation::pauseDrive">
-<area shape="rect" id="node2" href="$class_c_i_c_c_comms.html#ab925dd7ff82f30ccd9f770ab2281b3ab" title="Function to append message which shall be sent. " alt="" coords="215,5,380,32"/>
+<area shape="rect" id="node1" title="Pause drive due to obstacle detection." alt="" coords="5,5,167,32"/>
+<area shape="rect" id="node2" href="$class_c_i_c_c_comms.html#ab925dd7ff82f30ccd9f770ab2281b3ab" title="Function to append message which shall be sent." alt="" coords="215,5,380,32"/>
 </map>

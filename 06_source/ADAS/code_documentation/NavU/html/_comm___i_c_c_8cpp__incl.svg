@@ -10,12 +10,15 @@
 <title>Comm_ICC.cpp</title>
 <!-- Node0 -->
 <g id="node1" class="node"><title>Node0</title>
+<g id="a_node1"><a xlink:title="Communication file for Inter&#45;Controller Communication (ICC)">
 <polygon fill="#bfbfbf" stroke="black" points="214,-224.5 214,-243.5 299,-243.5 299,-224.5 214,-224.5"/>
 <text text-anchor="middle" x="256.5" y="-231.5" font-family="Helvetica,sans-Serif" font-size="10.00">Comm_ICC.cpp</text>
+</a>
+</g>
 </g>
 <!-- Node1 -->
 <g id="node2" class="node"><title>Node1</title>
-<g id="a_node2"><a xlink:href="_a_d_a_s___debug_8h.html" target="_top" xlink:title="This file contains redefinition of the serial functions for debugging purpose. ">
+<g id="a_node2"><a xlink:href="_a_d_a_s___debug_8h.html" target="_top" xlink:title="This file contains redefinition of the serial functions for debugging purpose.">
 <polygon fill="none" stroke="black" points="177,-112.5 177,-131.5 262,-131.5 262,-112.5 177,-112.5"/>
 <text text-anchor="middle" x="219.5" y="-119.5" font-family="Helvetica,sans-Serif" font-size="10.00">ADAS_Debug.h</text>
 </a>
@@ -28,7 +31,7 @@
 </g>
 <!-- Node3 -->
 <g id="node4" class="node"><title>Node3</title>
-<g id="a_node4"><a xlink:href="_comm___i_c_c_8h.html" target="_top" xlink:title="Communication file for Inter&#45;Controller Communication (ICC) ">
+<g id="a_node4"><a xlink:href="_comm___i_c_c_8h.html" target="_top" xlink:title="Communication file for Inter&#45;Controller Communication (ICC)">
 <polygon fill="none" stroke="black" points="84.5,-112.5 84.5,-131.5 158.5,-131.5 158.5,-112.5 84.5,-112.5"/>
 <text text-anchor="middle" x="121.5" y="-119.5" font-family="Helvetica,sans-Serif" font-size="10.00">Comm_ICC.h</text>
 </a>
@@ -41,8 +44,11 @@
 </g>
 <!-- Node7 -->
 <g id="node8" class="node"><title>Node7</title>
+<g id="a_node8"><a xlink:title=" ">
 <polygon fill="none" stroke="#bfbfbf" points="394.5,-112.5 394.5,-131.5 452.5,-131.5 452.5,-112.5 394.5,-112.5"/>
 <text text-anchor="middle" x="423.5" y="-119.5" font-family="Helvetica,sans-Serif" font-size="10.00">Arduino.h</text>
+</a>
+</g>
 </g>
 <!-- Node0&#45;&gt;Node7 -->
 <g id="edge10" class="edge"><title>Node0&#45;&gt;Node7</title>
@@ -51,7 +57,7 @@
 </g>
 <!-- Node8 -->
 <g id="node9" class="node"><title>Node8</title>
-<g id="a_node9"><a xlink:href="_app___navigation_8h.html" target="_top" xlink:title="Application file for navigation. ">
+<g id="a_node9"><a xlink:href="_app___navigation_8h.html" target="_top" xlink:title="Application file for navigation.">
 <polygon fill="none" stroke="black" points="247.5,-168.5 247.5,-187.5 339.5,-187.5 339.5,-168.5 247.5,-168.5"/>
 <text text-anchor="middle" x="293.5" y="-175.5" font-family="Helvetica,sans-Serif" font-size="10.00">App_Navigation.h</text>
 </a>
@@ -64,7 +70,7 @@
 </g>
 <!-- Node2 -->
 <g id="node3" class="node"><title>Node2</title>
-<g id="a_node3"><a xlink:href="_a_d_a_s___cfg_8h.html" target="_top" xlink:title="This file contains the configuration of the vehicle. ">
+<g id="a_node3"><a xlink:href="_a_d_a_s___cfg_8h.html" target="_top" xlink:title="This file contains the configuration of the vehicle.">
 <polygon fill="none" stroke="black" points="218,-56.5 218,-75.5 289,-75.5 289,-56.5 218,-56.5"/>
 <text text-anchor="middle" x="253.5" y="-63.5" font-family="Helvetica,sans-Serif" font-size="10.00">ADAS_Cfg.h</text>
 </a>
@@ -82,7 +88,7 @@
 </g>
 <!-- Node4 -->
 <g id="node5" class="node"><title>Node4</title>
-<g id="a_node5"><a xlink:href="_a_d_a_s___types_8h.html" target="_top" xlink:title="ADAS_Types.h">
+<g id="a_node5"><a xlink:href="_a_d_a_s___types_8h.html" target="_top" xlink:title="internal datatype mapping file">
 <polygon fill="none" stroke="black" points="148,-0.5 148,-19.5 231,-19.5 231,-0.5 148,-0.5"/>
 <text text-anchor="middle" x="189.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">ADAS_Types.h</text>
 </a>
@@ -95,7 +101,7 @@
 </g>
 <!-- Node5 -->
 <g id="node6" class="node"><title>Node5</title>
-<g id="a_node6"><a xlink:href="_h_a_l___serial___i_f_8h.html" target="_top" xlink:title="Hardware Abstraction Layer (HAL) to serial interface. ">
+<g id="a_node6"><a xlink:href="_h_a_l___serial___i_f_8h.html" target="_top" xlink:title="Hardware Abstraction Layer (HAL) to serial interface.">
 <polygon fill="none" stroke="black" points="0,-56.5 0,-75.5 87,-75.5 87,-56.5 0,-56.5"/>
 <text text-anchor="middle" x="43.5" y="-63.5" font-family="Helvetica,sans-Serif" font-size="10.00">HAL_Serial_IF.h</text>
 </a>
@@ -108,7 +114,7 @@
 </g>
 <!-- Node6 -->
 <g id="node7" class="node"><title>Node6</title>
-<g id="a_node7"><a xlink:href="_cbuffer_8h.html" target="_top" xlink:title="CBuffer.h">
+<g id="a_node7"><a xlink:href="_cbuffer_8h.html" target="_top" xlink:title="general purpose buffer">
 <polygon fill="none" stroke="black" points="105.5,-56.5 105.5,-75.5 161.5,-75.5 161.5,-56.5 105.5,-56.5"/>
 <text text-anchor="middle" x="133.5" y="-63.5" font-family="Helvetica,sans-Serif" font-size="10.00">CBuffer.h</text>
 </a>
@@ -156,7 +162,7 @@
 </g>
 <!-- Node9 -->
 <g id="node10" class="node"><title>Node9</title>
-<g id="a_node10"><a xlink:href="_task___i_f_8h.html" target="_top" xlink:title="Task_if.h">
+<g id="a_node10"><a xlink:href="_task___i_f_8h.html" target="_top" xlink:title="Task controller interface header.">
 <polygon fill="none" stroke="black" points="356.5,-56.5 356.5,-75.5 412.5,-75.5 412.5,-56.5 356.5,-56.5"/>
 <text text-anchor="middle" x="384.5" y="-63.5" font-family="Helvetica,sans-Serif" font-size="10.00">Task_if.h</text>
 </a>

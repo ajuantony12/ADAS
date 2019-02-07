@@ -1,5 +1,10 @@
 \hypertarget{class_c_v_mapping}{}\section{C\+V\+Mapping Class Reference}
-\label{class_c_v_mapping}\index{C\+V\+Mapping@{C\+V\+Mapping}}
+\label{class_c_v_mapping}\index{CVMapping@{CVMapping}}
+
+
+Virtual mapping application class.  
+
+
 
 
 {\ttfamily \#include $<$App\+\_\+\+Virtual\+Mapping.\+h$>$}
@@ -26,75 +31,100 @@ Collaboration diagram for C\+V\+Mapping\+:\nopagebreak
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{class_c_v_mapping_af6ee17cb269e87c9da52a22ef29b50df}{C\+V\+Mapping}} (\mbox{\hyperlink{class_c_navigation}{C\+Navigation}} \&N\+AV, \mbox{\hyperlink{class_c_p_l_s_comms}{C\+P\+L\+S\+Comms}} \&pls\+Comms)
-\item 
+\begin{DoxyCompactList}\small\item\em Virtual mapping app class constructor. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_c_v_mapping_af597f7af00322fe01ec8f74838b06f08}{$\sim$\+C\+V\+Mapping}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Virtual mapping app class destructor. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{class_c_v_mapping_a110257122b8946bcb8f17051070e03eb}{Init}} (void)
-\item 
+\begin{DoxyCompactList}\small\item\em Initialization function of virtual mapping Application. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{class_c_v_mapping_a8f064fcfd01953d7072efd5de23f89ef}{Run}} (void)
-\item 
+\begin{DoxyCompactList}\small\item\em Run function of virtual mapping Application. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{class_c_v_mapping_ad4e34f79b444109d0cbf1223881126dc}{Stop}} (void)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Stop/shutdown function of virtual mapping Application. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
+Virtual mapping application class. 
 
+Virtual mapping application class. Contains functionalities to request scan details from P\+LS and determine offset to wall and angle of wall with respect to autonomus vechicle 
 
-Definition at line 15 of file App\+\_\+\+Virtual\+Mapping.\+h.
+Definition at line 23 of file App\+\_\+\+Virtual\+Mapping.\+h.
 
 
 
 \subsection{Constructor \& Destructor Documentation}
 \mbox{\Hypertarget{class_c_v_mapping_af6ee17cb269e87c9da52a22ef29b50df}\label{class_c_v_mapping_af6ee17cb269e87c9da52a22ef29b50df}} 
-\index{C\+V\+Mapping@{C\+V\+Mapping}!C\+V\+Mapping@{C\+V\+Mapping}}
-\index{C\+V\+Mapping@{C\+V\+Mapping}!C\+V\+Mapping@{C\+V\+Mapping}}
-\subsubsection{\texorpdfstring{C\+V\+Mapping()}{CVMapping()}}
+\index{CVMapping@{CVMapping}!CVMapping@{CVMapping}}
+\index{CVMapping@{CVMapping}!CVMapping@{CVMapping}}
+\subsubsection{\texorpdfstring{CVMapping()}{CVMapping()}}
 {\footnotesize\ttfamily C\+V\+Mapping\+::\+C\+V\+Mapping (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_c_navigation}{C\+Navigation}} \&}]{N\+AV,  }\item[{\mbox{\hyperlink{class_c_p_l_s_comms}{C\+P\+L\+S\+Comms}} \&}]{pls\+Comms }\end{DoxyParamCaption})}
 
 
 
-Definition at line 60 of file App\+\_\+\+Virtual\+Mapping.\+cpp.
+Virtual mapping app class constructor. 
+
+Instantiation and initialization 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em N\+AV} & reference to navigation app class object \\
+\hline
+\mbox{\texttt{ in}}  & {\em pls\+Comms} & refernce to pls communication class object \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 78 of file App\+\_\+\+Virtual\+Mapping.\+cpp.
 
 \mbox{\Hypertarget{class_c_v_mapping_af597f7af00322fe01ec8f74838b06f08}\label{class_c_v_mapping_af597f7af00322fe01ec8f74838b06f08}} 
-\index{C\+V\+Mapping@{C\+V\+Mapping}!````~C\+V\+Mapping@{$\sim$\+C\+V\+Mapping}}
-\index{````~C\+V\+Mapping@{$\sim$\+C\+V\+Mapping}!C\+V\+Mapping@{C\+V\+Mapping}}
-\subsubsection{\texorpdfstring{$\sim$\+C\+V\+Mapping()}{~CVMapping()}}
+\index{CVMapping@{CVMapping}!````~CVMapping@{$\sim$CVMapping}}
+\index{````~CVMapping@{$\sim$CVMapping}!CVMapping@{CVMapping}}
+\subsubsection{\texorpdfstring{$\sim$CVMapping()}{~CVMapping()}}
 {\footnotesize\ttfamily C\+V\+Mapping\+::$\sim$\+C\+V\+Mapping (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
-Definition at line 68 of file App\+\_\+\+Virtual\+Mapping.\+cpp.
+Virtual mapping app class destructor. 
+
+
+
+Definition at line 88 of file App\+\_\+\+Virtual\+Mapping.\+cpp.
 
 
 
 \subsection{Member Function Documentation}
 \mbox{\Hypertarget{class_c_v_mapping_a110257122b8946bcb8f17051070e03eb}\label{class_c_v_mapping_a110257122b8946bcb8f17051070e03eb}} 
-\index{C\+V\+Mapping@{C\+V\+Mapping}!Init@{Init}}
-\index{Init@{Init}!C\+V\+Mapping@{C\+V\+Mapping}}
+\index{CVMapping@{CVMapping}!Init@{Init}}
+\index{Init@{Init}!CVMapping@{CVMapping}}
 \subsubsection{\texorpdfstring{Init()}{Init()}}
 {\footnotesize\ttfamily void C\+V\+Mapping\+::\+Init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
 
 
 
+Initialization function of virtual mapping Application. 
+
+Realization of pure virtual function task\+\_\+\+IF Called by task controller for initializing applications 
+
 Implements \mbox{\hyperlink{class_i_task___i_f_a28f608bdb9b19658403f7b9b7421968d}{I\+Task\+\_\+\+IF}}.
 
 
 
-Definition at line 71 of file App\+\_\+\+Virtual\+Mapping.\+cpp.
+Definition at line 92 of file App\+\_\+\+Virtual\+Mapping.\+cpp.
 
 \mbox{\Hypertarget{class_c_v_mapping_a8f064fcfd01953d7072efd5de23f89ef}\label{class_c_v_mapping_a8f064fcfd01953d7072efd5de23f89ef}} 
-\index{C\+V\+Mapping@{C\+V\+Mapping}!Run@{Run}}
-\index{Run@{Run}!C\+V\+Mapping@{C\+V\+Mapping}}
+\index{CVMapping@{CVMapping}!Run@{Run}}
+\index{Run@{Run}!CVMapping@{CVMapping}}
 \subsubsection{\texorpdfstring{Run()}{Run()}}
 {\footnotesize\ttfamily void C\+V\+Mapping\+::\+Run (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
 
 
 
+Run function of virtual mapping Application. 
+
+Realization of pure virtual function task\+\_\+\+IF Called by task controller for running functionality vehicle in corner mode ignore safety field breach while turning and use only vertical distance 
+
 Implements \mbox{\hyperlink{class_i_task___i_f_ab73cc5879a61d00fc59b72cce32cc6f7}{I\+Task\+\_\+\+IF}}.
 
 
 
-Definition at line 76 of file App\+\_\+\+Virtual\+Mapping.\+cpp.
+Definition at line 97 of file App\+\_\+\+Virtual\+Mapping.\+cpp.
 
 Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
@@ -104,18 +134,22 @@ Here is the call graph for this function\+:\nopagebreak
 \end{center}
 \end{figure}
 \mbox{\Hypertarget{class_c_v_mapping_ad4e34f79b444109d0cbf1223881126dc}\label{class_c_v_mapping_ad4e34f79b444109d0cbf1223881126dc}} 
-\index{C\+V\+Mapping@{C\+V\+Mapping}!Stop@{Stop}}
-\index{Stop@{Stop}!C\+V\+Mapping@{C\+V\+Mapping}}
+\index{CVMapping@{CVMapping}!Stop@{Stop}}
+\index{Stop@{Stop}!CVMapping@{CVMapping}}
 \subsubsection{\texorpdfstring{Stop()}{Stop()}}
 {\footnotesize\ttfamily void C\+V\+Mapping\+::\+Stop (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
 
 
 
+Stop/shutdown function of virtual mapping Application. 
+
+Realization of pure virtual function task\+\_\+\+IF Called by task controller for shutdown 
+
 Implements \mbox{\hyperlink{class_i_task___i_f_af5f8fba86704c7e36d0e4681d58300c6}{I\+Task\+\_\+\+IF}}.
 
 
 
-Definition at line 149 of file App\+\_\+\+Virtual\+Mapping.\+cpp.
+Definition at line 187 of file App\+\_\+\+Virtual\+Mapping.\+cpp.
 
 
 

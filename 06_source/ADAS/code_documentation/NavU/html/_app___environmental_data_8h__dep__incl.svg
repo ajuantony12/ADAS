@@ -10,12 +10,15 @@
 <title>App_EnvironmentalData.h</title>
 <!-- Node6 -->
 <g id="node1" class="node"><title>Node6</title>
+<g id="a_node1"><a xlink:title="Application file for environmental data.">
 <polygon fill="#bfbfbf" stroke="black" points="44.5,-56.5 44.5,-75.5 172.5,-75.5 172.5,-56.5 44.5,-56.5"/>
 <text text-anchor="middle" x="108.5" y="-63.5" font-family="Helvetica,sans-Serif" font-size="10.00">App_EnvironmentalData.h</text>
+</a>
+</g>
 </g>
 <!-- Node7 -->
 <g id="node2" class="node"><title>Node7</title>
-<g id="a_node2"><a xlink:href="_a_d_a_s___nav_u_8ino.html" target="_top" xlink:title="Main file for the NavU of the ADAS project. ">
+<g id="a_node2"><a xlink:href="_a_d_a_s___nav_u_8ino.html" target="_top" xlink:title="Main file for the NavU of the ADAS project.">
 <polygon fill="none" stroke="black" points="0,-0.5 0,-19.5 87,-19.5 87,-0.5 0,-0.5"/>
 <text text-anchor="middle" x="43.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">ADAS_NavU.ino</text>
 </a>
@@ -28,7 +31,7 @@
 </g>
 <!-- Node8 -->
 <g id="node3" class="node"><title>Node8</title>
-<g id="a_node3"><a xlink:href="_app___environmental_data_8cpp.html" target="_top" xlink:title="Application file for environmental data. ">
+<g id="a_node3"><a xlink:href="_app___environmental_data_8cpp.html" target="_top" xlink:title="Application file for environmental data.">
 <polygon fill="none" stroke="black" points="105,-0.5 105,-19.5 244,-19.5 244,-0.5 105,-0.5"/>
 <text text-anchor="middle" x="174.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">App_EnvironmentalData.cpp</text>
 </a>

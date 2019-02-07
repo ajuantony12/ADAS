@@ -10,21 +10,24 @@
 <title>CPLSComms::DataAvailable</title>
 <!-- Node6 -->
 <g id="node1" class="node"><title>Node6</title>
-<polygon fill="#bfbfbf" stroke="black" points="0,-0.5 0,-19.5 140,-19.5 140,-0.5 0,-0.5"/>
-<text text-anchor="middle" x="70" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">CPLSComms::DataAvailable</text>
+<g id="a_node1"><a xlink:title="check if any data recieved from PLS">
+<polygon fill="#bfbfbf" stroke="black" points="126,-0.5 126,-19.5 266,-19.5 266,-0.5 126,-0.5"/>
+<text text-anchor="middle" x="196" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">CPLSComms::DataAvailable</text>
+</a>
+</g>
 </g>
 <!-- Node7 -->
 <g id="node2" class="node"><title>Node7</title>
-<g id="a_node2"><a xlink:href="class_c_v_mapping.html#a8f064fcfd01953d7072efd5de23f89ef" target="_top" xlink:title="CVMapping::Run">
-<polygon fill="none" stroke="black" points="176,-0.5 176,-19.5 266,-19.5 266,-0.5 176,-0.5"/>
-<text text-anchor="middle" x="221" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">CVMapping::Run</text>
+<g id="a_node2"><a xlink:href="class_c_v_mapping.html#a8f064fcfd01953d7072efd5de23f89ef" target="_top" xlink:title="Run function of virtual mapping Application.">
+<polygon fill="none" stroke="black" points="0,-0.5 0,-19.5 90,-19.5 90,-0.5 0,-0.5"/>
+<text text-anchor="middle" x="45" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">CVMapping::Run</text>
 </a>
 </g>
 </g>
 <!-- Node6&#45;&gt;Node7 -->
 <g id="edge1" class="edge"><title>Node6&#45;&gt;Node7</title>
-<path fill="none" stroke="midnightblue" d="M150.412,-10C159.045,-10 167.589,-10 175.579,-10"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="150.266,-6.5001 140.266,-10 150.266,-13.5001 150.266,-6.5001"/>
+<path fill="none" stroke="midnightblue" d="M115.588,-10C106.955,-10 98.4108,-10 90.4212,-10"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="115.734,-13.5001 125.734,-10 115.734,-6.5001 115.734,-13.5001"/>
 </g>
 </g>
 </svg>

@@ -1,5 +1,7 @@
 <map id="App_UserInterface.cpp" name="App_UserInterface.cpp">
-<area shape="rect" id="node2" href="$_app___user_interface_8h.html" title="App_UserInterface.h" alt="" coords="11,80,149,107"/>
-<area shape="rect" id="node3" href="$_task___i_f_8h.html" title="Task_if.h" alt="" coords="5,155,80,181"/>
-<area shape="rect" id="node4" href="$_a_d_a_s___types_8h.html" title="ADAS_Types.h" alt="" coords="25,229,135,256"/>
+<area shape="rect" id="node1" title="template source file for unser interface application" alt="" coords="69,5,222,32"/>
+<area shape="rect" id="node2" href="$_app___user_interface_8h.html" title="template header file for uner interface application" alt="" coords="11,80,149,107"/>
+<area shape="rect" id="node5" title=" " alt="" coords="173,80,251,107"/>
+<area shape="rect" id="node3" href="$_task___i_f_8h.html" title="Task controller interface header." alt="" coords="5,155,80,181"/>
+<area shape="rect" id="node4" href="$_a_d_a_s___types_8h.html" title="internal datatype mapping file" alt="" coords="25,229,135,256"/>
 </map>

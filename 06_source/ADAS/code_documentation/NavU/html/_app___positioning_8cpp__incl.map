@@ -1,5 +1,7 @@
 <map id="App_Positioning.cpp" name="App_Positioning.cpp">
-<area shape="rect" id="node2" href="$_app___positioning_8h.html" title="App_Positioning.h" alt="" coords="17,80,143,107"/>
-<area shape="rect" id="node3" href="$_task___i_f_8h.html" title="Task_if.h" alt="" coords="5,155,80,181"/>
-<area shape="rect" id="node4" href="$_a_d_a_s___types_8h.html" title="ADAS_Types.h" alt="" coords="25,229,135,256"/>
+<area shape="rect" id="node1" title="template source file for positioning application" alt="" coords="72,5,213,32"/>
+<area shape="rect" id="node2" href="$_app___positioning_8h.html" title="template header file for positioning application" alt="" coords="17,80,143,107"/>
+<area shape="rect" id="node5" title=" " alt="" coords="168,80,245,107"/>
+<area shape="rect" id="node3" href="$_task___i_f_8h.html" title="Task controller interface header." alt="" coords="5,155,80,181"/>
+<area shape="rect" id="node4" href="$_a_d_a_s___types_8h.html" title="internal datatype mapping file" alt="" coords="25,229,135,256"/>
 </map>

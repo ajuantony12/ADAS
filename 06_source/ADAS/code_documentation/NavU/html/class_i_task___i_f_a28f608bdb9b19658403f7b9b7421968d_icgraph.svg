@@ -10,34 +10,37 @@
 <title>ITask_IF::Init</title>
 <!-- Node1 -->
 <g id="node1" class="node"><title>Node1</title>
-<polygon fill="#bfbfbf" stroke="black" points="0,-0.5 0,-19.5 72,-19.5 72,-0.5 0,-0.5"/>
-<text text-anchor="middle" x="36" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">ITask_IF::Init</text>
+<g id="a_node1"><a xlink:title="Initialization pure virtual method.">
+<polygon fill="#bfbfbf" stroke="black" points="191,-0.5 191,-19.5 263,-19.5 263,-0.5 191,-0.5"/>
+<text text-anchor="middle" x="227" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">ITask_IF::Init</text>
+</a>
+</g>
 </g>
 <!-- Node2 -->
 <g id="node2" class="node"><title>Node2</title>
-<g id="a_node2"><a xlink:href="class_c_task_ctrl.html#a12ec6e8d4a490eba9ebdf22d32cf292b" target="_top" xlink:title="CTaskCtrl::Init">
-<polygon fill="none" stroke="black" points="108,-0.5 108,-19.5 186,-19.5 186,-0.5 108,-0.5"/>
-<text text-anchor="middle" x="147" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">CTaskCtrl::Init</text>
+<g id="a_node2"><a xlink:href="class_c_task_ctrl.html#a12ec6e8d4a490eba9ebdf22d32cf292b" target="_top" xlink:title="Initialization function task controller.">
+<polygon fill="none" stroke="black" points="77,-0.5 77,-19.5 155,-19.5 155,-0.5 77,-0.5"/>
+<text text-anchor="middle" x="116" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">CTaskCtrl::Init</text>
 </a>
 </g>
 </g>
 <!-- Node1&#45;&gt;Node2 -->
 <g id="edge1" class="edge"><title>Node1&#45;&gt;Node2</title>
-<path fill="none" stroke="midnightblue" d="M82.2897,-10C90.8273,-10 99.6755,-10 107.963,-10"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="82.0883,-6.5001 72.0883,-10 82.0882,-13.5001 82.0883,-6.5001"/>
+<path fill="none" stroke="midnightblue" d="M180.71,-10C172.173,-10 163.324,-10 155.037,-10"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="180.912,-13.5001 190.912,-10 180.912,-6.5001 180.912,-13.5001"/>
 </g>
 <!-- Node3 -->
 <g id="node3" class="node"><title>Node3</title>
-<g id="a_node3"><a xlink:href="_a_d_a_s___nav_u_8ino.html#a4fc01d736fe50cf5b977f755b675f11d" target="_top" xlink:title="setup">
-<polygon fill="none" stroke="black" points="222,-0.5 222,-19.5 263,-19.5 263,-0.5 222,-0.5"/>
-<text text-anchor="middle" x="242.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">setup</text>
+<g id="a_node3"><a xlink:href="_a_d_a_s___nav_u_8ino.html#a4fc01d736fe50cf5b977f755b675f11d" target="_top" xlink:title=" ">
+<polygon fill="none" stroke="black" points="0,-0.5 0,-19.5 41,-19.5 41,-0.5 0,-0.5"/>
+<text text-anchor="middle" x="20.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">setup</text>
 </a>
 </g>
 </g>
 <!-- Node2&#45;&gt;Node3 -->
 <g id="edge2" class="edge"><title>Node2&#45;&gt;Node3</title>
-<path fill="none" stroke="midnightblue" d="M196.264,-10C205.365,-10 214.39,-10 221.956,-10"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="196.03,-6.5001 186.03,-10 196.03,-13.5001 196.03,-6.5001"/>
+<path fill="none" stroke="midnightblue" d="M66.7356,-10C57.6345,-10 48.61,-10 41.0437,-10"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="66.97,-13.5001 76.97,-10 66.9699,-6.5001 66.97,-13.5001"/>
 </g>
 </g>
 </svg>

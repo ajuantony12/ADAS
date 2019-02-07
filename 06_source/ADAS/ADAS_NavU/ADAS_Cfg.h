@@ -15,21 +15,16 @@
 #define ADAS_DEBUG2
 
 //PLS Buffer
-/** Size of PLS receiving buffer in bits */
+/** Size of PLS receiving buffer in bytes */
 #define PLS_RCV_BUFF_SIZE                                   500U
-/** Size of PLS sending buffer in bits */
+/** Size of PLS sending buffer in bytes */
 #define PLS_SND_BUFF_SIZE                                   50U
 	
 //ICC Buffer
-/** Size of ICC receiving buffer in bits */
+/** Size of ICC receiving buffer in bytes*/
 #define ICC_RCV_BUFF_SIZE                                   ICC_LEN
 /** Size of ICC sending buffer in bits */
 #define ICC_SND_BUFF_SIZE                                   ICC_LEN*10
-	
-//Virtual mapping Buffer
-/** Maximum number of PLS measurements in buffer */
-#define MAX_MES_BUFF_SIZE                                   (20)
-	
 //Task list
 /** Maximum number of possible tasks handled by task controller */
 #define MAX_NUM_TASK                                    5U
@@ -44,17 +39,27 @@
 /** Definition of UBRRn value according to ::SERIAL2_BAUD */	
 #define SERIAL2_BAUD_PRESCALE                           (((F_CPU / (SERIAL2_BAUD * 16UL))) - 1)
 
-//Number of segments on right
+/** Maximum number of segments on the right side of Warning field rectangular field*/
 #define PLS_WF_SEGEMENTS_RIGHT                         63U
-#define PLS_WF_SEGEMENTS_LEFT                          117U
+/** Left corner segment position*/
+#define PLS_WF_SEGEMENTS_LEFT_CORNER                          117U
+/** Second point segment for wall angle detection 50 cm forward on right side*/
 #define PLS_WALL_DETECTION_2_POINT                     45U
+/** Maximum allowed vertical distance for free run*/
 #define PLS_MAX_VERTICAL_DIST                          100U
-#define PLS_LEFT_OFFSET_TOLERANCE                      5U
+/** Tolerance for right wall offset check*/
+#define PLS_RIGHT_OFFSET_TOLERANCE                      5U
+/** Maximum Number of warning field segment 
+*   Defined through Desktop client of PLS 
+*/
 #define PLS_WF_SEGEMENTS_MAX                           180U
-//PLS Comms Constant
+/** PLS | telegram start byte*/
 #define SICK_STX                                        0x02
+/** PLS | telegram reciever Address*/
 #define SICK_DESTR                                      0x80
+/** PLS | telegram acknowledgement byte*/
 #define SICK_ACK                                        0x06
+/** PLS | telegram not acknowledgement byte*/
 #define SICK_NAK                                        0x15
 //one time configuration
 //#define ONE_TIME_CFG

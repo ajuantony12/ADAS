@@ -1,3 +1,4 @@
 <map id="ADAS_Debug.h" name="ADAS_Debug.h">
-<area shape="rect" id="node2" href="$_a_d_a_s___cfg_8h.html" title="This file contains the configuration of the vehicle. " alt="" coords="15,80,109,107"/>
+<area shape="rect" id="node1" title="This file contains redefinition of the serial functions for debugging purpose." alt="" coords="5,5,119,32"/>
+<area shape="rect" id="node2" href="$_a_d_a_s___cfg_8h.html" title="This file contains the configuration of the vehicle." alt="" coords="15,80,109,107"/>
 </map>

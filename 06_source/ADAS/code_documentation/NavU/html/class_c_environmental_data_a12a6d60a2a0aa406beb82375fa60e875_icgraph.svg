@@ -10,22 +10,25 @@
 <title>CEnvironmentalData::GetVbat</title>
 <!-- Node6 -->
 <g id="node1" class="node"><title>Node6</title>
-<polygon fill="#bfbfbf" stroke="black" points="0,-0.5 0,-30.5 104,-30.5 104,-0.5 0,-0.5"/>
-<text text-anchor="start" x="8" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">CEnvironmentalData</text>
-<text text-anchor="middle" x="52" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">::GetVbat</text>
+<g id="a_node1"><a xlink:title="Function to convert ADC value into mV.">
+<polygon fill="#bfbfbf" stroke="black" points="164,-0.5 164,-30.5 268,-30.5 268,-0.5 164,-0.5"/>
+<text text-anchor="start" x="172" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">CEnvironmentalData</text>
+<text text-anchor="middle" x="216" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">::GetVbat</text>
+</a>
+</g>
 </g>
 <!-- Node7 -->
 <g id="node2" class="node"><title>Node7</title>
-<g id="a_node2"><a xlink:href="class_c_environmental_data.html#a586a729d3aab2873812517d950c91242" target="_top" xlink:title="Run function of CEnvironmentalData which is periodically called by CTaskCtrl. ">
-<polygon fill="none" stroke="black" points="140,-6 140,-25 268,-25 268,-6 140,-6"/>
-<text text-anchor="middle" x="204" y="-13" font-family="Helvetica,sans-Serif" font-size="10.00">CEnvironmentalData::Run</text>
+<g id="a_node2"><a xlink:href="class_c_environmental_data.html#a586a729d3aab2873812517d950c91242" target="_top" xlink:title="Run function of CEnvironmentalData which is periodically called by CTaskCtrl.">
+<polygon fill="none" stroke="black" points="0,-6 0,-25 128,-25 128,-6 0,-6"/>
+<text text-anchor="middle" x="64" y="-13" font-family="Helvetica,sans-Serif" font-size="10.00">CEnvironmentalData::Run</text>
 </a>
 </g>
 </g>
 <!-- Node6&#45;&gt;Node7 -->
 <g id="edge1" class="edge"><title>Node6&#45;&gt;Node7</title>
-<path fill="none" stroke="midnightblue" d="M114.315,-15.5C122.727,-15.5 131.377,-15.5 139.822,-15.5"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="114.202,-12.0001 104.202,-15.5 114.202,-19.0001 114.202,-12.0001"/>
+<path fill="none" stroke="midnightblue" d="M153.685,-15.5C145.273,-15.5 136.623,-15.5 128.178,-15.5"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="153.798,-19.0001 163.798,-15.5 153.798,-12.0001 153.798,-19.0001"/>
 </g>
 </g>
 </svg>

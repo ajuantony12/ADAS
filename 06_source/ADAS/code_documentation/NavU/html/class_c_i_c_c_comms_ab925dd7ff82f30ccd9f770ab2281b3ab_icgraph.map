@@ -1,6 +1,7 @@
 <map id="CICCComms::addTxMsg" name="CICCComms::addTxMsg">
-<area shape="rect" id="node2" href="$class_c_navigation.html#a3cc8f7fdd003d6b2c5056b87ff93edd9" title="Stop function of CNavigation. " alt="" coords="243,5,369,32"/>
-<area shape="rect" id="node3" href="$class_c_navigation.html#ab3d29f3ab4a8a922f5af439f6d78aded" title="Function to continue if obstacle is clear. " alt="" coords="219,56,393,83"/>
-<area shape="rect" id="node4" href="$class_c_navigation.html#a27649dc6324360829d42aea67e88e3ee" title="Pause drive due to obstacle detection. " alt="" coords="225,107,387,133"/>
-<area shape="rect" id="node5" href="$class_c_v_mapping.html#a8f064fcfd01953d7072efd5de23f89ef" title="CVMapping::Run" alt="" coords="441,107,561,133"/>
+<area shape="rect" id="node1" title="Function to append message which shall be sent." alt="" coords="396,56,561,83"/>
+<area shape="rect" id="node2" href="$class_c_navigation.html#a3cc8f7fdd003d6b2c5056b87ff93edd9" title="Stop function of CNavigation." alt="" coords="198,5,323,32"/>
+<area shape="rect" id="node3" href="$class_c_navigation.html#ab3d29f3ab4a8a922f5af439f6d78aded" title="Function to continue if obstacle is clear." alt="" coords="173,56,348,83"/>
+<area shape="rect" id="node4" href="$class_c_navigation.html#a27649dc6324360829d42aea67e88e3ee" title="Pause drive due to obstacle detection." alt="" coords="180,107,341,133"/>
+<area shape="rect" id="node5" href="$class_c_v_mapping.html#a8f064fcfd01953d7072efd5de23f89ef" title="Run function of virtual mapping Application." alt="" coords="5,107,125,133"/>
 </map>

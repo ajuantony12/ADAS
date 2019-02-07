@@ -7,7 +7,6 @@ var annotated_dup =
     [ "CNavigation", "class_c_navigation.html", "class_c_navigation" ],
     [ "CPLSComms", "class_c_p_l_s_comms.html", "class_c_p_l_s_comms" ],
     [ "CPositioning", "class_c_positioning.html", "class_c_positioning" ],
-    [ "CPWMUnit", "class_c_p_w_m_unit.html", "class_c_p_w_m_unit" ],
     [ "CSerial", "class_c_serial.html", "class_c_serial" ],
     [ "CTaskCtrl", "class_c_task_ctrl.html", "class_c_task_ctrl" ],
     [ "CUser_IF", "class_c_user___i_f.html", "class_c_user___i_f" ],

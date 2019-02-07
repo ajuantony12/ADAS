@@ -1,3 +1,4 @@
 <map id="CEnvironmentalData::GetVbat" name="CEnvironmentalData::GetVbat">
-<area shape="rect" id="node2" href="$class_c_a_d_c.html#ac2f897fc64f605751ac3ffe7d2704ba6" title="Function to read ADC value. " alt="" coords="192,13,348,39"/>
+<area shape="rect" id="node1" title="Function to convert ADC value into mV." alt="" coords="5,5,144,47"/>
+<area shape="rect" id="node2" href="$class_c_a_d_c.html#ac2f897fc64f605751ac3ffe7d2704ba6" title="Function to read ADC value." alt="" coords="192,13,348,39"/>
 </map>
