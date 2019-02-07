@@ -23,7 +23,7 @@
 //ICC Buffer
 /** Size of ICC receiving buffer in bytes*/
 #define ICC_RCV_BUFF_SIZE                                   ICC_LEN
-/** Size of ICC sending buffer in bits */
+/** Size of ICC sending buffer in bytes */
 #define ICC_SND_BUFF_SIZE                                   ICC_LEN*10
 //Task list
 /** Maximum number of possible tasks handled by task controller */
