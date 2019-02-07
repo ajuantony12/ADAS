@@ -10,7 +10,7 @@
 <title>ISR</title>
 <!-- Node3 -->
 <g id="node1" class="node"><title>Node3</title>
-<g id="a_node1"><a xlink:title=" ">
+<g id="a_node1"><a xlink:title="UART2 interrupt.">
 <polygon fill="#bfbfbf" stroke="black" points="0,-0.5 0,-19.5 32,-19.5 32,-0.5 0,-0.5"/>
 <text text-anchor="middle" x="16" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">ISR</text>
 </a>
