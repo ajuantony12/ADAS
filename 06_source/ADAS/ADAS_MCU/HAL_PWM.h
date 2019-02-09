@@ -1,16 +1,15 @@
 /**
-* @file HAL_PWM.h
-* @author Christoph Jurczyk
-* @date January 29, 2019
-* @brief Hardware Abstraction Layer (HAL) for the 10-bit PWM outputs
+* file HAL_PWM.h
+* author Christoph Jurczyk
+* date January 29, 2019
+* brief Hardware Abstraction Layer (HAL) for the 10-bit PWM outputs
 *
 */
-​
 #ifndef HAL_PWM_H
 #define HAL_PWM_H
 #include "ADAS_Types.h"
 #include "ADAS_Cfg.h"
-​
+
 //! Hardware Abstraction Layer (HAL) PWM class
 class CPWMUnit{
 public:
