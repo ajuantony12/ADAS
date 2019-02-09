@@ -1,0 +1,960 @@
+% This file was created by matlab2tikz.
+%
+%The latest updates can be retrieved from
+%  http://www.mathworks.com/matlabcentral/fileexchange/22022-matlab2tikz-matlab2tikz
+%where you can also make suggestions and rate matlab2tikz.
+%
+\begin{tikzpicture}
+
+\begin{axis}[%
+width=0.551\figurewidth,
+height=\figureheight,
+at={(0\figurewidth,0\figureheight)},
+scale only axis,
+xmin=-125,
+xmax=100,
+xlabel style={font=\color{white!15!black}},
+xlabel={x in cm},
+ymin=-10,
+ymax=500,
+ylabel style={font=\color{white!15!black}},
+ylabel={y in cm},
+axis background/.style={fill=white},
+title style={font=\bfseries},
+title={Detection of blocked boxes (size: 25cm x 25cm)},
+axis x line*=bottom,
+axis y line*=left,
+xmajorgrids,
+ymajorgrids,
+legend style={legend cell align=left, align=left, draw=white!15!black}
+]
+\addplot [color=white!80!black]
+  table[row sep=crcr]{%
+77	0\\
+76.9881411311831	1.3513419867068\\
+76.9525681775315	2.70226772958641\\
+76.8932920963178	4.0523611130241\\
+76.8103311459126	5.40120627779068\\
+76.7037108801608	6.74838774913644\\
+76.5734641405104	8.0934905647668\\
+76.4196310458963	9.43610040266006\\
+76.2422589803832	10.7758037086879\\
+80.9791559927629	12.8986935268565\\
+80.7403135599794	14.3178827427871\\
+75.5694914539097	14.7733530857914\\
+80.1881004078929	17.1425946978188\\
+79.8748997827023	18.5472473618934\\
+74.6872729659979	18.729956137229\\
+74.3470615022341	20.0378253805901\\
+78.7881020284736	22.7252058021669\\
+83.1562368465658	25.5742111025512\\
+77.9420415926885	25.4762272003453\\
+77.4829325027498	26.840178292521\\
+76.9999569210683	28.195862004089\\
+76.4932636150221	29.542860753873\\
+75.9630086575841	30.8807596358608\\
+80.0074868048109	34.1731188974317\\
+79.3954300687952	35.5719789186806\\
+83.2852923318819	39.0840131152491\\
+78.0981459044665	38.3364005389743\\
+77.4133180689515	39.7011106337763\\
+76.7046451845103	41.0535918905811\\
+75.9723455383835	42.3934277146406\\
+79.5394403675365	46.2328608894052\\
+78.7158084990363	47.621649408048\\
+82.0998831234886	51.6585829374898\\
+81.1806360606178	53.0914713376219\\
+80.2363835298634	54.508006366484\\
+79.2674163823136	55.9077516993209\\
+78.2740330817161	57.2902761829825\\
+81.2388354688617	61.6786155135086\\
+80.1438704881083	63.0948494188339\\
+82.8979556311082	67.6530040144768\\
+77.8802270423348	65.8685830714035\\
+80.4726500379602	70.5205827816814\\
+79.2226274530243	71.9220084497042\\
+77.9482025110416	73.301280516084\\
+80.2315326124228	78.1466645139876\\
+78.8477102215258	79.5426840936506\\
+80.8967259992531	84.526443924974\\
+79.4008366963417	85.9331550213355\\
+81.2087162184413	91.0447385088928\\
+79.5983834739188	92.4559211102186\\
+81.1587593781884	97.6844704965601\\
+82.5591481836914	102.995082655354\\
+83.7971710764963	108.383735493737\\
+81.8821420880829	109.837674807267\\
+79.9418915520987	111.257781638286\\
+80.8228936463368	116.754699531252\\
+81.5347023790717	122.315544016107\\
+82.0753676672989	127.936054426724\\
+82.4430371242584	133.611921735031\\
+82.6359571492914	139.338790672305\\
+82.652473973254	145.112261873698\\
+80.0930394654337	146.54045526471\\
+82.150188056541	156.781206151359\\
+83.871129275765	167.136571922509\\
+83.088752323727	173.090321038718\\
+82.1225677275543	179.066702292283\\
+82.9758112317442	189.641806441602\\
+83.4819316790683	200.299193915331\\
+83.6383534749609	211.029916902788\\
+81.6823138395992	217.145111862573\\
+81.8860421260935	229.849246474561\\
+81.0297479533712	240.728436098881\\
+82.8391637445976	261.177474048004\\
+82.5261313061288	276.966491929337\\
+81.6831045856173	292.820543038317\\
+82.8252677649995	318.403792407779\\
+83.0926858501333	344.109874252703\\
+82.4815303487679	369.91593254593\\
+83.995505115801	410.494525079618\\
+82.2756951467296	441.397451270533\\
+81.9847949822785	487.149354296723\\
+74.3145221942334	494.446510545926\\
+65.6255921156456	495.674572334986\\
+56.9164478737345	496.74995517004\\
+48.1897720814637	497.672327808907\\
+39.4482527519089	498.441406140001\\
+30.6945824702907	499.056953269839\\
+21.9314575645971	499.518779596015\\
+13.1615772750535	499.826742865598\\
+4.38764292269602	499.980748218952\\
+-4.38764292269596	499.980748218952\\
+-13.1615772750534	499.826742865598\\
+-21.9314575645969	499.518779596015\\
+-30.6945824702906	499.056953269839\\
+-39.4482527519089	498.441406140001\\
+-48.1897720814637	497.672327808907\\
+-56.9164478737345	496.74995517004\\
+-65.6255921156454	495.674572334986\\
+-74.3145221942333	494.446510545926\\
+-82.980561722954	493.066148073606\\
+-89.6053784560151	480.720164078598\\
+-90.0095030954526	439.885541195104\\
+-91.1867050557618	408.957191917532\\
+-98.3498174327847	407.293890711533\\
+-106.741378517811	410.344097206378\\
+-92.4308815047775	331.349561859149\\
+-89.6650700004305	300.92553102357\\
+-90.3974816045061	285.007535548734\\
+-90.6001906250292	269.160928551505\\
+-90.276005458685	253.399374187119\\
+-91.1884451916216	242.416310225889\\
+-91.7442731950011	231.482155545349\\
+-90.0219908428663	215.990835834965\\
+-91.7944964834271	209.796974275975\\
+-89.2092867700335	194.519158835272\\
+-92.6093385274873	192.923586991071\\
+-91.4957773917436	182.330805733646\\
+-90.0403191128189	171.8392880981\\
+-90.6442183171674	165.845185898384\\
+-91.0661988687349	159.88416877102\\
+-91.3076316649577	153.960762532979\\
+-88.7444157579597	143.824297918601\\
+-91.2548495774574	142.244692092871\\
+-90.9638856473998	136.460879038378\\
+-87.6529973347596	126.621293857837\\
+-89.8616883140379	125.063491768584\\
+-86.0659011728754	115.449818775522\\
+-88.0787783577772	113.921590591957\\
+-90.0645252912997	112.358271987659\\
+-88.827303571403	106.914499204897\\
+-90.6899614989731	105.339123232134\\
+-87.8651683674939	98.5074219932283\\
+-89.5804311445906	96.950226177917\\
+-87.8109760846594	91.7509263117239\\
+-87.2956791738321	88.065114532256\\
+-90.9768271587295	88.6127356542538\\
+-88.8755206200662	83.577160962264\\
+-88.1074081019616	79.9880280889234\\
+-89.4976201356754	78.4294331871036\\
+-87.0426066943741	73.6178281386275\\
+-86.7716918755525	70.8143593422561\\
+-91.929733795183	72.3735037451331\\
+-89.2034271814952	67.7255386030682\\
+-90.3782650015691	66.1495972422066\\
+-91.5252642764858	64.553280312618\\
+-88.5081756463442	60.1273884661216\\
+-89.5497737988258	58.5648188982014\\
+-86.3318358618127	54.3213964909687\\
+-91.5499077108357	55.3860487680559\\
+-88.185031711834	51.258171855645\\
+-89.071025803622	49.7026393895787\\
+-85.5212710677873	45.7723955561652\\
+-90.7604418739431	46.5461297085654\\
+-87.0749442842902	42.7428833595461\\
+-87.8116669151364	41.2081442628171\\
+-88.5213415709555	39.6607121277243\\
+-89.2037496559386	38.101063598286\\
+-89.8586809729958	36.5296790814451\\
+-90.4859337885018	34.9470425990937\\
+-86.390195569979	31.6343817606853\\
+-91.656639667887	31.7499670045675\\
+-87.4471686161871	28.5830841759972\\
+-87.9353309182075	27.0439933498243\\
+-88.3964071538972	25.4965723634068\\
+-88.8302553013706	23.9412978573285\\
+-91.1766708935559	22.8651412584354\\
+-89.6157412196172	20.8091067962706\\
+-89.9671370430018	19.2331550268211\\
+-90.2908209579181	17.651279011595\\
+-90.5866932624159	16.0639660041026\\
+-85.9169094069558	13.6851992297136\\
+-86.1438510557577	12.1752587357902\\
+-86.3442584544543	10.6615679874211\\
+-86.5180698730442	9.14459323551576\\
+-86.6652317736882	7.62480174253082\\
+-91.7733826678436	6.45338931891878\\
+-86.8794339270084	4.57864177705326\\
+-86.9464082005876	3.05321159057164\\
+-86.9866010183497	1.52684094601937\\
+-87	1.0654427152582e-14\\
+};
+\addlegendentry{data1}
+
+\addplot [color=blue, draw=none, mark=+, mark options={solid, blue}]
+  table[row sep=crcr]{%
+77	0\\
+76.9881411311831	1.3513419867068\\
+76.9525681775315	2.70226772958641\\
+76.8932920963178	4.0523611130241\\
+76.8103311459126	5.40120627779068\\
+76.7037108801608	6.74838774913644\\
+76.5734641405104	8.0934905647668\\
+76.4196310458963	9.43610040266006\\
+76.2422589803832	10.7758037086879\\
+80.9791559927629	12.8986935268565\\
+80.7403135599794	14.3178827427871\\
+75.5694914539097	14.7733530857914\\
+80.1881004078929	17.1425946978188\\
+79.8748997827023	18.5472473618934\\
+74.6872729659979	18.729956137229\\
+74.3470615022341	20.0378253805901\\
+78.7881020284736	22.7252058021669\\
+83.1562368465658	25.5742111025512\\
+77.9420415926885	25.4762272003453\\
+77.4829325027498	26.840178292521\\
+76.9999569210683	28.195862004089\\
+76.4932636150221	29.542860753873\\
+75.9630086575841	30.8807596358608\\
+80.0074868048109	34.1731188974317\\
+79.3954300687952	35.5719789186806\\
+83.2852923318819	39.0840131152491\\
+78.0981459044665	38.3364005389743\\
+77.4133180689515	39.7011106337763\\
+76.7046451845103	41.0535918905811\\
+75.9723455383835	42.3934277146406\\
+79.5394403675365	46.2328608894052\\
+78.7158084990363	47.621649408048\\
+82.0998831234886	51.6585829374898\\
+81.1806360606178	53.0914713376219\\
+80.2363835298634	54.508006366484\\
+79.2674163823136	55.9077516993209\\
+78.2740330817161	57.2902761829825\\
+81.2388354688617	61.6786155135086\\
+80.1438704881083	63.0948494188339\\
+82.8979556311082	67.6530040144768\\
+77.8802270423348	65.8685830714035\\
+80.4726500379602	70.5205827816814\\
+79.2226274530243	71.9220084497042\\
+77.9482025110416	73.301280516084\\
+80.2315326124228	78.1466645139876\\
+78.8477102215258	79.5426840936506\\
+80.8967259992531	84.526443924974\\
+79.4008366963417	85.9331550213355\\
+81.2087162184413	91.0447385088928\\
+79.5983834739188	92.4559211102186\\
+81.1587593781884	97.6844704965601\\
+82.5591481836914	102.995082655354\\
+83.7971710764963	108.383735493737\\
+81.8821420880829	109.837674807267\\
+79.9418915520987	111.257781638286\\
+80.8228936463368	116.754699531252\\
+81.5347023790717	122.315544016107\\
+82.0753676672989	127.936054426724\\
+82.4430371242584	133.611921735031\\
+82.6359571492914	139.338790672305\\
+82.652473973254	145.112261873698\\
+80.0930394654337	146.54045526471\\
+82.150188056541	156.781206151359\\
+83.871129275765	167.136571922509\\
+83.088752323727	173.090321038718\\
+82.1225677275543	179.066702292283\\
+82.9758112317442	189.641806441602\\
+83.4819316790683	200.299193915331\\
+83.6383534749609	211.029916902788\\
+81.6823138395992	217.145111862573\\
+81.8860421260935	229.849246474561\\
+81.0297479533712	240.728436098881\\
+82.8391637445976	261.177474048004\\
+82.5261313061288	276.966491929337\\
+81.6831045856173	292.820543038317\\
+82.8252677649995	318.403792407779\\
+83.0926858501333	344.109874252703\\
+82.4815303487679	369.91593254593\\
+83.995505115801	410.494525079618\\
+82.2756951467296	441.397451270533\\
+81.9847949822785	487.149354296723\\
+74.3145221942334	494.446510545926\\
+65.6255921156456	495.674572334986\\
+56.9164478737345	496.74995517004\\
+48.1897720814637	497.672327808907\\
+39.4482527519089	498.441406140001\\
+30.6945824702907	499.056953269839\\
+21.9314575645971	499.518779596015\\
+13.1615772750535	499.826742865598\\
+4.38764292269602	499.980748218952\\
+-4.38764292269596	499.980748218952\\
+-13.1615772750534	499.826742865598\\
+-21.9314575645969	499.518779596015\\
+-30.6945824702906	499.056953269839\\
+-39.4482527519089	498.441406140001\\
+-48.1897720814637	497.672327808907\\
+-56.9164478737345	496.74995517004\\
+-65.6255921156454	495.674572334986\\
+-74.3145221942333	494.446510545926\\
+-82.980561722954	493.066148073606\\
+-89.6053784560151	480.720164078598\\
+-90.0095030954526	439.885541195104\\
+-91.1867050557618	408.957191917532\\
+-98.3498174327847	407.293890711533\\
+-106.741378517811	410.344097206378\\
+-92.4308815047775	331.349561859149\\
+-89.6650700004305	300.92553102357\\
+-90.3974816045061	285.007535548734\\
+-90.6001906250292	269.160928551505\\
+-90.276005458685	253.399374187119\\
+-91.1884451916216	242.416310225889\\
+-91.7442731950011	231.482155545349\\
+-90.0219908428663	215.990835834965\\
+-91.7944964834271	209.796974275975\\
+-89.2092867700335	194.519158835272\\
+-92.6093385274873	192.923586991071\\
+-91.4957773917436	182.330805733646\\
+-90.0403191128189	171.8392880981\\
+-90.6442183171674	165.845185898384\\
+-91.0661988687349	159.88416877102\\
+-91.3076316649577	153.960762532979\\
+-88.7444157579597	143.824297918601\\
+-91.2548495774574	142.244692092871\\
+-90.9638856473998	136.460879038378\\
+-87.6529973347596	126.621293857837\\
+-89.8616883140379	125.063491768584\\
+-86.0659011728754	115.449818775522\\
+-88.0787783577772	113.921590591957\\
+-90.0645252912997	112.358271987659\\
+-88.827303571403	106.914499204897\\
+-90.6899614989731	105.339123232134\\
+-87.8651683674939	98.5074219932283\\
+-89.5804311445906	96.950226177917\\
+-87.8109760846594	91.7509263117239\\
+-87.2956791738321	88.065114532256\\
+-90.9768271587295	88.6127356542538\\
+-88.8755206200662	83.577160962264\\
+-88.1074081019616	79.9880280889234\\
+-89.4976201356754	78.4294331871036\\
+-87.0426066943741	73.6178281386275\\
+-86.7716918755525	70.8143593422561\\
+-91.929733795183	72.3735037451331\\
+-89.2034271814952	67.7255386030682\\
+-90.3782650015691	66.1495972422066\\
+-91.5252642764858	64.553280312618\\
+-88.5081756463442	60.1273884661216\\
+-89.5497737988258	58.5648188982014\\
+-86.3318358618127	54.3213964909687\\
+-91.5499077108357	55.3860487680559\\
+-88.185031711834	51.258171855645\\
+-89.071025803622	49.7026393895787\\
+-85.5212710677873	45.7723955561652\\
+-90.7604418739431	46.5461297085654\\
+-87.0749442842902	42.7428833595461\\
+-87.8116669151364	41.2081442628171\\
+-88.5213415709555	39.6607121277243\\
+-89.2037496559386	38.101063598286\\
+-89.8586809729958	36.5296790814451\\
+-90.4859337885018	34.9470425990937\\
+-86.390195569979	31.6343817606853\\
+-91.656639667887	31.7499670045675\\
+-87.4471686161871	28.5830841759972\\
+-87.9353309182075	27.0439933498243\\
+-88.3964071538972	25.4965723634068\\
+-88.8302553013706	23.9412978573285\\
+-91.1766708935559	22.8651412584354\\
+-89.6157412196172	20.8091067962706\\
+-89.9671370430018	19.2331550268211\\
+-90.2908209579181	17.651279011595\\
+-90.5866932624159	16.0639660041026\\
+-85.9169094069558	13.6851992297136\\
+-86.1438510557577	12.1752587357902\\
+-86.3442584544543	10.6615679874211\\
+-86.5180698730442	9.14459323551576\\
+-86.6652317736882	7.62480174253082\\
+-91.7733826678436	6.45338931891878\\
+-86.8794339270084	4.57864177705326\\
+-86.9464082005876	3.05321159057164\\
+-86.9866010183497	1.52684094601937\\
+-87	1.0654427152582e-14\\
+};
+\addlegendentry{data2}
+
+\draw[fill=green, draw=black] (axis cs:-125,0) rectangle (axis cs:-100,25);
+\node[right, align=left]
+at (axis cs:-112.5,12.5) {0};
+\draw[fill=red, draw=black] (axis cs:-100,0) rectangle (axis cs:-75,25);
+\node[right, align=left]
+at (axis cs:-87.5,12.5) {16};
+\draw[fill=green, draw=black] (axis cs:-75,0) rectangle (axis cs:-50,25);
+\node[right, align=left]
+at (axis cs:-62.5,12.5) {0};
+\draw[fill=green, draw=black] (axis cs:-50,0) rectangle (axis cs:-25,25);
+\node[right, align=left]
+at (axis cs:-37.5,12.5) {0};
+\draw[fill=green, draw=black] (axis cs:-25,0) rectangle (axis cs:0,25);
+\node[right, align=left]
+at (axis cs:-12.5,12.5) {0};
+\draw[fill=green, draw=black] (axis cs:0,0) rectangle (axis cs:25,25);
+\node[right, align=left]
+at (axis cs:12.5,12.5) {0};
+\draw[fill=green, draw=black] (axis cs:25,0) rectangle (axis cs:50,25);
+\node[right, align=left]
+at (axis cs:37.5,12.5) {0};
+\draw[fill=green, draw=black] (axis cs:50,0) rectangle (axis cs:75,25);
+\node[right, align=left]
+at (axis cs:62.5,12.5) {2};
+\draw[fill=red, draw=black] (axis cs:75,0) rectangle (axis cs:100,25);
+\node[right, align=left]
+at (axis cs:87.5,12.5) {15};
+\draw[fill=green, draw=black] (axis cs:-125,25) rectangle (axis cs:-100,50);
+\node[right, align=left]
+at (axis cs:-112.5,37.5) {0};
+\draw[fill=red, draw=black] (axis cs:-100,25) rectangle (axis cs:-75,50);
+\node[right, align=left]
+at (axis cs:-87.5,37.5) {14};
+\draw[fill=green, draw=black] (axis cs:-75,25) rectangle (axis cs:-50,50);
+\node[right, align=left]
+at (axis cs:-62.5,37.5) {0};
+\draw[fill=green, draw=black] (axis cs:-50,25) rectangle (axis cs:-25,50);
+\node[right, align=left]
+at (axis cs:-37.5,37.5) {0};
+\draw[fill=green, draw=black] (axis cs:-25,25) rectangle (axis cs:0,50);
+\node[right, align=left]
+at (axis cs:-12.5,37.5) {0};
+\draw[fill=green, draw=black] (axis cs:0,25) rectangle (axis cs:25,50);
+\node[right, align=left]
+at (axis cs:12.5,37.5) {0};
+\draw[fill=green, draw=black] (axis cs:25,25) rectangle (axis cs:50,50);
+\node[right, align=left]
+at (axis cs:37.5,37.5) {0};
+\draw[fill=green, draw=black] (axis cs:50,25) rectangle (axis cs:75,50);
+\node[right, align=left]
+at (axis cs:62.5,37.5) {0};
+\draw[fill=red, draw=black] (axis cs:75,25) rectangle (axis cs:100,50);
+\node[right, align=left]
+at (axis cs:87.5,37.5) {15};
+\draw[fill=green, draw=black] (axis cs:-125,50) rectangle (axis cs:-100,75);
+\node[right, align=left]
+at (axis cs:-112.5,62.5) {0};
+\draw[fill=red, draw=black] (axis cs:-100,50) rectangle (axis cs:-75,75);
+\node[right, align=left]
+at (axis cs:-87.5,62.5) {11};
+\draw[fill=green, draw=black] (axis cs:-75,50) rectangle (axis cs:-50,75);
+\node[right, align=left]
+at (axis cs:-62.5,62.5) {0};
+\draw[fill=green, draw=black] (axis cs:-50,50) rectangle (axis cs:-25,75);
+\node[right, align=left]
+at (axis cs:-37.5,62.5) {0};
+\draw[fill=green, draw=black] (axis cs:-25,50) rectangle (axis cs:0,75);
+\node[right, align=left]
+at (axis cs:-12.5,62.5) {0};
+\draw[fill=green, draw=black] (axis cs:0,50) rectangle (axis cs:25,75);
+\node[right, align=left]
+at (axis cs:12.5,62.5) {0};
+\draw[fill=green, draw=black] (axis cs:25,50) rectangle (axis cs:50,75);
+\node[right, align=left]
+at (axis cs:37.5,62.5) {0};
+\draw[fill=green, draw=black] (axis cs:50,50) rectangle (axis cs:75,75);
+\node[right, align=left]
+at (axis cs:62.5,62.5) {0};
+\draw[fill=red, draw=black] (axis cs:75,50) rectangle (axis cs:100,75);
+\node[right, align=left]
+at (axis cs:87.5,62.5) {12};
+\draw[fill=green, draw=black] (axis cs:-125,75) rectangle (axis cs:-100,100);
+\node[right, align=left]
+at (axis cs:-112.5,87.5) {0};
+\draw[fill=red, draw=black] (axis cs:-100,75) rectangle (axis cs:-75,100);
+\node[right, align=left]
+at (axis cs:-87.5,87.5) {8};
+\draw[fill=green, draw=black] (axis cs:-75,75) rectangle (axis cs:-50,100);
+\node[right, align=left]
+at (axis cs:-62.5,87.5) {0};
+\draw[fill=green, draw=black] (axis cs:-50,75) rectangle (axis cs:-25,100);
+\node[right, align=left]
+at (axis cs:-37.5,87.5) {0};
+\draw[fill=green, draw=black] (axis cs:-25,75) rectangle (axis cs:0,100);
+\node[right, align=left]
+at (axis cs:-12.5,87.5) {0};
+\draw[fill=green, draw=black] (axis cs:0,75) rectangle (axis cs:25,100);
+\node[right, align=left]
+at (axis cs:12.5,87.5) {0};
+\draw[fill=green, draw=black] (axis cs:25,75) rectangle (axis cs:50,100);
+\node[right, align=left]
+at (axis cs:37.5,87.5) {0};
+\draw[fill=green, draw=black] (axis cs:50,75) rectangle (axis cs:75,100);
+\node[right, align=left]
+at (axis cs:62.5,87.5) {0};
+\draw[fill=red, draw=black] (axis cs:75,75) rectangle (axis cs:100,100);
+\node[right, align=left]
+at (axis cs:87.5,87.5) {7};
+\draw[fill=green, draw=black] (axis cs:-125,100) rectangle (axis cs:-100,125);
+\node[right, align=left]
+at (axis cs:-112.5,112.5) {0};
+\draw[fill=red, draw=black] (axis cs:-100,100) rectangle (axis cs:-75,125);
+\node[right, align=left]
+at (axis cs:-87.5,112.5) {5};
+\draw[fill=green, draw=black] (axis cs:-75,100) rectangle (axis cs:-50,125);
+\node[right, align=left]
+at (axis cs:-62.5,112.5) {0};
+\draw[fill=green, draw=black] (axis cs:-50,100) rectangle (axis cs:-25,125);
+\node[right, align=left]
+at (axis cs:-37.5,112.5) {0};
+\draw[fill=green, draw=black] (axis cs:-25,100) rectangle (axis cs:0,125);
+\node[right, align=left]
+at (axis cs:-12.5,112.5) {0};
+\draw[fill=green, draw=black] (axis cs:0,100) rectangle (axis cs:25,125);
+\node[right, align=left]
+at (axis cs:12.5,112.5) {0};
+\draw[fill=green, draw=black] (axis cs:25,100) rectangle (axis cs:50,125);
+\node[right, align=left]
+at (axis cs:37.5,112.5) {0};
+\draw[fill=green, draw=black] (axis cs:50,100) rectangle (axis cs:75,125);
+\node[right, align=left]
+at (axis cs:62.5,112.5) {0};
+\draw[fill=red, draw=black] (axis cs:75,100) rectangle (axis cs:100,125);
+\node[right, align=left]
+at (axis cs:87.5,112.5) {6};
+\draw[fill=green, draw=black] (axis cs:-125,125) rectangle (axis cs:-100,150);
+\node[right, align=left]
+at (axis cs:-112.5,137.5) {0};
+\draw[fill=red, draw=black] (axis cs:-100,125) rectangle (axis cs:-75,150);
+\node[right, align=left]
+at (axis cs:-87.5,137.5) {5};
+\draw[fill=green, draw=black] (axis cs:-75,125) rectangle (axis cs:-50,150);
+\node[right, align=left]
+at (axis cs:-62.5,137.5) {0};
+\draw[fill=green, draw=black] (axis cs:-50,125) rectangle (axis cs:-25,150);
+\node[right, align=left]
+at (axis cs:-37.5,137.5) {0};
+\draw[fill=green, draw=black] (axis cs:-25,125) rectangle (axis cs:0,150);
+\node[right, align=left]
+at (axis cs:-12.5,137.5) {0};
+\draw[fill=green, draw=black] (axis cs:0,125) rectangle (axis cs:25,150);
+\node[right, align=left]
+at (axis cs:12.5,137.5) {0};
+\draw[fill=green, draw=black] (axis cs:25,125) rectangle (axis cs:50,150);
+\node[right, align=left]
+at (axis cs:37.5,137.5) {0};
+\draw[fill=green, draw=black] (axis cs:50,125) rectangle (axis cs:75,150);
+\node[right, align=left]
+at (axis cs:62.5,137.5) {0};
+\draw[fill=red, draw=black] (axis cs:75,125) rectangle (axis cs:100,150);
+\node[right, align=left]
+at (axis cs:87.5,137.5) {5};
+\draw[fill=green, draw=black] (axis cs:-125,150) rectangle (axis cs:-100,175);
+\node[right, align=left]
+at (axis cs:-112.5,162.5) {0};
+\draw[fill=green, draw=black] (axis cs:-100,150) rectangle (axis cs:-75,175);
+\node[right, align=left]
+at (axis cs:-87.5,162.5) {4};
+\draw[fill=green, draw=black] (axis cs:-75,150) rectangle (axis cs:-50,175);
+\node[right, align=left]
+at (axis cs:-62.5,162.5) {0};
+\draw[fill=green, draw=black] (axis cs:-50,150) rectangle (axis cs:-25,175);
+\node[right, align=left]
+at (axis cs:-37.5,162.5) {0};
+\draw[fill=green, draw=black] (axis cs:-25,150) rectangle (axis cs:0,175);
+\node[right, align=left]
+at (axis cs:-12.5,162.5) {0};
+\draw[fill=green, draw=black] (axis cs:0,150) rectangle (axis cs:25,175);
+\node[right, align=left]
+at (axis cs:12.5,162.5) {0};
+\draw[fill=green, draw=black] (axis cs:25,150) rectangle (axis cs:50,175);
+\node[right, align=left]
+at (axis cs:37.5,162.5) {0};
+\draw[fill=green, draw=black] (axis cs:50,150) rectangle (axis cs:75,175);
+\node[right, align=left]
+at (axis cs:62.5,162.5) {0};
+\draw[fill=green, draw=black] (axis cs:75,150) rectangle (axis cs:100,175);
+\node[right, align=left]
+at (axis cs:87.5,162.5) {3};
+\draw[fill=green, draw=black] (axis cs:-125,175) rectangle (axis cs:-100,200);
+\node[right, align=left]
+at (axis cs:-112.5,187.5) {0};
+\draw[fill=green, draw=black] (axis cs:-100,175) rectangle (axis cs:-75,200);
+\node[right, align=left]
+at (axis cs:-87.5,187.5) {3};
+\draw[fill=green, draw=black] (axis cs:-75,175) rectangle (axis cs:-50,200);
+\node[right, align=left]
+at (axis cs:-62.5,187.5) {0};
+\draw[fill=green, draw=black] (axis cs:-50,175) rectangle (axis cs:-25,200);
+\node[right, align=left]
+at (axis cs:-37.5,187.5) {0};
+\draw[fill=green, draw=black] (axis cs:-25,175) rectangle (axis cs:0,200);
+\node[right, align=left]
+at (axis cs:-12.5,187.5) {0};
+\draw[fill=green, draw=black] (axis cs:0,175) rectangle (axis cs:25,200);
+\node[right, align=left]
+at (axis cs:12.5,187.5) {0};
+\draw[fill=green, draw=black] (axis cs:25,175) rectangle (axis cs:50,200);
+\node[right, align=left]
+at (axis cs:37.5,187.5) {0};
+\draw[fill=green, draw=black] (axis cs:50,175) rectangle (axis cs:75,200);
+\node[right, align=left]
+at (axis cs:62.5,187.5) {0};
+\draw[fill=green, draw=black] (axis cs:75,175) rectangle (axis cs:100,200);
+\node[right, align=left]
+at (axis cs:87.5,187.5) {2};
+\draw[fill=green, draw=black] (axis cs:-125,200) rectangle (axis cs:-100,225);
+\node[right, align=left]
+at (axis cs:-112.5,212.5) {0};
+\draw[fill=green, draw=black] (axis cs:-100,200) rectangle (axis cs:-75,225);
+\node[right, align=left]
+at (axis cs:-87.5,212.5) {2};
+\draw[fill=green, draw=black] (axis cs:-75,200) rectangle (axis cs:-50,225);
+\node[right, align=left]
+at (axis cs:-62.5,212.5) {0};
+\draw[fill=green, draw=black] (axis cs:-50,200) rectangle (axis cs:-25,225);
+\node[right, align=left]
+at (axis cs:-37.5,212.5) {0};
+\draw[fill=green, draw=black] (axis cs:-25,200) rectangle (axis cs:0,225);
+\node[right, align=left]
+at (axis cs:-12.5,212.5) {0};
+\draw[fill=green, draw=black] (axis cs:0,200) rectangle (axis cs:25,225);
+\node[right, align=left]
+at (axis cs:12.5,212.5) {0};
+\draw[fill=green, draw=black] (axis cs:25,200) rectangle (axis cs:50,225);
+\node[right, align=left]
+at (axis cs:37.5,212.5) {0};
+\draw[fill=green, draw=black] (axis cs:50,200) rectangle (axis cs:75,225);
+\node[right, align=left]
+at (axis cs:62.5,212.5) {0};
+\draw[fill=green, draw=black] (axis cs:75,200) rectangle (axis cs:100,225);
+\node[right, align=left]
+at (axis cs:87.5,212.5) {3};
+\draw[fill=green, draw=black] (axis cs:-125,225) rectangle (axis cs:-100,250);
+\node[right, align=left]
+at (axis cs:-112.5,237.5) {0};
+\draw[fill=green, draw=black] (axis cs:-100,225) rectangle (axis cs:-75,250);
+\node[right, align=left]
+at (axis cs:-87.5,237.5) {2};
+\draw[fill=green, draw=black] (axis cs:-75,225) rectangle (axis cs:-50,250);
+\node[right, align=left]
+at (axis cs:-62.5,237.5) {0};
+\draw[fill=green, draw=black] (axis cs:-50,225) rectangle (axis cs:-25,250);
+\node[right, align=left]
+at (axis cs:-37.5,237.5) {0};
+\draw[fill=green, draw=black] (axis cs:-25,225) rectangle (axis cs:0,250);
+\node[right, align=left]
+at (axis cs:-12.5,237.5) {0};
+\draw[fill=green, draw=black] (axis cs:0,225) rectangle (axis cs:25,250);
+\node[right, align=left]
+at (axis cs:12.5,237.5) {0};
+\draw[fill=green, draw=black] (axis cs:25,225) rectangle (axis cs:50,250);
+\node[right, align=left]
+at (axis cs:37.5,237.5) {0};
+\draw[fill=green, draw=black] (axis cs:50,225) rectangle (axis cs:75,250);
+\node[right, align=left]
+at (axis cs:62.5,237.5) {0};
+\draw[fill=green, draw=black] (axis cs:75,225) rectangle (axis cs:100,250);
+\node[right, align=left]
+at (axis cs:87.5,237.5) {2};
+\draw[fill=green, draw=black] (axis cs:-125,250) rectangle (axis cs:-100,275);
+\node[right, align=left]
+at (axis cs:-112.5,262.5) {0};
+\draw[fill=green, draw=black] (axis cs:-100,250) rectangle (axis cs:-75,275);
+\node[right, align=left]
+at (axis cs:-87.5,262.5) {2};
+\draw[fill=green, draw=black] (axis cs:-75,250) rectangle (axis cs:-50,275);
+\node[right, align=left]
+at (axis cs:-62.5,262.5) {0};
+\draw[fill=green, draw=black] (axis cs:-50,250) rectangle (axis cs:-25,275);
+\node[right, align=left]
+at (axis cs:-37.5,262.5) {0};
+\draw[fill=green, draw=black] (axis cs:-25,250) rectangle (axis cs:0,275);
+\node[right, align=left]
+at (axis cs:-12.5,262.5) {0};
+\draw[fill=green, draw=black] (axis cs:0,250) rectangle (axis cs:25,275);
+\node[right, align=left]
+at (axis cs:12.5,262.5) {0};
+\draw[fill=green, draw=black] (axis cs:25,250) rectangle (axis cs:50,275);
+\node[right, align=left]
+at (axis cs:37.5,262.5) {0};
+\draw[fill=green, draw=black] (axis cs:50,250) rectangle (axis cs:75,275);
+\node[right, align=left]
+at (axis cs:62.5,262.5) {0};
+\draw[fill=green, draw=black] (axis cs:75,250) rectangle (axis cs:100,275);
+\node[right, align=left]
+at (axis cs:87.5,262.5) {1};
+\draw[fill=green, draw=black] (axis cs:-125,275) rectangle (axis cs:-100,300);
+\node[right, align=left]
+at (axis cs:-112.5,287.5) {0};
+\draw[fill=green, draw=black] (axis cs:-100,275) rectangle (axis cs:-75,300);
+\node[right, align=left]
+at (axis cs:-87.5,287.5) {1};
+\draw[fill=green, draw=black] (axis cs:-75,275) rectangle (axis cs:-50,300);
+\node[right, align=left]
+at (axis cs:-62.5,287.5) {0};
+\draw[fill=green, draw=black] (axis cs:-50,275) rectangle (axis cs:-25,300);
+\node[right, align=left]
+at (axis cs:-37.5,287.5) {0};
+\draw[fill=green, draw=black] (axis cs:-25,275) rectangle (axis cs:0,300);
+\node[right, align=left]
+at (axis cs:-12.5,287.5) {0};
+\draw[fill=green, draw=black] (axis cs:0,275) rectangle (axis cs:25,300);
+\node[right, align=left]
+at (axis cs:12.5,287.5) {0};
+\draw[fill=green, draw=black] (axis cs:25,275) rectangle (axis cs:50,300);
+\node[right, align=left]
+at (axis cs:37.5,287.5) {0};
+\draw[fill=green, draw=black] (axis cs:50,275) rectangle (axis cs:75,300);
+\node[right, align=left]
+at (axis cs:62.5,287.5) {0};
+\draw[fill=green, draw=black] (axis cs:75,275) rectangle (axis cs:100,300);
+\node[right, align=left]
+at (axis cs:87.5,287.5) {2};
+\draw[fill=green, draw=black] (axis cs:-125,300) rectangle (axis cs:-100,325);
+\node[right, align=left]
+at (axis cs:-112.5,312.5) {0};
+\draw[fill=green, draw=black] (axis cs:-100,300) rectangle (axis cs:-75,325);
+\node[right, align=left]
+at (axis cs:-87.5,312.5) {1};
+\draw[fill=green, draw=black] (axis cs:-75,300) rectangle (axis cs:-50,325);
+\node[right, align=left]
+at (axis cs:-62.5,312.5) {0};
+\draw[fill=green, draw=black] (axis cs:-50,300) rectangle (axis cs:-25,325);
+\node[right, align=left]
+at (axis cs:-37.5,312.5) {0};
+\draw[fill=green, draw=black] (axis cs:-25,300) rectangle (axis cs:0,325);
+\node[right, align=left]
+at (axis cs:-12.5,312.5) {0};
+\draw[fill=green, draw=black] (axis cs:0,300) rectangle (axis cs:25,325);
+\node[right, align=left]
+at (axis cs:12.5,312.5) {0};
+\draw[fill=green, draw=black] (axis cs:25,300) rectangle (axis cs:50,325);
+\node[right, align=left]
+at (axis cs:37.5,312.5) {0};
+\draw[fill=green, draw=black] (axis cs:50,300) rectangle (axis cs:75,325);
+\node[right, align=left]
+at (axis cs:62.5,312.5) {0};
+\draw[fill=green, draw=black] (axis cs:75,300) rectangle (axis cs:100,325);
+\node[right, align=left]
+at (axis cs:87.5,312.5) {1};
+\draw[fill=green, draw=black] (axis cs:-125,325) rectangle (axis cs:-100,350);
+\node[right, align=left]
+at (axis cs:-112.5,337.5) {0};
+\draw[fill=green, draw=black] (axis cs:-100,325) rectangle (axis cs:-75,350);
+\node[right, align=left]
+at (axis cs:-87.5,337.5) {1};
+\draw[fill=green, draw=black] (axis cs:-75,325) rectangle (axis cs:-50,350);
+\node[right, align=left]
+at (axis cs:-62.5,337.5) {0};
+\draw[fill=green, draw=black] (axis cs:-50,325) rectangle (axis cs:-25,350);
+\node[right, align=left]
+at (axis cs:-37.5,337.5) {0};
+\draw[fill=green, draw=black] (axis cs:-25,325) rectangle (axis cs:0,350);
+\node[right, align=left]
+at (axis cs:-12.5,337.5) {0};
+\draw[fill=green, draw=black] (axis cs:0,325) rectangle (axis cs:25,350);
+\node[right, align=left]
+at (axis cs:12.5,337.5) {0};
+\draw[fill=green, draw=black] (axis cs:25,325) rectangle (axis cs:50,350);
+\node[right, align=left]
+at (axis cs:37.5,337.5) {0};
+\draw[fill=green, draw=black] (axis cs:50,325) rectangle (axis cs:75,350);
+\node[right, align=left]
+at (axis cs:62.5,337.5) {0};
+\draw[fill=green, draw=black] (axis cs:75,325) rectangle (axis cs:100,350);
+\node[right, align=left]
+at (axis cs:87.5,337.5) {1};
+\draw[fill=green, draw=black] (axis cs:-125,350) rectangle (axis cs:-100,375);
+\node[right, align=left]
+at (axis cs:-112.5,362.5) {0};
+\draw[fill=green, draw=black] (axis cs:-100,350) rectangle (axis cs:-75,375);
+\node[right, align=left]
+at (axis cs:-87.5,362.5) {0};
+\draw[fill=green, draw=black] (axis cs:-75,350) rectangle (axis cs:-50,375);
+\node[right, align=left]
+at (axis cs:-62.5,362.5) {0};
+\draw[fill=green, draw=black] (axis cs:-50,350) rectangle (axis cs:-25,375);
+\node[right, align=left]
+at (axis cs:-37.5,362.5) {0};
+\draw[fill=green, draw=black] (axis cs:-25,350) rectangle (axis cs:0,375);
+\node[right, align=left]
+at (axis cs:-12.5,362.5) {0};
+\draw[fill=green, draw=black] (axis cs:0,350) rectangle (axis cs:25,375);
+\node[right, align=left]
+at (axis cs:12.5,362.5) {0};
+\draw[fill=green, draw=black] (axis cs:25,350) rectangle (axis cs:50,375);
+\node[right, align=left]
+at (axis cs:37.5,362.5) {0};
+\draw[fill=green, draw=black] (axis cs:50,350) rectangle (axis cs:75,375);
+\node[right, align=left]
+at (axis cs:62.5,362.5) {0};
+\draw[fill=green, draw=black] (axis cs:75,350) rectangle (axis cs:100,375);
+\node[right, align=left]
+at (axis cs:87.5,362.5) {1};
+\draw[fill=green, draw=black] (axis cs:-125,375) rectangle (axis cs:-100,400);
+\node[right, align=left]
+at (axis cs:-112.5,387.5) {0};
+\draw[fill=green, draw=black] (axis cs:-100,375) rectangle (axis cs:-75,400);
+\node[right, align=left]
+at (axis cs:-87.5,387.5) {0};
+\draw[fill=green, draw=black] (axis cs:-75,375) rectangle (axis cs:-50,400);
+\node[right, align=left]
+at (axis cs:-62.5,387.5) {0};
+\draw[fill=green, draw=black] (axis cs:-50,375) rectangle (axis cs:-25,400);
+\node[right, align=left]
+at (axis cs:-37.5,387.5) {0};
+\draw[fill=green, draw=black] (axis cs:-25,375) rectangle (axis cs:0,400);
+\node[right, align=left]
+at (axis cs:-12.5,387.5) {0};
+\draw[fill=green, draw=black] (axis cs:0,375) rectangle (axis cs:25,400);
+\node[right, align=left]
+at (axis cs:12.5,387.5) {0};
+\draw[fill=green, draw=black] (axis cs:25,375) rectangle (axis cs:50,400);
+\node[right, align=left]
+at (axis cs:37.5,387.5) {0};
+\draw[fill=green, draw=black] (axis cs:50,375) rectangle (axis cs:75,400);
+\node[right, align=left]
+at (axis cs:62.5,387.5) {0};
+\draw[fill=green, draw=black] (axis cs:75,375) rectangle (axis cs:100,400);
+\node[right, align=left]
+at (axis cs:87.5,387.5) {0};
+\draw[fill=green, draw=black] (axis cs:-125,400) rectangle (axis cs:-100,425);
+\node[right, align=left]
+at (axis cs:-112.5,412.5) {1};
+\draw[fill=green, draw=black] (axis cs:-100,400) rectangle (axis cs:-75,425);
+\node[right, align=left]
+at (axis cs:-87.5,412.5) {2};
+\draw[fill=green, draw=black] (axis cs:-75,400) rectangle (axis cs:-50,425);
+\node[right, align=left]
+at (axis cs:-62.5,412.5) {0};
+\draw[fill=green, draw=black] (axis cs:-50,400) rectangle (axis cs:-25,425);
+\node[right, align=left]
+at (axis cs:-37.5,412.5) {0};
+\draw[fill=green, draw=black] (axis cs:-25,400) rectangle (axis cs:0,425);
+\node[right, align=left]
+at (axis cs:-12.5,412.5) {0};
+\draw[fill=green, draw=black] (axis cs:0,400) rectangle (axis cs:25,425);
+\node[right, align=left]
+at (axis cs:12.5,412.5) {0};
+\draw[fill=green, draw=black] (axis cs:25,400) rectangle (axis cs:50,425);
+\node[right, align=left]
+at (axis cs:37.5,412.5) {0};
+\draw[fill=green, draw=black] (axis cs:50,400) rectangle (axis cs:75,425);
+\node[right, align=left]
+at (axis cs:62.5,412.5) {0};
+\draw[fill=green, draw=black] (axis cs:75,400) rectangle (axis cs:100,425);
+\node[right, align=left]
+at (axis cs:87.5,412.5) {1};
+\draw[fill=green, draw=black] (axis cs:-125,425) rectangle (axis cs:-100,450);
+\node[right, align=left]
+at (axis cs:-112.5,437.5) {0};
+\draw[fill=green, draw=black] (axis cs:-100,425) rectangle (axis cs:-75,450);
+\node[right, align=left]
+at (axis cs:-87.5,437.5) {1};
+\draw[fill=green, draw=black] (axis cs:-75,425) rectangle (axis cs:-50,450);
+\node[right, align=left]
+at (axis cs:-62.5,437.5) {0};
+\draw[fill=green, draw=black] (axis cs:-50,425) rectangle (axis cs:-25,450);
+\node[right, align=left]
+at (axis cs:-37.5,437.5) {0};
+\draw[fill=green, draw=black] (axis cs:-25,425) rectangle (axis cs:0,450);
+\node[right, align=left]
+at (axis cs:-12.5,437.5) {0};
+\draw[fill=green, draw=black] (axis cs:0,425) rectangle (axis cs:25,450);
+\node[right, align=left]
+at (axis cs:12.5,437.5) {0};
+\draw[fill=green, draw=black] (axis cs:25,425) rectangle (axis cs:50,450);
+\node[right, align=left]
+at (axis cs:37.5,437.5) {0};
+\draw[fill=green, draw=black] (axis cs:50,425) rectangle (axis cs:75,450);
+\node[right, align=left]
+at (axis cs:62.5,437.5) {0};
+\draw[fill=green, draw=black] (axis cs:75,425) rectangle (axis cs:100,450);
+\node[right, align=left]
+at (axis cs:87.5,437.5) {1};
+\draw[fill=green, draw=black] (axis cs:-125,450) rectangle (axis cs:-100,475);
+\node[right, align=left]
+at (axis cs:-112.5,462.5) {0};
+\draw[fill=green, draw=black] (axis cs:-100,450) rectangle (axis cs:-75,475);
+\node[right, align=left]
+at (axis cs:-87.5,462.5) {0};
+\draw[fill=green, draw=black] (axis cs:-75,450) rectangle (axis cs:-50,475);
+\node[right, align=left]
+at (axis cs:-62.5,462.5) {0};
+\draw[fill=green, draw=black] (axis cs:-50,450) rectangle (axis cs:-25,475);
+\node[right, align=left]
+at (axis cs:-37.5,462.5) {0};
+\draw[fill=green, draw=black] (axis cs:-25,450) rectangle (axis cs:0,475);
+\node[right, align=left]
+at (axis cs:-12.5,462.5) {0};
+\draw[fill=green, draw=black] (axis cs:0,450) rectangle (axis cs:25,475);
+\node[right, align=left]
+at (axis cs:12.5,462.5) {0};
+\draw[fill=green, draw=black] (axis cs:25,450) rectangle (axis cs:50,475);
+\node[right, align=left]
+at (axis cs:37.5,462.5) {0};
+\draw[fill=green, draw=black] (axis cs:50,450) rectangle (axis cs:75,475);
+\node[right, align=left]
+at (axis cs:62.5,462.5) {0};
+\draw[fill=green, draw=black] (axis cs:75,450) rectangle (axis cs:100,475);
+\node[right, align=left]
+at (axis cs:87.5,462.5) {0};
+\draw[fill=green, draw=black] (axis cs:-125,475) rectangle (axis cs:-100,500);
+\node[right, align=left]
+at (axis cs:-112.5,487.5) {0};
+\draw[fill=green, draw=black] (axis cs:-100,475) rectangle (axis cs:-75,500);
+\node[right, align=left]
+at (axis cs:-87.5,487.5) {2};
+\draw[fill=green, draw=black] (axis cs:-75,475) rectangle (axis cs:-50,500);
+\node[right, align=left]
+at (axis cs:-62.5,487.5) {3};
+\draw[fill=green, draw=black] (axis cs:-50,475) rectangle (axis cs:-25,500);
+\node[right, align=left]
+at (axis cs:-37.5,487.5) {3};
+\draw[fill=green, draw=black] (axis cs:-25,475) rectangle (axis cs:0,500);
+\node[right, align=left]
+at (axis cs:-12.5,487.5) {3};
+\draw[fill=green, draw=black] (axis cs:0,475) rectangle (axis cs:25,500);
+\node[right, align=left]
+at (axis cs:12.5,487.5) {3};
+\draw[fill=green, draw=black] (axis cs:25,475) rectangle (axis cs:50,500);
+\node[right, align=left]
+at (axis cs:37.5,487.5) {3};
+\draw[fill=green, draw=black] (axis cs:50,475) rectangle (axis cs:75,500);
+\node[right, align=left]
+at (axis cs:62.5,487.5) {3};
+\draw[fill=green, draw=black] (axis cs:75,475) rectangle (axis cs:100,500);
+\node[right, align=left]
+at (axis cs:87.5,487.5) {1};
+\draw[fill=blue, draw=black] (axis cs:-5,-10) rectangle (axis cs:5,0);
+\end{axis}
+
+\begin{axis}[%
+width=1.227\figurewidth,
+height=1.227\figureheight,
+at={(-0.359\figurewidth,-0.135\figureheight)},
+scale only axis,
+xmin=0,
+xmax=1,
+ymin=0,
+ymax=1,
+axis line style={draw=none},
+ticks=none,
+axis x line*=bottom,
+axis y line*=left,
+legend style={legend cell align=left, align=left, draw=white!15!black}
+]
+\end{axis}
+\end{tikzpicture}%
