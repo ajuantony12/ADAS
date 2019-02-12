@@ -90,7 +90,7 @@ typedef char_T byte_T;
 // Block D-Work pointer type
 typedef void * pointer_T;
 
-#endif                                 // RTWTYPES_H
+#endif                                 /*RTWTYPES_H*/
 
 //
 // File trailer for generated code.
