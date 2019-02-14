@@ -1,0 +1,5 @@
+<map id="CMotorCtrl::Run" name="CMotorCtrl::Run">
+<area shape="rect" id="node2" href="$class_chart_model_class.html#a77ef9eda8f1e119f93ad3c87b3a54bbd" title="Real&#45;Time Model get method. " alt="" coords="168,5,343,32"/>
+<area shape="rect" id="node3" href="$class_c_i_m_u_unit.html#a396b045fac007e169289409ca213ac39" title="Return function of IMU Unit Return Gyro Signal. " alt="" coords="180,56,331,83"/>
+<area shape="rect" id="node4" href="$class_c_p_w_m_unit.html#a60f8be5eabf779f57e6392a0432bf7f2" title="Function write duty cycle. " alt="" coords="181,107,330,133"/>
+</map>

@@ -1,0 +1,6 @@
+<map id="CPWMUnit::writeDuty" name="CPWMUnit::writeDuty">
+<area shape="rect" id="node2" href="$class_c_motor_ctrl.html#a63e5dd36be027fe8a5e1acee5c1322c8" title="Run function of CMotorCtrl which is executed in every loop. " alt="" coords="412,5,527,32"/>
+<area shape="rect" id="node4" href="$class_c_motor_ctrl.html#af3e047be659fb9f49f1644ba2eca4684" title="API Function of the CMotorCtrl to pause the current action of the motor control. " alt="" coords="203,56,357,83"/>
+<area shape="rect" id="node3" href="$_a_d_a_s___m_c_u_8ino.html#afe461d27b9c48d5921c00d521181f12f" title="loop" alt="" coords="581,31,628,57"/>
+<area shape="rect" id="node5" href="$class_c_i_c_c_comms.html#a8b3fa81307b3b9ba0e72b4aee8279c56" title="CICCComms::Run" alt="" coords="405,56,533,83"/>
+</map>

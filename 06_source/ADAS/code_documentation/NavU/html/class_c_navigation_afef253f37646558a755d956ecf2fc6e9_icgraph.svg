@@ -10,24 +10,21 @@
 <title>CNavigation::getNextState</title>
 <!-- Node12 -->
 <g id="node1" class="node"><title>Node12</title>
-<g id="a_node1"><a xlink:title="Function to get next state.">
-<polygon fill="#bfbfbf" stroke="black" points="127,-0.5 127,-19.5 258,-19.5 258,-0.5 127,-0.5"/>
-<text text-anchor="middle" x="192.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">CNavigation::getNextState</text>
-</a>
-</g>
+<polygon fill="#bfbfbf" stroke="black" points="0,-0.5 0,-19.5 131,-19.5 131,-0.5 0,-0.5"/>
+<text text-anchor="middle" x="65.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">CNavigation::getNextState</text>
 </g>
 <!-- Node13 -->
 <g id="node2" class="node"><title>Node13</title>
-<g id="a_node2"><a xlink:href="class_c_navigation.html#a86acb1521aab400e542465c8eabed671" target="_top" xlink:title="Run function of CNavigation which is periodically called by CTaskCtrl.">
-<polygon fill="none" stroke="black" points="0,-0.5 0,-19.5 91,-19.5 91,-0.5 0,-0.5"/>
-<text text-anchor="middle" x="45.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">CNavigation::Run</text>
+<g id="a_node2"><a xlink:href="class_c_navigation.html#a86acb1521aab400e542465c8eabed671" target="_top" xlink:title="Run function of CNavigation which is periodically called by CTaskCtrl. ">
+<polygon fill="none" stroke="black" points="167,-0.5 167,-19.5 258,-19.5 258,-0.5 167,-0.5"/>
+<text text-anchor="middle" x="212.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">CNavigation::Run</text>
 </a>
 </g>
 </g>
 <!-- Node12&#45;&gt;Node13 -->
 <g id="edge1" class="edge"><title>Node12&#45;&gt;Node13</title>
-<path fill="none" stroke="midnightblue" d="M116.545,-10C107.943,-10 99.3882,-10 91.3642,-10"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="116.634,-13.5001 126.634,-10 116.634,-6.5001 116.634,-13.5001"/>
+<path fill="none" stroke="midnightblue" d="M141.455,-10C150.057,-10 158.612,-10 166.636,-10"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="141.366,-6.5001 131.366,-10 141.366,-13.5001 141.366,-6.5001"/>
 </g>
 </g>
 </svg>

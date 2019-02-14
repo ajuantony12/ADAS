@@ -1,5 +1,5 @@
 \hypertarget{_app___virtual_mapping_8cpp}{}\section{App\+\_\+\+Virtual\+Mapping.\+cpp File Reference}
-\label{_app___virtual_mapping_8cpp}\index{App\_VirtualMapping.cpp@{App\_VirtualMapping.cpp}}
+\label{_app___virtual_mapping_8cpp}\index{App\+\_\+\+Virtual\+Mapping.\+cpp@{App\+\_\+\+Virtual\+Mapping.\+cpp}}
 
 
 Virtual mapping application source file.  
@@ -8,7 +8,8 @@ Virtual mapping application source file.
 {\ttfamily \#include $<$Arduino.\+h$>$}\newline
 {\ttfamily \#include \char`\"{}A\+D\+A\+S\+\_\+\+Debug.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}App\+\_\+\+Virtual\+Mapping.\+h\char`\"{}}\newline
-Include dependency graph for App\+\_\+\+Virtual\+Mapping.\+cpp\+:\nopagebreak
+Include dependency graph for App\+\_\+\+Virtual\+Mapping.\+cpp\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -45,9 +46,9 @@ January 30, 2019
 
 \subsection{Macro Definition Documentation}
 \mbox{\Hypertarget{_app___virtual_mapping_8cpp_a50124ba996aa8013917449293877cb14}\label{_app___virtual_mapping_8cpp_a50124ba996aa8013917449293877cb14}} 
-\index{App\_VirtualMapping.cpp@{App\_VirtualMapping.cpp}!CORDIC\_SHIFT@{CORDIC\_SHIFT}}
-\index{CORDIC\_SHIFT@{CORDIC\_SHIFT}!App\_VirtualMapping.cpp@{App\_VirtualMapping.cpp}}
-\subsubsection{\texorpdfstring{CORDIC\_SHIFT}{CORDIC\_SHIFT}}
+\index{App\+\_\+\+Virtual\+Mapping.\+cpp@{App\+\_\+\+Virtual\+Mapping.\+cpp}!C\+O\+R\+D\+I\+C\+\_\+\+S\+H\+I\+FT@{C\+O\+R\+D\+I\+C\+\_\+\+S\+H\+I\+FT}}
+\index{C\+O\+R\+D\+I\+C\+\_\+\+S\+H\+I\+FT@{C\+O\+R\+D\+I\+C\+\_\+\+S\+H\+I\+FT}!App\+\_\+\+Virtual\+Mapping.\+cpp@{App\+\_\+\+Virtual\+Mapping.\+cpp}}
+\subsubsection{\texorpdfstring{C\+O\+R\+D\+I\+C\+\_\+\+S\+H\+I\+FT}{CORDIC\_SHIFT}}
 {\footnotesize\ttfamily \#define C\+O\+R\+D\+I\+C\+\_\+\+S\+H\+I\+FT~8}
 
 scaling for cordic atanget operations 
@@ -55,9 +56,9 @@ scaling for cordic atanget operations
 Definition at line 22 of file App\+\_\+\+Virtual\+Mapping.\+cpp.
 
 \mbox{\Hypertarget{_app___virtual_mapping_8cpp_a7cda3d30ec2c560f7ad909faf73820d2}\label{_app___virtual_mapping_8cpp_a7cda3d30ec2c560f7ad909faf73820d2}} 
-\index{App\_VirtualMapping.cpp@{App\_VirtualMapping.cpp}!CORDIC\_STAGES@{CORDIC\_STAGES}}
-\index{CORDIC\_STAGES@{CORDIC\_STAGES}!App\_VirtualMapping.cpp@{App\_VirtualMapping.cpp}}
-\subsubsection{\texorpdfstring{CORDIC\_STAGES}{CORDIC\_STAGES}}
+\index{App\+\_\+\+Virtual\+Mapping.\+cpp@{App\+\_\+\+Virtual\+Mapping.\+cpp}!C\+O\+R\+D\+I\+C\+\_\+\+S\+T\+A\+G\+ES@{C\+O\+R\+D\+I\+C\+\_\+\+S\+T\+A\+G\+ES}}
+\index{C\+O\+R\+D\+I\+C\+\_\+\+S\+T\+A\+G\+ES@{C\+O\+R\+D\+I\+C\+\_\+\+S\+T\+A\+G\+ES}!App\+\_\+\+Virtual\+Mapping.\+cpp@{App\+\_\+\+Virtual\+Mapping.\+cpp}}
+\subsubsection{\texorpdfstring{C\+O\+R\+D\+I\+C\+\_\+\+S\+T\+A\+G\+ES}{CORDIC\_STAGES}}
 {\footnotesize\ttfamily \#define C\+O\+R\+D\+I\+C\+\_\+\+S\+T\+A\+G\+ES~10}
 
 Number of stages for cordic algorithm 
@@ -65,9 +66,9 @@ Number of stages for cordic algorithm
 Definition at line 24 of file App\+\_\+\+Virtual\+Mapping.\+cpp.
 
 \mbox{\Hypertarget{_app___virtual_mapping_8cpp_ac53b4389c89d7c503b77cf06e58bda3e}\label{_app___virtual_mapping_8cpp_ac53b4389c89d7c503b77cf06e58bda3e}} 
-\index{App\_VirtualMapping.cpp@{App\_VirtualMapping.cpp}!PLS\_DIST\_MASK@{PLS\_DIST\_MASK}}
-\index{PLS\_DIST\_MASK@{PLS\_DIST\_MASK}!App\_VirtualMapping.cpp@{App\_VirtualMapping.cpp}}
-\subsubsection{\texorpdfstring{PLS\_DIST\_MASK}{PLS\_DIST\_MASK}}
+\index{App\+\_\+\+Virtual\+Mapping.\+cpp@{App\+\_\+\+Virtual\+Mapping.\+cpp}!P\+L\+S\+\_\+\+D\+I\+S\+T\+\_\+\+M\+A\+SK@{P\+L\+S\+\_\+\+D\+I\+S\+T\+\_\+\+M\+A\+SK}}
+\index{P\+L\+S\+\_\+\+D\+I\+S\+T\+\_\+\+M\+A\+SK@{P\+L\+S\+\_\+\+D\+I\+S\+T\+\_\+\+M\+A\+SK}!App\+\_\+\+Virtual\+Mapping.\+cpp@{App\+\_\+\+Virtual\+Mapping.\+cpp}}
+\subsubsection{\texorpdfstring{P\+L\+S\+\_\+\+D\+I\+S\+T\+\_\+\+M\+A\+SK}{PLS\_DIST\_MASK}}
 {\footnotesize\ttfamily \#define P\+L\+S\+\_\+\+D\+I\+S\+T\+\_\+\+M\+A\+SK~0x1\+F\+F\+FU}
 
 Distance bits mask 
@@ -75,9 +76,9 @@ Distance bits mask
 Definition at line 18 of file App\+\_\+\+Virtual\+Mapping.\+cpp.
 
 \mbox{\Hypertarget{_app___virtual_mapping_8cpp_a9f5f14ff71214cbf2801279478075164}\label{_app___virtual_mapping_8cpp_a9f5f14ff71214cbf2801279478075164}} 
-\index{App\_VirtualMapping.cpp@{App\_VirtualMapping.cpp}!PLS\_PF\_MASK@{PLS\_PF\_MASK}}
-\index{PLS\_PF\_MASK@{PLS\_PF\_MASK}!App\_VirtualMapping.cpp@{App\_VirtualMapping.cpp}}
-\subsubsection{\texorpdfstring{PLS\_PF\_MASK}{PLS\_PF\_MASK}}
+\index{App\+\_\+\+Virtual\+Mapping.\+cpp@{App\+\_\+\+Virtual\+Mapping.\+cpp}!P\+L\+S\+\_\+\+P\+F\+\_\+\+M\+A\+SK@{P\+L\+S\+\_\+\+P\+F\+\_\+\+M\+A\+SK}}
+\index{P\+L\+S\+\_\+\+P\+F\+\_\+\+M\+A\+SK@{P\+L\+S\+\_\+\+P\+F\+\_\+\+M\+A\+SK}!App\+\_\+\+Virtual\+Mapping.\+cpp@{App\+\_\+\+Virtual\+Mapping.\+cpp}}
+\subsubsection{\texorpdfstring{P\+L\+S\+\_\+\+P\+F\+\_\+\+M\+A\+SK}{PLS\_PF\_MASK}}
 {\footnotesize\ttfamily \#define P\+L\+S\+\_\+\+P\+F\+\_\+\+M\+A\+SK~((\mbox{\hyperlink{_a_d_a_s___types_8h_a1f1825b69244eb3ad2c7165ddc99c956}{uint16\+\_\+t}})0x1$<$$<$15)}
 
 Protective field status bit mask 
@@ -85,9 +86,9 @@ Protective field status bit mask
 Definition at line 14 of file App\+\_\+\+Virtual\+Mapping.\+cpp.
 
 \mbox{\Hypertarget{_app___virtual_mapping_8cpp_ab9ac725a98fb9ce6c3a6503daaa9c606}\label{_app___virtual_mapping_8cpp_ab9ac725a98fb9ce6c3a6503daaa9c606}} 
-\index{App\_VirtualMapping.cpp@{App\_VirtualMapping.cpp}!PLS\_WF\_MASK@{PLS\_WF\_MASK}}
-\index{PLS\_WF\_MASK@{PLS\_WF\_MASK}!App\_VirtualMapping.cpp@{App\_VirtualMapping.cpp}}
-\subsubsection{\texorpdfstring{PLS\_WF\_MASK}{PLS\_WF\_MASK}}
+\index{App\+\_\+\+Virtual\+Mapping.\+cpp@{App\+\_\+\+Virtual\+Mapping.\+cpp}!P\+L\+S\+\_\+\+W\+F\+\_\+\+M\+A\+SK@{P\+L\+S\+\_\+\+W\+F\+\_\+\+M\+A\+SK}}
+\index{P\+L\+S\+\_\+\+W\+F\+\_\+\+M\+A\+SK@{P\+L\+S\+\_\+\+W\+F\+\_\+\+M\+A\+SK}!App\+\_\+\+Virtual\+Mapping.\+cpp@{App\+\_\+\+Virtual\+Mapping.\+cpp}}
+\subsubsection{\texorpdfstring{P\+L\+S\+\_\+\+W\+F\+\_\+\+M\+A\+SK}{PLS\_WF\_MASK}}
 {\footnotesize\ttfamily \#define P\+L\+S\+\_\+\+W\+F\+\_\+\+M\+A\+SK~((\mbox{\hyperlink{_a_d_a_s___types_8h_a1f1825b69244eb3ad2c7165ddc99c956}{uint16\+\_\+t}})0x1$<$$<$14)}
 
 Warning field status bit mask 
@@ -95,9 +96,9 @@ Warning field status bit mask
 Definition at line 16 of file App\+\_\+\+Virtual\+Mapping.\+cpp.
 
 \mbox{\Hypertarget{_app___virtual_mapping_8cpp_a6956d3dbabd830efb1e44a45e7e074d1}\label{_app___virtual_mapping_8cpp_a6956d3dbabd830efb1e44a45e7e074d1}} 
-\index{App\_VirtualMapping.cpp@{App\_VirtualMapping.cpp}!TRIG\_NORM\_SHIFT@{TRIG\_NORM\_SHIFT}}
-\index{TRIG\_NORM\_SHIFT@{TRIG\_NORM\_SHIFT}!App\_VirtualMapping.cpp@{App\_VirtualMapping.cpp}}
-\subsubsection{\texorpdfstring{TRIG\_NORM\_SHIFT}{TRIG\_NORM\_SHIFT}}
+\index{App\+\_\+\+Virtual\+Mapping.\+cpp@{App\+\_\+\+Virtual\+Mapping.\+cpp}!T\+R\+I\+G\+\_\+\+N\+O\+R\+M\+\_\+\+S\+H\+I\+FT@{T\+R\+I\+G\+\_\+\+N\+O\+R\+M\+\_\+\+S\+H\+I\+FT}}
+\index{T\+R\+I\+G\+\_\+\+N\+O\+R\+M\+\_\+\+S\+H\+I\+FT@{T\+R\+I\+G\+\_\+\+N\+O\+R\+M\+\_\+\+S\+H\+I\+FT}!App\+\_\+\+Virtual\+Mapping.\+cpp@{App\+\_\+\+Virtual\+Mapping.\+cpp}}
+\subsubsection{\texorpdfstring{T\+R\+I\+G\+\_\+\+N\+O\+R\+M\+\_\+\+S\+H\+I\+FT}{TRIG\_NORM\_SHIFT}}
 {\footnotesize\ttfamily \#define T\+R\+I\+G\+\_\+\+N\+O\+R\+M\+\_\+\+S\+H\+I\+FT~12}
 
 Scaling for sine and cosine operations 

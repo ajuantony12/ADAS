@@ -10,7 +10,6 @@
 <title>CPositioning</title>
 <!-- Node0 -->
 <g id="node1" class="node"><title>Node0</title>
-<g id="a_node1"><a xlink:title=" ">
 <polygon fill="#bfbfbf" stroke="black" points="0,-0.5 0,-101.5 92,-101.5 92,-0.5 0,-0.5"/>
 <text text-anchor="middle" x="46" y="-89.5" font-family="Helvetica,sans-Serif" font-size="10.00">CPositioning</text>
 <polyline fill="none" stroke="black" points="0,-82.5 92,-82.5 "/>
@@ -21,12 +20,10 @@
 <text text-anchor="start" x="8" y="-29.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ Init()</text>
 <text text-anchor="start" x="8" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ Run()</text>
 <text text-anchor="start" x="8" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ Stop()</text>
-</a>
-</g>
 </g>
 <!-- Node1 -->
 <g id="node2" class="node"><title>Node1</title>
-<g id="a_node2"><a xlink:href="class_i_task___i_f.html" target="_top" xlink:title="Task scheduler class interface class.">
+<g id="a_node2"><a xlink:href="class_i_task___i_f.html" target="_top" xlink:title="Task scheduler class interface class. ">
 <polygon fill="none" stroke="black" points="19.5,-138.5 19.5,-217.5 72.5,-217.5 72.5,-138.5 19.5,-138.5"/>
 <text text-anchor="middle" x="46" y="-205.5" font-family="Helvetica,sans-Serif" font-size="10.00">ITask_IF</text>
 <polyline fill="none" stroke="black" points="19.5,-198.5 72.5,-198.5 "/>

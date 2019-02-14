@@ -1,12 +1,10 @@
 <map id="Comm_ICC.cpp" name="Comm_ICC.cpp">
-<area shape="rect" id="node1" title="Communication file for Inter&#45;Controller Communication (ICC)" alt="" coords="291,5,404,32"/>
-<area shape="rect" id="node2" href="$_a_d_a_s___debug_8h.html" title="This file contains redefinition of the serial functions for debugging purpose." alt="" coords="241,155,355,181"/>
-<area shape="rect" id="node4" href="$_comm___i_c_c_8h.html" title="Communication file for Inter&#45;Controller Communication (ICC)" alt="" coords="118,155,217,181"/>
-<area shape="rect" id="node8" title=" " alt="" coords="531,155,609,181"/>
-<area shape="rect" id="node9" href="$_app___navigation_8h.html" title="Application file for navigation." alt="" coords="335,80,458,107"/>
-<area shape="rect" id="node3" href="$_a_d_a_s___cfg_8h.html" title="This file contains the configuration of the vehicle." alt="" coords="296,229,391,256"/>
-<area shape="rect" id="node5" href="$_a_d_a_s___types_8h.html" title="internal datatype mapping file" alt="" coords="203,304,313,331"/>
-<area shape="rect" id="node6" href="$_h_a_l___serial___i_f_8h.html" title="Hardware Abstraction Layer (HAL) to serial interface." alt="" coords="5,229,121,256"/>
-<area shape="rect" id="node7" href="$_cbuffer_8h.html" title="general purpose buffer" alt="" coords="146,229,221,256"/>
-<area shape="rect" id="node10" href="$_task___i_f_8h.html" title="Task controller interface header." alt="" coords="481,229,555,256"/>
+<area shape="rect" id="node2" href="$_a_d_a_s___debug_8h.html" title="This file contains redefinition of the serial functions for debugging purpose. " alt="" coords="241,155,355,181"/>
+<area shape="rect" id="node4" href="$_comm___i_c_c_8h.html" title="Communication file for Inter&#45;Controller Communication (ICC) " alt="" coords="118,155,217,181"/>
+<area shape="rect" id="node9" href="$_app___navigation_8h.html" title="Application file for navigation. " alt="" coords="335,80,458,107"/>
+<area shape="rect" id="node3" href="$_a_d_a_s___cfg_8h.html" title="This file contains the configuration of the vehicle. " alt="" coords="296,229,391,256"/>
+<area shape="rect" id="node5" href="$_a_d_a_s___types_8h.html" title="internal datatype mapping file " alt="" coords="203,304,313,331"/>
+<area shape="rect" id="node6" href="$_h_a_l___serial___i_f_8h.html" title="Hardware Abstraction Layer (HAL) to serial interface. " alt="" coords="5,229,121,256"/>
+<area shape="rect" id="node7" href="$_cbuffer_8h.html" title="general purpose buffer " alt="" coords="146,229,221,256"/>
+<area shape="rect" id="node10" href="$_task___i_f_8h.html" title="Task controller interface header. " alt="" coords="481,229,555,256"/>
 </map>

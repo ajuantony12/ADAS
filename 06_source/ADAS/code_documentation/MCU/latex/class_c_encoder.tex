@@ -1,5 +1,5 @@
 \hypertarget{class_c_encoder}{}\section{C\+Encoder Class Reference}
-\label{class_c_encoder}\index{CEncoder@{CEncoder}}
+\label{class_c_encoder}\index{C\+Encoder@{C\+Encoder}}
 
 
 {\ttfamily \#include $<$H\+A\+L\+\_\+\+Encoder.\+h$>$}
@@ -7,74 +7,88 @@
 
 
 Collaboration diagram for C\+Encoder\+:
-% FIG 0
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=160pt]{class_c_encoder__coll__graph}
+\end{center}
+\end{figure}
 \subsection*{Public Types}
 \begin{DoxyCompactItemize}
 \item 
-enum \mbox{\hyperlink{class_c_encoder_a49810cc352199fb02a60e2ef8ac6cbc3}{Encoder\+I\+D\+\_\+e}} \{ \mbox{\hyperlink{class_c_encoder_a49810cc352199fb02a60e2ef8ac6cbc3a8f0ceb6874e0c79b53bf26fa42a1b652}{E1}}, 
-\mbox{\hyperlink{class_c_encoder_a49810cc352199fb02a60e2ef8ac6cbc3aaa314a69656e242defabd33eb8e90284}{E2}}
+enum \mbox{\hyperlink{class_c_encoder_a49810cc352199fb02a60e2ef8ac6cbc3}{Encoder\+I\+D\+\_\+e}} \{ \mbox{\hyperlink{class_c_encoder_a49810cc352199fb02a60e2ef8ac6cbc3a8f0ceb6874e0c79b53bf26fa42a1b652}{E1}} = P\+I\+N\+\_\+\+E\+N\+C\+\_\+R, 
+\mbox{\hyperlink{class_c_encoder_a49810cc352199fb02a60e2ef8ac6cbc3aaa314a69656e242defabd33eb8e90284}{E2}} = P\+I\+N\+\_\+\+E\+N\+C\+\_\+L
  \}
 \end{DoxyCompactItemize}
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{class_c_encoder_ab63d860ef36a6b121ab3007f70743de7}{C\+Encoder}} (\mbox{\hyperlink{class_c_encoder_a49810cc352199fb02a60e2ef8ac6cbc3}{Encoder\+I\+D\+\_\+e}} ID)
-\item 
+\begin{DoxyCompactList}\small\item\em Constructor of \mbox{\hyperlink{class_c_encoder}{C\+Encoder}}. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_c_encoder_aa6b7126b6e24bd115348fa6243756f47}{$\sim$\+C\+Encoder}} ()
 \item 
 void \mbox{\hyperlink{class_c_encoder_a99a1c676b3fd3e6f253b273b2d740aab}{Init}} ()
-\item 
-unsigned int \mbox{\hyperlink{class_c_encoder_aba0cf6ffa20d8c3c4028c2e380ff73b3}{Read}} ()
-\item 
-bool \mbox{\hyperlink{class_c_encoder_a75c1bf0e999ea2c93937e487ab89f4a8}{reset}} ()
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Initialization of \mbox{\hyperlink{class_c_encoder}{C\+Encoder}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{_a_d_a_s___types_8h_a1f1825b69244eb3ad2c7165ddc99c956}{uint16\+\_\+t}} \mbox{\hyperlink{class_c_encoder_a5911a289a7ed8a32e0a89e6191e1651c}{Read\+Count}} ()
+\begin{DoxyCompactList}\small\item\em Function to read out the peak count per 150ms. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{_a_d_a_s___types_8h_a1f1825b69244eb3ad2c7165ddc99c956}{uint16\+\_\+t}} \mbox{\hyperlink{class_c_encoder_aa38f17afea1ce9b6efd9d95335a95d26}{Read\+Sum}} ()
+\begin{DoxyCompactList}\small\item\em Function to sum up the counted peaks. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_c_encoder_ab71d6281e3f4d9f875f45368a3434980}{reset}} (void)
+\begin{DoxyCompactList}\small\item\em Function to reset all values of the encoder. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_c_encoder_aa64baac0c38ee19af8572e8da4838582}{Enc\+I\+SR}} (void)
+\begin{DoxyCompactList}\small\item\em Interrupt Service Routine of the encoder. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
 
 
-Definition at line 11 of file H\+A\+L\+\_\+\+Encoder.\+h.
+Definition at line 20 of file H\+A\+L\+\_\+\+Encoder.\+h.
 
 
 
 \subsection{Member Enumeration Documentation}
 \mbox{\Hypertarget{class_c_encoder_a49810cc352199fb02a60e2ef8ac6cbc3}\label{class_c_encoder_a49810cc352199fb02a60e2ef8ac6cbc3}} 
-\index{CEncoder@{CEncoder}!EncoderID\_e@{EncoderID\_e}}
-\index{EncoderID\_e@{EncoderID\_e}!CEncoder@{CEncoder}}
-\subsubsection{\texorpdfstring{EncoderID\_e}{EncoderID\_e}}
+\index{C\+Encoder@{C\+Encoder}!Encoder\+I\+D\+\_\+e@{Encoder\+I\+D\+\_\+e}}
+\index{Encoder\+I\+D\+\_\+e@{Encoder\+I\+D\+\_\+e}!C\+Encoder@{C\+Encoder}}
+\subsubsection{\texorpdfstring{Encoder\+I\+D\+\_\+e}{EncoderID\_e}}
 {\footnotesize\ttfamily enum \mbox{\hyperlink{class_c_encoder_a49810cc352199fb02a60e2ef8ac6cbc3}{C\+Encoder\+::\+Encoder\+I\+D\+\_\+e}}}
 
 \begin{DoxyEnumFields}{Enumerator}
-\raisebox{\heightof{T}}[0pt][0pt]{\index{E1@{E1}!CEncoder@{CEncoder}}\index{CEncoder@{CEncoder}!E1@{E1}}}\mbox{\Hypertarget{class_c_encoder_a49810cc352199fb02a60e2ef8ac6cbc3a8f0ceb6874e0c79b53bf26fa42a1b652}\label{class_c_encoder_a49810cc352199fb02a60e2ef8ac6cbc3a8f0ceb6874e0c79b53bf26fa42a1b652}} 
+\raisebox{\heightof{T}}[0pt][0pt]{\index{E1@{E1}!C\+Encoder@{C\+Encoder}}\index{C\+Encoder@{C\+Encoder}!E1@{E1}}}\mbox{\Hypertarget{class_c_encoder_a49810cc352199fb02a60e2ef8ac6cbc3a8f0ceb6874e0c79b53bf26fa42a1b652}\label{class_c_encoder_a49810cc352199fb02a60e2ef8ac6cbc3a8f0ceb6874e0c79b53bf26fa42a1b652}} 
 E1&\\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{E2@{E2}!CEncoder@{CEncoder}}\index{CEncoder@{CEncoder}!E2@{E2}}}\mbox{\Hypertarget{class_c_encoder_a49810cc352199fb02a60e2ef8ac6cbc3aaa314a69656e242defabd33eb8e90284}\label{class_c_encoder_a49810cc352199fb02a60e2ef8ac6cbc3aaa314a69656e242defabd33eb8e90284}} 
+\raisebox{\heightof{T}}[0pt][0pt]{\index{E2@{E2}!C\+Encoder@{C\+Encoder}}\index{C\+Encoder@{C\+Encoder}!E2@{E2}}}\mbox{\Hypertarget{class_c_encoder_a49810cc352199fb02a60e2ef8ac6cbc3aaa314a69656e242defabd33eb8e90284}\label{class_c_encoder_a49810cc352199fb02a60e2ef8ac6cbc3aaa314a69656e242defabd33eb8e90284}} 
 E2&\\
 \hline
 
 \end{DoxyEnumFields}
 
 
-Definition at line 13 of file H\+A\+L\+\_\+\+Encoder.\+h.
+Definition at line 22 of file H\+A\+L\+\_\+\+Encoder.\+h.
 
 
 
 \subsection{Constructor \& Destructor Documentation}
 \mbox{\Hypertarget{class_c_encoder_ab63d860ef36a6b121ab3007f70743de7}\label{class_c_encoder_ab63d860ef36a6b121ab3007f70743de7}} 
-\index{CEncoder@{CEncoder}!CEncoder@{CEncoder}}
-\index{CEncoder@{CEncoder}!CEncoder@{CEncoder}}
-\subsubsection{\texorpdfstring{CEncoder()}{CEncoder()}}
+\index{C\+Encoder@{C\+Encoder}!C\+Encoder@{C\+Encoder}}
+\index{C\+Encoder@{C\+Encoder}!C\+Encoder@{C\+Encoder}}
+\subsubsection{\texorpdfstring{C\+Encoder()}{CEncoder()}}
 {\footnotesize\ttfamily C\+Encoder\+::\+C\+Encoder (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_c_encoder_a49810cc352199fb02a60e2ef8ac6cbc3}{Encoder\+I\+D\+\_\+e}}}]{ID }\end{DoxyParamCaption})}
 
 
 
-Definition at line 11 of file H\+A\+L\+\_\+\+Encoder.\+cpp.
+Constructor of \mbox{\hyperlink{class_c_encoder}{C\+Encoder}}. 
+
+Destructor of \mbox{\hyperlink{class_c_encoder}{C\+Encoder}} 
+
+Definition at line 8 of file H\+A\+L\+\_\+\+Encoder.\+cpp.
 
 \mbox{\Hypertarget{class_c_encoder_aa6b7126b6e24bd115348fa6243756f47}\label{class_c_encoder_aa6b7126b6e24bd115348fa6243756f47}} 
-\index{CEncoder@{CEncoder}!````~CEncoder@{$\sim$CEncoder}}
-\index{````~CEncoder@{$\sim$CEncoder}!CEncoder@{CEncoder}}
-\subsubsection{\texorpdfstring{$\sim$CEncoder()}{~CEncoder()}}
+\index{C\+Encoder@{C\+Encoder}!````~C\+Encoder@{$\sim$\+C\+Encoder}}
+\index{````~C\+Encoder@{$\sim$\+C\+Encoder}!C\+Encoder@{C\+Encoder}}
+\subsubsection{\texorpdfstring{$\sim$\+C\+Encoder()}{~CEncoder()}}
 {\footnotesize\ttfamily C\+Encoder\+::$\sim$\+C\+Encoder (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
@@ -84,29 +98,109 @@ Definition at line 16 of file H\+A\+L\+\_\+\+Encoder.\+cpp.
 
 
 \subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_c_encoder_aa64baac0c38ee19af8572e8da4838582}\label{class_c_encoder_aa64baac0c38ee19af8572e8da4838582}} 
+\index{C\+Encoder@{C\+Encoder}!Enc\+I\+SR@{Enc\+I\+SR}}
+\index{Enc\+I\+SR@{Enc\+I\+SR}!C\+Encoder@{C\+Encoder}}
+\subsubsection{\texorpdfstring{Enc\+I\+S\+R()}{EncISR()}}
+{\footnotesize\ttfamily void C\+Encoder\+::\+Enc\+I\+SR (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Interrupt Service Routine of the encoder. 
+
+In this I\+SR the peaks of the left encoder are counted. 
+
+Definition at line 63 of file H\+A\+L\+\_\+\+Encoder.\+cpp.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_c_encoder_aa64baac0c38ee19af8572e8da4838582_icgraph}
+\end{center}
+\end{figure}
 \mbox{\Hypertarget{class_c_encoder_a99a1c676b3fd3e6f253b273b2d740aab}\label{class_c_encoder_a99a1c676b3fd3e6f253b273b2d740aab}} 
-\index{CEncoder@{CEncoder}!Init@{Init}}
-\index{Init@{Init}!CEncoder@{CEncoder}}
+\index{C\+Encoder@{C\+Encoder}!Init@{Init}}
+\index{Init@{Init}!C\+Encoder@{C\+Encoder}}
 \subsubsection{\texorpdfstring{Init()}{Init()}}
 {\footnotesize\ttfamily void C\+Encoder\+::\+Init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
 
 
 
-Definition at line 20 of file H\+A\+L\+\_\+\+Encoder.\+cpp.
+Initialization of \mbox{\hyperlink{class_c_encoder}{C\+Encoder}}. 
 
-\mbox{\Hypertarget{class_c_encoder_aba0cf6ffa20d8c3c4028c2e380ff73b3}\label{class_c_encoder_aba0cf6ffa20d8c3c4028c2e380ff73b3}} 
-\index{CEncoder@{CEncoder}!Read@{Read}}
-\index{Read@{Read}!CEncoder@{CEncoder}}
-\subsubsection{\texorpdfstring{Read()}{Read()}}
-{\footnotesize\ttfamily unsigned int C\+Encoder\+::\+Read (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+The pin of the encoder is initialized 
 
-\mbox{\Hypertarget{class_c_encoder_a75c1bf0e999ea2c93937e487ab89f4a8}\label{class_c_encoder_a75c1bf0e999ea2c93937e487ab89f4a8}} 
-\index{CEncoder@{CEncoder}!reset@{reset}}
-\index{reset@{reset}!CEncoder@{CEncoder}}
+Definition at line 24 of file H\+A\+L\+\_\+\+Encoder.\+cpp.
+
+\mbox{\Hypertarget{class_c_encoder_a5911a289a7ed8a32e0a89e6191e1651c}\label{class_c_encoder_a5911a289a7ed8a32e0a89e6191e1651c}} 
+\index{C\+Encoder@{C\+Encoder}!Read\+Count@{Read\+Count}}
+\index{Read\+Count@{Read\+Count}!C\+Encoder@{C\+Encoder}}
+\subsubsection{\texorpdfstring{Read\+Count()}{ReadCount()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_a_d_a_s___types_8h_a1f1825b69244eb3ad2c7165ddc99c956}{uint16\+\_\+t}} C\+Encoder\+::\+Read\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Function to read out the peak count per 150ms. 
+
+In this function the peaks are counted. It is called by the M\+CU every 150ms, which defines the counting time of the peaks. 
+
+Definition at line 35 of file H\+A\+L\+\_\+\+Encoder.\+cpp.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_c_encoder_a5911a289a7ed8a32e0a89e6191e1651c_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_c_encoder_aa38f17afea1ce9b6efd9d95335a95d26}\label{class_c_encoder_aa38f17afea1ce9b6efd9d95335a95d26}} 
+\index{C\+Encoder@{C\+Encoder}!Read\+Sum@{Read\+Sum}}
+\index{Read\+Sum@{Read\+Sum}!C\+Encoder@{C\+Encoder}}
+\subsubsection{\texorpdfstring{Read\+Sum()}{ReadSum()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_a_d_a_s___types_8h_a1f1825b69244eb3ad2c7165ddc99c956}{uint16\+\_\+t}} C\+Encoder\+::\+Read\+Sum (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Function to sum up the counted peaks. 
+
+In this function the counted peaks per 150ms are summed up. It is called by the M\+CU every 150ms. 
+
+Definition at line 46 of file H\+A\+L\+\_\+\+Encoder.\+cpp.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_c_encoder_aa38f17afea1ce9b6efd9d95335a95d26_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_c_encoder_ab71d6281e3f4d9f875f45368a3434980}\label{class_c_encoder_ab71d6281e3f4d9f875f45368a3434980}} 
+\index{C\+Encoder@{C\+Encoder}!reset@{reset}}
+\index{reset@{reset}!C\+Encoder@{C\+Encoder}}
 \subsubsection{\texorpdfstring{reset()}{reset()}}
-{\footnotesize\ttfamily bool C\+Encoder\+::reset (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void C\+Encoder\+::reset (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
 
-Reset the value to zero 
+
+
+Function to reset all values of the encoder. 
+
+
+
+Definition at line 54 of file H\+A\+L\+\_\+\+Encoder.\+cpp.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_c_encoder_ab71d6281e3f4d9f875f45368a3434980_icgraph}
+\end{center}
+\end{figure}
+
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

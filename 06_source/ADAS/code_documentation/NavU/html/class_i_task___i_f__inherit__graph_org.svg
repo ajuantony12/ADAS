@@ -10,7 +10,6 @@
 <title>ITask_IF</title>
 <!-- Node0 -->
 <g id="node1" class="node"><title>Node0</title>
-<g id="a_node1"><a xlink:title="Task scheduler class interface class.">
 <polygon fill="#bfbfbf" stroke="black" points="312,-259.5 312,-338.5 365,-338.5 365,-259.5 312,-259.5"/>
 <text text-anchor="middle" x="338.5" y="-326.5" font-family="Helvetica,sans-Serif" font-size="10.00">ITask_IF</text>
 <polyline fill="none" stroke="black" points="312,-319.5 365,-319.5 "/>
@@ -19,12 +18,10 @@
 <text text-anchor="start" x="320" y="-288.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ Init()</text>
 <text text-anchor="start" x="320" y="-277.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ Run()</text>
 <text text-anchor="start" x="320" y="-266.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ Stop()</text>
-</a>
-</g>
 </g>
 <!-- Node1 -->
 <g id="node2" class="node"><title>Node1</title>
-<g id="a_node2"><a xlink:href="class_c_environmental_data.html" target="_top" xlink:title="Environmental Data Class.">
+<g id="a_node2"><a xlink:href="class_c_environmental_data.html" target="_top" xlink:title="Environmental Data Class. ">
 <polygon fill="none" stroke="black" points="0,-55.5 0,-167.5 125,-167.5 125,-55.5 0,-55.5"/>
 <text text-anchor="middle" x="62.5" y="-155.5" font-family="Helvetica,sans-Serif" font-size="10.00">CEnvironmentalData</text>
 <polyline fill="none" stroke="black" points="0,-148.5 125,-148.5 "/>
@@ -46,7 +43,7 @@
 </g>
 <!-- Node2 -->
 <g id="node3" class="node"><title>Node2</title>
-<g id="a_node3"><a xlink:href="class_c_navigation.html" target="_top" xlink:title="Navigation algorithm class.">
+<g id="a_node3"><a xlink:href="class_c_navigation.html" target="_top" xlink:title="Navigation algorithm class. ">
 <polygon fill="none" stroke="black" points="143,-0.5 143,-222.5 274,-222.5 274,-0.5 143,-0.5"/>
 <text text-anchor="middle" x="208.5" y="-210.5" font-family="Helvetica,sans-Serif" font-size="10.00">CNavigation</text>
 <polyline fill="none" stroke="black" points="143,-203.5 274,-203.5 "/>
@@ -78,7 +75,7 @@
 </g>
 <!-- Node3 -->
 <g id="node4" class="node"><title>Node3</title>
-<g id="a_node4"><a xlink:href="class_c_positioning.html" target="_top" xlink:title=" ">
+<g id="a_node4"><a xlink:href="class_c_positioning.html" target="_top" xlink:title="{CPositioning\n||+ CPositioning()\l+ ~CPositioning()\l+ Init()\l+ Run()\l+ Stop()\l}">
 <polygon fill="none" stroke="black" points="292.5,-61 292.5,-162 384.5,-162 384.5,-61 292.5,-61"/>
 <text text-anchor="middle" x="338.5" y="-150" font-family="Helvetica,sans-Serif" font-size="10.00">CPositioning</text>
 <polyline fill="none" stroke="black" points="292.5,-143 384.5,-143 "/>
@@ -99,7 +96,7 @@
 </g>
 <!-- Node4 -->
 <g id="node5" class="node"><title>Node4</title>
-<g id="a_node5"><a xlink:href="class_c_user___i_f.html" target="_top" xlink:title=" ">
+<g id="a_node5"><a xlink:href="class_c_user___i_f.html" target="_top" xlink:title="{CUser_IF\n||+ CUser_IF()\l+ ~CUser_IF()\l+ Init()\l+ Run()\l+ Stop()\l}">
 <polygon fill="none" stroke="black" points="402.5,-61 402.5,-162 480.5,-162 480.5,-61 402.5,-61"/>
 <text text-anchor="middle" x="441.5" y="-150" font-family="Helvetica,sans-Serif" font-size="10.00">CUser_IF</text>
 <polyline fill="none" stroke="black" points="402.5,-143 480.5,-143 "/>
@@ -120,7 +117,7 @@
 </g>
 <!-- Node5 -->
 <g id="node6" class="node"><title>Node5</title>
-<g id="a_node6"><a xlink:href="class_c_v_mapping.html" target="_top" xlink:title="Virtual mapping application class.">
+<g id="a_node6"><a xlink:href="class_c_v_mapping.html" target="_top" xlink:title="Virtual mapping application class. ">
 <polygon fill="none" stroke="black" points="498.5,-61 498.5,-162 586.5,-162 586.5,-61 498.5,-61"/>
 <text text-anchor="middle" x="542.5" y="-150" font-family="Helvetica,sans-Serif" font-size="10.00">CVMapping</text>
 <polyline fill="none" stroke="black" points="498.5,-143 586.5,-143 "/>

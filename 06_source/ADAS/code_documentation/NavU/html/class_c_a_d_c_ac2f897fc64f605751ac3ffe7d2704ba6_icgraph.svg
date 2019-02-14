@@ -10,38 +10,35 @@
 <title>CADC::ReadADCValue</title>
 <!-- Node7 -->
 <g id="node1" class="node"><title>Node7</title>
-<g id="a_node1"><a xlink:title="Function to read ADC value.">
-<polygon fill="#bfbfbf" stroke="black" points="304,-6 304,-25 421,-25 421,-6 304,-6"/>
-<text text-anchor="middle" x="362.5" y="-13" font-family="Helvetica,sans-Serif" font-size="10.00">CADC::ReadADCValue</text>
-</a>
-</g>
+<polygon fill="#bfbfbf" stroke="black" points="0,-6 0,-25 117,-25 117,-6 0,-6"/>
+<text text-anchor="middle" x="58.5" y="-13" font-family="Helvetica,sans-Serif" font-size="10.00">CADC::ReadADCValue</text>
 </g>
 <!-- Node8 -->
 <g id="node2" class="node"><title>Node8</title>
-<g id="a_node2"><a xlink:href="class_c_environmental_data.html#a12a6d60a2a0aa406beb82375fa60e875" target="_top" xlink:title="Function to convert ADC value into mV.">
-<polygon fill="none" stroke="black" points="164,-0.5 164,-30.5 268,-30.5 268,-0.5 164,-0.5"/>
-<text text-anchor="start" x="172" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">CEnvironmentalData</text>
-<text text-anchor="middle" x="216" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">::GetVbat</text>
+<g id="a_node2"><a xlink:href="class_c_environmental_data.html#a12a6d60a2a0aa406beb82375fa60e875" target="_top" xlink:title="Function to convert ADC value into mV. ">
+<polygon fill="none" stroke="black" points="153,-0.5 153,-30.5 257,-30.5 257,-0.5 153,-0.5"/>
+<text text-anchor="start" x="161" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">CEnvironmentalData</text>
+<text text-anchor="middle" x="205" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">::GetVbat</text>
 </a>
 </g>
 </g>
 <!-- Node7&#45;&gt;Node8 -->
 <g id="edge1" class="edge"><title>Node7&#45;&gt;Node8</title>
-<path fill="none" stroke="midnightblue" d="M293.913,-15.5C285.282,-15.5 276.562,-15.5 268.249,-15.5"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="293.975,-19.0001 303.975,-15.5 293.975,-12.0001 293.975,-19.0001"/>
+<path fill="none" stroke="midnightblue" d="M127.087,-15.5C135.718,-15.5 144.438,-15.5 152.751,-15.5"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="127.025,-12.0001 117.025,-15.5 127.025,-19.0001 127.025,-12.0001"/>
 </g>
 <!-- Node9 -->
 <g id="node3" class="node"><title>Node9</title>
-<g id="a_node3"><a xlink:href="class_c_environmental_data.html#a586a729d3aab2873812517d950c91242" target="_top" xlink:title="Run function of CEnvironmentalData which is periodically called by CTaskCtrl.">
-<polygon fill="none" stroke="black" points="0,-6 0,-25 128,-25 128,-6 0,-6"/>
-<text text-anchor="middle" x="64" y="-13" font-family="Helvetica,sans-Serif" font-size="10.00">CEnvironmentalData::Run</text>
+<g id="a_node3"><a xlink:href="class_c_environmental_data.html#a586a729d3aab2873812517d950c91242" target="_top" xlink:title="Run function of CEnvironmentalData which is periodically called by CTaskCtrl. ">
+<polygon fill="none" stroke="black" points="293,-6 293,-25 421,-25 421,-6 293,-6"/>
+<text text-anchor="middle" x="357" y="-13" font-family="Helvetica,sans-Serif" font-size="10.00">CEnvironmentalData::Run</text>
 </a>
 </g>
 </g>
 <!-- Node8&#45;&gt;Node9 -->
 <g id="edge2" class="edge"><title>Node8&#45;&gt;Node9</title>
-<path fill="none" stroke="midnightblue" d="M153.685,-15.5C145.273,-15.5 136.623,-15.5 128.178,-15.5"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="153.798,-19.0001 163.798,-15.5 153.798,-12.0001 153.798,-19.0001"/>
+<path fill="none" stroke="midnightblue" d="M267.315,-15.5C275.727,-15.5 284.377,-15.5 292.822,-15.5"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="267.202,-12.0001 257.202,-15.5 267.202,-19.0001 267.202,-12.0001"/>
 </g>
 </g>
 </svg>

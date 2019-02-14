@@ -1,0 +1,5 @@
+<map id="CMotorCtrl::Init" name="CMotorCtrl::Init">
+<area shape="rect" id="node2" href="$class_c_p_w_m_unit.html#aa36627883e91d3dec4a76fe187588071" title="Function to initialize timers for 10&#45;bit PWM. " alt="" coords="163,5,338,32"/>
+<area shape="rect" id="node3" href="$class_c_i_m_u_unit.html#a589ccc2afbaadbdf9dbef34c5025a42f" title="Intitialization function of IMU Unit. " alt="" coords="199,56,302,83"/>
+<area shape="rect" id="node4" href="$class_chart_model_class.html#ab32e055f4e5692dd69685b4befbea75d" title="model initialize function " alt="" coords="163,107,339,133"/>
+</map>

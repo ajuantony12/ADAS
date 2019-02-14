@@ -10,24 +10,21 @@
 <title>CTaskCtrl::Init</title>
 <!-- Node6 -->
 <g id="node1" class="node"><title>Node6</title>
-<g id="a_node1"><a xlink:title="Initialization function task controller.">
-<polygon fill="#bfbfbf" stroke="black" points="77,-0.5 77,-19.5 155,-19.5 155,-0.5 77,-0.5"/>
-<text text-anchor="middle" x="116" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">CTaskCtrl::Init</text>
-</a>
-</g>
+<polygon fill="#bfbfbf" stroke="black" points="0,-0.5 0,-19.5 78,-19.5 78,-0.5 0,-0.5"/>
+<text text-anchor="middle" x="39" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">CTaskCtrl::Init</text>
 </g>
 <!-- Node7 -->
 <g id="node2" class="node"><title>Node7</title>
-<g id="a_node2"><a xlink:href="_a_d_a_s___nav_u_8ino.html#a4fc01d736fe50cf5b977f755b675f11d" target="_top" xlink:title=" ">
-<polygon fill="none" stroke="black" points="0,-0.5 0,-19.5 41,-19.5 41,-0.5 0,-0.5"/>
-<text text-anchor="middle" x="20.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">setup</text>
+<g id="a_node2"><a xlink:href="_a_d_a_s___nav_u_8ino.html#a4fc01d736fe50cf5b977f755b675f11d" target="_top" xlink:title="setup">
+<polygon fill="none" stroke="black" points="114,-0.5 114,-19.5 155,-19.5 155,-0.5 114,-0.5"/>
+<text text-anchor="middle" x="134.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">setup</text>
 </a>
 </g>
 </g>
 <!-- Node6&#45;&gt;Node7 -->
 <g id="edge1" class="edge"><title>Node6&#45;&gt;Node7</title>
-<path fill="none" stroke="midnightblue" d="M66.7356,-10C57.6345,-10 48.61,-10 41.0437,-10"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="66.97,-13.5001 76.97,-10 66.9699,-6.5001 66.97,-13.5001"/>
+<path fill="none" stroke="midnightblue" d="M88.2644,-10C97.3655,-10 106.39,-10 113.956,-10"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="88.0301,-6.5001 78.03,-10 88.03,-13.5001 88.0301,-6.5001"/>
 </g>
 </g>
 </svg>

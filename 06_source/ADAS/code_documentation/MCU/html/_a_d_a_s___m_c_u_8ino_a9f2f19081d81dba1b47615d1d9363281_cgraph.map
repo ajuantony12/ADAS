@@ -1,0 +1,5 @@
+<map id="timerCallback" name="timerCallback">
+<area shape="rect" id="node2" href="$class_c_motor_ctrl.html#a8a76501cf8eaa85c5131bde5f33b6699" title="Function of the CMotorCtrl where the sum of all peaks and the peaks per 150ms are read out..." alt="" coords="155,31,293,57"/>
+<area shape="rect" id="node3" href="$class_c_encoder.html#a5911a289a7ed8a32e0a89e6191e1651c" title="Function to read out the peak count per 150ms. " alt="" coords="341,5,492,32"/>
+<area shape="rect" id="node4" href="$class_c_encoder.html#aa38f17afea1ce9b6efd9d95335a95d26" title="Function to sum up the counted peaks. " alt="" coords="345,56,489,83"/>
+</map>

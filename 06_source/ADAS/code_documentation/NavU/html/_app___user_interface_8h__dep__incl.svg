@@ -10,15 +10,12 @@
 <title>App_UserInterface.h</title>
 <!-- Node3 -->
 <g id="node1" class="node"><title>Node3</title>
-<g id="a_node1"><a xlink:title="template header file for uner interface application">
 <polygon fill="#bfbfbf" stroke="black" points="50.5,-56.5 50.5,-75.5 154.5,-75.5 154.5,-56.5 50.5,-56.5"/>
 <text text-anchor="middle" x="102.5" y="-63.5" font-family="Helvetica,sans-Serif" font-size="10.00">App_UserInterface.h</text>
-</a>
-</g>
 </g>
 <!-- Node4 -->
 <g id="node2" class="node"><title>Node4</title>
-<g id="a_node2"><a xlink:href="_a_d_a_s___nav_u_8ino.html" target="_top" xlink:title="Main file for the NavU of the ADAS project.">
+<g id="a_node2"><a xlink:href="_a_d_a_s___nav_u_8ino.html" target="_top" xlink:title="Main file for the NavU of the ADAS project. ">
 <polygon fill="none" stroke="black" points="0,-0.5 0,-19.5 87,-19.5 87,-0.5 0,-0.5"/>
 <text text-anchor="middle" x="43.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">ADAS_NavU.ino</text>
 </a>
@@ -31,7 +28,7 @@
 </g>
 <!-- Node5 -->
 <g id="node3" class="node"><title>Node5</title>
-<g id="a_node3"><a xlink:href="_app___user_interface_8cpp.html" target="_top" xlink:title="template source file for unser interface application">
+<g id="a_node3"><a xlink:href="_app___user_interface_8cpp.html" target="_top" xlink:title="template source file for unser interface application ">
 <polygon fill="none" stroke="black" points="105,-0.5 105,-19.5 220,-19.5 220,-0.5 105,-0.5"/>
 <text text-anchor="middle" x="162.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">App_UserInterface.cpp</text>
 </a>

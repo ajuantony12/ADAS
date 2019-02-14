@@ -1,5 +1,5 @@
 \hypertarget{class_c_motor_ctrl}{}\section{C\+Motor\+Ctrl Class Reference}
-\label{class_c_motor_ctrl}\index{CMotorCtrl@{CMotorCtrl}}
+\label{class_c_motor_ctrl}\index{C\+Motor\+Ctrl@{C\+Motor\+Ctrl}}
 
 
 Motor Control Unit Class.  
@@ -12,11 +12,17 @@ Motor Control Unit Class.
 
 
 Collaboration diagram for C\+Motor\+Ctrl\+:
-% FIG 0
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=170pt]{class_c_motor_ctrl__coll__graph}
+\end{center}
+\end{figure}
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{class_c_motor_ctrl_aa0093ebb4e0da5e22f829f717762a487}{C\+Motor\+Ctrl}} (\mbox{\hyperlink{class_c_i_m_u_unit}{C\+I\+M\+U\+Unit}} \&\mbox{\hyperlink{_a_d_a_s___m_c_u_8ino_ae51e36f83228f859afeb8a72e60339a6}{imu\+\_\+o}}, \mbox{\hyperlink{class_c_p_w_m_unit}{C\+P\+W\+M\+Unit}} \&\mbox{\hyperlink{_a_d_a_s___m_c_u_8ino_a10a570a59ef56c08699c4fec61d47d16}{pwm\+Unit\+Left\+\_\+o}}, \mbox{\hyperlink{class_c_p_w_m_unit}{C\+P\+W\+M\+Unit}} \&\mbox{\hyperlink{_a_d_a_s___m_c_u_8ino_a49af1ef8724d9cb785e37641bb0cdc6b}{pwm\+Unit\+Right\+\_\+o}}, \mbox{\hyperlink{class_c_i_c_c_comms}{C\+I\+C\+C\+Comms}} \&\mbox{\hyperlink{_a_d_a_s___m_c_u_8ino_a62ef6b3308259edb69af585549178324}{icc\+Comms\+\_\+o}})
+\mbox{\hyperlink{class_c_motor_ctrl_ae51b58d3d46f718599ae4971fad86749}{C\+Motor\+Ctrl}} (\mbox{\hyperlink{class_c_i_m_u_unit}{C\+I\+M\+U\+Unit}} \&\mbox{\hyperlink{_a_d_a_s___m_c_u_8ino_ae51e36f83228f859afeb8a72e60339a6}{imu\+\_\+o}}, \mbox{\hyperlink{class_c_p_w_m_unit}{C\+P\+W\+M\+Unit}} \&\mbox{\hyperlink{_a_d_a_s___m_c_u_8ino_a10a570a59ef56c08699c4fec61d47d16}{pwm\+Unit\+Left\+\_\+o}}, \mbox{\hyperlink{class_c_p_w_m_unit}{C\+P\+W\+M\+Unit}} \&\mbox{\hyperlink{_a_d_a_s___m_c_u_8ino_a49af1ef8724d9cb785e37641bb0cdc6b}{pwm\+Unit\+Right\+\_\+o}}, \mbox{\hyperlink{class_c_encoder}{C\+Encoder}} \&\mbox{\hyperlink{_a_d_a_s___m_c_u_8ino_ad90699f8fbb0fa8f734ae5c30885ee3b}{enc1\+\_\+o}}, \mbox{\hyperlink{class_c_encoder}{C\+Encoder}} \&\mbox{\hyperlink{_a_d_a_s___m_c_u_8ino_a54cfc96aae4913b87ab356a0665557a5}{enc2\+\_\+o}}, \mbox{\hyperlink{class_c_i_c_c_comms}{C\+I\+C\+C\+Comms}} \&\mbox{\hyperlink{_a_d_a_s___m_c_u_8ino_a62ef6b3308259edb69af585549178324}{icc\+Comms\+\_\+o}})
 \begin{DoxyCompactList}\small\item\em Constructor of \mbox{\hyperlink{class_c_motor_ctrl}{C\+Motor\+Ctrl}}. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_c_motor_ctrl_a97e5fbdf11c6562a7895cf4079003132}{$\sim$\+C\+Motor\+Ctrl}} ()
 \begin{DoxyCompactList}\small\item\em Desctructor of \mbox{\hyperlink{class_c_motor_ctrl}{C\+Motor\+Ctrl}}. \end{DoxyCompactList}\item 
@@ -33,7 +39,9 @@ void \mbox{\hyperlink{class_c_motor_ctrl_a5c6d49d9b407e46aad0abe84bcaf16ec}{set\
 void \mbox{\hyperlink{class_c_motor_ctrl_af3e047be659fb9f49f1644ba2eca4684}{pause\+Drive}} (void)
 \begin{DoxyCompactList}\small\item\em A\+PI Function of the \mbox{\hyperlink{class_c_motor_ctrl}{C\+Motor\+Ctrl}} to pause the current action of the motor control. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_c_motor_ctrl_a6b67180c355c2acf76d641f2817db66d}{cont\+Drive}} (void)
-\begin{DoxyCompactList}\small\item\em A\+PI Function of the \mbox{\hyperlink{class_c_motor_ctrl}{C\+Motor\+Ctrl}} to continue the previously paused action of the motor control. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em A\+PI Function of the \mbox{\hyperlink{class_c_motor_ctrl}{C\+Motor\+Ctrl}} to continue the previously paused action of the motor control. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_c_motor_ctrl_a8a76501cf8eaa85c5131bde5f33b6699}{readenc}} (void)
+\begin{DoxyCompactList}\small\item\em Function of the \mbox{\hyperlink{class_c_motor_ctrl}{C\+Motor\+Ctrl}} where the sum of all peaks and the peaks per 150ms are read out. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
@@ -46,11 +54,11 @@ Definition at line 40 of file App\+\_\+\+Motor\+Ctrl.\+h.
 
 
 \subsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{class_c_motor_ctrl_aa0093ebb4e0da5e22f829f717762a487}\label{class_c_motor_ctrl_aa0093ebb4e0da5e22f829f717762a487}} 
-\index{CMotorCtrl@{CMotorCtrl}!CMotorCtrl@{CMotorCtrl}}
-\index{CMotorCtrl@{CMotorCtrl}!CMotorCtrl@{CMotorCtrl}}
-\subsubsection{\texorpdfstring{CMotorCtrl()}{CMotorCtrl()}}
-{\footnotesize\ttfamily C\+Motor\+Ctrl\+::\+C\+Motor\+Ctrl (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_c_i_m_u_unit}{C\+I\+M\+U\+Unit}} \&}]{imu\+\_\+o,  }\item[{\mbox{\hyperlink{class_c_p_w_m_unit}{C\+P\+W\+M\+Unit}} \&}]{pwm\+Unit\+Left\+\_\+o,  }\item[{\mbox{\hyperlink{class_c_p_w_m_unit}{C\+P\+W\+M\+Unit}} \&}]{pwm\+Unit\+Right\+\_\+o,  }\item[{\mbox{\hyperlink{class_c_i_c_c_comms}{C\+I\+C\+C\+Comms}} \&}]{icc\+Comms\+\_\+o }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{class_c_motor_ctrl_ae51b58d3d46f718599ae4971fad86749}\label{class_c_motor_ctrl_ae51b58d3d46f718599ae4971fad86749}} 
+\index{C\+Motor\+Ctrl@{C\+Motor\+Ctrl}!C\+Motor\+Ctrl@{C\+Motor\+Ctrl}}
+\index{C\+Motor\+Ctrl@{C\+Motor\+Ctrl}!C\+Motor\+Ctrl@{C\+Motor\+Ctrl}}
+\subsubsection{\texorpdfstring{C\+Motor\+Ctrl()}{CMotorCtrl()}}
+{\footnotesize\ttfamily C\+Motor\+Ctrl\+::\+C\+Motor\+Ctrl (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_c_i_m_u_unit}{C\+I\+M\+U\+Unit}} \&}]{imu\+\_\+o,  }\item[{\mbox{\hyperlink{class_c_p_w_m_unit}{C\+P\+W\+M\+Unit}} \&}]{pwm\+Unit\+Left\+\_\+o,  }\item[{\mbox{\hyperlink{class_c_p_w_m_unit}{C\+P\+W\+M\+Unit}} \&}]{pwm\+Unit\+Right\+\_\+o,  }\item[{\mbox{\hyperlink{class_c_encoder}{C\+Encoder}} \&}]{enc1\+\_\+o,  }\item[{\mbox{\hyperlink{class_c_encoder}{C\+Encoder}} \&}]{enc2\+\_\+o,  }\item[{\mbox{\hyperlink{class_c_i_c_c_comms}{C\+I\+C\+C\+Comms}} \&}]{icc\+Comms\+\_\+o }\end{DoxyParamCaption})}
 
 
 
@@ -58,12 +66,12 @@ Constructor of \mbox{\hyperlink{class_c_motor_ctrl}{C\+Motor\+Ctrl}}.
 
 
 
-Definition at line 27 of file App\+\_\+\+Motor\+Ctrl.\+cpp.
+Definition at line 23 of file App\+\_\+\+Motor\+Ctrl.\+cpp.
 
 \mbox{\Hypertarget{class_c_motor_ctrl_a97e5fbdf11c6562a7895cf4079003132}\label{class_c_motor_ctrl_a97e5fbdf11c6562a7895cf4079003132}} 
-\index{CMotorCtrl@{CMotorCtrl}!````~CMotorCtrl@{$\sim$CMotorCtrl}}
-\index{````~CMotorCtrl@{$\sim$CMotorCtrl}!CMotorCtrl@{CMotorCtrl}}
-\subsubsection{\texorpdfstring{$\sim$CMotorCtrl()}{~CMotorCtrl()}}
+\index{C\+Motor\+Ctrl@{C\+Motor\+Ctrl}!````~C\+Motor\+Ctrl@{$\sim$\+C\+Motor\+Ctrl}}
+\index{````~C\+Motor\+Ctrl@{$\sim$\+C\+Motor\+Ctrl}!C\+Motor\+Ctrl@{C\+Motor\+Ctrl}}
+\subsubsection{\texorpdfstring{$\sim$\+C\+Motor\+Ctrl()}{~CMotorCtrl()}}
 {\footnotesize\ttfamily C\+Motor\+Ctrl\+::$\sim$\+C\+Motor\+Ctrl (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
@@ -78,9 +86,9 @@ Definition at line 41 of file App\+\_\+\+Motor\+Ctrl.\+cpp.
 
 \subsection{Member Function Documentation}
 \mbox{\Hypertarget{class_c_motor_ctrl_a6b67180c355c2acf76d641f2817db66d}\label{class_c_motor_ctrl_a6b67180c355c2acf76d641f2817db66d}} 
-\index{CMotorCtrl@{CMotorCtrl}!contDrive@{contDrive}}
-\index{contDrive@{contDrive}!CMotorCtrl@{CMotorCtrl}}
-\subsubsection{\texorpdfstring{contDrive()}{contDrive()}}
+\index{C\+Motor\+Ctrl@{C\+Motor\+Ctrl}!cont\+Drive@{cont\+Drive}}
+\index{cont\+Drive@{cont\+Drive}!C\+Motor\+Ctrl@{C\+Motor\+Ctrl}}
+\subsubsection{\texorpdfstring{cont\+Drive()}{contDrive()}}
 {\footnotesize\ttfamily void C\+Motor\+Ctrl\+::cont\+Drive (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
 
 
@@ -89,13 +97,19 @@ A\+PI Function of the \mbox{\hyperlink{class_c_motor_ctrl}{C\+Motor\+Ctrl}} to c
 
 Function sets the pause variable to false and the motor control will continue with the present action. 
 
-Definition at line 407 of file App\+\_\+\+Motor\+Ctrl.\+cpp.
+Definition at line 382 of file App\+\_\+\+Motor\+Ctrl.\+cpp.
 
 Here is the caller graph for this function\+:
-% FIG 1
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_c_motor_ctrl_a6b67180c355c2acf76d641f2817db66d_icgraph}
+\end{center}
+\end{figure}
 \mbox{\Hypertarget{class_c_motor_ctrl_af4b1bec8e07e766aa2537d966f025e7a}\label{class_c_motor_ctrl_af4b1bec8e07e766aa2537d966f025e7a}} 
-\index{CMotorCtrl@{CMotorCtrl}!Init@{Init}}
-\index{Init@{Init}!CMotorCtrl@{CMotorCtrl}}
+\index{C\+Motor\+Ctrl@{C\+Motor\+Ctrl}!Init@{Init}}
+\index{Init@{Init}!C\+Motor\+Ctrl@{C\+Motor\+Ctrl}}
 \subsubsection{\texorpdfstring{Init()}{Init()}}
 {\footnotesize\ttfamily void C\+Motor\+Ctrl\+::\+Init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
 
@@ -108,13 +122,25 @@ Function set up the P\+WM signal, the I\+MU, initializes the stateflow, and init
 Definition at line 50 of file App\+\_\+\+Motor\+Ctrl.\+cpp.
 
 Here is the call graph for this function\+:
-% FIG 2
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=330pt]{class_c_motor_ctrl_af4b1bec8e07e766aa2537d966f025e7a_cgraph}
+\end{center}
+\end{figure}
 Here is the caller graph for this function\+:
-% FIG 3
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=239pt]{class_c_motor_ctrl_af4b1bec8e07e766aa2537d966f025e7a_icgraph}
+\end{center}
+\end{figure}
 \mbox{\Hypertarget{class_c_motor_ctrl_af3e047be659fb9f49f1644ba2eca4684}\label{class_c_motor_ctrl_af3e047be659fb9f49f1644ba2eca4684}} 
-\index{CMotorCtrl@{CMotorCtrl}!pauseDrive@{pauseDrive}}
-\index{pauseDrive@{pauseDrive}!CMotorCtrl@{CMotorCtrl}}
-\subsubsection{\texorpdfstring{pauseDrive()}{pauseDrive()}}
+\index{C\+Motor\+Ctrl@{C\+Motor\+Ctrl}!pause\+Drive@{pause\+Drive}}
+\index{pause\+Drive@{pause\+Drive}!C\+Motor\+Ctrl@{C\+Motor\+Ctrl}}
+\subsubsection{\texorpdfstring{pause\+Drive()}{pauseDrive()}}
 {\footnotesize\ttfamily void C\+Motor\+Ctrl\+::pause\+Drive (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
 
 
@@ -123,15 +149,57 @@ A\+PI Function of the \mbox{\hyperlink{class_c_motor_ctrl}{C\+Motor\+Ctrl}} to p
 
 Function stops the DC motors and set a pause variable to true. 
 
-Definition at line 378 of file App\+\_\+\+Motor\+Ctrl.\+cpp.
+Definition at line 353 of file App\+\_\+\+Motor\+Ctrl.\+cpp.
 
 Here is the call graph for this function\+:
-% FIG 4
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=344pt]{class_c_motor_ctrl_af3e047be659fb9f49f1644ba2eca4684_cgraph}
+\end{center}
+\end{figure}
 Here is the caller graph for this function\+:
-% FIG 5
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_c_motor_ctrl_af3e047be659fb9f49f1644ba2eca4684_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_c_motor_ctrl_a8a76501cf8eaa85c5131bde5f33b6699}\label{class_c_motor_ctrl_a8a76501cf8eaa85c5131bde5f33b6699}} 
+\index{C\+Motor\+Ctrl@{C\+Motor\+Ctrl}!readenc@{readenc}}
+\index{readenc@{readenc}!C\+Motor\+Ctrl@{C\+Motor\+Ctrl}}
+\subsubsection{\texorpdfstring{readenc()}{readenc()}}
+{\footnotesize\ttfamily void C\+Motor\+Ctrl\+::readenc (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Function of the \mbox{\hyperlink{class_c_motor_ctrl}{C\+Motor\+Ctrl}} where the sum of all peaks and the peaks per 150ms are read out. 
+
+Function is called every 150ms and reads out the count of the peaks per 150ms and sums them up. The control variable is set to true which enables the PI controller. 
+
+Definition at line 279 of file App\+\_\+\+Motor\+Ctrl.\+cpp.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=333pt]{class_c_motor_ctrl_a8a76501cf8eaa85c5131bde5f33b6699_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_c_motor_ctrl_a8a76501cf8eaa85c5131bde5f33b6699_icgraph}
+\end{center}
+\end{figure}
 \mbox{\Hypertarget{class_c_motor_ctrl_a63e5dd36be027fe8a5e1acee5c1322c8}\label{class_c_motor_ctrl_a63e5dd36be027fe8a5e1acee5c1322c8}} 
-\index{CMotorCtrl@{CMotorCtrl}!Run@{Run}}
-\index{Run@{Run}!CMotorCtrl@{CMotorCtrl}}
+\index{C\+Motor\+Ctrl@{C\+Motor\+Ctrl}!Run@{Run}}
+\index{Run@{Run}!C\+Motor\+Ctrl@{C\+Motor\+Ctrl}}
 \subsubsection{\texorpdfstring{Run()}{Run()}}
 {\footnotesize\ttfamily void C\+Motor\+Ctrl\+::\+Run (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
 
@@ -141,16 +209,28 @@ Run function of \mbox{\hyperlink{class_c_motor_ctrl}{C\+Motor\+Ctrl}} which is e
 
 The function checks if the motor control stateflow is valid. If yes it is reading out the gyro sensor and performs a stateflow calculation. If the H-\/bridge is enabled and the start button was pressed it checks for the current state and runs the PI control. At the end of the function the timer for the readout function of the encoder is updated. 
 
-Definition at line 90 of file App\+\_\+\+Motor\+Ctrl.\+cpp.
+Definition at line 80 of file App\+\_\+\+Motor\+Ctrl.\+cpp.
 
 Here is the call graph for this function\+:
-% FIG 6
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=333pt]{class_c_motor_ctrl_a63e5dd36be027fe8a5e1acee5c1322c8_cgraph}
+\end{center}
+\end{figure}
 Here is the caller graph for this function\+:
-% FIG 7
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=237pt]{class_c_motor_ctrl_a63e5dd36be027fe8a5e1acee5c1322c8_icgraph}
+\end{center}
+\end{figure}
 \mbox{\Hypertarget{class_c_motor_ctrl_a0ae095bb6003ee63086361661f32ad3a}\label{class_c_motor_ctrl_a0ae095bb6003ee63086361661f32ad3a}} 
-\index{CMotorCtrl@{CMotorCtrl}!setDistance@{setDistance}}
-\index{setDistance@{setDistance}!CMotorCtrl@{CMotorCtrl}}
-\subsubsection{\texorpdfstring{setDistance()}{setDistance()}}
+\index{C\+Motor\+Ctrl@{C\+Motor\+Ctrl}!set\+Distance@{set\+Distance}}
+\index{set\+Distance@{set\+Distance}!C\+Motor\+Ctrl@{C\+Motor\+Ctrl}}
+\subsubsection{\texorpdfstring{set\+Distance()}{setDistance()}}
 {\footnotesize\ttfamily void C\+Motor\+Ctrl\+::set\+Distance (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_a_d_a_s___types_8h_ae4c9b951dbb7355563c313abca5e2e75}{sint16\+\_\+t}}}]{dist }\end{DoxyParamCaption})}
 
 
@@ -159,14 +239,28 @@ A\+PI Function of the \mbox{\hyperlink{class_c_motor_ctrl}{C\+Motor\+Ctrl}} to s
 
 The function calculates from the transmitted distance in cm, the peaks which have to be summed up to reach the distance. The summation of all peaks are resetted and the turn variable is set to zero. Then the function checks if the distance value of the stateflow was setted previously and if the transmitted distance value is negative or positive. If the setted value is positive and the transmitted one is negative a state change from forward drive to backward drive must be performed. Same if the setted value is negative and the transmitted one is positive. 
 
-Definition at line 336 of file App\+\_\+\+Motor\+Ctrl.\+cpp.
+Definition at line 309 of file App\+\_\+\+Motor\+Ctrl.\+cpp.
 
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=324pt]{class_c_motor_ctrl_a0ae095bb6003ee63086361661f32ad3a_cgraph}
+\end{center}
+\end{figure}
 Here is the caller graph for this function\+:
-% FIG 8
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_c_motor_ctrl_a0ae095bb6003ee63086361661f32ad3a_icgraph}
+\end{center}
+\end{figure}
 \mbox{\Hypertarget{class_c_motor_ctrl_a5c6d49d9b407e46aad0abe84bcaf16ec}\label{class_c_motor_ctrl_a5c6d49d9b407e46aad0abe84bcaf16ec}} 
-\index{CMotorCtrl@{CMotorCtrl}!setPISetpoint@{setPISetpoint}}
-\index{setPISetpoint@{setPISetpoint}!CMotorCtrl@{CMotorCtrl}}
-\subsubsection{\texorpdfstring{setPISetpoint()}{setPISetpoint()}}
+\index{C\+Motor\+Ctrl@{C\+Motor\+Ctrl}!set\+P\+I\+Setpoint@{set\+P\+I\+Setpoint}}
+\index{set\+P\+I\+Setpoint@{set\+P\+I\+Setpoint}!C\+Motor\+Ctrl@{C\+Motor\+Ctrl}}
+\subsubsection{\texorpdfstring{set\+P\+I\+Setpoint()}{setPISetpoint()}}
 {\footnotesize\ttfamily void C\+Motor\+Ctrl\+::set\+P\+I\+Setpoint (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_a_d_a_s___types_8h_a1f1825b69244eb3ad2c7165ddc99c956}{uint16\+\_\+t}}}]{setpnt }\end{DoxyParamCaption})}
 
 
@@ -175,12 +269,12 @@ A\+PI Function of the \mbox{\hyperlink{class_c_motor_ctrl}{C\+Motor\+Ctrl}} to s
 
 Function checks first if the desired speed is too high. If the transmitted setpoint is ok it is converted from mm/s into peaks per 150ms. Then the setpoint of the PI controllers setpoint is changed to this value. 
 
-Definition at line 389 of file App\+\_\+\+Motor\+Ctrl.\+cpp.
+Definition at line 364 of file App\+\_\+\+Motor\+Ctrl.\+cpp.
 
 \mbox{\Hypertarget{class_c_motor_ctrl_a1ee991f9511437a2e64ee75161063020}\label{class_c_motor_ctrl_a1ee991f9511437a2e64ee75161063020}} 
-\index{CMotorCtrl@{CMotorCtrl}!startRotation@{startRotation}}
-\index{startRotation@{startRotation}!CMotorCtrl@{CMotorCtrl}}
-\subsubsection{\texorpdfstring{startRotation()}{startRotation()}}
+\index{C\+Motor\+Ctrl@{C\+Motor\+Ctrl}!start\+Rotation@{start\+Rotation}}
+\index{start\+Rotation@{start\+Rotation}!C\+Motor\+Ctrl@{C\+Motor\+Ctrl}}
+\subsubsection{\texorpdfstring{start\+Rotation()}{startRotation()}}
 {\footnotesize\ttfamily void C\+Motor\+Ctrl\+::start\+Rotation (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_a_d_a_s___types_8h_ae4c9b951dbb7355563c313abca5e2e75}{sint16\+\_\+t}}}]{angle }\end{DoxyParamCaption})}
 
 
@@ -189,10 +283,16 @@ A\+PI Function of the \mbox{\hyperlink{class_c_motor_ctrl}{C\+Motor\+Ctrl}} to s
 
 The function sets the turn variable of the motor control stateflow to the transmitted angle and the distance to zero. A negative angle would cause a rotation to the left and a positive angle would cause a rotation to the right. 
 
-Definition at line 322 of file App\+\_\+\+Motor\+Ctrl.\+cpp.
+Definition at line 295 of file App\+\_\+\+Motor\+Ctrl.\+cpp.
 
 Here is the caller graph for this function\+:
-% FIG 9
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_c_motor_ctrl_a1ee991f9511437a2e64ee75161063020_icgraph}
+\end{center}
+\end{figure}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

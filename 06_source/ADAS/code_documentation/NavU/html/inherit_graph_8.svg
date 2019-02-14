@@ -10,7 +10,7 @@
 <title>Graphical Class Hierarchy</title>
 <!-- Node0 -->
 <g id="node1" class="node"><title>Node0</title>
-<g id="a_node1"><a xlink:href="class_i_task___i_f.html" target="_top" xlink:title="Task scheduler class interface class.">
+<g id="a_node1"><a xlink:href="class_i_task___i_f.html" target="_top" xlink:title="Task scheduler class interface class. ">
 <polygon fill="none" stroke="black" points="0,-76.5 0,-95.5 53,-95.5 53,-76.5 0,-76.5"/>
 <text text-anchor="middle" x="26.5" y="-83.5" font-family="Helvetica,sans-Serif" font-size="10.00">ITask_IF</text>
 </a>
@@ -18,7 +18,7 @@
 </g>
 <!-- Node1 -->
 <g id="node2" class="node"><title>Node1</title>
-<g id="a_node2"><a xlink:href="class_c_environmental_data.html" target="_top" xlink:title="Environmental Data Class.">
+<g id="a_node2"><a xlink:href="class_c_environmental_data.html" target="_top" xlink:title="Environmental Data Class. ">
 <polygon fill="none" stroke="black" points="89,-152.5 89,-171.5 193,-171.5 193,-152.5 89,-152.5"/>
 <text text-anchor="middle" x="141" y="-159.5" font-family="Helvetica,sans-Serif" font-size="10.00">CEnvironmentalData</text>
 </a>
@@ -31,7 +31,7 @@
 </g>
 <!-- Node2 -->
 <g id="node3" class="node"><title>Node2</title>
-<g id="a_node3"><a xlink:href="class_c_navigation.html" target="_top" xlink:title="Navigation algorithm class.">
+<g id="a_node3"><a xlink:href="class_c_navigation.html" target="_top" xlink:title="Navigation algorithm class. ">
 <polygon fill="none" stroke="black" points="107,-114.5 107,-133.5 175,-133.5 175,-114.5 107,-114.5"/>
 <text text-anchor="middle" x="141" y="-121.5" font-family="Helvetica,sans-Serif" font-size="10.00">CNavigation</text>
 </a>
@@ -44,7 +44,7 @@
 </g>
 <!-- Node3 -->
 <g id="node4" class="node"><title>Node3</title>
-<g id="a_node4"><a xlink:href="class_c_positioning.html" target="_top" xlink:title=" ">
+<g id="a_node4"><a xlink:href="class_c_positioning.html" target="_top" xlink:title="CPositioning">
 <polygon fill="none" stroke="black" points="105.5,-76.5 105.5,-95.5 176.5,-95.5 176.5,-76.5 105.5,-76.5"/>
 <text text-anchor="middle" x="141" y="-83.5" font-family="Helvetica,sans-Serif" font-size="10.00">CPositioning</text>
 </a>
@@ -57,7 +57,7 @@
 </g>
 <!-- Node4 -->
 <g id="node5" class="node"><title>Node4</title>
-<g id="a_node5"><a xlink:href="class_c_user___i_f.html" target="_top" xlink:title=" ">
+<g id="a_node5"><a xlink:href="class_c_user___i_f.html" target="_top" xlink:title="CUser_IF">
 <polygon fill="none" stroke="black" points="112.5,-38.5 112.5,-57.5 169.5,-57.5 169.5,-38.5 112.5,-38.5"/>
 <text text-anchor="middle" x="141" y="-45.5" font-family="Helvetica,sans-Serif" font-size="10.00">CUser_IF</text>
 </a>
@@ -70,7 +70,7 @@
 </g>
 <!-- Node5 -->
 <g id="node6" class="node"><title>Node5</title>
-<g id="a_node6"><a xlink:href="class_c_v_mapping.html" target="_top" xlink:title="Virtual mapping application class.">
+<g id="a_node6"><a xlink:href="class_c_v_mapping.html" target="_top" xlink:title="Virtual mapping application class. ">
 <polygon fill="none" stroke="black" points="107.5,-0.5 107.5,-19.5 174.5,-19.5 174.5,-0.5 107.5,-0.5"/>
 <text text-anchor="middle" x="141" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">CVMapping</text>
 </a>

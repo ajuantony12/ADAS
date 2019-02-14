@@ -10,15 +10,12 @@
 <title>CNavigation::Stop</title>
 <!-- Node41 -->
 <g id="node1" class="node"><title>Node41</title>
-<g id="a_node1"><a xlink:title="Stop function of CNavigation.">
 <polygon fill="#bfbfbf" stroke="black" points="0,-19.5 0,-38.5 94,-38.5 94,-19.5 0,-19.5"/>
 <text text-anchor="middle" x="47" y="-26.5" font-family="Helvetica,sans-Serif" font-size="10.00">CNavigation::Stop</text>
-</a>
-</g>
 </g>
 <!-- Node42 -->
 <g id="node2" class="node"><title>Node42</title>
-<g id="a_node2"><a xlink:href="class_c_i_c_c_comms.html#ab925dd7ff82f30ccd9f770ab2281b3ab" target="_top" xlink:title="Function to append message which shall be sent.">
+<g id="a_node2"><a xlink:href="class_c_i_c_c_comms.html#ab925dd7ff82f30ccd9f770ab2281b3ab" target="_top" xlink:title="Function to append message which shall be sent. ">
 <polygon fill="none" stroke="black" points="130,-38.5 130,-57.5 254,-57.5 254,-38.5 130,-38.5"/>
 <text text-anchor="middle" x="192" y="-45.5" font-family="Helvetica,sans-Serif" font-size="10.00">CICCComms::addTxMsg</text>
 </a>
@@ -31,7 +28,7 @@
 </g>
 <!-- Node43 -->
 <g id="node3" class="node"><title>Node43</title>
-<g id="a_node3"><a xlink:href="class_c_navigation.html#a06ce71124d487f1f9febf36a0e4b2a5d" target="_top" xlink:title="Function to stop if obstacle is detected.">
+<g id="a_node3"><a xlink:href="class_c_navigation.html#a06ce71124d487f1f9febf36a0e4b2a5d" target="_top" xlink:title="Function to stop if obstacle is detected. ">
 <polygon fill="none" stroke="black" points="135.5,-0.5 135.5,-19.5 248.5,-19.5 248.5,-0.5 135.5,-0.5"/>
 <text text-anchor="middle" x="192" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">CNavigation::stopDrive</text>
 </a>

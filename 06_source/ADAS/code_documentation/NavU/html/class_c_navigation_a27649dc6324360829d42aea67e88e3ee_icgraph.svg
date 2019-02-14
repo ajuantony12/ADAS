@@ -10,24 +10,21 @@
 <title>CNavigation::pauseDrive</title>
 <!-- Node21 -->
 <g id="node1" class="node"><title>Node21</title>
-<g id="a_node1"><a xlink:title="Pause drive due to obstacle detection.">
-<polygon fill="#bfbfbf" stroke="black" points="126,-0.5 126,-19.5 247,-19.5 247,-0.5 126,-0.5"/>
-<text text-anchor="middle" x="186.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">CNavigation::pauseDrive</text>
-</a>
-</g>
+<polygon fill="#bfbfbf" stroke="black" points="0,-0.5 0,-19.5 121,-19.5 121,-0.5 0,-0.5"/>
+<text text-anchor="middle" x="60.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">CNavigation::pauseDrive</text>
 </g>
 <!-- Node22 -->
 <g id="node2" class="node"><title>Node22</title>
-<g id="a_node2"><a xlink:href="class_c_v_mapping.html#a8f064fcfd01953d7072efd5de23f89ef" target="_top" xlink:title="Run function of virtual mapping Application.">
-<polygon fill="none" stroke="black" points="0,-0.5 0,-19.5 90,-19.5 90,-0.5 0,-0.5"/>
-<text text-anchor="middle" x="45" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">CVMapping::Run</text>
+<g id="a_node2"><a xlink:href="class_c_v_mapping.html#a8f064fcfd01953d7072efd5de23f89ef" target="_top" xlink:title="Run function of virtual mapping Application. ">
+<polygon fill="none" stroke="black" points="157,-0.5 157,-19.5 247,-19.5 247,-0.5 157,-0.5"/>
+<text text-anchor="middle" x="202" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">CVMapping::Run</text>
 </a>
 </g>
 </g>
 <!-- Node21&#45;&gt;Node22 -->
 <g id="edge1" class="edge"><title>Node21&#45;&gt;Node22</title>
-<path fill="none" stroke="midnightblue" d="M115.748,-10C107.042,-10 98.3362,-10 90.1731,-10"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="115.935,-13.5001 125.935,-10 115.935,-6.5001 115.935,-13.5001"/>
+<path fill="none" stroke="midnightblue" d="M131.252,-10C139.958,-10 148.664,-10 156.827,-10"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="131.065,-6.5001 121.065,-10 131.065,-13.5001 131.065,-6.5001"/>
 </g>
 </g>
 </svg>

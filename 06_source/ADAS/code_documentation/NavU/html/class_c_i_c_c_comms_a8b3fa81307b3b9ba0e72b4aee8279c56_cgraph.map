@@ -1,6 +1,5 @@
 <map id="CICCComms::Run" name="CICCComms::Run">
-<area shape="rect" id="node1" title="Run function of CICCComms which is periodically called by CNavigation." alt="" coords="5,31,133,57"/>
-<area shape="rect" id="node2" href="$class_c_serial.html#abb43734223d937a86e7616636ea16024" title="Function to check availability of received data." alt="" coords="181,5,304,32"/>
-<area shape="rect" id="node3" href="$class_c_serial.html#abad86c07f530569b2ceeea75bda485ad" title="Function to read data from buffer." alt="" coords="183,56,303,83"/>
-<area shape="rect" id="node4" href="$class_c_serial.html#a941e5cae2ca04518925a3b32f51110a6" title="Function to release buffer." alt="" coords="352,56,504,83"/>
+<area shape="rect" id="node2" href="$class_c_serial.html#abb43734223d937a86e7616636ea16024" title="Function to check availability of received data. " alt="" coords="181,5,304,32"/>
+<area shape="rect" id="node3" href="$class_c_serial.html#abad86c07f530569b2ceeea75bda485ad" title="Function to read data from buffer. " alt="" coords="183,56,303,83"/>
+<area shape="rect" id="node4" href="$class_c_serial.html#a941e5cae2ca04518925a3b32f51110a6" title="Function to release buffer. " alt="" coords="352,56,504,83"/>
 </map>

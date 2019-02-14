@@ -10,15 +10,12 @@
 <title>ADAS_Cfg.h</title>
 <!-- Node1 -->
 <g id="node1" class="node"><title>Node1</title>
-<g id="a_node1"><a xlink:title="This file contains the configuration of the vehicle.">
 <polygon fill="#bfbfbf" stroke="black" points="368.276,-224.5 368.276,-243.5 439.276,-243.5 439.276,-224.5 368.276,-224.5"/>
 <text text-anchor="middle" x="403.776" y="-231.5" font-family="Helvetica,sans-Serif" font-size="10.00">ADAS_Cfg.h</text>
-</a>
-</g>
 </g>
 <!-- Node2 -->
 <g id="node2" class="node"><title>Node2</title>
-<g id="a_node2"><a xlink:href="_a_d_a_s___debug_8h.html" target="_top" xlink:title="This file contains redefinition of the serial functions for debugging purpose.">
+<g id="a_node2"><a xlink:href="_a_d_a_s___debug_8h.html" target="_top" xlink:title="This file contains redefinition of the serial functions for debugging purpose. ">
 <polygon fill="none" stroke="black" points="303.276,-168.5 303.276,-187.5 388.276,-187.5 388.276,-168.5 303.276,-168.5"/>
 <text text-anchor="middle" x="345.776" y="-175.5" font-family="Helvetica,sans-Serif" font-size="10.00">ADAS_Debug.h</text>
 </a>
@@ -31,7 +28,7 @@
 </g>
 <!-- Node3 -->
 <g id="node3" class="node"><title>Node3</title>
-<g id="a_node3"><a xlink:href="_a_d_a_s___nav_u_8ino.html" target="_top" xlink:title="Main file for the NavU of the ADAS project.">
+<g id="a_node3"><a xlink:href="_a_d_a_s___nav_u_8ino.html" target="_top" xlink:title="Main file for the NavU of the ADAS project. ">
 <polygon fill="none" stroke="black" points="438.276,-0.5 438.276,-19.5 525.276,-19.5 525.276,-0.5 438.276,-0.5"/>
 <text text-anchor="middle" x="481.776" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">ADAS_NavU.ino</text>
 </a>
@@ -44,7 +41,7 @@
 </g>
 <!-- Node4 -->
 <g id="node4" class="node"><title>Node4</title>
-<g id="a_node4"><a xlink:href="_app___navigation_8h.html" target="_top" xlink:title="Application file for navigation.">
+<g id="a_node4"><a xlink:href="_app___navigation_8h.html" target="_top" xlink:title="Application file for navigation. ">
 <polygon fill="none" stroke="black" points="54.7757,-112.5 54.7757,-131.5 146.776,-131.5 146.776,-112.5 54.7757,-112.5"/>
 <text text-anchor="middle" x="100.776" y="-119.5" font-family="Helvetica,sans-Serif" font-size="10.00">App_Navigation.h</text>
 </a>
@@ -57,7 +54,7 @@
 </g>
 <!-- Node9 -->
 <g id="node9" class="node"><title>Node9</title>
-<g id="a_node9"><a xlink:href="_app___environmental_data_8h.html" target="_top" xlink:title="Application file for environmental data.">
+<g id="a_node9"><a xlink:href="_app___environmental_data_8h.html" target="_top" xlink:title="Application file for environmental data. ">
 <polygon fill="none" stroke="black" points="538.776,-112.5 538.776,-131.5 666.776,-131.5 666.776,-112.5 538.776,-112.5"/>
 <text text-anchor="middle" x="602.776" y="-119.5" font-family="Helvetica,sans-Serif" font-size="10.00">App_EnvironmentalData.h</text>
 </a>
@@ -70,7 +67,7 @@
 </g>
 <!-- Node12 -->
 <g id="node12" class="node"><title>Node12</title>
-<g id="a_node12"><a xlink:href="_h_a_l___serial___i_f_8cpp.html" target="_top" xlink:title="Hardware Abstraction Layer (HAL) to serial interface.">
+<g id="a_node12"><a xlink:href="_h_a_l___serial___i_f_8cpp.html" target="_top" xlink:title="Hardware Abstraction Layer (HAL) to serial interface. ">
 <polygon fill="none" stroke="black" points="164.776,-112.5 164.776,-131.5 262.776,-131.5 262.776,-112.5 164.776,-112.5"/>
 <text text-anchor="middle" x="213.776" y="-119.5" font-family="Helvetica,sans-Serif" font-size="10.00">HAL_Serial_IF.cpp</text>
 </a>
@@ -83,7 +80,7 @@
 </g>
 <!-- Node13 -->
 <g id="node13" class="node"><title>Node13</title>
-<g id="a_node13"><a xlink:href="_comm___p_l_s_8h.html" target="_top" xlink:title=" ">
+<g id="a_node13"><a xlink:href="_comm___p_l_s_8h.html" target="_top" xlink:title="Comm_PLS.h">
 <polygon fill="none" stroke="black" points="424.276,-168.5 424.276,-187.5 501.276,-187.5 501.276,-168.5 424.276,-168.5"/>
 <text text-anchor="middle" x="462.776" y="-175.5" font-family="Helvetica,sans-Serif" font-size="10.00">Comm_PLS.h</text>
 </a>
@@ -96,7 +93,7 @@
 </g>
 <!-- Node14 -->
 <g id="node14" class="node"><title>Node14</title>
-<g id="a_node14"><a xlink:href="_comm___i_c_c_8h.html" target="_top" xlink:title="Communication file for Inter&#45;Controller Communication (ICC)">
+<g id="a_node14"><a xlink:href="_comm___i_c_c_8h.html" target="_top" xlink:title="Communication file for Inter&#45;Controller Communication (ICC) ">
 <polygon fill="none" stroke="black" points="31.7757,-168.5 31.7757,-187.5 105.776,-187.5 105.776,-168.5 31.7757,-168.5"/>
 <text text-anchor="middle" x="68.7757" y="-175.5" font-family="Helvetica,sans-Serif" font-size="10.00">Comm_ICC.h</text>
 </a>
@@ -109,7 +106,7 @@
 </g>
 <!-- Node15 -->
 <g id="node15" class="node"><title>Node15</title>
-<g id="a_node15"><a xlink:href="_o_s_a_l___task_ctrl_8h.html" target="_top" xlink:title="Task controller header file.">
+<g id="a_node15"><a xlink:href="_o_s_a_l___task_ctrl_8h.html" target="_top" xlink:title="Task controller header file. ">
 <polygon fill="none" stroke="black" points="686.776,-168.5 686.776,-187.5 778.776,-187.5 778.776,-168.5 686.776,-168.5"/>
 <text text-anchor="middle" x="732.776" y="-175.5" font-family="Helvetica,sans-Serif" font-size="10.00">OSAL_TaskCtrl.h</text>
 </a>
@@ -132,7 +129,7 @@
 </g>
 <!-- Node6 -->
 <g id="node6" class="node"><title>Node6</title>
-<g id="a_node6"><a xlink:href="_app___virtual_mapping_8cpp.html" target="_top" xlink:title="Virtual mapping application source file.">
+<g id="a_node6"><a xlink:href="_app___virtual_mapping_8cpp.html" target="_top" xlink:title="Virtual mapping application source file. ">
 <polygon fill="none" stroke="black" points="256.776,-0.5 256.776,-19.5 378.776,-19.5 378.776,-0.5 256.776,-0.5"/>
 <text text-anchor="middle" x="317.776" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">App_VirtualMapping.cpp</text>
 </a>
@@ -145,7 +142,7 @@
 </g>
 <!-- Node8 -->
 <g id="node8" class="node"><title>Node8</title>
-<g id="a_node8"><a xlink:href="_comm___i_c_c_8cpp.html" target="_top" xlink:title="Communication file for Inter&#45;Controller Communication (ICC)">
+<g id="a_node8"><a xlink:href="_comm___i_c_c_8cpp.html" target="_top" xlink:title="Communication file for Inter&#45;Controller Communication (ICC) ">
 <polygon fill="none" stroke="black" points="139.276,-56.5 139.276,-75.5 224.276,-75.5 224.276,-56.5 139.276,-56.5"/>
 <text text-anchor="middle" x="181.776" y="-63.5" font-family="Helvetica,sans-Serif" font-size="10.00">Comm_ICC.cpp</text>
 </a>
@@ -163,7 +160,7 @@
 </g>
 <!-- Node11 -->
 <g id="node11" class="node"><title>Node11</title>
-<g id="a_node11"><a xlink:href="_comm___p_l_s_8cpp.html" target="_top" xlink:title=" ">
+<g id="a_node11"><a xlink:href="_comm___p_l_s_8cpp.html" target="_top" xlink:title="Comm_PLS.cpp">
 <polygon fill="none" stroke="black" points="394.776,-112.5 394.776,-131.5 482.776,-131.5 482.776,-112.5 394.776,-112.5"/>
 <text text-anchor="middle" x="438.776" y="-119.5" font-family="Helvetica,sans-Serif" font-size="10.00">Comm_PLS.cpp</text>
 </a>
@@ -186,7 +183,7 @@
 </g>
 <!-- Node5 -->
 <g id="node5" class="node"><title>Node5</title>
-<g id="a_node5"><a xlink:href="_app___virtual_mapping_8h.html" target="_top" xlink:title="Virtual mapping application header file.">
+<g id="a_node5"><a xlink:href="_app___virtual_mapping_8h.html" target="_top" xlink:title="Virtual mapping application header file. ">
 <polygon fill="none" stroke="black" points="282.776,-56.5 282.776,-75.5 394.776,-75.5 394.776,-56.5 282.776,-56.5"/>
 <text text-anchor="middle" x="338.776" y="-63.5" font-family="Helvetica,sans-Serif" font-size="10.00">App_VirtualMapping.h</text>
 </a>
@@ -199,7 +196,7 @@
 </g>
 <!-- Node7 -->
 <g id="node7" class="node"><title>Node7</title>
-<g id="a_node7"><a xlink:href="_app___navigation_8cpp.html" target="_top" xlink:title="Application file for navigation.">
+<g id="a_node7"><a xlink:href="_app___navigation_8cpp.html" target="_top" xlink:title="Application file for navigation. ">
 <polygon fill="none" stroke="black" points="18.7757,-56.5 18.7757,-75.5 120.776,-75.5 120.776,-56.5 18.7757,-56.5"/>
 <text text-anchor="middle" x="69.7757" y="-63.5" font-family="Helvetica,sans-Serif" font-size="10.00">App_Navigation.cpp</text>
 </a>
@@ -232,7 +229,7 @@
 </g>
 <!-- Node10 -->
 <g id="node10" class="node"><title>Node10</title>
-<g id="a_node10"><a xlink:href="_app___environmental_data_8cpp.html" target="_top" xlink:title="Application file for environmental data.">
+<g id="a_node10"><a xlink:href="_app___environmental_data_8cpp.html" target="_top" xlink:title="Application file for environmental data. ">
 <polygon fill="none" stroke="black" points="489.276,-56.5 489.276,-75.5 628.276,-75.5 628.276,-56.5 489.276,-56.5"/>
 <text text-anchor="middle" x="558.776" y="-63.5" font-family="Helvetica,sans-Serif" font-size="10.00">App_EnvironmentalData.cpp</text>
 </a>
@@ -280,7 +277,7 @@
 </g>
 <!-- Node16 -->
 <g id="node16" class="node"><title>Node16</title>
-<g id="a_node16"><a xlink:href="_o_s_a_l___task_ctrl_8cpp.html" target="_top" xlink:title="Task controller source file.">
+<g id="a_node16"><a xlink:href="_o_s_a_l___task_ctrl_8cpp.html" target="_top" xlink:title="Task controller source file. ">
 <polygon fill="none" stroke="black" points="761.276,-112.5 761.276,-131.5 864.276,-131.5 864.276,-112.5 761.276,-112.5"/>
 <text text-anchor="middle" x="812.776" y="-119.5" font-family="Helvetica,sans-Serif" font-size="10.00">OSAL_TaskCtrl.cpp</text>
 </a>

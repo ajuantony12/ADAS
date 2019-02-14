@@ -6,7 +6,6 @@ var class_c_p_w_m_unit =
     ] ],
     [ "CPWMUnit", "class_c_p_w_m_unit.html#a9e68713e9f26f6d36714a58648494afb", null ],
     [ "~CPWMUnit", "class_c_p_w_m_unit.html#aabfa153a1f1019befa096147428a3822", null ],
-    [ "analogWrite16", "class_c_p_w_m_unit.html#ab58a9dc2ba40062af2f4fea88e3148aa", null ],
-    [ "setupPWM16", "class_c_p_w_m_unit.html#a706f0f6235cbd5e71f8bada09cfcea74", null ],
-    [ "writeMOT", "class_c_p_w_m_unit.html#a71e701a722052129016d8efddbb34d76", null ]
+    [ "setupPWM10", "class_c_p_w_m_unit.html#aa36627883e91d3dec4a76fe187588071", null ],
+    [ "writeDuty", "class_c_p_w_m_unit.html#a60f8be5eabf779f57e6392a0432bf7f2", null ]
 ];

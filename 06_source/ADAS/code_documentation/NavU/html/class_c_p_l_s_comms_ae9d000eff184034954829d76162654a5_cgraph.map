@@ -1,4 +1,3 @@
 <map id="CPLSComms::DataAvailable" name="CPLSComms::DataAvailable">
-<area shape="rect" id="node1" title="check if any data recieved from PLS" alt="" coords="5,5,192,32"/>
-<area shape="rect" id="node2" href="$class_c_serial.html#abb43734223d937a86e7616636ea16024" title="Function to check availability of received data." alt="" coords="240,5,363,32"/>
+<area shape="rect" id="node2" href="$class_c_serial.html#abb43734223d937a86e7616636ea16024" title="Function to check availability of received data. " alt="" coords="240,5,363,32"/>
 </map>

@@ -56,81 +56,78 @@ var sectionId = 'dynsection-6';
 <title>CSerial::ReleaseBuffer</title>
 <!-- Node26 -->
 <g id="node1" class="node"><title>Node26</title>
-<g id="a_node1"><a xlink:title="Function to release buffer.">
-<polygon fill="#bfbfbf" stroke="black" points="435,-19.5 435,-38.5 549,-38.5 549,-19.5 435,-19.5"/>
-<text text-anchor="middle" x="492" y="-26.5" font-family="Helvetica,sans-Serif" font-size="10.00">CSerial::ReleaseBuffer</text>
-</a>
-</g>
+<polygon fill="#bfbfbf" stroke="black" points="0,-19.5 0,-38.5 114,-38.5 114,-19.5 0,-19.5"/>
+<text text-anchor="middle" x="57" y="-26.5" font-family="Helvetica,sans-Serif" font-size="10.00">CSerial::ReleaseBuffer</text>
 </g>
 <!-- Node27 -->
 <g id="node2" class="node"><title>Node27</title>
-<g id="a_node2"><a xlink:href="class_c_p_l_s_comms.html#a3124eaa4549706962c7024c7c97e82b0" target="_top" xlink:title="Get asynchronous data recieved from PLS.">
-<polygon fill="none" stroke="black" points="127,-38.5 127,-57.5 273,-57.5 273,-38.5 127,-38.5"/>
-<text text-anchor="middle" x="200" y="-45.5" font-family="Helvetica,sans-Serif" font-size="10.00">CPLSComms::GetAsyncData</text>
+<g id="a_node2"><a xlink:href="class_c_p_l_s_comms.html#a3124eaa4549706962c7024c7c97e82b0" target="_top" xlink:title="Get asynchronous data recieved from PLS. ">
+<polygon fill="none" stroke="black" points="276,-38.5 276,-57.5 422,-57.5 422,-38.5 276,-38.5"/>
+<text text-anchor="middle" x="349" y="-45.5" font-family="Helvetica,sans-Serif" font-size="10.00">CPLSComms::GetAsyncData</text>
 </a>
 </g>
 </g>
 <!-- Node26&#45;&gt;Node27 -->
 <g id="edge1" class="edge"><title>Node26&#45;&gt;Node27</title>
-<path fill="none" stroke="midnightblue" d="M424.736,-33.3414C379.476,-36.3067 319.526,-40.2345 273.075,-43.2778"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="424.991,-36.8323 434.741,-32.6859 424.534,-29.8473 424.991,-36.8323"/>
+<path fill="none" stroke="midnightblue" d="M124.264,-33.3414C169.524,-36.3067 229.474,-40.2345 275.925,-43.2778"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="124.466,-29.8473 114.259,-32.6859 124.009,-36.8323 124.466,-29.8473"/>
 </g>
 <!-- Node29 -->
 <g id="node4" class="node"><title>Node29</title>
-<g id="a_node4"><a xlink:href="class_c_serial.html#abad86c07f530569b2ceeea75bda485ad" target="_top" xlink:title="Function to read data from buffer.">
-<polygon fill="none" stroke="black" points="309,-0.5 309,-19.5 399,-19.5 399,-0.5 309,-0.5"/>
-<text text-anchor="middle" x="354" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">CSerial::GetData</text>
+<g id="a_node4"><a xlink:href="class_c_serial.html#abad86c07f530569b2ceeea75bda485ad" target="_top" xlink:title="Function to read data from buffer. ">
+<polygon fill="none" stroke="black" points="150,-0.5 150,-19.5 240,-19.5 240,-0.5 150,-0.5"/>
+<text text-anchor="middle" x="195" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">CSerial::GetData</text>
 </a>
 </g>
 </g>
 <!-- Node26&#45;&gt;Node29 -->
 <g id="edge3" class="edge"><title>Node26&#45;&gt;Node29</title>
-<path fill="none" stroke="midnightblue" d="M424.812,-19.7532C416.177,-18.5468 407.502,-17.3349 399.346,-16.1954"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="424.51,-23.2449 434.898,-21.1623 425.479,-16.3122 424.51,-23.2449"/>
+<path fill="none" stroke="midnightblue" d="M124.188,-19.7532C132.823,-18.5468 141.498,-17.3349 149.654,-16.1954"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="123.521,-16.3122 114.102,-21.1623 124.49,-23.2449 123.521,-16.3122"/>
 </g>
 <!-- Node28 -->
 <g id="node3" class="node"><title>Node28</title>
-<g id="a_node3"><a xlink:href="class_c_v_mapping.html#a8f064fcfd01953d7072efd5de23f89ef" target="_top" xlink:title="Run function of virtual mapping Application.">
-<polygon fill="none" stroke="black" points="0.5,-38.5 0.5,-57.5 90.5,-57.5 90.5,-38.5 0.5,-38.5"/>
-<text text-anchor="middle" x="45.5" y="-45.5" font-family="Helvetica,sans-Serif" font-size="10.00">CVMapping::Run</text>
+<g id="a_node3"><a xlink:href="class_c_v_mapping.html#a8f064fcfd01953d7072efd5de23f89ef" target="_top" xlink:title="Run function of virtual mapping Application. ">
+<polygon fill="none" stroke="black" points="458.5,-38.5 458.5,-57.5 548.5,-57.5 548.5,-38.5 458.5,-38.5"/>
+<text text-anchor="middle" x="503.5" y="-45.5" font-family="Helvetica,sans-Serif" font-size="10.00">CVMapping::Run</text>
 </a>
 </g>
 </g>
 <!-- Node27&#45;&gt;Node28 -->
 <g id="edge2" class="edge"><title>Node27&#45;&gt;Node28</title>
-<path fill="none" stroke="midnightblue" d="M116.66,-48C107.725,-48 98.9018,-48 90.6861,-48"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="116.769,-51.5001 126.769,-48 116.769,-44.5001 116.769,-51.5001"/>
+<path fill="none" stroke="midnightblue" d="M432.34,-48C441.275,-48 450.098,-48 458.314,-48"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="432.231,-44.5001 422.231,-48 432.231,-51.5001 432.231,-44.5001"/>
 </g>
 <!-- Node29&#45;&gt;Node27 -->
 <g id="edge6" class="edge"><title>Node29&#45;&gt;Node27</title>
-<path fill="none" stroke="midnightblue" d="M304.84,-22.04C283.605,-27.3488 259.005,-33.4988 239.08,-38.4799"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="305.791,-25.4099 314.644,-19.589 304.094,-18.6189 305.791,-25.4099"/>
+<path fill="none" stroke="midnightblue" d="M244.16,-22.04C265.395,-27.3488 289.995,-33.4988 309.92,-38.4799"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="244.906,-18.6189 234.356,-19.589 243.209,-25.4099 244.906,-18.6189"/>
 </g>
 <!-- Node30 -->
 <g id="node5" class="node"><title>Node30</title>
-<g id="a_node5"><a xlink:href="class_c_i_c_c_comms.html#a8b3fa81307b3b9ba0e72b4aee8279c56" target="_top" xlink:title="Run function of CICCComms which is periodically called by CNavigation.">
-<polygon fill="none" stroke="black" points="152,-0.5 152,-19.5 248,-19.5 248,-0.5 152,-0.5"/>
-<text text-anchor="middle" x="200" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">CICCComms::Run</text>
+<g id="a_node5"><a xlink:href="class_c_i_c_c_comms.html#a8b3fa81307b3b9ba0e72b4aee8279c56" target="_top" xlink:title="Run function of CICCComms which is periodically called by CNavigation. ">
+<polygon fill="none" stroke="black" points="301,-0.5 301,-19.5 397,-19.5 397,-0.5 301,-0.5"/>
+<text text-anchor="middle" x="349" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">CICCComms::Run</text>
 </a>
 </g>
 </g>
 <!-- Node29&#45;&gt;Node30 -->
 <g id="edge4" class="edge"><title>Node29&#45;&gt;Node30</title>
-<path fill="none" stroke="midnightblue" d="M298.568,-10C282.057,-10 264.064,-10 248.078,-10"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="298.627,-13.5001 308.627,-10 298.627,-6.5001 298.627,-13.5001"/>
+<path fill="none" stroke="midnightblue" d="M250.432,-10C266.943,-10 284.936,-10 300.922,-10"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="250.373,-6.5001 240.373,-10 250.373,-13.5001 250.373,-6.5001"/>
 </g>
 <!-- Node31 -->
 <g id="node6" class="node"><title>Node31</title>
-<g id="a_node6"><a xlink:href="class_c_navigation.html#a86acb1521aab400e542465c8eabed671" target="_top" xlink:title="Run function of CNavigation which is periodically called by CTaskCtrl.">
-<polygon fill="none" stroke="black" points="0,-0.5 0,-19.5 91,-19.5 91,-0.5 0,-0.5"/>
-<text text-anchor="middle" x="45.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">CNavigation::Run</text>
+<g id="a_node6"><a xlink:href="class_c_navigation.html#a86acb1521aab400e542465c8eabed671" target="_top" xlink:title="Run function of CNavigation which is periodically called by CTaskCtrl. ">
+<polygon fill="none" stroke="black" points="458,-0.5 458,-19.5 549,-19.5 549,-0.5 458,-0.5"/>
+<text text-anchor="middle" x="503.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">CNavigation::Run</text>
 </a>
 </g>
 </g>
 <!-- Node30&#45;&gt;Node31 -->
 <g id="edge5" class="edge"><title>Node30&#45;&gt;Node31</title>
-<path fill="none" stroke="midnightblue" d="M141.395,-10C124.717,-10 106.772,-10 91.0241,-10"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="141.584,-13.5001 151.584,-10 141.584,-6.5001 141.584,-13.5001"/>
+<path fill="none" stroke="midnightblue" d="M407.605,-10C424.283,-10 442.228,-10 457.976,-10"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="407.416,-6.5001 397.416,-10 407.416,-13.5001 407.416,-6.5001"/>
 </g>
 </g>
 </svg>

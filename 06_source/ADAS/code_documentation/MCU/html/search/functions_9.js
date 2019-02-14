@@ -1,13 +1,11 @@
 var searchData=
 [
-  ['send',['send',['../class_c_inertial_comm.html#ad40aa8ed083373c27fdc1aa11dfc319e',1,'CInertialComm::send()'],['../class_c_serial.html#ae5bec6d6a1c75839ae02cf0069d1f08e',1,'CSerial::Send()']]],
-  ['serialisrcommicc',['SerialISRcommICC',['../class_c_serial.html#a974812db5ced18cb9a6a73dc9034e7c8',1,'CSerial']]],
-  ['serialisrcommpls',['SerialISRcommPLS',['../class_c_serial.html#a707841754d94fc1ab6679f52bf413d85',1,'CSerial']]],
-  ['setdistance',['setDistance',['../class_c_motor_ctrl.html#a0ae095bb6003ee63086361661f32ad3a',1,'CMotorCtrl']]],
-  ['setpisetpoint',['setPISetpoint',['../class_c_motor_ctrl.html#a5c6d49d9b407e46aad0abe84bcaf16ec',1,'CMotorCtrl']]],
-  ['setspeed',['SetSpeed',['../class_c_drive_unit.html#a06ffeb71565bc8edabadae09157c705e',1,'CDriveUnit']]],
-  ['setup',['setup',['../_a_d_a_s___m_c_u_8ino.html#a4fc01d736fe50cf5b977f755b675f11d',1,'ADAS_MCU.ino']]],
-  ['setuppwm16',['setupPWM16',['../class_c_p_w_m_unit.html#a706f0f6235cbd5e71f8bada09cfcea74',1,'CPWMUnit']]],
-  ['startrotation',['startRotation',['../class_c_motor_ctrl.html#a1ee991f9511437a2e64ee75161063020',1,'CMotorCtrl']]],
-  ['step',['step',['../class_chart_model_class.html#ab729e721b38bcedeed5b39c2de387413',1,'ChartModelClass']]]
+  ['readcount',['ReadCount',['../class_c_encoder.html#a5911a289a7ed8a32e0a89e6191e1651c',1,'CEncoder']]],
+  ['readenc',['readenc',['../class_c_motor_ctrl.html#a8a76501cf8eaa85c5131bde5f33b6699',1,'CMotorCtrl']]],
+  ['readsum',['ReadSum',['../class_c_encoder.html#aa38f17afea1ce9b6efd9d95335a95d26',1,'CEncoder']]],
+  ['recieve',['recieve',['../class_c_inertial_comm.html#abaed54099a0192df5a9318dc99de3668',1,'CInertialComm']]],
+  ['releasebuffer',['ReleaseBuffer',['../class_c_serial.html#a941e5cae2ca04518925a3b32f51110a6',1,'CSerial']]],
+  ['reset',['Reset',['../class_c_buff_adas.html#a2ff1ee5f1dfa56117d76b17027d7b7e8',1,'CBuffAdas::Reset()'],['../class_c_encoder.html#ab71d6281e3f4d9f875f45368a3434980',1,'CEncoder::reset()']]],
+  ['returngyro',['ReturnGyro',['../class_c_i_m_u_unit.html#a396b045fac007e169289409ca213ac39',1,'CIMUUnit']]],
+  ['run',['Run',['../class_c_motor_ctrl.html#a63e5dd36be027fe8a5e1acee5c1322c8',1,'CMotorCtrl::Run()'],['../class_c_i_c_c_comms.html#a8b3fa81307b3b9ba0e72b4aee8279c56',1,'CICCComms::Run()']]]
 ];
