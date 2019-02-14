@@ -1,0 +1,15 @@
+<map id="loop" name="loop">
+<area shape="rect" id="node2" href="$class_c_i_c_c_comms.html#a8b3fa81307b3b9ba0e72b4aee8279c56" title="CICCComms::Run" alt="" coords="100,157,228,184"/>
+<area shape="rect" id="node12" href="$class_c_motor_ctrl.html#a63e5dd36be027fe8a5e1acee5c1322c8" title="Run function of CMotorCtrl which is executed in every loop. " alt="" coords="107,335,221,361"/>
+<area shape="rect" id="node3" href="$class_c_serial.html#abb43734223d937a86e7616636ea16024" title="CSerial::Available" alt="" coords="302,5,425,32"/>
+<area shape="rect" id="node4" href="$class_c_serial.html#abad86c07f530569b2ceeea75bda485ad" title="CSerial::GetData" alt="" coords="303,56,423,83"/>
+<area shape="rect" id="node6" href="$class_c_motor_ctrl.html#a0ae095bb6003ee63086361661f32ad3a" title="API Function of the CMotorCtrl to start driving. " alt="" coords="283,107,444,133"/>
+<area shape="rect" id="node8" href="$class_c_motor_ctrl.html#a1ee991f9511437a2e64ee75161063020" title="API Function of the CMotorCtrl to start a rotation. " alt="" coords="280,157,447,184"/>
+<area shape="rect" id="node9" href="$class_c_motor_ctrl.html#af3e047be659fb9f49f1644ba2eca4684" title="API Function of the CMotorCtrl to pause the current action of the motor control. " alt="" coords="286,208,441,235"/>
+<area shape="rect" id="node11" href="$class_c_motor_ctrl.html#a6b67180c355c2acf76d641f2817db66d" title="API Function of the CMotorCtrl to continue the previously paused action of the motor control..." alt="" coords="291,259,436,285"/>
+<area shape="rect" id="node5" href="$class_c_serial.html#a941e5cae2ca04518925a3b32f51110a6" title="CSerial::ReleaseBuffer" alt="" coords="499,56,651,83"/>
+<area shape="rect" id="node7" href="$class_c_encoder.html#ab71d6281e3f4d9f875f45368a3434980" title="Function to reset all values of the encoder. " alt="" coords="517,107,633,133"/>
+<area shape="rect" id="node10" href="$class_c_p_w_m_unit.html#a60f8be5eabf779f57e6392a0432bf7f2" title="Function write duty cycle. " alt="" coords="500,259,649,285"/>
+<area shape="rect" id="node13" href="$class_chart_model_class.html#a77ef9eda8f1e119f93ad3c87b3a54bbd" title="Real&#45;Time Model get method. " alt="" coords="276,360,451,387"/>
+<area shape="rect" id="node14" href="$class_c_i_m_u_unit.html#a396b045fac007e169289409ca213ac39" title="Return function of IMU Unit Return Gyro Signal. " alt="" coords="288,411,439,437"/>
+</map>

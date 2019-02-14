@@ -6,7 +6,6 @@ var searchData=
   ['adas_5fmcu_2eino',['ADAS_MCU.ino',['../_a_d_a_s___m_c_u_8ino.html',1,'']]],
   ['adas_5ftypes_2eh',['ADAS_Types.h',['../_a_d_a_s___types_8h.html',1,'']]],
   ['addtxmsg',['addTxMsg',['../class_c_i_c_c_comms.html#ab925dd7ff82f30ccd9f770ab2281b3ab',1,'CICCComms']]],
-  ['analogwrite16',['analogWrite16',['../class_c_p_w_m_unit.html#ab58a9dc2ba40062af2f4fea88e3148aa',1,'CPWMUnit']]],
   ['app_5fmotorctrl_2ecpp',['App_MotorCtrl.cpp',['../_app___motor_ctrl_8cpp.html',1,'']]],
   ['app_5fmotorctrl_2eh',['App_MotorCtrl.h',['../_app___motor_ctrl_8h.html',1,'']]],
   ['app_5fstateflow_2ecpp',['App_Stateflow.cpp',['../_app___stateflow_8cpp.html',1,'']]],

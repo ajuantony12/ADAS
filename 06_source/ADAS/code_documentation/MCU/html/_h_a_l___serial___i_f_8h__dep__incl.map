@@ -1,0 +1,8 @@
+<map id="HAL_Serial_IF.h" name="HAL_Serial_IF.h">
+<area shape="rect" id="node2" href="$_a_d_a_s___m_c_u_8ino.html" title="Main file for the NavU of the ADAS project. " alt="" coords="5,229,120,256"/>
+<area shape="rect" id="node3" href="$_comm___i_c_c_8h.html" title="Comm_ICC.h" alt="" coords="129,80,228,107"/>
+<area shape="rect" id="node7" href="$_h_a_l___serial___i_f_8cpp.html" title="HAL_Serial_IF.cpp" alt="" coords="252,80,383,107"/>
+<area shape="rect" id="node4" href="$_app___motor_ctrl_8h.html" title="Header file for motor control unit. " alt="" coords="151,155,267,181"/>
+<area shape="rect" id="node6" href="$_comm___i_c_c_8cpp.html" title="Comm_ICC.cpp" alt="" coords="299,229,413,256"/>
+<area shape="rect" id="node5" href="$_app___motor_ctrl_8cpp.html" title="Application file for environmental data. " alt="" coords="144,229,275,256"/>
+</map>

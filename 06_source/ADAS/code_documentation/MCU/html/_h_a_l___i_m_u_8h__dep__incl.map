@@ -1,0 +1,7 @@
+<map id="HAL_IMU.h" name="HAL_IMU.h">
+<area shape="rect" id="node2" href="$_a_d_a_s___m_c_u_8ino.html" title="Main file for the NavU of the ADAS project. " alt="" coords="5,155,120,181"/>
+<area shape="rect" id="node3" href="$_app___motor_ctrl_8h.html" title="Header file for motor control unit. " alt="" coords="143,80,259,107"/>
+<area shape="rect" id="node4" href="$_app___motor_ctrl_8cpp.html" title="Application file for environmental data. " alt="" coords="283,155,413,181"/>
+<area shape="rect" id="node6" href="$_h_a_l___i_m_u_8cpp.html" title="Application file for IMU. " alt="" coords="335,80,438,107"/>
+<area shape="rect" id="node5" href="$_comm___i_c_c_8cpp.html" title="Comm_ICC.cpp" alt="" coords="145,155,258,181"/>
+</map>

@@ -1,0 +1,14 @@
+<map id="ADAS_Cfg.h" name="ADAS_Cfg.h">
+<area shape="rect" id="node2" href="$_a_d_a_s___debug_8h.html" title="ADAS_Debug.h" alt="" coords="666,80,779,107"/>
+<area shape="rect" id="node3" href="$_a_d_a_s___m_c_u_8ino.html" title="Main file for the NavU of the ADAS project. " alt="" coords="60,229,174,256"/>
+<area shape="rect" id="node4" href="$_app___motor_ctrl_8cpp.html" title="Application file for environmental data. " alt="" coords="589,229,720,256"/>
+<area shape="rect" id="node6" href="$_h_a_l___encoder_8cpp.html" title="HAL_Encoder.cpp" alt="" coords="295,155,422,181"/>
+<area shape="rect" id="node9" href="$_h_a_l___serial___i_f_8cpp.html" title="HAL_Serial_IF.cpp" alt="" coords="964,155,1094,181"/>
+<area shape="rect" id="node10" href="$_h_a_l___encoder_8h.html" title="HAL_Encoder.h" alt="" coords="182,80,295,107"/>
+<area shape="rect" id="node12" href="$_h_a_l___p_w_m_8h.html" title="HAL_PWM.h" alt="" coords="410,80,509,107"/>
+<area shape="rect" id="node13" href="$_comm___i_c_c_8h.html" title="Comm_ICC.h" alt="" coords="25,80,124,107"/>
+<area shape="rect" id="node5" href="$_comm___i_c_c_8cpp.html" title="Comm_ICC.cpp" alt="" coords="199,229,312,256"/>
+<area shape="rect" id="node7" href="$_h_a_l___i_m_u_8cpp.html" title="Application file for IMU. " alt="" coords="836,155,939,181"/>
+<area shape="rect" id="node8" href="$_h_a_l___p_w_m_8cpp.html" title="Hardware Abstraction Layer (HAL) for the 10&#45;bit PWM outputs. " alt="" coords="548,155,660,181"/>
+<area shape="rect" id="node11" href="$_app___motor_ctrl_8h.html" title="Header file for motor control unit. " alt="" coords="155,155,271,181"/>
+</map>

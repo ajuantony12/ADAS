@@ -6,7 +6,9 @@ var class_c_encoder =
     ] ],
     [ "CEncoder", "class_c_encoder.html#ab63d860ef36a6b121ab3007f70743de7", null ],
     [ "~CEncoder", "class_c_encoder.html#aa6b7126b6e24bd115348fa6243756f47", null ],
+    [ "EncISR", "class_c_encoder.html#aa64baac0c38ee19af8572e8da4838582", null ],
     [ "Init", "class_c_encoder.html#a99a1c676b3fd3e6f253b273b2d740aab", null ],
-    [ "Read", "class_c_encoder.html#aba0cf6ffa20d8c3c4028c2e380ff73b3", null ],
-    [ "reset", "class_c_encoder.html#a75c1bf0e999ea2c93937e487ab89f4a8", null ]
+    [ "ReadCount", "class_c_encoder.html#a5911a289a7ed8a32e0a89e6191e1651c", null ],
+    [ "ReadSum", "class_c_encoder.html#aa38f17afea1ce9b6efd9d95335a95d26", null ],
+    [ "reset", "class_c_encoder.html#ab71d6281e3f4d9f875f45368a3434980", null ]
 ];

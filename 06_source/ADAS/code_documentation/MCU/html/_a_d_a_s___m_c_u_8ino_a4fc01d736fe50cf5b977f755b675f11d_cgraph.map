@@ -1,0 +1,15 @@
+<map id="setup" name="setup">
+<area shape="rect" id="node2" href="$_a_d_a_s___m_c_u_8ino.html#a13fba9b7b9c02542e403a1142b5ad344" title="Enc_ISR_R" alt="" coords="125,5,214,32"/>
+<area shape="rect" id="node4" href="$_a_d_a_s___m_c_u_8ino.html#a89c135c3ad9390c0a5c08c78a9c985d1" title="Enc_ISR_L" alt="" coords="126,56,213,83"/>
+<area shape="rect" id="node5" href="$_a_d_a_s___m_c_u_8ino.html#a9f2f19081d81dba1b47615d1d9363281" title="timerCallback" alt="" coords="119,107,220,133"/>
+<area shape="rect" id="node9" href="$class_c_motor_ctrl.html#af4b1bec8e07e766aa2537d966f025e7a" title="Initialization function of CMotorCtrl. " alt="" coords="115,157,224,184"/>
+<area shape="rect" id="node13" href="$class_c_serial.html#aed500bd204c4b37665d6d228333edafb" title="CSerial::Init" alt="" coords="125,208,214,235"/>
+<area shape="rect" id="node14" href="$class_c_i_c_c_comms.html#a56fc0858965ed1f1f9b3295602472c7e" title="CICCComms::Init" alt="" coords="108,259,231,285"/>
+<area shape="rect" id="node3" href="$class_c_encoder.html#aa64baac0c38ee19af8572e8da4838582" title="Interrupt Service Routine of the encoder. " alt="" coords="301,31,432,57"/>
+<area shape="rect" id="node6" href="$class_c_motor_ctrl.html#a8a76501cf8eaa85c5131bde5f33b6699" title="Function of the CMotorCtrl where the sum of all peaks and the peaks per 150ms are read out..." alt="" coords="297,81,436,108"/>
+<area shape="rect" id="node7" href="$class_c_encoder.html#a5911a289a7ed8a32e0a89e6191e1651c" title="Function to read out the peak count per 150ms. " alt="" coords="503,56,653,83"/>
+<area shape="rect" id="node8" href="$class_c_encoder.html#aa38f17afea1ce9b6efd9d95335a95d26" title="Function to sum up the counted peaks. " alt="" coords="506,107,650,133"/>
+<area shape="rect" id="node10" href="$class_c_p_w_m_unit.html#aa36627883e91d3dec4a76fe187588071" title="Function to initialize timers for 10&#45;bit PWM. " alt="" coords="279,132,454,159"/>
+<area shape="rect" id="node11" href="$class_c_i_m_u_unit.html#a589ccc2afbaadbdf9dbef34c5025a42f" title="Intitialization function of IMU Unit. " alt="" coords="315,183,418,209"/>
+<area shape="rect" id="node12" href="$class_chart_model_class.html#ab32e055f4e5692dd69685b4befbea75d" title="model initialize function " alt="" coords="279,233,455,260"/>
+</map>

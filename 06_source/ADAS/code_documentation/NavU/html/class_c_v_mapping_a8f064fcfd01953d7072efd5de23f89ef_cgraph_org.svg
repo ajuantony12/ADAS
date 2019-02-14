@@ -10,15 +10,12 @@
 <title>CVMapping::Run</title>
 <!-- Node6 -->
 <g id="node1" class="node"><title>Node6</title>
-<g id="a_node1"><a xlink:title="Run function of virtual mapping Application.">
 <polygon fill="#bfbfbf" stroke="black" points="0,-128.5 0,-147.5 90,-147.5 90,-128.5 0,-128.5"/>
 <text text-anchor="middle" x="45" y="-135.5" font-family="Helvetica,sans-Serif" font-size="10.00">CVMapping::Run</text>
-</a>
-</g>
 </g>
 <!-- Node7 -->
 <g id="node2" class="node"><title>Node7</title>
-<g id="a_node2"><a xlink:href="class_c_navigation.html#aa984fc062deefed13a85d866d997de73" target="_top" xlink:title="Function to return if cornerMode is active.">
+<g id="a_node2"><a xlink:href="class_c_navigation.html#aa984fc062deefed13a85d866d997de73" target="_top" xlink:title="Function to return if cornerMode is active. ">
 <polygon fill="none" stroke="black" points="150,-223.5 150,-242.5 284,-242.5 284,-223.5 150,-223.5"/>
 <text text-anchor="middle" x="217" y="-230.5" font-family="Helvetica,sans-Serif" font-size="10.00">CNavigation::isCornerMode</text>
 </a>
@@ -31,7 +28,7 @@
 </g>
 <!-- Node8 -->
 <g id="node3" class="node"><title>Node8</title>
-<g id="a_node3"><a xlink:href="class_c_p_l_s_comms.html#ae9d000eff184034954829d76162654a5" target="_top" xlink:title="check if any data recieved from PLS">
+<g id="a_node3"><a xlink:href="class_c_p_l_s_comms.html#ae9d000eff184034954829d76162654a5" target="_top" xlink:title="check if any data recieved from PLS ">
 <polygon fill="none" stroke="black" points="147,-185.5 147,-204.5 287,-204.5 287,-185.5 147,-185.5"/>
 <text text-anchor="middle" x="217" y="-192.5" font-family="Helvetica,sans-Serif" font-size="10.00">CPLSComms::DataAvailable</text>
 </a>
@@ -44,7 +41,7 @@
 </g>
 <!-- Node10 -->
 <g id="node5" class="node"><title>Node10</title>
-<g id="a_node5"><a xlink:href="class_c_p_l_s_comms.html#a3124eaa4549706962c7024c7c97e82b0" target="_top" xlink:title="Get asynchronous data recieved from PLS.">
+<g id="a_node5"><a xlink:href="class_c_p_l_s_comms.html#a3124eaa4549706962c7024c7c97e82b0" target="_top" xlink:title="Get asynchronous data recieved from PLS. ">
 <polygon fill="none" stroke="black" points="144,-147.5 144,-166.5 290,-166.5 290,-147.5 144,-147.5"/>
 <text text-anchor="middle" x="217" y="-154.5" font-family="Helvetica,sans-Serif" font-size="10.00">CPLSComms::GetAsyncData</text>
 </a>
@@ -70,7 +67,7 @@
 </g>
 <!-- Node16 -->
 <g id="node11" class="node"><title>Node16</title>
-<g id="a_node11"><a xlink:href="class_c_p_l_s_comms.html#ab69a49f5c4cd7b4b9f63fa16c7792920" target="_top" xlink:title="Request measurement from PLS.">
+<g id="a_node11"><a xlink:href="class_c_p_l_s_comms.html#ab69a49f5c4cd7b4b9f63fa16c7792920" target="_top" xlink:title="Request measurement from PLS. ">
 <polygon fill="none" stroke="black" points="126,-66.5 126,-85.5 308,-85.5 308,-66.5 126,-66.5"/>
 <text text-anchor="middle" x="217" y="-73.5" font-family="Helvetica,sans-Serif" font-size="10.00">CPLSComms::RequestMeasurements</text>
 </a>
@@ -83,7 +80,7 @@
 </g>
 <!-- Node18 -->
 <g id="node13" class="node"><title>Node18</title>
-<g id="a_node13"><a xlink:href="class_c_navigation.html#a27649dc6324360829d42aea67e88e3ee" target="_top" xlink:title="Pause drive due to obstacle detection.">
+<g id="a_node13"><a xlink:href="class_c_navigation.html#a27649dc6324360829d42aea67e88e3ee" target="_top" xlink:title="Pause drive due to obstacle detection. ">
 <polygon fill="none" stroke="black" points="156.5,-19.5 156.5,-38.5 277.5,-38.5 277.5,-19.5 156.5,-19.5"/>
 <text text-anchor="middle" x="217" y="-26.5" font-family="Helvetica,sans-Serif" font-size="10.00">CNavigation::pauseDrive</text>
 </a>
@@ -96,7 +93,7 @@
 </g>
 <!-- Node9 -->
 <g id="node4" class="node"><title>Node9</title>
-<g id="a_node4"><a xlink:href="class_c_serial.html#abb43734223d937a86e7616636ea16024" target="_top" xlink:title="Function to check availability of received data.">
+<g id="a_node4"><a xlink:href="class_c_serial.html#abb43734223d937a86e7616636ea16024" target="_top" xlink:title="Function to check availability of received data. ">
 <polygon fill="none" stroke="black" points="363.5,-228.5 363.5,-247.5 455.5,-247.5 455.5,-228.5 363.5,-228.5"/>
 <text text-anchor="middle" x="409.5" y="-235.5" font-family="Helvetica,sans-Serif" font-size="10.00">CSerial::Available</text>
 </a>
@@ -114,7 +111,7 @@
 </g>
 <!-- Node11 -->
 <g id="node6" class="node"><title>Node11</title>
-<g id="a_node6"><a xlink:href="class_c_serial.html#a4327d6041fe9a390612b214709027cbb" target="_top" xlink:title="Function to get length of data.">
+<g id="a_node6"><a xlink:href="class_c_serial.html#a4327d6041fe9a390612b214709027cbb" target="_top" xlink:title="Function to get length of data. ">
 <polygon fill="none" stroke="black" points="356.5,-190.5 356.5,-209.5 462.5,-209.5 462.5,-190.5 356.5,-190.5"/>
 <text text-anchor="middle" x="409.5" y="-197.5" font-family="Helvetica,sans-Serif" font-size="10.00">CSerial::GetDataLen</text>
 </a>
@@ -127,7 +124,7 @@
 </g>
 <!-- Node12 -->
 <g id="node7" class="node"><title>Node12</title>
-<g id="a_node7"><a xlink:href="class_c_serial.html#abad86c07f530569b2ceeea75bda485ad" target="_top" xlink:title="Function to read data from buffer.">
+<g id="a_node7"><a xlink:href="class_c_serial.html#abad86c07f530569b2ceeea75bda485ad" target="_top" xlink:title="Function to read data from buffer. ">
 <polygon fill="none" stroke="black" points="364.5,-152.5 364.5,-171.5 454.5,-171.5 454.5,-152.5 364.5,-152.5"/>
 <text text-anchor="middle" x="409.5" y="-159.5" font-family="Helvetica,sans-Serif" font-size="10.00">CSerial::GetData</text>
 </a>
@@ -140,7 +137,7 @@
 </g>
 <!-- Node13 -->
 <g id="node8" class="node"><title>Node13</title>
-<g id="a_node8"><a xlink:href="class_c_serial.html#a941e5cae2ca04518925a3b32f51110a6" target="_top" xlink:title="Function to release buffer.">
+<g id="a_node8"><a xlink:href="class_c_serial.html#a941e5cae2ca04518925a3b32f51110a6" target="_top" xlink:title="Function to release buffer. ">
 <polygon fill="none" stroke="black" points="511,-133.5 511,-152.5 625,-152.5 625,-133.5 511,-133.5"/>
 <text text-anchor="middle" x="568" y="-140.5" font-family="Helvetica,sans-Serif" font-size="10.00">CSerial::ReleaseBuffer</text>
 </a>
@@ -153,7 +150,7 @@
 </g>
 <!-- Node14 -->
 <g id="node9" class="node"><title>Node14</title>
-<g id="a_node9"><a xlink:href="class_c_p_l_s_comms.html#a14754b4119b9a3d613579c2a80220cc0" target="_top" xlink:title="Search recieved data for message.">
+<g id="a_node9"><a xlink:href="class_c_p_l_s_comms.html#a14754b4119b9a3d613579c2a80220cc0" target="_top" xlink:title="Search recieved data for message. ">
 <polygon fill="none" stroke="black" points="344,-76.5 344,-95.5 475,-95.5 475,-76.5 344,-76.5"/>
 <text text-anchor="middle" x="409.5" y="-83.5" font-family="Helvetica,sans-Serif" font-size="10.00">CPLSComms::SearchMsg</text>
 </a>
@@ -171,7 +168,7 @@
 </g>
 <!-- Node17 -->
 <g id="node12" class="node"><title>Node17</title>
-<g id="a_node12"><a xlink:href="class_c_buff_adas.html#a2ff1ee5f1dfa56117d76b17027d7b7e8" target="_top" xlink:title="reset buffer">
+<g id="a_node12"><a xlink:href="class_c_buff_adas.html#a2ff1ee5f1dfa56117d76b17027d7b7e8" target="_top" xlink:title="reset buffer ">
 <polygon fill="none" stroke="black" points="362.5,-38.5 362.5,-57.5 456.5,-57.5 456.5,-38.5 362.5,-38.5"/>
 <text text-anchor="middle" x="409.5" y="-45.5" font-family="Helvetica,sans-Serif" font-size="10.00">CBuffAdas::Reset</text>
 </a>
@@ -184,7 +181,7 @@
 </g>
 <!-- Node19 -->
 <g id="node14" class="node"><title>Node19</title>
-<g id="a_node14"><a xlink:href="class_c_i_c_c_comms.html#ab925dd7ff82f30ccd9f770ab2281b3ab" target="_top" xlink:title="Function to append message which shall be sent.">
+<g id="a_node14"><a xlink:href="class_c_i_c_c_comms.html#ab925dd7ff82f30ccd9f770ab2281b3ab" target="_top" xlink:title="Function to append message which shall be sent. ">
 <polygon fill="none" stroke="black" points="347.5,-0.5 347.5,-19.5 471.5,-19.5 471.5,-0.5 347.5,-0.5"/>
 <text text-anchor="middle" x="409.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">CICCComms::addTxMsg</text>
 </a>

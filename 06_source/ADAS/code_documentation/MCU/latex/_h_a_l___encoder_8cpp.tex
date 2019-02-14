@@ -1,109 +1,14 @@
 \hypertarget{_h_a_l___encoder_8cpp}{}\section{H\+A\+L\+\_\+\+Encoder.\+cpp File Reference}
-\label{_h_a_l___encoder_8cpp}\index{HAL\_Encoder.cpp@{HAL\_Encoder.cpp}}
+\label{_h_a_l___encoder_8cpp}\index{H\+A\+L\+\_\+\+Encoder.\+cpp@{H\+A\+L\+\_\+\+Encoder.\+cpp}}
 {\ttfamily \#include \char`\"{}H\+A\+L\+\_\+\+Encoder.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}Arduino.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}A\+D\+A\+S\+\_\+\+Debug.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}A\+D\+A\+S\+\_\+\+Cfg.\+h\char`\"{}}\newline
 Include dependency graph for H\+A\+L\+\_\+\+Encoder.\+cpp\+:
-% FIG 0
-\subsection*{Macros}
-\begin{DoxyCompactItemize}
-\item 
-\#define \mbox{\hyperlink{_h_a_l___encoder_8cpp_a572a9b673b506167e9ae77afe1577774}{P\+I\+N\+\_\+\+E\+NC}}~3
-\end{DoxyCompactItemize}
-\subsection*{Functions}
-\begin{DoxyCompactItemize}
-\item 
-unsigned int \mbox{\hyperlink{_h_a_l___encoder_8cpp_a86e611ef4ccc690e7e4bad79826c9d49}{Read}} ()
-\item 
-bool \mbox{\hyperlink{_h_a_l___encoder_8cpp_a50910ef42a65d4c139af341f1ef2323f}{reset}} ()
-\end{DoxyCompactItemize}
-\subsection*{Variables}
-\begin{DoxyCompactItemize}
-\item 
-unsigned long \mbox{\hyperlink{_h_a_l___encoder_8cpp_a43dc68c257e4ad93dcd26ccf96129b45}{time}}
-\item 
-unsigned long \mbox{\hyperlink{_h_a_l___encoder_8cpp_afcc0d3bdf0fac9ca0590f35876bd826a}{enc\+\_\+last\+\_\+time}} = 0
-\item 
-unsigned long \mbox{\hyperlink{_h_a_l___encoder_8cpp_aae59687bc0aad81e115431e8bea2330c}{enc\+\_\+t}} = 0
-\item 
-\mbox{\hyperlink{_a_d_a_s___types_8h_a1f1825b69244eb3ad2c7165ddc99c956}{uint16\+\_\+t}} \mbox{\hyperlink{_h_a_l___encoder_8cpp_a7e8977f1a58204edfd9b2514f29dfd47}{rpm}} = 0
-\end{DoxyCompactItemize}
-
-
-\subsection{Macro Definition Documentation}
-\mbox{\Hypertarget{_h_a_l___encoder_8cpp_a572a9b673b506167e9ae77afe1577774}\label{_h_a_l___encoder_8cpp_a572a9b673b506167e9ae77afe1577774}} 
-\index{HAL\_Encoder.cpp@{HAL\_Encoder.cpp}!PIN\_ENC@{PIN\_ENC}}
-\index{PIN\_ENC@{PIN\_ENC}!HAL\_Encoder.cpp@{HAL\_Encoder.cpp}}
-\subsubsection{\texorpdfstring{PIN\_ENC}{PIN\_ENC}}
-{\footnotesize\ttfamily \#define P\+I\+N\+\_\+\+E\+NC~3}
-
-
-
-Definition at line 4 of file H\+A\+L\+\_\+\+Encoder.\+cpp.
-
-
-
-\subsection{Function Documentation}
-\mbox{\Hypertarget{_h_a_l___encoder_8cpp_a86e611ef4ccc690e7e4bad79826c9d49}\label{_h_a_l___encoder_8cpp_a86e611ef4ccc690e7e4bad79826c9d49}} 
-\index{HAL\_Encoder.cpp@{HAL\_Encoder.cpp}!Read@{Read}}
-\index{Read@{Read}!HAL\_Encoder.cpp@{HAL\_Encoder.cpp}}
-\subsubsection{\texorpdfstring{Read()}{Read()}}
-{\footnotesize\ttfamily unsigned int Read (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
-
-
-Definition at line 25 of file H\+A\+L\+\_\+\+Encoder.\+cpp.
-
-\mbox{\Hypertarget{_h_a_l___encoder_8cpp_a50910ef42a65d4c139af341f1ef2323f}\label{_h_a_l___encoder_8cpp_a50910ef42a65d4c139af341f1ef2323f}} 
-\index{HAL\_Encoder.cpp@{HAL\_Encoder.cpp}!reset@{reset}}
-\index{reset@{reset}!HAL\_Encoder.cpp@{HAL\_Encoder.cpp}}
-\subsubsection{\texorpdfstring{reset()}{reset()}}
-{\footnotesize\ttfamily bool reset (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
-
-
-Definition at line 37 of file H\+A\+L\+\_\+\+Encoder.\+cpp.
-
-
-
-\subsection{Variable Documentation}
-\mbox{\Hypertarget{_h_a_l___encoder_8cpp_afcc0d3bdf0fac9ca0590f35876bd826a}\label{_h_a_l___encoder_8cpp_afcc0d3bdf0fac9ca0590f35876bd826a}} 
-\index{HAL\_Encoder.cpp@{HAL\_Encoder.cpp}!enc\_last\_time@{enc\_last\_time}}
-\index{enc\_last\_time@{enc\_last\_time}!HAL\_Encoder.cpp@{HAL\_Encoder.cpp}}
-\subsubsection{\texorpdfstring{enc\_last\_time}{enc\_last\_time}}
-{\footnotesize\ttfamily unsigned long enc\+\_\+last\+\_\+time = 0}
-
-
-
-Definition at line 7 of file H\+A\+L\+\_\+\+Encoder.\+cpp.
-
-\mbox{\Hypertarget{_h_a_l___encoder_8cpp_aae59687bc0aad81e115431e8bea2330c}\label{_h_a_l___encoder_8cpp_aae59687bc0aad81e115431e8bea2330c}} 
-\index{HAL\_Encoder.cpp@{HAL\_Encoder.cpp}!enc\_t@{enc\_t}}
-\index{enc\_t@{enc\_t}!HAL\_Encoder.cpp@{HAL\_Encoder.cpp}}
-\subsubsection{\texorpdfstring{enc\_t}{enc\_t}}
-{\footnotesize\ttfamily unsigned long enc\+\_\+t = 0}
-
-
-
-Definition at line 8 of file H\+A\+L\+\_\+\+Encoder.\+cpp.
-
-\mbox{\Hypertarget{_h_a_l___encoder_8cpp_a7e8977f1a58204edfd9b2514f29dfd47}\label{_h_a_l___encoder_8cpp_a7e8977f1a58204edfd9b2514f29dfd47}} 
-\index{HAL\_Encoder.cpp@{HAL\_Encoder.cpp}!rpm@{rpm}}
-\index{rpm@{rpm}!HAL\_Encoder.cpp@{HAL\_Encoder.cpp}}
-\subsubsection{\texorpdfstring{rpm}{rpm}}
-{\footnotesize\ttfamily \mbox{\hyperlink{_a_d_a_s___types_8h_a1f1825b69244eb3ad2c7165ddc99c956}{uint16\+\_\+t}} rpm = 0}
-
-
-
-Definition at line 9 of file H\+A\+L\+\_\+\+Encoder.\+cpp.
-
-\mbox{\Hypertarget{_h_a_l___encoder_8cpp_a43dc68c257e4ad93dcd26ccf96129b45}\label{_h_a_l___encoder_8cpp_a43dc68c257e4ad93dcd26ccf96129b45}} 
-\index{HAL\_Encoder.cpp@{HAL\_Encoder.cpp}!time@{time}}
-\index{time@{time}!HAL\_Encoder.cpp@{HAL\_Encoder.cpp}}
-\subsubsection{\texorpdfstring{time}{time}}
-{\footnotesize\ttfamily unsigned long time}
-
-
-
-Definition at line 6 of file H\+A\+L\+\_\+\+Encoder.\+cpp.
-
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_h_a_l___encoder_8cpp__incl}
+\end{center}
+\end{figure}

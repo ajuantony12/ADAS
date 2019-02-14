@@ -10,63 +10,60 @@
 <title>CICCComms::addTxMsg</title>
 <!-- Node5 -->
 <g id="node1" class="node"><title>Node5</title>
-<g id="a_node1"><a xlink:title="Function to append message which shall be sent.">
-<polygon fill="#bfbfbf" stroke="black" points="293,-38.5 293,-57.5 417,-57.5 417,-38.5 293,-38.5"/>
-<text text-anchor="middle" x="355" y="-45.5" font-family="Helvetica,sans-Serif" font-size="10.00">CICCComms::addTxMsg</text>
-</a>
-</g>
+<polygon fill="#bfbfbf" stroke="black" points="0,-38.5 0,-57.5 124,-57.5 124,-38.5 0,-38.5"/>
+<text text-anchor="middle" x="62" y="-45.5" font-family="Helvetica,sans-Serif" font-size="10.00">CICCComms::addTxMsg</text>
 </g>
 <!-- Node6 -->
 <g id="node2" class="node"><title>Node6</title>
-<g id="a_node2"><a xlink:href="class_c_navigation.html#a3cc8f7fdd003d6b2c5056b87ff93edd9" target="_top" xlink:title="Stop function of CNavigation.">
-<polygon fill="none" stroke="black" points="144.5,-76.5 144.5,-95.5 238.5,-95.5 238.5,-76.5 144.5,-76.5"/>
-<text text-anchor="middle" x="191.5" y="-83.5" font-family="Helvetica,sans-Serif" font-size="10.00">CNavigation::Stop</text>
+<g id="a_node2"><a xlink:href="class_c_navigation.html#a3cc8f7fdd003d6b2c5056b87ff93edd9" target="_top" xlink:title="Stop function of CNavigation. ">
+<polygon fill="none" stroke="black" points="178.5,-76.5 178.5,-95.5 272.5,-95.5 272.5,-76.5 178.5,-76.5"/>
+<text text-anchor="middle" x="225.5" y="-83.5" font-family="Helvetica,sans-Serif" font-size="10.00">CNavigation::Stop</text>
 </a>
 </g>
 </g>
 <!-- Node5&#45;&gt;Node6 -->
 <g id="edge1" class="edge"><title>Node5&#45;&gt;Node6</title>
-<path fill="none" stroke="midnightblue" d="M303.442,-59.8961C280.741,-65.2374 254.322,-71.4537 232.96,-76.4799"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="304.314,-63.2864 313.247,-57.589 302.711,-56.4725 304.314,-63.2864"/>
+<path fill="none" stroke="midnightblue" d="M113.558,-59.8961C136.259,-65.2374 162.678,-71.4537 184.04,-76.4799"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="114.289,-56.4725 103.753,-57.589 112.686,-63.2864 114.289,-56.4725"/>
 </g>
 <!-- Node7 -->
 <g id="node3" class="node"><title>Node7</title>
-<g id="a_node3"><a xlink:href="class_c_navigation.html#ab3d29f3ab4a8a922f5af439f6d78aded" target="_top" xlink:title="Function to continue if obstacle is clear.">
-<polygon fill="none" stroke="black" points="126,-38.5 126,-57.5 257,-57.5 257,-38.5 126,-38.5"/>
-<text text-anchor="middle" x="191.5" y="-45.5" font-family="Helvetica,sans-Serif" font-size="10.00">CNavigation::continueDrive</text>
+<g id="a_node3"><a xlink:href="class_c_navigation.html#ab3d29f3ab4a8a922f5af439f6d78aded" target="_top" xlink:title="Function to continue if obstacle is clear. ">
+<polygon fill="none" stroke="black" points="160,-38.5 160,-57.5 291,-57.5 291,-38.5 160,-38.5"/>
+<text text-anchor="middle" x="225.5" y="-45.5" font-family="Helvetica,sans-Serif" font-size="10.00">CNavigation::continueDrive</text>
 </a>
 </g>
 </g>
 <!-- Node5&#45;&gt;Node7 -->
 <g id="edge2" class="edge"><title>Node5&#45;&gt;Node7</title>
-<path fill="none" stroke="midnightblue" d="M282.675,-48C274.178,-48 265.539,-48 257.143,-48"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="282.944,-51.5001 292.944,-48 282.944,-44.5001 282.944,-51.5001"/>
+<path fill="none" stroke="midnightblue" d="M134.325,-48C142.822,-48 151.461,-48 159.857,-48"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="134.056,-44.5001 124.056,-48 134.056,-51.5001 134.056,-44.5001"/>
 </g>
 <!-- Node8 -->
 <g id="node4" class="node"><title>Node8</title>
-<g id="a_node4"><a xlink:href="class_c_navigation.html#a27649dc6324360829d42aea67e88e3ee" target="_top" xlink:title="Pause drive due to obstacle detection.">
-<polygon fill="none" stroke="black" points="131,-0.5 131,-19.5 252,-19.5 252,-0.5 131,-0.5"/>
-<text text-anchor="middle" x="191.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">CNavigation::pauseDrive</text>
+<g id="a_node4"><a xlink:href="class_c_navigation.html#a27649dc6324360829d42aea67e88e3ee" target="_top" xlink:title="Pause drive due to obstacle detection. ">
+<polygon fill="none" stroke="black" points="165,-0.5 165,-19.5 286,-19.5 286,-0.5 165,-0.5"/>
+<text text-anchor="middle" x="225.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">CNavigation::pauseDrive</text>
 </a>
 </g>
 </g>
 <!-- Node5&#45;&gt;Node8 -->
 <g id="edge3" class="edge"><title>Node5&#45;&gt;Node8</title>
-<path fill="none" stroke="midnightblue" d="M303.442,-36.1039C280.741,-30.7626 254.322,-24.5463 232.96,-19.5201"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="302.711,-39.5275 313.247,-38.411 304.314,-32.7136 302.711,-39.5275"/>
+<path fill="none" stroke="midnightblue" d="M113.558,-36.1039C136.259,-30.7626 162.678,-24.5463 184.04,-19.5201"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="112.686,-32.7136 103.753,-38.411 114.289,-39.5275 112.686,-32.7136"/>
 </g>
 <!-- Node9 -->
 <g id="node5" class="node"><title>Node9</title>
-<g id="a_node5"><a xlink:href="class_c_v_mapping.html#a8f064fcfd01953d7072efd5de23f89ef" target="_top" xlink:title="Run function of virtual mapping Application.">
-<polygon fill="none" stroke="black" points="0,-0.5 0,-19.5 90,-19.5 90,-0.5 0,-0.5"/>
-<text text-anchor="middle" x="45" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">CVMapping::Run</text>
+<g id="a_node5"><a xlink:href="class_c_v_mapping.html#a8f064fcfd01953d7072efd5de23f89ef" target="_top" xlink:title="Run function of virtual mapping Application. ">
+<polygon fill="none" stroke="black" points="327,-0.5 327,-19.5 417,-19.5 417,-0.5 327,-0.5"/>
+<text text-anchor="middle" x="372" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">CVMapping::Run</text>
 </a>
 </g>
 </g>
 <!-- Node8&#45;&gt;Node9 -->
 <g id="edge4" class="edge"><title>Node8&#45;&gt;Node9</title>
-<path fill="none" stroke="midnightblue" d="M120.87,-10C110.363,-10 99.7817,-10 90.017,-10"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="120.892,-13.5001 130.892,-10 120.892,-6.5001 120.892,-13.5001"/>
+<path fill="none" stroke="midnightblue" d="M296.13,-10C306.637,-10 317.218,-10 326.983,-10"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="296.108,-6.5001 286.108,-10 296.108,-13.5001 296.108,-6.5001"/>
 </g>
 </g>
 </svg>

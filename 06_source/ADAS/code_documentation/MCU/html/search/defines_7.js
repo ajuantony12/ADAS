@@ -1,25 +1,6 @@
 var searchData=
 [
-  ['icc_5fcmd_5fcont_5fdrive',['ICC_CMD_CONT_DRIVE',['../_a_d_a_s___cfg_8h.html#a6ca365181dee48355653abc899f323ef',1,'ADAS_Cfg.h']]],
-  ['icc_5fcmd_5fcont_5fdrive_5fin',['ICC_CMD_CONT_DRIVE_IN',['../_a_d_a_s___cfg_8h.html#a40d2abfed1ddd75059dcf6cb22827768',1,'ADAS_Cfg.h']]],
-  ['icc_5fcmd_5fdrive_5fdist',['ICC_CMD_DRIVE_DIST',['../_a_d_a_s___cfg_8h.html#afdd598eb4bc8932a5361cad0bda4ce8b',1,'ADAS_Cfg.h']]],
-  ['icc_5fcmd_5femer_5fstop',['ICC_CMD_EMER_STOP',['../_a_d_a_s___cfg_8h.html#aedeacd8d3824162ab6e36fb5daf98a63',1,'ADAS_Cfg.h']]],
-  ['icc_5fcmd_5ffb_5fack',['ICC_CMD_FB_ACK',['../_a_d_a_s___cfg_8h.html#a9c53df5529ba6243219b7339e850b44e',1,'ADAS_Cfg.h']]],
-  ['icc_5fcmd_5ffb_5fdist',['ICC_CMD_FB_DIST',['../_a_d_a_s___cfg_8h.html#a747531d8f8f667e12901b8cfe38c6590',1,'ADAS_Cfg.h']]],
-  ['icc_5fcmd_5ffb_5frot',['ICC_CMD_FB_ROT',['../_a_d_a_s___cfg_8h.html#afce5749f1ae59adc2b3ac85f2a624213',1,'ADAS_Cfg.h']]],
-  ['icc_5fcmd_5fpause_5fdrive',['ICC_CMD_PAUSE_DRIVE',['../_a_d_a_s___cfg_8h.html#ab485c094bfdf623f14b0905c50056971',1,'ADAS_Cfg.h']]],
-  ['icc_5fcmd_5frot_5fangle',['ICC_CMD_ROT_ANGLE',['../_a_d_a_s___cfg_8h.html#a959554139978e2a4ac7ee923a8c0caa9',1,'ADAS_Cfg.h']]],
-  ['icc_5fcmd_5fset_5fspeed',['ICC_CMD_SET_SPEED',['../_a_d_a_s___cfg_8h.html#aec8c3e01e4c00ebf2a58554fe92de7cd',1,'ADAS_Cfg.h']]],
-  ['icc_5fcmd_5fsoft_5fstop',['ICC_CMD_SOFT_STOP',['../_a_d_a_s___cfg_8h.html#a6b04b7f091aca78258644ae59974760b',1,'ADAS_Cfg.h']]],
-  ['icc_5flen',['ICC_LEN',['../_a_d_a_s___cfg_8h.html#a17a000e80a2ce1e3be945f5484ff3dd7',1,'ADAS_Cfg.h']]],
-  ['icc_5frcv_5fbuff_5fsize',['ICC_RCV_BUFF_SIZE',['../_a_d_a_s___cfg_8h.html#abf41bed56ee0b2a8858687c4420bb110',1,'ADAS_Cfg.h']]],
-  ['icc_5fsnd_5fbuff_5fsize',['ICC_SND_BUFF_SIZE',['../_a_d_a_s___cfg_8h.html#a5affc93ec51434d8a95645b2e3928148',1,'ADAS_Cfg.h']]],
-  ['icc_5fstx1',['ICC_STX1',['../_a_d_a_s___cfg_8h.html#ad37cb9fe48a2b3eef8b01ec7c25d2dfc',1,'ADAS_Cfg.h']]],
-  ['icc_5fstx2',['ICC_STX2',['../_a_d_a_s___cfg_8h.html#a68e8b24c1a01472ef62c60e9d934f63c',1,'ADAS_Cfg.h']]],
-  ['icc_5fttx',['ICC_TTX',['../_a_d_a_s___cfg_8h.html#ac9943f1124269cb02f9317d42991c503',1,'ADAS_Cfg.h']]],
-  ['in_5fbackward',['IN_Backward',['../_app___stateflow_8cpp.html#aa817b31a7c7a0579da90fc2f2f15d222',1,'App_Stateflow.cpp']]],
-  ['in_5fforward',['IN_Forward',['../_app___stateflow_8cpp.html#a10740620ab078458692c597c5e13d505',1,'App_Stateflow.cpp']]],
-  ['in_5fidle',['IN_Idle',['../_app___stateflow_8cpp.html#ad477d4e95ca49acd2ca68907748c4abb',1,'App_Stateflow.cpp']]],
-  ['in_5fturn_5fleft',['IN_Turn_Left',['../_app___stateflow_8cpp.html#a2030f1fd23aa500421f2ce7b71cdcf65',1,'App_Stateflow.cpp']]],
-  ['in_5fturn_5fright',['IN_Turn_Right',['../_app___stateflow_8cpp.html#a512c2b4d6d5dc6895929ea57a8b066ba',1,'App_Stateflow.cpp']]]
+  ['kd_5fvalue',['KD_VALUE',['../_a_d_a_s___cfg_8h.html#af81a477761bfcd182218e889d5621136',1,'ADAS_Cfg.h']]],
+  ['ki_5fvalue',['KI_VALUE',['../_a_d_a_s___cfg_8h.html#a3eb670721689464bf00169bb32bc24dd',1,'ADAS_Cfg.h']]],
+  ['kp_5fvalue',['KP_VALUE',['../_a_d_a_s___cfg_8h.html#a102ddcd5ac5b86b152eca510f7534217',1,'ADAS_Cfg.h']]]
 ];

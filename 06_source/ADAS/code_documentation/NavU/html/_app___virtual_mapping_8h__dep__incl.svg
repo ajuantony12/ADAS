@@ -10,15 +10,12 @@
 <title>App_VirtualMapping.h</title>
 <!-- Node11 -->
 <g id="node1" class="node"><title>Node11</title>
-<g id="a_node1"><a xlink:title="Virtual mapping application header file.">
 <polygon fill="#bfbfbf" stroke="black" points="48.5,-56.5 48.5,-75.5 160.5,-75.5 160.5,-56.5 48.5,-56.5"/>
 <text text-anchor="middle" x="104.5" y="-63.5" font-family="Helvetica,sans-Serif" font-size="10.00">App_VirtualMapping.h</text>
-</a>
-</g>
 </g>
 <!-- Node12 -->
 <g id="node2" class="node"><title>Node12</title>
-<g id="a_node2"><a xlink:href="_a_d_a_s___nav_u_8ino.html" target="_top" xlink:title="Main file for the NavU of the ADAS project.">
+<g id="a_node2"><a xlink:href="_a_d_a_s___nav_u_8ino.html" target="_top" xlink:title="Main file for the NavU of the ADAS project. ">
 <polygon fill="none" stroke="black" points="0,-0.5 0,-19.5 87,-19.5 87,-0.5 0,-0.5"/>
 <text text-anchor="middle" x="43.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">ADAS_NavU.ino</text>
 </a>
@@ -31,7 +28,7 @@
 </g>
 <!-- Node13 -->
 <g id="node3" class="node"><title>Node13</title>
-<g id="a_node3"><a xlink:href="_app___virtual_mapping_8cpp.html" target="_top" xlink:title="Virtual mapping application source file.">
+<g id="a_node3"><a xlink:href="_app___virtual_mapping_8cpp.html" target="_top" xlink:title="Virtual mapping application source file. ">
 <polygon fill="none" stroke="black" points="105.5,-0.5 105.5,-19.5 227.5,-19.5 227.5,-0.5 105.5,-0.5"/>
 <text text-anchor="middle" x="166.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">App_VirtualMapping.cpp</text>
 </a>

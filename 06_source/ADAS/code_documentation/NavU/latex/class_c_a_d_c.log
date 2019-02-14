@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930 64-bit) (preloaded format=pdflatex 2019.1.26)  7 FEB 2019 02:44
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930 64-bit) (preloaded format=pdflatex 2019.1.13)  14 FEB 2019 20:57
 entering extended mode
 **./class_c_a_d_c.tex
 (class_c_a_d_c.tex
@@ -1627,8 +1627,8 @@ l.30 ...c_a_d_c}{C\+A\+DC}}. \end{DoxyCompactList}
 (That makes 100 errors; please try again.) 
 Here is how much of TeX's memory you used:
  18 strings out of 492946
- 371 string characters out of 3135527
- 58629 words of memory out of 3000000
+ 365 string characters out of 4135524
+ 58629 words of memory out of 6000000
  4013 multiletter control sequences out of 15000+200000
  4154 words of font info for 16 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191

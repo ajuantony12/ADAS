@@ -2,10 +2,6 @@ var _a_d_a_s___cfg_8h =
 [
     [ "ADAS_DEBUG", "_a_d_a_s___cfg_8h.html#a3652cce0b9338f4abd91418f6b834348", null ],
     [ "Btn_Start", "_a_d_a_s___cfg_8h.html#a2820a8dbf1bc443cc785034701f198df", null ],
-    [ "ENV_VBAT_CRI", "_a_d_a_s___cfg_8h.html#a3b11384d6b643ae55afe2904de70a208", null ],
-    [ "ENV_VBAT_GAIN", "_a_d_a_s___cfg_8h.html#a9b007d258cc627ea79aa06cef42c0851", null ],
-    [ "ENV_VBAT_LOW", "_a_d_a_s___cfg_8h.html#a6975af7b117810195e5c85c0f0352474", null ],
-    [ "ENV_VBAT_OFF", "_a_d_a_s___cfg_8h.html#a60f7517e6d36bf5703fc24eacb2f17ed", null ],
     [ "HZ_VALUE", "_a_d_a_s___cfg_8h.html#a75812224390676391d7f859fc713b179", null ],
     [ "ICC_CMD_CONT_DRIVE", "_a_d_a_s___cfg_8h.html#a6ca365181dee48355653abc899f323ef", null ],
     [ "ICC_CMD_CONT_DRIVE_IN", "_a_d_a_s___cfg_8h.html#a40d2abfed1ddd75059dcf6cb22827768", null ],
@@ -41,7 +37,6 @@ var _a_d_a_s___cfg_8h =
     [ "PIN_ENC_R", "_a_d_a_s___cfg_8h.html#a391a8f8e027c96ff0f8e203342372ab6", null ],
     [ "PIN_MTR_L_PWM", "_a_d_a_s___cfg_8h.html#a2df259645e46c663742fb338e08d1e92", null ],
     [ "PIN_MTR_R_PWM", "_a_d_a_s___cfg_8h.html#adcd2bacc5609fb4a97078fcad69f709c", null ],
-    [ "PIN_VBAT", "_a_d_a_s___cfg_8h.html#ad9c869803f9fc9e3ffc9e962c19f028d", null ],
     [ "PLS_RCV_BUFF_SIZE", "_a_d_a_s___cfg_8h.html#a00f72db64cf681b08d61977df126ec76", null ],
     [ "PLS_SND_BUFF_SIZE", "_a_d_a_s___cfg_8h.html#ae3bd6bba60bc1008c82fe66f80428908", null ],
     [ "PLS_WALL_DETECTION_2_POINT", "_a_d_a_s___cfg_8h.html#a56c71db74384511c149652d598bf1795", null ],
@@ -53,6 +48,5 @@ var _a_d_a_s___cfg_8h =
     [ "SERIAL2_BAUD_PRESCALE", "_a_d_a_s___cfg_8h.html#aaac720d7fe05f2b696f15ea9b2b56c7d", null ],
     [ "SICK_ACK", "_a_d_a_s___cfg_8h.html#aa170bc1a99d2c608d5508e9b66566695", null ],
     [ "SICK_DESTR", "_a_d_a_s___cfg_8h.html#a4ae91f90fd4b33d0bc454db3d90cf700", null ],
-    [ "SICK_NAK", "_a_d_a_s___cfg_8h.html#a6e34ca003e6bdfd81d05bcb8ea3c5eb2", null ],
     [ "SICK_STX", "_a_d_a_s___cfg_8h.html#a8c52736558ce47242a7c679123df76a0", null ]
 ];

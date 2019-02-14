@@ -1,9 +1,8 @@
 <map id="Comm_ICC.h" name="Comm_ICC.h">
-<area shape="rect" id="node1" title="Communication file for Inter&#45;Controller Communication (ICC)" alt="" coords="206,5,305,32"/>
-<area shape="rect" id="node2" href="$_a_d_a_s___nav_u_8ino.html" title="Main file for the NavU of the ADAS project." alt="" coords="5,229,121,256"/>
-<area shape="rect" id="node3" href="$_app___navigation_8h.html" title="Application file for navigation." alt="" coords="194,80,317,107"/>
-<area shape="rect" id="node7" href="$_comm___i_c_c_8cpp.html" title="Communication file for Inter&#45;Controller Communication (ICC)" alt="" coords="460,155,573,181"/>
-<area shape="rect" id="node4" href="$_app___virtual_mapping_8h.html" title="Virtual mapping application header file." alt="" coords="126,155,275,181"/>
-<area shape="rect" id="node6" href="$_app___navigation_8cpp.html" title="Application file for navigation." alt="" coords="299,155,435,181"/>
-<area shape="rect" id="node5" href="$_app___virtual_mapping_8cpp.html" title="Virtual mapping application source file." alt="" coords="146,229,309,256"/>
+<area shape="rect" id="node2" href="$_a_d_a_s___nav_u_8ino.html" title="Main file for the NavU of the ADAS project. " alt="" coords="5,229,121,256"/>
+<area shape="rect" id="node3" href="$_app___navigation_8h.html" title="Application file for navigation. " alt="" coords="194,80,317,107"/>
+<area shape="rect" id="node7" href="$_comm___i_c_c_8cpp.html" title="Communication file for Inter&#45;Controller Communication (ICC) " alt="" coords="460,155,573,181"/>
+<area shape="rect" id="node4" href="$_app___virtual_mapping_8h.html" title="Virtual mapping application header file. " alt="" coords="126,155,275,181"/>
+<area shape="rect" id="node6" href="$_app___navigation_8cpp.html" title="Application file for navigation. " alt="" coords="299,155,435,181"/>
+<area shape="rect" id="node5" href="$_app___virtual_mapping_8cpp.html" title="Virtual mapping application source file. " alt="" coords="146,229,309,256"/>
 </map>

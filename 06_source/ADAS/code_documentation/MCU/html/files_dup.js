@@ -28,7 +28,7 @@ var files_dup =
     [ "HAL_DriveUnit.h", "_h_a_l___drive_unit_8h.html", [
       [ "CDriveUnit", "class_c_drive_unit.html", "class_c_drive_unit" ]
     ] ],
-    [ "HAL_Encoder.cpp", "_h_a_l___encoder_8cpp.html", "_h_a_l___encoder_8cpp" ],
+    [ "HAL_Encoder.cpp", "_h_a_l___encoder_8cpp.html", null ],
     [ "HAL_Encoder.h", "_h_a_l___encoder_8h.html", [
       [ "CEncoder", "class_c_encoder.html", "class_c_encoder" ]
     ] ],

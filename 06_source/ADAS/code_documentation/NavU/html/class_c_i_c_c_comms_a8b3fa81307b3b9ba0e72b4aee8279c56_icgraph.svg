@@ -10,24 +10,21 @@
 <title>CICCComms::Run</title>
 <!-- Node16 -->
 <g id="node1" class="node"><title>Node16</title>
-<g id="a_node1"><a xlink:title="Run function of CICCComms which is periodically called by CNavigation.">
-<polygon fill="#bfbfbf" stroke="black" points="127,-0.5 127,-19.5 223,-19.5 223,-0.5 127,-0.5"/>
-<text text-anchor="middle" x="175" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">CICCComms::Run</text>
-</a>
-</g>
+<polygon fill="#bfbfbf" stroke="black" points="0,-0.5 0,-19.5 96,-19.5 96,-0.5 0,-0.5"/>
+<text text-anchor="middle" x="48" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">CICCComms::Run</text>
 </g>
 <!-- Node17 -->
 <g id="node2" class="node"><title>Node17</title>
-<g id="a_node2"><a xlink:href="class_c_navigation.html#a86acb1521aab400e542465c8eabed671" target="_top" xlink:title="Run function of CNavigation which is periodically called by CTaskCtrl.">
-<polygon fill="none" stroke="black" points="0,-0.5 0,-19.5 91,-19.5 91,-0.5 0,-0.5"/>
-<text text-anchor="middle" x="45.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">CNavigation::Run</text>
+<g id="a_node2"><a xlink:href="class_c_navigation.html#a86acb1521aab400e542465c8eabed671" target="_top" xlink:title="Run function of CNavigation which is periodically called by CTaskCtrl. ">
+<polygon fill="none" stroke="black" points="132,-0.5 132,-19.5 223,-19.5 223,-0.5 132,-0.5"/>
+<text text-anchor="middle" x="177.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">CNavigation::Run</text>
 </a>
 </g>
 </g>
 <!-- Node16&#45;&gt;Node17 -->
 <g id="edge1" class="edge"><title>Node16&#45;&gt;Node17</title>
-<path fill="none" stroke="midnightblue" d="M116.639,-10C108.143,-10 99.4936,-10 91.3033,-10"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="116.886,-13.5001 126.886,-10 116.886,-6.5001 116.886,-13.5001"/>
+<path fill="none" stroke="midnightblue" d="M106.361,-10C114.857,-10 123.506,-10 131.697,-10"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="106.114,-6.5001 96.114,-10 106.114,-13.5001 106.114,-6.5001"/>
 </g>
 </g>
 </svg>

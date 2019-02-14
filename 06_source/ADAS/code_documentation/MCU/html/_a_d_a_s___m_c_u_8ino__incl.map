@@ -1,0 +1,16 @@
+<map id="ADAS_MCU.ino" name="ADAS_MCU.ino">
+<area shape="rect" id="node2" href="$_a_d_a_s___types_8h.html" title="ADAS_Types.h" alt="" coords="413,304,524,331"/>
+<area shape="rect" id="node3" href="$_a_d_a_s___cfg_8h.html" title="This file contains the configuration of the vehicle. " alt="" coords="311,229,405,256"/>
+<area shape="rect" id="node4" href="$_a_d_a_s___debug_8h.html" title="ADAS_Debug.h" alt="" coords="337,80,451,107"/>
+<area shape="rect" id="node6" href="$_h_a_l___drive_unit_8h.html" title="HAL_DriveUnit.h" alt="" coords="197,80,313,107"/>
+<area shape="rect" id="node7" href="$_h_a_l___encoder_8h.html" title="HAL_Encoder.h" alt="" coords="349,155,463,181"/>
+<area shape="rect" id="node8" href="$_h_a_l___i_m_u_8h.html" title="Application file for IMU. " alt="" coords="873,155,961,181"/>
+<area shape="rect" id="node13" href="$_h_a_l___p_w_m_8h.html" title="HAL_PWM.h" alt="" coords="487,155,586,181"/>
+<area shape="rect" id="node14" href="$_h_a_l___serial___i_f_8h.html" title="HAL_Serial_IF.h" alt="" coords="631,229,747,256"/>
+<area shape="rect" id="node15" href="$_comm___inertial_8h.html" title="Application file for inertial communication. " alt="" coords="5,80,121,107"/>
+<area shape="rect" id="node16" href="$_comm___i_c_c_8h.html" title="Comm_ICC.h" alt="" coords="610,155,709,181"/>
+<area shape="rect" id="node18" href="$_app___motor_ctrl_8h.html" title="Header file for motor control unit. " alt="" coords="763,80,879,107"/>
+<area shape="rect" id="node19" href="$_app___stateflow_8h.html" title="Application file for Stateflow. " alt="" coords="1036,155,1152,181"/>
+<area shape="rect" id="node20" href="$_app___stateflowtypes_8h.html" title="Application file for Stateflowtypes. " alt="" coords="1415,229,1563,256"/>
+<area shape="rect" id="node17" href="$_cbuffer_8h.html" title="CBuffer.h" alt="" coords="531,229,606,256"/>
+</map>
