@@ -1,5 +1,5 @@
 \hypertarget{_a_d_a_s___m_c_u_8ino}{}\section{A\+D\+A\+S\+\_\+\+M\+C\+U.\+ino File Reference}
-\label{_a_d_a_s___m_c_u_8ino}\index{ADAS\_MCU.ino@{ADAS\_MCU.ino}}
+\label{_a_d_a_s___m_c_u_8ino}\index{A\+D\+A\+S\+\_\+\+M\+C\+U.\+ino@{A\+D\+A\+S\+\_\+\+M\+C\+U.\+ino}}
 
 
 Main file for the NavU of the A\+D\+AS project.  
@@ -8,6 +8,7 @@ Main file for the NavU of the A\+D\+AS project.
 {\ttfamily \#include \char`\"{}A\+D\+A\+S\+\_\+\+Types.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}A\+D\+A\+S\+\_\+\+Cfg.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}A\+D\+A\+S\+\_\+\+Debug.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Timer.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}H\+A\+L\+\_\+\+Drive\+Unit.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}H\+A\+L\+\_\+\+Encoder.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}H\+A\+L\+\_\+\+I\+M\+U.\+h\char`\"{}}\newline
@@ -19,9 +20,21 @@ Main file for the NavU of the A\+D\+AS project.
 {\ttfamily \#include \char`\"{}App\+\_\+\+Stateflow.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}App\+\_\+\+Stateflowtypes.\+h\char`\"{}}\newline
 Include dependency graph for A\+D\+A\+S\+\_\+\+M\+C\+U.\+ino\+:
-% FIG 0
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_a_d_a_s___m_c_u_8ino__incl}
+\end{center}
+\end{figure}
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{_a_d_a_s___m_c_u_8ino_a9f2f19081d81dba1b47615d1d9363281}{timer\+Callback}} (void $\ast$context)
+\item 
+void \mbox{\hyperlink{_a_d_a_s___m_c_u_8ino_a13fba9b7b9c02542e403a1142b5ad344}{Enc\+\_\+\+I\+S\+R\+\_\+R}} (void)
+\item 
+void \mbox{\hyperlink{_a_d_a_s___m_c_u_8ino_a89c135c3ad9390c0a5c08c78a9c985d1}{Enc\+\_\+\+I\+S\+R\+\_\+L}} (void)
 \item 
 void \mbox{\hyperlink{_a_d_a_s___m_c_u_8ino_a4fc01d736fe50cf5b977f755b675f11d}{setup}} ()
 \item 
@@ -31,6 +44,8 @@ void \mbox{\hyperlink{_a_d_a_s___m_c_u_8ino_afe461d27b9c48d5921c00d521181f12f}{l
 \end{DoxyCompactItemize}
 \subsection*{Variables}
 \begin{DoxyCompactItemize}
+\item 
+Timer \mbox{\hyperlink{_a_d_a_s___m_c_u_8ino_a978d88b393c8a37dc2614c88788b3442}{t}}
 \item 
 \mbox{\hyperlink{class_c_i_m_u_unit}{C\+I\+M\+U\+Unit}} \mbox{\hyperlink{_a_d_a_s___m_c_u_8ino_ae51e36f83228f859afeb8a72e60339a6}{imu\+\_\+o}}
 \item 
@@ -46,7 +61,7 @@ void \mbox{\hyperlink{_a_d_a_s___m_c_u_8ino_afe461d27b9c48d5921c00d521181f12f}{l
 \item 
 \mbox{\hyperlink{class_c_i_c_c_comms}{C\+I\+C\+C\+Comms}} \mbox{\hyperlink{_a_d_a_s___m_c_u_8ino_a62ef6b3308259edb69af585549178324}{icc\+Comms\+\_\+o}} (\mbox{\hyperlink{_a_d_a_s___m_c_u_8ino_ad1e6d9fed4369104e412a46c019634d2}{icc\+Port}})
 \item 
-\mbox{\hyperlink{class_c_motor_ctrl}{C\+Motor\+Ctrl}} \mbox{\hyperlink{_a_d_a_s___m_c_u_8ino_ab618fa643b3224c905b4fcbd074fb481}{m\+Ctrl\+\_\+o}} (\mbox{\hyperlink{_a_d_a_s___m_c_u_8ino_ae51e36f83228f859afeb8a72e60339a6}{imu\+\_\+o}}, \mbox{\hyperlink{_a_d_a_s___m_c_u_8ino_a10a570a59ef56c08699c4fec61d47d16}{pwm\+Unit\+Left\+\_\+o}}, \mbox{\hyperlink{_a_d_a_s___m_c_u_8ino_a49af1ef8724d9cb785e37641bb0cdc6b}{pwm\+Unit\+Right\+\_\+o}}, \mbox{\hyperlink{_a_d_a_s___m_c_u_8ino_a62ef6b3308259edb69af585549178324}{icc\+Comms\+\_\+o}})
+\mbox{\hyperlink{class_c_motor_ctrl}{C\+Motor\+Ctrl}} \mbox{\hyperlink{_a_d_a_s___m_c_u_8ino_a60ac8587f0c0967b5e3056da59168874}{m\+Ctrl\+\_\+o}} (\mbox{\hyperlink{_a_d_a_s___m_c_u_8ino_ae51e36f83228f859afeb8a72e60339a6}{imu\+\_\+o}}, \mbox{\hyperlink{_a_d_a_s___m_c_u_8ino_a10a570a59ef56c08699c4fec61d47d16}{pwm\+Unit\+Left\+\_\+o}}, \mbox{\hyperlink{_a_d_a_s___m_c_u_8ino_a49af1ef8724d9cb785e37641bb0cdc6b}{pwm\+Unit\+Right\+\_\+o}}, \mbox{\hyperlink{_a_d_a_s___m_c_u_8ino_ad90699f8fbb0fa8f734ae5c30885ee3b}{enc1\+\_\+o}}, \mbox{\hyperlink{_a_d_a_s___m_c_u_8ino_a54cfc96aae4913b87ab356a0665557a5}{enc2\+\_\+o}}, \mbox{\hyperlink{_a_d_a_s___m_c_u_8ino_a62ef6b3308259edb69af585549178324}{icc\+Comms\+\_\+o}})
 \end{DoxyCompactItemize}
 
 
@@ -54,7 +69,7 @@ void \mbox{\hyperlink{_a_d_a_s___m_c_u_8ino_afe461d27b9c48d5921c00d521181f12f}{l
 Main file for the NavU of the A\+D\+AS project. 
 
 \begin{DoxyAuthor}{Author}
-Hannes Bähr, Juliane Müller 
+Hannes Baehr, Juliane Mueller 
 \end{DoxyAuthor}
 \begin{DoxyDate}{Date}
 January 29, 2019 
@@ -62,94 +77,200 @@ January 29, 2019
 
 
 \subsection{Function Documentation}
+\mbox{\Hypertarget{_a_d_a_s___m_c_u_8ino_a89c135c3ad9390c0a5c08c78a9c985d1}\label{_a_d_a_s___m_c_u_8ino_a89c135c3ad9390c0a5c08c78a9c985d1}} 
+\index{A\+D\+A\+S\+\_\+\+M\+C\+U.\+ino@{A\+D\+A\+S\+\_\+\+M\+C\+U.\+ino}!Enc\+\_\+\+I\+S\+R\+\_\+L@{Enc\+\_\+\+I\+S\+R\+\_\+L}}
+\index{Enc\+\_\+\+I\+S\+R\+\_\+L@{Enc\+\_\+\+I\+S\+R\+\_\+L}!A\+D\+A\+S\+\_\+\+M\+C\+U.\+ino@{A\+D\+A\+S\+\_\+\+M\+C\+U.\+ino}}
+\subsubsection{\texorpdfstring{Enc\+\_\+\+I\+S\+R\+\_\+\+L()}{Enc\_ISR\_L()}}
+{\footnotesize\ttfamily void Enc\+\_\+\+I\+S\+R\+\_\+L (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 87 of file A\+D\+A\+S\+\_\+\+M\+C\+U.\+ino.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=279pt]{_a_d_a_s___m_c_u_8ino_a89c135c3ad9390c0a5c08c78a9c985d1_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=222pt]{_a_d_a_s___m_c_u_8ino_a89c135c3ad9390c0a5c08c78a9c985d1_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{_a_d_a_s___m_c_u_8ino_a13fba9b7b9c02542e403a1142b5ad344}\label{_a_d_a_s___m_c_u_8ino_a13fba9b7b9c02542e403a1142b5ad344}} 
+\index{A\+D\+A\+S\+\_\+\+M\+C\+U.\+ino@{A\+D\+A\+S\+\_\+\+M\+C\+U.\+ino}!Enc\+\_\+\+I\+S\+R\+\_\+R@{Enc\+\_\+\+I\+S\+R\+\_\+R}}
+\index{Enc\+\_\+\+I\+S\+R\+\_\+R@{Enc\+\_\+\+I\+S\+R\+\_\+R}!A\+D\+A\+S\+\_\+\+M\+C\+U.\+ino@{A\+D\+A\+S\+\_\+\+M\+C\+U.\+ino}}
+\subsubsection{\texorpdfstring{Enc\+\_\+\+I\+S\+R\+\_\+\+R()}{Enc\_ISR\_R()}}
+{\footnotesize\ttfamily void Enc\+\_\+\+I\+S\+R\+\_\+R (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 83 of file A\+D\+A\+S\+\_\+\+M\+C\+U.\+ino.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=281pt]{_a_d_a_s___m_c_u_8ino_a13fba9b7b9c02542e403a1142b5ad344_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=224pt]{_a_d_a_s___m_c_u_8ino_a13fba9b7b9c02542e403a1142b5ad344_icgraph}
+\end{center}
+\end{figure}
 \mbox{\Hypertarget{_a_d_a_s___m_c_u_8ino_a63a86aad9ba2e355fe6380da553f554e}\label{_a_d_a_s___m_c_u_8ino_a63a86aad9ba2e355fe6380da553f554e}} 
-\index{ADAS\_MCU.ino@{ADAS\_MCU.ino}!ISR@{ISR}}
-\index{ISR@{ISR}!ADAS\_MCU.ino@{ADAS\_MCU.ino}}
-\subsubsection{\texorpdfstring{ISR()}{ISR()}}
+\index{A\+D\+A\+S\+\_\+\+M\+C\+U.\+ino@{A\+D\+A\+S\+\_\+\+M\+C\+U.\+ino}!I\+SR@{I\+SR}}
+\index{I\+SR@{I\+SR}!A\+D\+A\+S\+\_\+\+M\+C\+U.\+ino@{A\+D\+A\+S\+\_\+\+M\+C\+U.\+ino}}
+\subsubsection{\texorpdfstring{I\+S\+R()}{ISR()}}
 {\footnotesize\ttfamily I\+SR (\begin{DoxyParamCaption}\item[{U\+S\+A\+R\+T2\+\_\+\+R\+X\+\_\+vect}]{ }\end{DoxyParamCaption})}
 
 
 
-Definition at line 63 of file A\+D\+A\+S\+\_\+\+M\+C\+U.\+ino.
+Definition at line 73 of file A\+D\+A\+S\+\_\+\+M\+C\+U.\+ino.
 
 Here is the call graph for this function\+:
-% FIG 1
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=285pt]{_a_d_a_s___m_c_u_8ino_a63a86aad9ba2e355fe6380da553f554e_cgraph}
+\end{center}
+\end{figure}
 \mbox{\Hypertarget{_a_d_a_s___m_c_u_8ino_afe461d27b9c48d5921c00d521181f12f}\label{_a_d_a_s___m_c_u_8ino_afe461d27b9c48d5921c00d521181f12f}} 
-\index{ADAS\_MCU.ino@{ADAS\_MCU.ino}!loop@{loop}}
-\index{loop@{loop}!ADAS\_MCU.ino@{ADAS\_MCU.ino}}
+\index{A\+D\+A\+S\+\_\+\+M\+C\+U.\+ino@{A\+D\+A\+S\+\_\+\+M\+C\+U.\+ino}!loop@{loop}}
+\index{loop@{loop}!A\+D\+A\+S\+\_\+\+M\+C\+U.\+ino@{A\+D\+A\+S\+\_\+\+M\+C\+U.\+ino}}
 \subsubsection{\texorpdfstring{loop()}{loop()}}
 {\footnotesize\ttfamily void loop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
-Definition at line 57 of file A\+D\+A\+S\+\_\+\+M\+C\+U.\+ino.
+Definition at line 66 of file A\+D\+A\+S\+\_\+\+M\+C\+U.\+ino.
 
 Here is the call graph for this function\+:
-% FIG 2
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_a_d_a_s___m_c_u_8ino_afe461d27b9c48d5921c00d521181f12f_cgraph}
+\end{center}
+\end{figure}
 \mbox{\Hypertarget{_a_d_a_s___m_c_u_8ino_a4fc01d736fe50cf5b977f755b675f11d}\label{_a_d_a_s___m_c_u_8ino_a4fc01d736fe50cf5b977f755b675f11d}} 
-\index{ADAS\_MCU.ino@{ADAS\_MCU.ino}!setup@{setup}}
-\index{setup@{setup}!ADAS\_MCU.ino@{ADAS\_MCU.ino}}
+\index{A\+D\+A\+S\+\_\+\+M\+C\+U.\+ino@{A\+D\+A\+S\+\_\+\+M\+C\+U.\+ino}!setup@{setup}}
+\index{setup@{setup}!A\+D\+A\+S\+\_\+\+M\+C\+U.\+ino@{A\+D\+A\+S\+\_\+\+M\+C\+U.\+ino}}
 \subsubsection{\texorpdfstring{setup()}{setup()}}
 {\footnotesize\ttfamily void setup (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
-Definition at line 46 of file A\+D\+A\+S\+\_\+\+M\+C\+U.\+ino.
+Definition at line 52 of file A\+D\+A\+S\+\_\+\+M\+C\+U.\+ino.
 
 Here is the call graph for this function\+:
-% FIG 3
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_a_d_a_s___m_c_u_8ino_a4fc01d736fe50cf5b977f755b675f11d_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{_a_d_a_s___m_c_u_8ino_a9f2f19081d81dba1b47615d1d9363281}\label{_a_d_a_s___m_c_u_8ino_a9f2f19081d81dba1b47615d1d9363281}} 
+\index{A\+D\+A\+S\+\_\+\+M\+C\+U.\+ino@{A\+D\+A\+S\+\_\+\+M\+C\+U.\+ino}!timer\+Callback@{timer\+Callback}}
+\index{timer\+Callback@{timer\+Callback}!A\+D\+A\+S\+\_\+\+M\+C\+U.\+ino@{A\+D\+A\+S\+\_\+\+M\+C\+U.\+ino}}
+\subsubsection{\texorpdfstring{timer\+Callback()}{timerCallback()}}
+{\footnotesize\ttfamily void timer\+Callback (\begin{DoxyParamCaption}\item[{void $\ast$}]{context }\end{DoxyParamCaption})}
+
+
+
+Definition at line 79 of file A\+D\+A\+S\+\_\+\+M\+C\+U.\+ino.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_a_d_a_s___m_c_u_8ino_a9f2f19081d81dba1b47615d1d9363281_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=233pt]{_a_d_a_s___m_c_u_8ino_a9f2f19081d81dba1b47615d1d9363281_icgraph}
+\end{center}
+\end{figure}
 
 
 \subsection{Variable Documentation}
 \mbox{\Hypertarget{_a_d_a_s___m_c_u_8ino_ad90699f8fbb0fa8f734ae5c30885ee3b}\label{_a_d_a_s___m_c_u_8ino_ad90699f8fbb0fa8f734ae5c30885ee3b}} 
-\index{ADAS\_MCU.ino@{ADAS\_MCU.ino}!enc1\_o@{enc1\_o}}
-\index{enc1\_o@{enc1\_o}!ADAS\_MCU.ino@{ADAS\_MCU.ino}}
-\subsubsection{\texorpdfstring{enc1\_o}{enc1\_o}}
+\index{A\+D\+A\+S\+\_\+\+M\+C\+U.\+ino@{A\+D\+A\+S\+\_\+\+M\+C\+U.\+ino}!enc1\+\_\+o@{enc1\+\_\+o}}
+\index{enc1\+\_\+o@{enc1\+\_\+o}!A\+D\+A\+S\+\_\+\+M\+C\+U.\+ino@{A\+D\+A\+S\+\_\+\+M\+C\+U.\+ino}}
+\subsubsection{\texorpdfstring{enc1\+\_\+o}{enc1\_o}}
 {\footnotesize\ttfamily \mbox{\hyperlink{class_c_encoder}{C\+Encoder}} enc1\+\_\+o(\mbox{\hyperlink{class_c_encoder_a49810cc352199fb02a60e2ef8ac6cbc3a8f0ceb6874e0c79b53bf26fa42a1b652}{C\+Encoder\+::\+E1}})}
 
 \mbox{\Hypertarget{_a_d_a_s___m_c_u_8ino_a54cfc96aae4913b87ab356a0665557a5}\label{_a_d_a_s___m_c_u_8ino_a54cfc96aae4913b87ab356a0665557a5}} 
-\index{ADAS\_MCU.ino@{ADAS\_MCU.ino}!enc2\_o@{enc2\_o}}
-\index{enc2\_o@{enc2\_o}!ADAS\_MCU.ino@{ADAS\_MCU.ino}}
-\subsubsection{\texorpdfstring{enc2\_o}{enc2\_o}}
+\index{A\+D\+A\+S\+\_\+\+M\+C\+U.\+ino@{A\+D\+A\+S\+\_\+\+M\+C\+U.\+ino}!enc2\+\_\+o@{enc2\+\_\+o}}
+\index{enc2\+\_\+o@{enc2\+\_\+o}!A\+D\+A\+S\+\_\+\+M\+C\+U.\+ino@{A\+D\+A\+S\+\_\+\+M\+C\+U.\+ino}}
+\subsubsection{\texorpdfstring{enc2\+\_\+o}{enc2\_o}}
 {\footnotesize\ttfamily \mbox{\hyperlink{class_c_encoder}{C\+Encoder}} enc2\+\_\+o(\mbox{\hyperlink{class_c_encoder_a49810cc352199fb02a60e2ef8ac6cbc3aaa314a69656e242defabd33eb8e90284}{C\+Encoder\+::\+E2}})}
 
 \mbox{\Hypertarget{_a_d_a_s___m_c_u_8ino_a62ef6b3308259edb69af585549178324}\label{_a_d_a_s___m_c_u_8ino_a62ef6b3308259edb69af585549178324}} 
-\index{ADAS\_MCU.ino@{ADAS\_MCU.ino}!iccComms\_o@{iccComms\_o}}
-\index{iccComms\_o@{iccComms\_o}!ADAS\_MCU.ino@{ADAS\_MCU.ino}}
-\subsubsection{\texorpdfstring{iccComms\_o}{iccComms\_o}}
+\index{A\+D\+A\+S\+\_\+\+M\+C\+U.\+ino@{A\+D\+A\+S\+\_\+\+M\+C\+U.\+ino}!icc\+Comms\+\_\+o@{icc\+Comms\+\_\+o}}
+\index{icc\+Comms\+\_\+o@{icc\+Comms\+\_\+o}!A\+D\+A\+S\+\_\+\+M\+C\+U.\+ino@{A\+D\+A\+S\+\_\+\+M\+C\+U.\+ino}}
+\subsubsection{\texorpdfstring{icc\+Comms\+\_\+o}{iccComms\_o}}
 {\footnotesize\ttfamily \mbox{\hyperlink{class_c_i_c_c_comms}{C\+I\+C\+C\+Comms}} icc\+Comms\+\_\+o(\mbox{\hyperlink{_a_d_a_s___m_c_u_8ino_ad1e6d9fed4369104e412a46c019634d2}{icc\+Port}})}
 
 \mbox{\Hypertarget{_a_d_a_s___m_c_u_8ino_ad1e6d9fed4369104e412a46c019634d2}\label{_a_d_a_s___m_c_u_8ino_ad1e6d9fed4369104e412a46c019634d2}} 
-\index{ADAS\_MCU.ino@{ADAS\_MCU.ino}!iccPort@{iccPort}}
-\index{iccPort@{iccPort}!ADAS\_MCU.ino@{ADAS\_MCU.ino}}
-\subsubsection{\texorpdfstring{iccPort}{iccPort}}
+\index{A\+D\+A\+S\+\_\+\+M\+C\+U.\+ino@{A\+D\+A\+S\+\_\+\+M\+C\+U.\+ino}!icc\+Port@{icc\+Port}}
+\index{icc\+Port@{icc\+Port}!A\+D\+A\+S\+\_\+\+M\+C\+U.\+ino@{A\+D\+A\+S\+\_\+\+M\+C\+U.\+ino}}
+\subsubsection{\texorpdfstring{icc\+Port}{iccPort}}
 {\footnotesize\ttfamily \mbox{\hyperlink{class_c_serial}{C\+Serial}} icc\+Port(\mbox{\hyperlink{class_c_serial_a000039540cc90b18bafacf5744e7eda2a8cc95f4591147b0df028e003f82220a1}{C\+Serial\+::\+S2}}, \mbox{\hyperlink{_a_d_a_s___cfg_8h_abf41bed56ee0b2a8858687c4420bb110}{I\+C\+C\+\_\+\+R\+C\+V\+\_\+\+B\+U\+F\+F\+\_\+\+S\+I\+ZE}})}
 
 \mbox{\Hypertarget{_a_d_a_s___m_c_u_8ino_ae51e36f83228f859afeb8a72e60339a6}\label{_a_d_a_s___m_c_u_8ino_ae51e36f83228f859afeb8a72e60339a6}} 
-\index{ADAS\_MCU.ino@{ADAS\_MCU.ino}!imu\_o@{imu\_o}}
-\index{imu\_o@{imu\_o}!ADAS\_MCU.ino@{ADAS\_MCU.ino}}
-\subsubsection{\texorpdfstring{imu\_o}{imu\_o}}
+\index{A\+D\+A\+S\+\_\+\+M\+C\+U.\+ino@{A\+D\+A\+S\+\_\+\+M\+C\+U.\+ino}!imu\+\_\+o@{imu\+\_\+o}}
+\index{imu\+\_\+o@{imu\+\_\+o}!A\+D\+A\+S\+\_\+\+M\+C\+U.\+ino@{A\+D\+A\+S\+\_\+\+M\+C\+U.\+ino}}
+\subsubsection{\texorpdfstring{imu\+\_\+o}{imu\_o}}
 {\footnotesize\ttfamily \mbox{\hyperlink{class_c_i_m_u_unit}{C\+I\+M\+U\+Unit}} imu\+\_\+o}
 
-Basics Periperals Comms layer App Layer 
 
-Definition at line 36 of file A\+D\+A\+S\+\_\+\+M\+C\+U.\+ino.
 
-\mbox{\Hypertarget{_a_d_a_s___m_c_u_8ino_ab618fa643b3224c905b4fcbd074fb481}\label{_a_d_a_s___m_c_u_8ino_ab618fa643b3224c905b4fcbd074fb481}} 
-\index{ADAS\_MCU.ino@{ADAS\_MCU.ino}!mCtrl\_o@{mCtrl\_o}}
-\index{mCtrl\_o@{mCtrl\_o}!ADAS\_MCU.ino@{ADAS\_MCU.ino}}
-\subsubsection{\texorpdfstring{mCtrl\_o}{mCtrl\_o}}
-{\footnotesize\ttfamily \mbox{\hyperlink{class_c_motor_ctrl}{C\+Motor\+Ctrl}} m\+Ctrl\+\_\+o(\mbox{\hyperlink{_a_d_a_s___m_c_u_8ino_ae51e36f83228f859afeb8a72e60339a6}{imu\+\_\+o}}, \mbox{\hyperlink{_a_d_a_s___m_c_u_8ino_a10a570a59ef56c08699c4fec61d47d16}{pwm\+Unit\+Left\+\_\+o}}, \mbox{\hyperlink{_a_d_a_s___m_c_u_8ino_a49af1ef8724d9cb785e37641bb0cdc6b}{pwm\+Unit\+Right\+\_\+o}}, \mbox{\hyperlink{_a_d_a_s___m_c_u_8ino_a62ef6b3308259edb69af585549178324}{icc\+Comms\+\_\+o}})}
+Definition at line 38 of file A\+D\+A\+S\+\_\+\+M\+C\+U.\+ino.
+
+\mbox{\Hypertarget{_a_d_a_s___m_c_u_8ino_a60ac8587f0c0967b5e3056da59168874}\label{_a_d_a_s___m_c_u_8ino_a60ac8587f0c0967b5e3056da59168874}} 
+\index{A\+D\+A\+S\+\_\+\+M\+C\+U.\+ino@{A\+D\+A\+S\+\_\+\+M\+C\+U.\+ino}!m\+Ctrl\+\_\+o@{m\+Ctrl\+\_\+o}}
+\index{m\+Ctrl\+\_\+o@{m\+Ctrl\+\_\+o}!A\+D\+A\+S\+\_\+\+M\+C\+U.\+ino@{A\+D\+A\+S\+\_\+\+M\+C\+U.\+ino}}
+\subsubsection{\texorpdfstring{m\+Ctrl\+\_\+o}{mCtrl\_o}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_c_motor_ctrl}{C\+Motor\+Ctrl}} m\+Ctrl\+\_\+o(\mbox{\hyperlink{_a_d_a_s___m_c_u_8ino_ae51e36f83228f859afeb8a72e60339a6}{imu\+\_\+o}}, \mbox{\hyperlink{_a_d_a_s___m_c_u_8ino_a10a570a59ef56c08699c4fec61d47d16}{pwm\+Unit\+Left\+\_\+o}}, \mbox{\hyperlink{_a_d_a_s___m_c_u_8ino_a49af1ef8724d9cb785e37641bb0cdc6b}{pwm\+Unit\+Right\+\_\+o}}, \mbox{\hyperlink{_a_d_a_s___m_c_u_8ino_ad90699f8fbb0fa8f734ae5c30885ee3b}{enc1\+\_\+o}}, \mbox{\hyperlink{_a_d_a_s___m_c_u_8ino_a54cfc96aae4913b87ab356a0665557a5}{enc2\+\_\+o}}, \mbox{\hyperlink{_a_d_a_s___m_c_u_8ino_a62ef6b3308259edb69af585549178324}{icc\+Comms\+\_\+o}})}
 
 \mbox{\Hypertarget{_a_d_a_s___m_c_u_8ino_a10a570a59ef56c08699c4fec61d47d16}\label{_a_d_a_s___m_c_u_8ino_a10a570a59ef56c08699c4fec61d47d16}} 
-\index{ADAS\_MCU.ino@{ADAS\_MCU.ino}!pwmUnitLeft\_o@{pwmUnitLeft\_o}}
-\index{pwmUnitLeft\_o@{pwmUnitLeft\_o}!ADAS\_MCU.ino@{ADAS\_MCU.ino}}
-\subsubsection{\texorpdfstring{pwmUnitLeft\_o}{pwmUnitLeft\_o}}
+\index{A\+D\+A\+S\+\_\+\+M\+C\+U.\+ino@{A\+D\+A\+S\+\_\+\+M\+C\+U.\+ino}!pwm\+Unit\+Left\+\_\+o@{pwm\+Unit\+Left\+\_\+o}}
+\index{pwm\+Unit\+Left\+\_\+o@{pwm\+Unit\+Left\+\_\+o}!A\+D\+A\+S\+\_\+\+M\+C\+U.\+ino@{A\+D\+A\+S\+\_\+\+M\+C\+U.\+ino}}
+\subsubsection{\texorpdfstring{pwm\+Unit\+Left\+\_\+o}{pwmUnitLeft\_o}}
 {\footnotesize\ttfamily \mbox{\hyperlink{class_c_p_w_m_unit}{C\+P\+W\+M\+Unit}} pwm\+Unit\+Left\+\_\+o(\mbox{\hyperlink{class_c_p_w_m_unit_ad3e55d1df0367d8a090d4b835704be44a3f6167a7882e80f1ad05c8bff5e538c0}{C\+P\+W\+M\+Unit\+::\+P\+W\+M1}})}
 
 \mbox{\Hypertarget{_a_d_a_s___m_c_u_8ino_a49af1ef8724d9cb785e37641bb0cdc6b}\label{_a_d_a_s___m_c_u_8ino_a49af1ef8724d9cb785e37641bb0cdc6b}} 
-\index{ADAS\_MCU.ino@{ADAS\_MCU.ino}!pwmUnitRight\_o@{pwmUnitRight\_o}}
-\index{pwmUnitRight\_o@{pwmUnitRight\_o}!ADAS\_MCU.ino@{ADAS\_MCU.ino}}
-\subsubsection{\texorpdfstring{pwmUnitRight\_o}{pwmUnitRight\_o}}
+\index{A\+D\+A\+S\+\_\+\+M\+C\+U.\+ino@{A\+D\+A\+S\+\_\+\+M\+C\+U.\+ino}!pwm\+Unit\+Right\+\_\+o@{pwm\+Unit\+Right\+\_\+o}}
+\index{pwm\+Unit\+Right\+\_\+o@{pwm\+Unit\+Right\+\_\+o}!A\+D\+A\+S\+\_\+\+M\+C\+U.\+ino@{A\+D\+A\+S\+\_\+\+M\+C\+U.\+ino}}
+\subsubsection{\texorpdfstring{pwm\+Unit\+Right\+\_\+o}{pwmUnitRight\_o}}
 {\footnotesize\ttfamily \mbox{\hyperlink{class_c_p_w_m_unit}{C\+P\+W\+M\+Unit}} pwm\+Unit\+Right\+\_\+o(\mbox{\hyperlink{class_c_p_w_m_unit_ad3e55d1df0367d8a090d4b835704be44afc7888ea63be5da5551d10db3d676185}{C\+P\+W\+M\+Unit\+::\+P\+W\+M2}})}
+
+\mbox{\Hypertarget{_a_d_a_s___m_c_u_8ino_a978d88b393c8a37dc2614c88788b3442}\label{_a_d_a_s___m_c_u_8ino_a978d88b393c8a37dc2614c88788b3442}} 
+\index{A\+D\+A\+S\+\_\+\+M\+C\+U.\+ino@{A\+D\+A\+S\+\_\+\+M\+C\+U.\+ino}!t@{t}}
+\index{t@{t}!A\+D\+A\+S\+\_\+\+M\+C\+U.\+ino@{A\+D\+A\+S\+\_\+\+M\+C\+U.\+ino}}
+\subsubsection{\texorpdfstring{t}{t}}
+{\footnotesize\ttfamily Timer t}
+
+Basics Periperals Comms layer App Layer 
+
+Definition at line 35 of file A\+D\+A\+S\+\_\+\+M\+C\+U.\+ino.
 

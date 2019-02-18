@@ -10,7 +10,6 @@
 <title>CNavigation</title>
 <!-- Node0 -->
 <g id="node1" class="node"><title>Node0</title>
-<g id="a_node1"><a xlink:title="Navigation algorithm class.">
 <polygon fill="#bfbfbf" stroke="black" points="0,-0.5 0,-222.5 131,-222.5 131,-0.5 0,-0.5"/>
 <text text-anchor="middle" x="65.5" y="-210.5" font-family="Helvetica,sans-Serif" font-size="10.00">CNavigation</text>
 <polyline fill="none" stroke="black" points="0,-203.5 131,-203.5 "/>
@@ -32,12 +31,10 @@
 <text text-anchor="start" x="8" y="-29.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ stopDrive()</text>
 <text text-anchor="start" x="8" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ continueDrive()</text>
 <text text-anchor="start" x="8" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ isCornerMode()</text>
-</a>
-</g>
 </g>
 <!-- Node1 -->
 <g id="node2" class="node"><title>Node1</title>
-<g id="a_node2"><a xlink:href="class_i_task___i_f.html" target="_top" xlink:title="Task scheduler class interface class.">
+<g id="a_node2"><a xlink:href="class_i_task___i_f.html" target="_top" xlink:title="Task scheduler class interface class. ">
 <polygon fill="none" stroke="black" points="39,-259.5 39,-338.5 92,-338.5 92,-259.5 39,-259.5"/>
 <text text-anchor="middle" x="65.5" y="-326.5" font-family="Helvetica,sans-Serif" font-size="10.00">ITask_IF</text>
 <polyline fill="none" stroke="black" points="39,-319.5 92,-319.5 "/>

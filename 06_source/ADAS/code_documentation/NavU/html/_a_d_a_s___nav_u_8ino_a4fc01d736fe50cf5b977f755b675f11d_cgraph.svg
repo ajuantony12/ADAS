@@ -10,15 +10,12 @@
 <title>setup</title>
 <!-- Node12 -->
 <g id="node1" class="node"><title>Node12</title>
-<g id="a_node1"><a xlink:title=" ">
 <polygon fill="#bfbfbf" stroke="black" points="0,-38.5 0,-57.5 41,-57.5 41,-38.5 0,-38.5"/>
 <text text-anchor="middle" x="20.5" y="-45.5" font-family="Helvetica,sans-Serif" font-size="10.00">setup</text>
-</a>
-</g>
 </g>
 <!-- Node13 -->
 <g id="node2" class="node"><title>Node13</title>
-<g id="a_node2"><a xlink:href="class_c_serial.html#aed500bd204c4b37665d6d228333edafb" target="_top" xlink:title="Initialization function of CSerial.">
+<g id="a_node2"><a xlink:href="class_c_serial.html#aed500bd204c4b37665d6d228333edafb" target="_top" xlink:title="Initialization function of CSerial. ">
 <polygon fill="none" stroke="black" points="91,-76.5 91,-95.5 158,-95.5 158,-76.5 91,-76.5"/>
 <text text-anchor="middle" x="124.5" y="-83.5" font-family="Helvetica,sans-Serif" font-size="10.00">CSerial::Init</text>
 </a>
@@ -31,7 +28,7 @@
 </g>
 <!-- Node14 -->
 <g id="node3" class="node"><title>Node14</title>
-<g id="a_node3"><a xlink:href="class_c_p_l_s_comms.html#ae7f8d87ea15de35a120d65a7a8bbbb76" target="_top" xlink:title="PLS communication initialization.">
+<g id="a_node3"><a xlink:href="class_c_p_l_s_comms.html#ae7f8d87ea15de35a120d65a7a8bbbb76" target="_top" xlink:title="PLS communication initialization. ">
 <polygon fill="none" stroke="black" points="77,-38.5 77,-57.5 172,-57.5 172,-38.5 77,-38.5"/>
 <text text-anchor="middle" x="124.5" y="-45.5" font-family="Helvetica,sans-Serif" font-size="10.00">CPLSComms::Init</text>
 </a>
@@ -44,7 +41,7 @@
 </g>
 <!-- Node16 -->
 <g id="node5" class="node"><title>Node16</title>
-<g id="a_node5"><a xlink:href="class_c_task_ctrl.html#a12ec6e8d4a490eba9ebdf22d32cf292b" target="_top" xlink:title="Initialization function task controller.">
+<g id="a_node5"><a xlink:href="class_c_task_ctrl.html#a12ec6e8d4a490eba9ebdf22d32cf292b" target="_top" xlink:title="Initialization function task controller. ">
 <polygon fill="none" stroke="black" points="85.5,-0.5 85.5,-19.5 163.5,-19.5 163.5,-0.5 85.5,-0.5"/>
 <text text-anchor="middle" x="124.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">CTaskCtrl::Init</text>
 </a>
@@ -57,7 +54,7 @@
 </g>
 <!-- Node15 -->
 <g id="node4" class="node"><title>Node15</title>
-<g id="a_node4"><a xlink:href="class_c_buff_adas.html#a2ff1ee5f1dfa56117d76b17027d7b7e8" target="_top" xlink:title="reset buffer">
+<g id="a_node4"><a xlink:href="class_c_buff_adas.html#a2ff1ee5f1dfa56117d76b17027d7b7e8" target="_top" xlink:title="reset buffer ">
 <polygon fill="none" stroke="black" points="208,-38.5 208,-57.5 302,-57.5 302,-38.5 208,-38.5"/>
 <text text-anchor="middle" x="255" y="-45.5" font-family="Helvetica,sans-Serif" font-size="10.00">CBuffAdas::Reset</text>
 </a>
@@ -70,7 +67,7 @@
 </g>
 <!-- Node17 -->
 <g id="node6" class="node"><title>Node17</title>
-<g id="a_node6"><a xlink:href="class_i_task___i_f.html#a28f608bdb9b19658403f7b9b7421968d" target="_top" xlink:title="Initialization pure virtual method.">
+<g id="a_node6"><a xlink:href="class_i_task___i_f.html#a28f608bdb9b19658403f7b9b7421968d" target="_top" xlink:title="Initialization pure virtual method. ">
 <polygon fill="none" stroke="black" points="219,-0.5 219,-19.5 291,-19.5 291,-0.5 219,-0.5"/>
 <text text-anchor="middle" x="255" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">ITask_IF::Init</text>
 </a>

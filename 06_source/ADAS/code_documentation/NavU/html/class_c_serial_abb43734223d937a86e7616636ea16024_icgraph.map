@@ -1,8 +1,7 @@
 <map id="CSerial::Available" name="CSerial::Available">
-<area shape="rect" id="node1" title="Function to check availability of received data." alt="" coords="417,56,540,83"/>
-<area shape="rect" id="node2" href="$class_c_i_c_c_comms.html#a8b3fa81307b3b9ba0e72b4aee8279c56" title="Run function of CICCComms which is periodically called by CNavigation." alt="" coords="208,5,336,32"/>
-<area shape="rect" id="node4" href="$class_c_p_l_s_comms.html#a3124eaa4549706962c7024c7c97e82b0" title="Get asynchronous data recieved from PLS." alt="" coords="175,56,369,83"/>
-<area shape="rect" id="node6" href="$class_c_p_l_s_comms.html#ae9d000eff184034954829d76162654a5" title="check if any data recieved from PLS" alt="" coords="179,107,365,133"/>
-<area shape="rect" id="node3" href="$class_c_navigation.html#a86acb1521aab400e542465c8eabed671" title="Run function of CNavigation which is periodically called by CTaskCtrl." alt="" coords="5,5,127,32"/>
-<area shape="rect" id="node5" href="$class_c_v_mapping.html#a8f064fcfd01953d7072efd5de23f89ef" title="Run function of virtual mapping Application." alt="" coords="6,81,126,108"/>
+<area shape="rect" id="node2" href="$class_c_i_c_c_comms.html#a8b3fa81307b3b9ba0e72b4aee8279c56" title="Run function of CICCComms which is periodically called by CNavigation. " alt="" coords="209,5,337,32"/>
+<area shape="rect" id="node4" href="$class_c_p_l_s_comms.html#a3124eaa4549706962c7024c7c97e82b0" title="Get asynchronous data recieved from PLS. " alt="" coords="176,56,371,83"/>
+<area shape="rect" id="node6" href="$class_c_p_l_s_comms.html#ae9d000eff184034954829d76162654a5" title="check if any data recieved from PLS " alt="" coords="180,107,367,133"/>
+<area shape="rect" id="node3" href="$class_c_navigation.html#a86acb1521aab400e542465c8eabed671" title="Run function of CNavigation which is periodically called by CTaskCtrl. " alt="" coords="419,5,540,32"/>
+<area shape="rect" id="node5" href="$class_c_v_mapping.html#a8f064fcfd01953d7072efd5de23f89ef" title="Run function of virtual mapping Application. " alt="" coords="419,81,539,108"/>
 </map>

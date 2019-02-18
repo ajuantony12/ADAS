@@ -10,15 +10,12 @@
 <title>CICCComms::Run</title>
 <!-- Node12 -->
 <g id="node1" class="node"><title>Node12</title>
-<g id="a_node1"><a xlink:title="Run function of CICCComms which is periodically called by CNavigation.">
 <polygon fill="#bfbfbf" stroke="black" points="0,-19.5 0,-38.5 96,-38.5 96,-19.5 0,-19.5"/>
 <text text-anchor="middle" x="48" y="-26.5" font-family="Helvetica,sans-Serif" font-size="10.00">CICCComms::Run</text>
-</a>
-</g>
 </g>
 <!-- Node13 -->
 <g id="node2" class="node"><title>Node13</title>
-<g id="a_node2"><a xlink:href="class_c_serial.html#abb43734223d937a86e7616636ea16024" target="_top" xlink:title="Function to check availability of received data.">
+<g id="a_node2"><a xlink:href="class_c_serial.html#abb43734223d937a86e7616636ea16024" target="_top" xlink:title="Function to check availability of received data. ">
 <polygon fill="none" stroke="black" points="132,-38.5 132,-57.5 224,-57.5 224,-38.5 132,-38.5"/>
 <text text-anchor="middle" x="178" y="-45.5" font-family="Helvetica,sans-Serif" font-size="10.00">CSerial::Available</text>
 </a>
@@ -31,7 +28,7 @@
 </g>
 <!-- Node14 -->
 <g id="node3" class="node"><title>Node14</title>
-<g id="a_node3"><a xlink:href="class_c_serial.html#abad86c07f530569b2ceeea75bda485ad" target="_top" xlink:title="Function to read data from buffer.">
+<g id="a_node3"><a xlink:href="class_c_serial.html#abad86c07f530569b2ceeea75bda485ad" target="_top" xlink:title="Function to read data from buffer. ">
 <polygon fill="none" stroke="black" points="133,-0.5 133,-19.5 223,-19.5 223,-0.5 133,-0.5"/>
 <text text-anchor="middle" x="178" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">CSerial::GetData</text>
 </a>
@@ -44,7 +41,7 @@
 </g>
 <!-- Node15 -->
 <g id="node4" class="node"><title>Node15</title>
-<g id="a_node4"><a xlink:href="class_c_serial.html#a941e5cae2ca04518925a3b32f51110a6" target="_top" xlink:title="Function to release buffer.">
+<g id="a_node4"><a xlink:href="class_c_serial.html#a941e5cae2ca04518925a3b32f51110a6" target="_top" xlink:title="Function to release buffer. ">
 <polygon fill="none" stroke="black" points="260,-0.5 260,-19.5 374,-19.5 374,-0.5 260,-0.5"/>
 <text text-anchor="middle" x="317" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">CSerial::ReleaseBuffer</text>
 </a>

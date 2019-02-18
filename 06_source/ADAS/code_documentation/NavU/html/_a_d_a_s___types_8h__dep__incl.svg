@@ -56,15 +56,12 @@ var sectionId = 'dynsection-0';
 <title>ADAS_Types.h</title>
 <!-- Node1 -->
 <g id="node1" class="node"><title>Node1</title>
-<g id="a_node1"><a xlink:title="internal datatype mapping file">
 <polygon fill="#bfbfbf" stroke="black" points="794.5,-280.5 794.5,-299.5 877.5,-299.5 877.5,-280.5 794.5,-280.5"/>
 <text text-anchor="middle" x="836" y="-287.5" font-family="Helvetica,sans-Serif" font-size="10.00">ADAS_Types.h</text>
-</a>
-</g>
 </g>
 <!-- Node2 -->
 <g id="node2" class="node"><title>Node2</title>
-<g id="a_node2"><a xlink:href="_a_d_a_s___nav_u_8ino.html" target="_top" xlink:title="Main file for the NavU of the ADAS project.">
+<g id="a_node2"><a xlink:href="_a_d_a_s___nav_u_8ino.html" target="_top" xlink:title="Main file for the NavU of the ADAS project. ">
 <polygon fill="none" stroke="black" points="792.5,-0.5 792.5,-19.5 879.5,-19.5 879.5,-0.5 792.5,-0.5"/>
 <text text-anchor="middle" x="836" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">ADAS_NavU.ino</text>
 </a>
@@ -77,7 +74,7 @@ var sectionId = 'dynsection-0';
 </g>
 <!-- Node3 -->
 <g id="node3" class="node"><title>Node3</title>
-<g id="a_node3"><a xlink:href="_h_a_l___a_d_c_8h.html" target="_top" xlink:title="Hardware Abstraction Layer (HAL) to interface ADC.">
+<g id="a_node3"><a xlink:href="_h_a_l___a_d_c_8h.html" target="_top" xlink:title="Hardware Abstraction Layer (HAL) to interface ADC. ">
 <polygon fill="none" stroke="black" points="94.5,-168.5 94.5,-187.5 163.5,-187.5 163.5,-168.5 94.5,-168.5"/>
 <text text-anchor="middle" x="129" y="-175.5" font-family="Helvetica,sans-Serif" font-size="10.00">HAL_ADC.h</text>
 </a>
@@ -90,7 +87,7 @@ var sectionId = 'dynsection-0';
 </g>
 <!-- Node4 -->
 <g id="node4" class="node"><title>Node4</title>
-<g id="a_node4"><a xlink:href="_app___environmental_data_8h.html" target="_top" xlink:title="Application file for environmental data.">
+<g id="a_node4"><a xlink:href="_app___environmental_data_8h.html" target="_top" xlink:title="Application file for environmental data. ">
 <polygon fill="none" stroke="black" points="240,-112.5 240,-131.5 368,-131.5 368,-112.5 240,-112.5"/>
 <text text-anchor="middle" x="304" y="-119.5" font-family="Helvetica,sans-Serif" font-size="10.00">App_EnvironmentalData.h</text>
 </a>
@@ -103,7 +100,7 @@ var sectionId = 'dynsection-0';
 </g>
 <!-- Node7 -->
 <g id="node7" class="node"><title>Node7</title>
-<g id="a_node7"><a xlink:href="_h_a_l___serial___i_f_8h.html" target="_top" xlink:title="Hardware Abstraction Layer (HAL) to serial interface.">
+<g id="a_node7"><a xlink:href="_h_a_l___serial___i_f_8h.html" target="_top" xlink:title="Hardware Abstraction Layer (HAL) to serial interface. ">
 <polygon fill="none" stroke="black" points="907.5,-224.5 907.5,-243.5 994.5,-243.5 994.5,-224.5 907.5,-224.5"/>
 <text text-anchor="middle" x="951" y="-231.5" font-family="Helvetica,sans-Serif" font-size="10.00">HAL_Serial_IF.h</text>
 </a>
@@ -116,7 +113,7 @@ var sectionId = 'dynsection-0';
 </g>
 <!-- Node8 -->
 <g id="node8" class="node"><title>Node8</title>
-<g id="a_node8"><a xlink:href="_comm___p_l_s_8h.html" target="_top" xlink:title=" ">
+<g id="a_node8"><a xlink:href="_comm___p_l_s_8h.html" target="_top" xlink:title="Comm_PLS.h">
 <polygon fill="none" stroke="black" points="1231.5,-168.5 1231.5,-187.5 1308.5,-187.5 1308.5,-168.5 1231.5,-168.5"/>
 <text text-anchor="middle" x="1270" y="-175.5" font-family="Helvetica,sans-Serif" font-size="10.00">Comm_PLS.h</text>
 </a>
@@ -129,7 +126,7 @@ var sectionId = 'dynsection-0';
 </g>
 <!-- Node9 -->
 <g id="node9" class="node"><title>Node9</title>
-<g id="a_node9"><a xlink:href="_app___virtual_mapping_8h.html" target="_top" xlink:title="Virtual mapping application header file.">
+<g id="a_node9"><a xlink:href="_app___virtual_mapping_8h.html" target="_top" xlink:title="Virtual mapping application header file. ">
 <polygon fill="none" stroke="black" points="1240,-56.5 1240,-75.5 1352,-75.5 1352,-56.5 1240,-56.5"/>
 <text text-anchor="middle" x="1296" y="-63.5" font-family="Helvetica,sans-Serif" font-size="10.00">App_VirtualMapping.h</text>
 </a>
@@ -142,7 +139,7 @@ var sectionId = 'dynsection-0';
 </g>
 <!-- Node12 -->
 <g id="node12" class="node"><title>Node12</title>
-<g id="a_node12"><a xlink:href="_comm___i_c_c_8h.html" target="_top" xlink:title="Communication file for Inter&#45;Controller Communication (ICC)">
+<g id="a_node12"><a xlink:href="_comm___i_c_c_8h.html" target="_top" xlink:title="Communication file for Inter&#45;Controller Communication (ICC) ">
 <polygon fill="none" stroke="black" points="1018,-168.5 1018,-187.5 1092,-187.5 1092,-168.5 1018,-168.5"/>
 <text text-anchor="middle" x="1055" y="-175.5" font-family="Helvetica,sans-Serif" font-size="10.00">Comm_ICC.h</text>
 </a>
@@ -155,7 +152,7 @@ var sectionId = 'dynsection-0';
 </g>
 <!-- Node13 -->
 <g id="node13" class="node"><title>Node13</title>
-<g id="a_node13"><a xlink:href="_app___navigation_8h.html" target="_top" xlink:title="Application file for navigation.">
+<g id="a_node13"><a xlink:href="_app___navigation_8h.html" target="_top" xlink:title="Application file for navigation. ">
 <polygon fill="none" stroke="black" points="1049,-112.5 1049,-131.5 1141,-131.5 1141,-112.5 1049,-112.5"/>
 <text text-anchor="middle" x="1095" y="-119.5" font-family="Helvetica,sans-Serif" font-size="10.00">App_Navigation.h</text>
 </a>
@@ -168,7 +165,7 @@ var sectionId = 'dynsection-0';
 </g>
 <!-- Node17 -->
 <g id="node17" class="node"><title>Node17</title>
-<g id="a_node17"><a xlink:href="_cbuffer_8h.html" target="_top" xlink:title="general purpose buffer">
+<g id="a_node17"><a xlink:href="_cbuffer_8h.html" target="_top" xlink:title="general purpose buffer ">
 <polygon fill="none" stroke="black" points="1151.5,-224.5 1151.5,-243.5 1206.5,-243.5 1206.5,-224.5 1151.5,-224.5"/>
 <text text-anchor="middle" x="1179" y="-231.5" font-family="Helvetica,sans-Serif" font-size="10.00">Cbuffer.h</text>
 </a>
@@ -181,7 +178,7 @@ var sectionId = 'dynsection-0';
 </g>
 <!-- Node19 -->
 <g id="node19" class="node"><title>Node19</title>
-<g id="a_node19"><a xlink:href="_task___i_f_8h.html" target="_top" xlink:title="Task controller interface header.">
+<g id="a_node19"><a xlink:href="_task___i_f_8h.html" target="_top" xlink:title="Task controller interface header. ">
 <polygon fill="none" stroke="black" points="710.5,-168.5 710.5,-187.5 769.5,-187.5 769.5,-168.5 710.5,-168.5"/>
 <text text-anchor="middle" x="740" y="-175.5" font-family="Helvetica,sans-Serif" font-size="10.00">Task_IF.h</text>
 </a>
@@ -194,7 +191,7 @@ var sectionId = 'dynsection-0';
 </g>
 <!-- Node20 -->
 <g id="node20" class="node"><title>Node20</title>
-<g id="a_node20"><a xlink:href="_app___positioning_8h.html" target="_top" xlink:title="template header file for positioning application">
+<g id="a_node20"><a xlink:href="_app___positioning_8h.html" target="_top" xlink:title="template header file for positioning application ">
 <polygon fill="none" stroke="black" points="581.5,-112.5 581.5,-131.5 676.5,-131.5 676.5,-112.5 581.5,-112.5"/>
 <text text-anchor="middle" x="629" y="-119.5" font-family="Helvetica,sans-Serif" font-size="10.00">App_Positioning.h</text>
 </a>
@@ -207,7 +204,7 @@ var sectionId = 'dynsection-0';
 </g>
 <!-- Node22 -->
 <g id="node22" class="node"><title>Node22</title>
-<g id="a_node22"><a xlink:href="_app___user_interface_8h.html" target="_top" xlink:title="template header file for uner interface application">
+<g id="a_node22"><a xlink:href="_app___user_interface_8h.html" target="_top" xlink:title="template header file for uner interface application ">
 <polygon fill="none" stroke="black" points="701,-112.5 701,-131.5 805,-131.5 805,-112.5 701,-112.5"/>
 <text text-anchor="middle" x="753" y="-119.5" font-family="Helvetica,sans-Serif" font-size="10.00">App_UserInterface.h</text>
 </a>
@@ -220,7 +217,7 @@ var sectionId = 'dynsection-0';
 </g>
 <!-- Node24 -->
 <g id="node24" class="node"><title>Node24</title>
-<g id="a_node24"><a xlink:href="_o_s_a_l___task_ctrl_8h.html" target="_top" xlink:title="Task controller header file.">
+<g id="a_node24"><a xlink:href="_o_s_a_l___task_ctrl_8h.html" target="_top" xlink:title="Task controller header file. ">
 <polygon fill="none" stroke="black" points="444,-112.5 444,-131.5 536,-131.5 536,-112.5 444,-112.5"/>
 <text text-anchor="middle" x="490" y="-119.5" font-family="Helvetica,sans-Serif" font-size="10.00">OSAL_TaskCtrl.h</text>
 </a>
@@ -243,7 +240,7 @@ var sectionId = 'dynsection-0';
 </g>
 <!-- Node6 -->
 <g id="node6" class="node"><title>Node6</title>
-<g id="a_node6"><a xlink:href="_h_a_l___a_d_c_8cpp.html" target="_top" xlink:title="Hardware Abstraction Layer (HAL) to interface ADC.">
+<g id="a_node6"><a xlink:href="_h_a_l___a_d_c_8cpp.html" target="_top" xlink:title="Hardware Abstraction Layer (HAL) to interface ADC. ">
 <polygon fill="none" stroke="black" points="0,-112.5 0,-131.5 80,-131.5 80,-112.5 0,-112.5"/>
 <text text-anchor="middle" x="40" y="-119.5" font-family="Helvetica,sans-Serif" font-size="10.00">HAL_ADC.cpp</text>
 </a>
@@ -261,7 +258,7 @@ var sectionId = 'dynsection-0';
 </g>
 <!-- Node5 -->
 <g id="node5" class="node"><title>Node5</title>
-<g id="a_node5"><a xlink:href="_app___environmental_data_8cpp.html" target="_top" xlink:title="Application file for environmental data.">
+<g id="a_node5"><a xlink:href="_app___environmental_data_8cpp.html" target="_top" xlink:title="Application file for environmental data. ">
 <polygon fill="none" stroke="black" points="136.5,-56.5 136.5,-75.5 275.5,-75.5 275.5,-56.5 136.5,-56.5"/>
 <text text-anchor="middle" x="206" y="-63.5" font-family="Helvetica,sans-Serif" font-size="10.00">App_EnvironmentalData.cpp</text>
 </a>
@@ -289,7 +286,7 @@ var sectionId = 'dynsection-0';
 </g>
 <!-- Node16 -->
 <g id="node16" class="node"><title>Node16</title>
-<g id="a_node16"><a xlink:href="_h_a_l___serial___i_f_8cpp.html" target="_top" xlink:title="Hardware Abstraction Layer (HAL) to serial interface.">
+<g id="a_node16"><a xlink:href="_h_a_l___serial___i_f_8cpp.html" target="_top" xlink:title="Hardware Abstraction Layer (HAL) to serial interface. ">
 <polygon fill="none" stroke="black" points="902,-168.5 902,-187.5 1000,-187.5 1000,-168.5 902,-168.5"/>
 <text text-anchor="middle" x="951" y="-175.5" font-family="Helvetica,sans-Serif" font-size="10.00">HAL_Serial_IF.cpp</text>
 </a>
@@ -312,7 +309,7 @@ var sectionId = 'dynsection-0';
 </g>
 <!-- Node11 -->
 <g id="node11" class="node"><title>Node11</title>
-<g id="a_node11"><a xlink:href="_comm___p_l_s_8cpp.html" target="_top" xlink:title=" ">
+<g id="a_node11"><a xlink:href="_comm___p_l_s_8cpp.html" target="_top" xlink:title="Comm_PLS.cpp">
 <polygon fill="none" stroke="black" points="1238,-112.5 1238,-131.5 1326,-131.5 1326,-112.5 1238,-112.5"/>
 <text text-anchor="middle" x="1282" y="-119.5" font-family="Helvetica,sans-Serif" font-size="10.00">Comm_PLS.cpp</text>
 </a>
@@ -330,7 +327,7 @@ var sectionId = 'dynsection-0';
 </g>
 <!-- Node10 -->
 <g id="node10" class="node"><title>Node10</title>
-<g id="a_node10"><a xlink:href="_app___virtual_mapping_8cpp.html" target="_top" xlink:title="Virtual mapping application source file.">
+<g id="a_node10"><a xlink:href="_app___virtual_mapping_8cpp.html" target="_top" xlink:title="Virtual mapping application source file. ">
 <polygon fill="none" stroke="black" points="1235,-0.5 1235,-19.5 1357,-19.5 1357,-0.5 1235,-0.5"/>
 <text text-anchor="middle" x="1296" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">App_VirtualMapping.cpp</text>
 </a>
@@ -353,7 +350,7 @@ var sectionId = 'dynsection-0';
 </g>
 <!-- Node15 -->
 <g id="node15" class="node"><title>Node15</title>
-<g id="a_node15"><a xlink:href="_comm___i_c_c_8cpp.html" target="_top" xlink:title="Communication file for Inter&#45;Controller Communication (ICC)">
+<g id="a_node15"><a xlink:href="_comm___i_c_c_8cpp.html" target="_top" xlink:title="Communication file for Inter&#45;Controller Communication (ICC) ">
 <polygon fill="none" stroke="black" points="940.5,-56.5 940.5,-75.5 1025.5,-75.5 1025.5,-56.5 940.5,-56.5"/>
 <text text-anchor="middle" x="983" y="-63.5" font-family="Helvetica,sans-Serif" font-size="10.00">Comm_ICC.cpp</text>
 </a>
@@ -376,7 +373,7 @@ var sectionId = 'dynsection-0';
 </g>
 <!-- Node14 -->
 <g id="node14" class="node"><title>Node14</title>
-<g id="a_node14"><a xlink:href="_app___navigation_8cpp.html" target="_top" xlink:title="Application file for navigation.">
+<g id="a_node14"><a xlink:href="_app___navigation_8cpp.html" target="_top" xlink:title="Application file for navigation. ">
 <polygon fill="none" stroke="black" points="1044,-56.5 1044,-75.5 1146,-75.5 1146,-56.5 1044,-56.5"/>
 <text text-anchor="middle" x="1095" y="-63.5" font-family="Helvetica,sans-Serif" font-size="10.00">App_Navigation.cpp</text>
 </a>
@@ -404,7 +401,7 @@ var sectionId = 'dynsection-0';
 </g>
 <!-- Node18 -->
 <g id="node18" class="node"><title>Node18</title>
-<g id="a_node18"><a xlink:href="_cbuffer_8cpp.html" target="_top" xlink:title=" ">
+<g id="a_node18"><a xlink:href="_cbuffer_8cpp.html" target="_top" xlink:title="Cbuffer.cpp">
 <polygon fill="none" stroke="black" points="1148.5,-168.5 1148.5,-187.5 1213.5,-187.5 1213.5,-168.5 1148.5,-168.5"/>
 <text text-anchor="middle" x="1181" y="-175.5" font-family="Helvetica,sans-Serif" font-size="10.00">Cbuffer.cpp</text>
 </a>
@@ -452,7 +449,7 @@ var sectionId = 'dynsection-0';
 </g>
 <!-- Node21 -->
 <g id="node21" class="node"><title>Node21</title>
-<g id="a_node21"><a xlink:href="_app___positioning_8cpp.html" target="_top" xlink:title="template source file for positioning application">
+<g id="a_node21"><a xlink:href="_app___positioning_8cpp.html" target="_top" xlink:title="template source file for positioning application ">
 <polygon fill="none" stroke="black" points="492,-56.5 492,-75.5 598,-75.5 598,-56.5 492,-56.5"/>
 <text text-anchor="middle" x="545" y="-63.5" font-family="Helvetica,sans-Serif" font-size="10.00">App_Positioning.cpp</text>
 </a>
@@ -470,7 +467,7 @@ var sectionId = 'dynsection-0';
 </g>
 <!-- Node23 -->
 <g id="node23" class="node"><title>Node23</title>
-<g id="a_node23"><a xlink:href="_app___user_interface_8cpp.html" target="_top" xlink:title="template source file for unser interface application">
+<g id="a_node23"><a xlink:href="_app___user_interface_8cpp.html" target="_top" xlink:title="template source file for unser interface application ">
 <polygon fill="none" stroke="black" points="654.5,-56.5 654.5,-75.5 769.5,-75.5 769.5,-56.5 654.5,-56.5"/>
 <text text-anchor="middle" x="712" y="-63.5" font-family="Helvetica,sans-Serif" font-size="10.00">App_UserInterface.cpp</text>
 </a>
@@ -488,7 +485,7 @@ var sectionId = 'dynsection-0';
 </g>
 <!-- Node25 -->
 <g id="node25" class="node"><title>Node25</title>
-<g id="a_node25"><a xlink:href="_o_s_a_l___task_ctrl_8cpp.html" target="_top" xlink:title="Task controller source file.">
+<g id="a_node25"><a xlink:href="_o_s_a_l___task_ctrl_8cpp.html" target="_top" xlink:title="Task controller source file. ">
 <polygon fill="none" stroke="black" points="332.5,-56.5 332.5,-75.5 435.5,-75.5 435.5,-56.5 332.5,-56.5"/>
 <text text-anchor="middle" x="384" y="-63.5" font-family="Helvetica,sans-Serif" font-size="10.00">OSAL_TaskCtrl.cpp</text>
 </a>

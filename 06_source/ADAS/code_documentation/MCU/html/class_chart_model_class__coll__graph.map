@@ -1,0 +1,5 @@
+<map id="ChartModelClass" name="ChartModelClass">
+<area shape="rect" id="node2" href="$struct_d_w.html" title="Local signals for Stateflow. " alt="" coords="5,13,108,119"/>
+<area shape="rect" id="node3" href="$struct_ext_u.html" title="External inputs for Stateflow. " alt="" coords="132,13,232,119"/>
+<area shape="rect" id="node4" href="$struct_ext_y.html" title="External outputs for Stateflow. " alt="" coords="257,5,323,127"/>
+</map>

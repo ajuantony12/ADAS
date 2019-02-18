@@ -10,15 +10,12 @@
 <title>CEnvironmentalData::Run</title>
 <!-- Node10 -->
 <g id="node1" class="node"><title>Node10</title>
-<g id="a_node1"><a xlink:title="Run function of CEnvironmentalData which is periodically called by CTaskCtrl.">
 <polygon fill="#bfbfbf" stroke="black" points="0,-6 0,-25 128,-25 128,-6 0,-6"/>
 <text text-anchor="middle" x="64" y="-13" font-family="Helvetica,sans-Serif" font-size="10.00">CEnvironmentalData::Run</text>
-</a>
-</g>
 </g>
 <!-- Node11 -->
 <g id="node2" class="node"><title>Node11</title>
-<g id="a_node2"><a xlink:href="class_c_environmental_data.html#a12a6d60a2a0aa406beb82375fa60e875" target="_top" xlink:title="Function to convert ADC value into mV.">
+<g id="a_node2"><a xlink:href="class_c_environmental_data.html#a12a6d60a2a0aa406beb82375fa60e875" target="_top" xlink:title="Function to convert ADC value into mV. ">
 <polygon fill="none" stroke="black" points="164,-0.5 164,-30.5 268,-30.5 268,-0.5 164,-0.5"/>
 <text text-anchor="start" x="172" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">CEnvironmentalData</text>
 <text text-anchor="middle" x="216" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">::GetVbat</text>
@@ -32,7 +29,7 @@
 </g>
 <!-- Node12 -->
 <g id="node3" class="node"><title>Node12</title>
-<g id="a_node3"><a xlink:href="class_c_a_d_c.html#ac2f897fc64f605751ac3ffe7d2704ba6" target="_top" xlink:title="Function to read ADC value.">
+<g id="a_node3"><a xlink:href="class_c_a_d_c.html#ac2f897fc64f605751ac3ffe7d2704ba6" target="_top" xlink:title="Function to read ADC value. ">
 <polygon fill="none" stroke="black" points="304,-6 304,-25 421,-25 421,-6 304,-6"/>
 <text text-anchor="middle" x="362.5" y="-13" font-family="Helvetica,sans-Serif" font-size="10.00">CADC::ReadADCValue</text>
 </a>

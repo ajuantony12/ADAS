@@ -3,6 +3,7 @@ var annotated_dup =
     [ "CBuffAdas", "class_c_buff_adas.html", "class_c_buff_adas" ],
     [ "CDriveUnit", "class_c_drive_unit.html", "class_c_drive_unit" ],
     [ "CEncoder", "class_c_encoder.html", "class_c_encoder" ],
+    [ "CEncoedr", "class_c_encoedr.html", null ],
     [ "ChartModelClass", "class_chart_model_class.html", "class_chart_model_class" ],
     [ "CICCComms", "class_c_i_c_c_comms.html", "class_c_i_c_c_comms" ],
     [ "CIMUUnit", "class_c_i_m_u_unit.html", "class_c_i_m_u_unit" ],

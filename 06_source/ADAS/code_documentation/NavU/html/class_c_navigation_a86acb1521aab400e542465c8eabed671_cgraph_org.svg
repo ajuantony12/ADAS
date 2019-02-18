@@ -10,15 +10,12 @@
 <title>CNavigation::Run</title>
 <!-- Node31 -->
 <g id="node1" class="node"><title>Node31</title>
-<g id="a_node1"><a xlink:title="Run function of CNavigation which is periodically called by CTaskCtrl.">
 <polygon fill="#bfbfbf" stroke="black" points="0,-19.5 0,-38.5 91,-38.5 91,-19.5 0,-19.5"/>
 <text text-anchor="middle" x="45.5" y="-26.5" font-family="Helvetica,sans-Serif" font-size="10.00">CNavigation::Run</text>
-</a>
-</g>
 </g>
 <!-- Node32 -->
 <g id="node2" class="node"><title>Node32</title>
-<g id="a_node2"><a xlink:href="class_c_i_c_c_comms.html#a8b3fa81307b3b9ba0e72b4aee8279c56" target="_top" xlink:title="Run function of CICCComms which is periodically called by CNavigation.">
+<g id="a_node2"><a xlink:href="class_c_i_c_c_comms.html#a8b3fa81307b3b9ba0e72b4aee8279c56" target="_top" xlink:title="Run function of CICCComms which is periodically called by CNavigation. ">
 <polygon fill="none" stroke="black" points="144.5,-38.5 144.5,-57.5 240.5,-57.5 240.5,-38.5 144.5,-38.5"/>
 <text text-anchor="middle" x="192.5" y="-45.5" font-family="Helvetica,sans-Serif" font-size="10.00">CICCComms::Run</text>
 </a>
@@ -31,7 +28,7 @@
 </g>
 <!-- Node36 -->
 <g id="node6" class="node"><title>Node36</title>
-<g id="a_node6"><a xlink:href="class_c_navigation.html#afef253f37646558a755d956ecf2fc6e9" target="_top" xlink:title="Function to get next state.">
+<g id="a_node6"><a xlink:href="class_c_navigation.html#afef253f37646558a755d956ecf2fc6e9" target="_top" xlink:title="Function to get next state. ">
 <polygon fill="none" stroke="black" points="127,-0.5 127,-19.5 258,-19.5 258,-0.5 127,-0.5"/>
 <text text-anchor="middle" x="192.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">CNavigation::getNextState</text>
 </a>
@@ -44,7 +41,7 @@
 </g>
 <!-- Node33 -->
 <g id="node3" class="node"><title>Node33</title>
-<g id="a_node3"><a xlink:href="class_c_serial.html#abb43734223d937a86e7616636ea16024" target="_top" xlink:title="Function to check availability of received data.">
+<g id="a_node3"><a xlink:href="class_c_serial.html#abb43734223d937a86e7616636ea16024" target="_top" xlink:title="Function to check availability of received data. ">
 <polygon fill="none" stroke="black" points="294,-57.5 294,-76.5 386,-76.5 386,-57.5 294,-57.5"/>
 <text text-anchor="middle" x="340" y="-64.5" font-family="Helvetica,sans-Serif" font-size="10.00">CSerial::Available</text>
 </a>
@@ -57,7 +54,7 @@
 </g>
 <!-- Node34 -->
 <g id="node4" class="node"><title>Node34</title>
-<g id="a_node4"><a xlink:href="class_c_serial.html#abad86c07f530569b2ceeea75bda485ad" target="_top" xlink:title="Function to read data from buffer.">
+<g id="a_node4"><a xlink:href="class_c_serial.html#abad86c07f530569b2ceeea75bda485ad" target="_top" xlink:title="Function to read data from buffer. ">
 <polygon fill="none" stroke="black" points="295,-19.5 295,-38.5 385,-38.5 385,-19.5 295,-19.5"/>
 <text text-anchor="middle" x="340" y="-26.5" font-family="Helvetica,sans-Serif" font-size="10.00">CSerial::GetData</text>
 </a>
@@ -70,7 +67,7 @@
 </g>
 <!-- Node35 -->
 <g id="node5" class="node"><title>Node35</title>
-<g id="a_node5"><a xlink:href="class_c_serial.html#a941e5cae2ca04518925a3b32f51110a6" target="_top" xlink:title="Function to release buffer.">
+<g id="a_node5"><a xlink:href="class_c_serial.html#a941e5cae2ca04518925a3b32f51110a6" target="_top" xlink:title="Function to release buffer. ">
 <polygon fill="none" stroke="black" points="422,-19.5 422,-38.5 536,-38.5 536,-19.5 422,-19.5"/>
 <text text-anchor="middle" x="479" y="-26.5" font-family="Helvetica,sans-Serif" font-size="10.00">CSerial::ReleaseBuffer</text>
 </a>

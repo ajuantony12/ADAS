@@ -1,16 +1,15 @@
 <map id="CVMapping::Run" name="CVMapping::Run">
-<area shape="rect" id="node1" title="Run function of virtual mapping Application." alt="" coords="5,139,125,165"/>
-<area shape="rect" id="node2" href="$class_c_navigation.html#aa984fc062deefed13a85d866d997de73" title="Function to return if cornerMode is active." alt="" coords="205,12,384,39"/>
-<area shape="rect" id="node3" href="$class_c_p_l_s_comms.html#ae9d000eff184034954829d76162654a5" title="check if any data recieved from PLS" alt="" coords="201,63,388,89"/>
-<area shape="rect" id="node5" href="$class_c_p_l_s_comms.html#a3124eaa4549706962c7024c7c97e82b0" title="Get asynchronous data recieved from PLS." alt="" coords="197,113,392,140"/>
+<area shape="rect" id="node2" href="$class_c_navigation.html#aa984fc062deefed13a85d866d997de73" title="Function to return if cornerMode is active. " alt="" coords="205,12,384,39"/>
+<area shape="rect" id="node3" href="$class_c_p_l_s_comms.html#ae9d000eff184034954829d76162654a5" title="check if any data recieved from PLS " alt="" coords="201,63,388,89"/>
+<area shape="rect" id="node5" href="$class_c_p_l_s_comms.html#a3124eaa4549706962c7024c7c97e82b0" title="Get asynchronous data recieved from PLS. " alt="" coords="197,113,392,140"/>
 <area shape="rect" id="node10" href="$class_c_navigation.html#a53f0409677e36f62ef232f7e15b32948" title="Function to set the current value of offset position to wall, current angle of the wall and current d..." alt="" coords="211,164,378,191"/>
-<area shape="rect" id="node11" href="$class_c_p_l_s_comms.html#ab69a49f5c4cd7b4b9f63fa16c7792920" title="Request measurement from PLS." alt="" coords="173,221,416,248"/>
-<area shape="rect" id="node13" href="$class_c_navigation.html#a27649dc6324360829d42aea67e88e3ee" title="Pause drive due to obstacle detection." alt="" coords="214,284,375,311"/>
-<area shape="rect" id="node4" href="$class_c_serial.html#abb43734223d937a86e7616636ea16024" title="Function to check availability of received data." alt="" coords="490,5,613,32"/>
-<area shape="rect" id="node6" href="$class_c_serial.html#a4327d6041fe9a390612b214709027cbb" title="Function to get length of data." alt="" coords="481,56,622,83"/>
-<area shape="rect" id="node7" href="$class_c_serial.html#abad86c07f530569b2ceeea75bda485ad" title="Function to read data from buffer." alt="" coords="491,107,611,133"/>
-<area shape="rect" id="node8" href="$class_c_serial.html#a941e5cae2ca04518925a3b32f51110a6" title="Function to release buffer." alt="" coords="687,132,839,159"/>
-<area shape="rect" id="node9" href="$class_c_p_l_s_comms.html#a14754b4119b9a3d613579c2a80220cc0" title="Search recieved data for message." alt="" coords="464,208,639,235"/>
-<area shape="rect" id="node12" href="$class_c_buff_adas.html#a2ff1ee5f1dfa56117d76b17027d7b7e8" title="reset buffer" alt="" coords="489,259,614,285"/>
-<area shape="rect" id="node14" href="$class_c_i_c_c_comms.html#ab925dd7ff82f30ccd9f770ab2281b3ab" title="Function to append message which shall be sent." alt="" coords="469,309,634,336"/>
+<area shape="rect" id="node11" href="$class_c_p_l_s_comms.html#ab69a49f5c4cd7b4b9f63fa16c7792920" title="Request measurement from PLS. " alt="" coords="173,221,416,248"/>
+<area shape="rect" id="node13" href="$class_c_navigation.html#a27649dc6324360829d42aea67e88e3ee" title="Pause drive due to obstacle detection. " alt="" coords="214,284,375,311"/>
+<area shape="rect" id="node4" href="$class_c_serial.html#abb43734223d937a86e7616636ea16024" title="Function to check availability of received data. " alt="" coords="490,5,613,32"/>
+<area shape="rect" id="node6" href="$class_c_serial.html#a4327d6041fe9a390612b214709027cbb" title="Function to get length of data. " alt="" coords="481,56,622,83"/>
+<area shape="rect" id="node7" href="$class_c_serial.html#abad86c07f530569b2ceeea75bda485ad" title="Function to read data from buffer. " alt="" coords="491,107,611,133"/>
+<area shape="rect" id="node8" href="$class_c_serial.html#a941e5cae2ca04518925a3b32f51110a6" title="Function to release buffer. " alt="" coords="687,132,839,159"/>
+<area shape="rect" id="node9" href="$class_c_p_l_s_comms.html#a14754b4119b9a3d613579c2a80220cc0" title="Search recieved data for message. " alt="" coords="464,208,639,235"/>
+<area shape="rect" id="node12" href="$class_c_buff_adas.html#a2ff1ee5f1dfa56117d76b17027d7b7e8" title="reset buffer " alt="" coords="489,259,614,285"/>
+<area shape="rect" id="node14" href="$class_c_i_c_c_comms.html#ab925dd7ff82f30ccd9f770ab2281b3ab" title="Function to append message which shall be sent. " alt="" coords="469,309,634,336"/>
 </map>

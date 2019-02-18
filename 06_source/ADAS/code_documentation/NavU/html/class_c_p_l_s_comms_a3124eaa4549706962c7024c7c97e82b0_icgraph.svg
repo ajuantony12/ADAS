@@ -10,24 +10,21 @@
 <title>CPLSComms::GetAsyncData</title>
 <!-- Node14 -->
 <g id="node1" class="node"><title>Node14</title>
-<g id="a_node1"><a xlink:title="Get asynchronous data recieved from PLS.">
-<polygon fill="#bfbfbf" stroke="black" points="126,-0.5 126,-19.5 272,-19.5 272,-0.5 126,-0.5"/>
-<text text-anchor="middle" x="199" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">CPLSComms::GetAsyncData</text>
-</a>
-</g>
+<polygon fill="#bfbfbf" stroke="black" points="0,-0.5 0,-19.5 146,-19.5 146,-0.5 0,-0.5"/>
+<text text-anchor="middle" x="73" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">CPLSComms::GetAsyncData</text>
 </g>
 <!-- Node15 -->
 <g id="node2" class="node"><title>Node15</title>
-<g id="a_node2"><a xlink:href="class_c_v_mapping.html#a8f064fcfd01953d7072efd5de23f89ef" target="_top" xlink:title="Run function of virtual mapping Application.">
-<polygon fill="none" stroke="black" points="0,-0.5 0,-19.5 90,-19.5 90,-0.5 0,-0.5"/>
-<text text-anchor="middle" x="45" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">CVMapping::Run</text>
+<g id="a_node2"><a xlink:href="class_c_v_mapping.html#a8f064fcfd01953d7072efd5de23f89ef" target="_top" xlink:title="Run function of virtual mapping Application. ">
+<polygon fill="none" stroke="black" points="182,-0.5 182,-19.5 272,-19.5 272,-0.5 182,-0.5"/>
+<text text-anchor="middle" x="227" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">CVMapping::Run</text>
 </a>
 </g>
 </g>
 <!-- Node14&#45;&gt;Node15 -->
 <g id="edge1" class="edge"><title>Node14&#45;&gt;Node15</title>
-<path fill="none" stroke="midnightblue" d="M115.367,-10C106.704,-10 98.1576,-10 90.1816,-10"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="115.561,-13.5001 125.561,-10 115.561,-6.5001 115.561,-13.5001"/>
+<path fill="none" stroke="midnightblue" d="M156.633,-10C165.296,-10 173.842,-10 181.818,-10"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="156.439,-6.5001 146.439,-10 156.439,-13.5001 156.439,-6.5001"/>
 </g>
 </g>
 </svg>

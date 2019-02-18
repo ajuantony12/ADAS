@@ -1,0 +1,4 @@
+<map id="CMotorCtrl::readenc" name="CMotorCtrl::readenc">
+<area shape="rect" id="node2" href="$class_c_encoder.html#a5911a289a7ed8a32e0a89e6191e1651c" title="Function to read out the peak count per 150ms. " alt="" coords="192,5,343,32"/>
+<area shape="rect" id="node3" href="$class_c_encoder.html#aa38f17afea1ce9b6efd9d95335a95d26" title="Function to sum up the counted peaks. " alt="" coords="195,56,339,83"/>
+</map>

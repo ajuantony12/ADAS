@@ -7,7 +7,7 @@ var searchData=
   ['cicccomms',['CICCComms',['../class_c_i_c_c_comms.html#af2cb9bb6ab473bc5ea2b4aa2f98084ff',1,'CICCComms']]],
   ['cimuunit',['CIMUUnit',['../class_c_i_m_u_unit.html#a642610dac7cbec756f3ef51c5d77c344',1,'CIMUUnit']]],
   ['cinertialcomm',['CInertialComm',['../class_c_inertial_comm.html#a86917a157b0acfa80c9f178f18d882fc',1,'CInertialComm']]],
-  ['cmotorctrl',['CMotorCtrl',['../class_c_motor_ctrl.html#aa0093ebb4e0da5e22f829f717762a487',1,'CMotorCtrl']]],
+  ['cmotorctrl',['CMotorCtrl',['../class_c_motor_ctrl.html#ae51b58d3d46f718599ae4971fad86749',1,'CMotorCtrl']]],
   ['contdrive',['contDrive',['../class_c_motor_ctrl.html#a6b67180c355c2acf76d641f2817db66d',1,'CMotorCtrl']]],
   ['cpwmunit',['CPWMUnit',['../class_c_p_w_m_unit.html#a9e68713e9f26f6d36714a58648494afb',1,'CPWMUnit']]],
   ['cserial',['CSerial',['../class_c_serial.html#a3b2b31de1529b884b8d5e354586ee981',1,'CSerial']]]

@@ -10,7 +10,6 @@
 <title>CTaskCtrl</title>
 <!-- Node1 -->
 <g id="node1" class="node"><title>Node1</title>
-<g id="a_node1"><a xlink:title="Task scheduler class.">
 <polygon fill="#bfbfbf" stroke="black" points="0,-0.5 0,-101.5 80,-101.5 80,-0.5 0,-0.5"/>
 <text text-anchor="middle" x="40" y="-89.5" font-family="Helvetica,sans-Serif" font-size="10.00">CTaskCtrl</text>
 <polyline fill="none" stroke="black" points="0,-82.5 80,-82.5 "/>
@@ -21,8 +20,6 @@
 <text text-anchor="start" x="8" y="-29.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ Init()</text>
 <text text-anchor="start" x="8" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ Register()</text>
 <text text-anchor="start" x="8" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ Run()</text>
-</a>
-</g>
 </g>
 </g>
 </svg>

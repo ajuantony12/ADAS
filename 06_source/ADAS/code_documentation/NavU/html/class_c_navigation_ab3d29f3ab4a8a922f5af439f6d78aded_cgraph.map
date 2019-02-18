@@ -1,4 +1,3 @@
 <map id="CNavigation::continueDrive" name="CNavigation::continueDrive">
-<area shape="rect" id="node1" title="Function to continue if obstacle is clear." alt="" coords="5,5,180,32"/>
-<area shape="rect" id="node2" href="$class_c_i_c_c_comms.html#ab925dd7ff82f30ccd9f770ab2281b3ab" title="Function to append message which shall be sent." alt="" coords="228,5,393,32"/>
+<area shape="rect" id="node2" href="$class_c_i_c_c_comms.html#ab925dd7ff82f30ccd9f770ab2281b3ab" title="Function to append message which shall be sent. " alt="" coords="228,5,393,32"/>
 </map>

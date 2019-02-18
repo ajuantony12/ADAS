@@ -1,5 +1,4 @@
 <map id="CNavigation::Stop" name="CNavigation::Stop">
-<area shape="rect" id="node1" title="Stop function of CNavigation." alt="" coords="5,31,131,57"/>
-<area shape="rect" id="node2" href="$class_c_i_c_c_comms.html#ab925dd7ff82f30ccd9f770ab2281b3ab" title="Function to append message which shall be sent." alt="" coords="179,5,344,32"/>
-<area shape="rect" id="node3" href="$class_c_navigation.html#a06ce71124d487f1f9febf36a0e4b2a5d" title="Function to stop if obstacle is detected." alt="" coords="186,56,337,83"/>
+<area shape="rect" id="node2" href="$class_c_i_c_c_comms.html#ab925dd7ff82f30ccd9f770ab2281b3ab" title="Function to append message which shall be sent. " alt="" coords="179,5,344,32"/>
+<area shape="rect" id="node3" href="$class_c_navigation.html#a06ce71124d487f1f9febf36a0e4b2a5d" title="Function to stop if obstacle is detected. " alt="" coords="186,56,337,83"/>
 </map>

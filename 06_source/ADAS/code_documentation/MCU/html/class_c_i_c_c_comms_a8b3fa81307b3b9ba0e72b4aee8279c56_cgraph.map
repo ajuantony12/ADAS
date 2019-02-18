@@ -1,0 +1,11 @@
+<map id="CICCComms::Run" name="CICCComms::Run">
+<area shape="rect" id="node2" href="$class_c_serial.html#abb43734223d937a86e7616636ea16024" title="CSerial::Available" alt="" coords="203,5,326,32"/>
+<area shape="rect" id="node3" href="$class_c_serial.html#abad86c07f530569b2ceeea75bda485ad" title="CSerial::GetData" alt="" coords="205,56,325,83"/>
+<area shape="rect" id="node5" href="$class_c_motor_ctrl.html#a0ae095bb6003ee63086361661f32ad3a" title="API Function of the CMotorCtrl to start driving. " alt="" coords="184,107,345,133"/>
+<area shape="rect" id="node7" href="$class_c_motor_ctrl.html#a1ee991f9511437a2e64ee75161063020" title="API Function of the CMotorCtrl to start a rotation. " alt="" coords="181,157,348,184"/>
+<area shape="rect" id="node8" href="$class_c_motor_ctrl.html#af3e047be659fb9f49f1644ba2eca4684" title="API Function of the CMotorCtrl to pause the current action of the motor control. " alt="" coords="187,208,342,235"/>
+<area shape="rect" id="node10" href="$class_c_motor_ctrl.html#a6b67180c355c2acf76d641f2817db66d" title="API Function of the CMotorCtrl to continue the previously paused action of the motor control..." alt="" coords="192,259,337,285"/>
+<area shape="rect" id="node4" href="$class_c_serial.html#a941e5cae2ca04518925a3b32f51110a6" title="CSerial::ReleaseBuffer" alt="" coords="396,56,548,83"/>
+<area shape="rect" id="node6" href="$class_c_encoder.html#ab71d6281e3f4d9f875f45368a3434980" title="Function to reset all values of the encoder. " alt="" coords="414,107,530,133"/>
+<area shape="rect" id="node9" href="$class_c_p_w_m_unit.html#a60f8be5eabf779f57e6392a0432bf7f2" title="Function write duty cycle. " alt="" coords="397,208,547,235"/>
+</map>
